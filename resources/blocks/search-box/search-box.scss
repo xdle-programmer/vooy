@@ -140,8 +140,8 @@
       width: 10px;
       height: 10px;
       background: #ff7e7e;
-      mask: url(assets/img/close.svg);
-      -webkit-mask: url(assets/img/close.svg);
+      mask: url(/public/images/components-assets/search-box/img/close.svg);
+      -webkit-mask: url(/public/images/components-assets/search-box/img/close.svg);
       mask-repeat: no-repeat;
       -webkit-mask-repeat: no-repeat;
       mask-size: contain;
@@ -187,8 +187,8 @@
       width: 14px;
       height: 18px;
       background: #5d5b5b;
-      mask: url(assets/img/arrow-back.svg);
-      -webkit-mask: url(assets/img/arrow-back.svg);
+      mask: url(/public/images/components-assets/search-box/img/arrow-back.svg);
+      -webkit-mask: url(/public/images/components-assets/search-box/img/arrow-back.svg);
       mask-repeat: no-repeat;
       -webkit-mask-repeat: no-repeat;
       mask-size: contain;

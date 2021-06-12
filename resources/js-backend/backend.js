@@ -107,7 +107,7 @@ function setChatMessage($button) {
         </div>
     `;
 
-    console.log(message)
+    console.log(message);
 
     $messages.insertAdjacentHTML('beforeend', message);
     $input.value = '';

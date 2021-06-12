@@ -24,14 +24,14 @@
 
     &--1 {
       width: 506px;
-      background: url(assets/img/main-banner-1.svg);
+      background: url(/storage/images/components-assets/main-banner/img/main-banner-1.svg);
       background-repeat: no-repeat;
       animation-delay: #{$animation-delay * 1}ms;
     }
 
     &--2 {
       width: 750px;
-      background: url(assets/img/main-banner-2.svg);
+      background: url(/storage/images/components-assets/main-banner/img/main-banner-2.svg);
       background-repeat: no-repeat;
       left: 480px;
       animation-delay: #{$animation-delay * 2}ms;
@@ -39,14 +39,14 @@
 
     &--3 {
       width: 955px;
-      background: url(assets/img/main-banner-3.svg);
+      background: url(/storage/images/components-assets/main-banner/img/main-banner-3.svg);
       background-repeat: no-repeat;
       animation-delay: #{$animation-delay * 3}ms;
     }
 
     &--4 {
       width: 1019px;
-      background: url(assets/img/main-banner-4.svg);
+      background: url(/storage/images/components-assets/main-banner/img/main-banner-4.svg);
       background-repeat: no-repeat;
       left: 175px;
       animation-delay: #{$animation-delay * 4}ms;
@@ -54,14 +54,14 @@
 
     &--5 {
       width: 728px;
-      background: url(assets/img/main-banner-5.svg);
+      background: url(/storage/images/components-assets/main-banner/img/main-banner-5.svg);
       background-repeat: no-repeat;
       animation-delay: #{$animation-delay * 5}ms;
     }
 
     &--6 {
       width: 865px;
-      background: url(assets/img/main-banner-6.svg);
+      background: url(/storage/images/components-assets/main-banner/img/main-banner-6.svg);
       background-repeat: no-repeat;
       left: 365px;
       animation-delay: #{$animation-delay * 6}ms;
