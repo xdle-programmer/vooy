@@ -1,0 +1,42 @@
+header.header
+    .header__main-wrapper
+        .header__main-block.layout
+            a(href='/_index.html').header__logo
+                include ../logo/logo
+            .header__catalog
+                .header__catalog-button
+                    .header__catalog-button-text Каталог
+                    +iconSvg('menu','header__catalog-button-icon')
+            .header__search-box-wrapper
+                .header__search-box
+                .header__search-select
+                    select.search-select
+                        option(value='0' selected='') Все категории
+                        option(value='1') Мужская одежда
+                        option(value='2') Женская одежда
+                        option(value='3') Детская одежда
+                        option(value='4') Аксессуары
+                        option(value='5') Мониторы
+                        option(value='6') Компы
+                        option(value='7') Ноуты
+                        option(value='8') Телефоны
+            .header__controls
+                a(href='/_favorites-products.html').header__control
+                    +iconSvg('heart','header__control-icon')
+                    .header__control-text Избранное
+                a(href='/_basket.html').header__control
+                    +iconSvg('tenders','header__control-icon')
+                    .header__control-text Мой тендер
+            .header__control(data-modal-open='register')
+                +iconSvg('tenders','header__control-icon')
+                .header__control-text Профиль
+    .header__natural-wrapper
+        .header__natural-block.layout
+            .header__natural-links
+                a(href='#').header__natural-link Как заказать?
+                a(href='/_tenders-list.html').header__natural-link Тендеры
+                a(href='/_manufacturer-list.html').header__natural-link Поставщики
+                .header__natural-link.header__natural-link--blue(data-modal-open='new-tender') Тендер на свой товар
+            .header__natural-phone
+                +iconSvg('phone','header__natural-phone-icon')
+                .header__natural-phone-text 8-800-77-77-777

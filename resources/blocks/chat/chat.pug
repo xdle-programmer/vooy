@@ -1,0 +1,97 @@
+mixin chatForm
+    .chat__form
+        .chat__form-wrapper
+            textarea.chat__form-wrapper-input(placeholder='Введите сообщение')
+        .chat__form-file-preview.chat__form-file-preview--empty
+            .chat__message-content-images
+            .chat__message-content-files
+        .chat__form-buttons
+            label.chat__form-file-input-label
+                .chat__form-file-input-text Прикрепить файл
+                +iconSvg('upload','chat__form-file-input-icon')
+                input(type='file' multiple).chat__form-file-input
+            .chat__form-send.button.button--small Отправить сообщение
+
+
+
+mixin chatExample1
+    .chat__date 08.05.2021
+    .chat__message
+        .chat__message-content
+            .chat__message-content-text Уверены, что уложитесь в сроки? Куртка будет выглядеть точно так?
+            .chat__message-content-images
+                img(src='images/examples/products-preview/products-preview-3.jpg').chat__message-content-image
+        .chat__message-time 13:15
+    .chat__message.chat__message--invert
+        .chat__message-content
+            .chat__message-content-text Нет, такой ткани нет
+        .chat__message-time 13:15
+    .chat__message
+        .chat__message-content
+            .chat__message-content-text Понял
+        .chat__message-time 13:15
+
+mixin chatExample2
+    .chat__date 08.05.2021
+    .chat__message
+        .chat__message-content
+            .chat__message-content-text Уверены, что уложитесь в сроки? Куртка будет выглядеть точно так?
+            .chat__message-content-images
+                img(src='images/examples/products-preview/products-preview-3.jpg').chat__message-content-image
+        .chat__message-time 13:15
+    .chat__message.chat__message--invert
+        .chat__message-content
+            .chat__message-content-text Да, у нас производство налажено. Вот фотографии производства, посмотрите
+            .chat__message-content-images
+                img(src='images/examples/manufacturer/production/production-1.jpg').chat__message-content-image
+                img(src='images/examples/manufacturer/production/production-2.jpg').chat__message-content-image
+                img(src='images/examples/manufacturer/production/production-3.jpg').chat__message-content-image
+                img(src='images/examples/manufacturer/production/production-4.jpg').chat__message-content-image
+        .chat__message-time 13:15
+    .chat__message
+        .chat__message-content
+            .chat__message-content-text Отлично, выбираю вас победителем. Пришлите договор
+        .chat__message-time 13:15
+    .chat__date 09.05.2021
+    .chat__message.chat__message--invert
+        .chat__message-content
+            .chat__message-content-text Сегодня подготовим
+        .chat__message-time 13:15
+    .chat__message.chat__message--invert
+        .chat__message-content
+            .chat__message-content-text Высылаю договор
+            .chat__message-content-files
+                a(href='#').chat__message-content-file
+                    +iconSvg('file','chat__message-content-file-icon')
+                    .chat__message-content-file-text Договор.docx
+                a(href='#').chat__message-content-file
+                    +iconSvg('file','chat__message-content-file-icon')
+                    .chat__message-content-file-text Приложение.docx
+        .chat__message-time 13:15
+    .chat__message
+        .chat__message-content
+            .chat__message-content-text Получил, сегодня подпишу
+        .chat__message-time 13:15
+
+mixin chatExample3
+    .chat
+        .chat__title Переговоры с "Третий поставщик"
+        .chat__messages
+
+        +chatForm
+
+mixin chat(options)
+    - let exampleNumber = options.exampleNumber
+    - let title = options.title
+    - let form = options.form
+
+    .chat
+        .chat__title=title
+        .chat__messages
+            if exampleNumber === '1'
+                +chatExample1
+            else if exampleNumber === '2'
+                +chatExample2
+
+        if form
+            +chatForm

@@ -1,0 +1,12 @@
+mixin productGrid(count)
+    - let itemIndex = 0;
+    - let descriptions = ['Дешевая мода 2020, оптовая продажа, комплекты детской','Заводская дешевая горячая Распродажа летняя повседневная одежда','Коллекция 2020 года, дизайнерская мужская блестящая пузырьковая','Мужская повседневная хлопковая куртка с воротником-стойкой','Женская твидовая куртка большого размера, демисезонная']
+    .products-grid
+        - for (let index = 0; index < count; index++)
+        if itemIndex !== 5
+            +productPreview(itemIndex,descriptions[itemIndex])
+            - itemIndex++
+        else
+            - itemIndex = 2
+            +productPreview(itemIndex,descriptions[itemIndex])
+

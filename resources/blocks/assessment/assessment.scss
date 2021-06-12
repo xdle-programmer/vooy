@@ -1,0 +1,34 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.assessment {
+  @include flex-row-center;
+  width: fit-content;
+
+  &--empty {
+    position: relative;
+
+    &:after {
+      @include pseudo-absolute;
+      right: 0;
+      top: calc(50% - 1px);
+      width: 24px;
+      height: 2px;
+      background: var(--light-gray-color)
+    }
+  }
+
+  &__value {
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 5px;
+  }
+
+  &__star {
+    width: 18px;
+    height: 18px;
+    fill: var(--gold-color);
+  }
+}

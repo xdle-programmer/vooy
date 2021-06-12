@@ -1,0 +1,19 @@
+mixin buyer(options)
+    - let iconSrc = options.iconSrc
+    - let name = options.name
+
+    -let firstLetter = name[0];
+
+    .buyer
+        if iconSrc
+            img(src='images/examples/manufacturer/logo/manufacturer-logo-1.jpg').buyer__logo
+        else
+            .buyer__logo(data-name=firstLetter)
+        .buyer__title=name
+        .buyer__options
+            .buyer__option
+                .buyer__option-name Город:
+                .buyer__option-value Москва
+            .buyer__option
+                .buyer__option-name Тендеров:
+                .buyer__option-value 1

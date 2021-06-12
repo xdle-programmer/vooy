@@ -1,0 +1,9 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.layout {
+  width: 1230px;
+  @include margin-auto;
+}

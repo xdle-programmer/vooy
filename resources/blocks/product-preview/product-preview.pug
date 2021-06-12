@@ -1,0 +1,23 @@
+mixin productPreview(numberExample, text, notAvailable, big)
+    - let previewClass = 'product-preview'
+
+        if big
+            - previewClass = 'product-preview product-preview--big'
+
+        a(href='/' class=previewClass)
+            img.product-preview__img(src='../images/examples/products-preview/products-preview-' + numberExample + '.jpg')
+            .product-preview__desc
+                .product-preview__price 3999 - 6000 ₽ шт.
+                .product-preview__minimal
+                    .product-preview__minimal-count 500 шт.
+                    .product-preview__minimal-desc Минимальный заказ
+                a(href='/_product-cart.html').product-preview__text=text
+            .product-preview__buttons
+                if notAvailable == true
+                    span Недоступно
+                else
+                    .product-preview__button
+                        .product-preview__button-text В тендер
+                        +iconSvg('tenders','product-preview__button-icon')
+                    .product-preview__button.product-preview__button--gray
+                        +iconSvg('heart','product-preview__button-icon')

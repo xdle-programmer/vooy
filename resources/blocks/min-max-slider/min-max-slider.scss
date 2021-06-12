@@ -1,0 +1,52 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.min-max-slider {
+
+  &__inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 14px;
+  }
+
+  &__input-wrapper {
+  }
+
+  &__range {
+    height: 3px;
+    border: none;
+    box-shadow: none;
+    background: var(--extra-light-blue-color);
+    margin: 15px auto;
+    width: calc(100% - 16px);
+
+    & .noUi-connect {
+      background: var(--light-blue-color);
+    }
+
+    & .noUi-handle {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--light-blue-color);
+      box-shadow: none;
+      right: -9px;
+      border: none;
+
+      &:before,
+      &:after {
+        display: none;
+      }
+
+    }
+
+    *,
+    *:before,
+    *:after {
+      transition: none;
+    }
+
+  }
+}

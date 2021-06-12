@@ -1,0 +1,39 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.hint {
+  border: 2px solid var(--light-blue-color);
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  padding: 22px 16px;
+  align-items: center;
+  grid-gap: 10px;
+
+  &--inner {
+    border: none;
+    padding: 10px 0px;
+  }
+
+  $inner: '.hint--inner';
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--light-blue-color);
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+
+    #{$inner} & {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: normal;
+    }
+  }
+}

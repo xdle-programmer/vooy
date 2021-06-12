@@ -1,0 +1,14 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 30px;
+
+  &--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

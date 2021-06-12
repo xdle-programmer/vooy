@@ -1,0 +1,282 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.offer {
+  padding: 20px;
+  margin-bottom: 20px;
+
+  &__header {
+    margin-bottom: 30px;
+  }
+
+  &__manufacturer-title {
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  &__manufacturer-buttons {
+    @include flex-row;
+    justify-content: flex-end;
+    align-items: baseline;
+    margin-bottom: 30px;
+  }
+
+  &__manufacturer-button {
+    @include flex-row;
+    align-items: center;
+    margin-right: 30px;
+    cursor: pointer;
+    position: relative;
+    @include unselectable;
+
+    &--message {
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    &--center {
+      text-align: center;
+      width: 100%;
+      margin: 0;
+    }
+
+    &--green {
+    }
+
+    &--gray {
+    }
+  }
+
+  $green-button: '.offer__manufacturer-button--green';
+  $gray-button: '.offer__manufacturer-button--gray';
+  $blue-button: '.offer__manufacturer-button--blue';
+  $hover-button: '.offer__manufacturer-button:hover';
+  $message-button: '.offer__manufacturer-button--message';
+  $message-hover-button: '.offer__manufacturer-button--message:hover';
+
+  &__manufacturer-button-text {
+    font-weight: 500;
+    font-size: 16px;
+
+    #{$green-button} & {
+      color: var(--middle-green-color);
+    }
+
+    #{$gray-button} & {
+      color: var(--gray-color);
+    }
+
+    #{$message-button} & {
+      color: var(--gray-color);
+    }
+
+    #{$hover-button} & {
+      color: var(--blue-color);
+    }
+
+    #{$message-hover-button} & {
+      color: var(--blue-color);
+    }
+
+    &--center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__manufacturer-button-icon {
+    width: 18px;
+    height: 18px;
+    margin-left: 5px;
+
+    &--small {
+      width: 14px;
+      height: 14px;
+    }
+
+    #{$green-button} & {
+      fill: var(--middle-green-color);
+    }
+
+    #{$gray-button} & {
+      fill: var(--gray-color);
+    }
+
+    #{$hover-button} & {
+      fill: var(--blue-color);
+    }
+  }
+
+  &__manufacturer-button-message {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--gray-color);
+    @include flex-row-center;
+    position: relative;
+    margin-left: 10px;
+    border-radius: 3px;
+
+    &--center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #{$message-hover-button} & {
+      border-color: var(--blue-color);
+    }
+  }
+
+  &__manufacturer-button-message-icon {
+    width: 20px;
+    height: 19px;
+    fill: var(--gray-color);
+
+    #{$message-hover-button} & {
+      fill: var(--blue-color);
+    }
+  }
+
+  &__manufacturer-button-message-count {
+    position: absolute;
+    right: -10px;
+    top: -13px;
+    height: 0;
+    width: 20px;
+  }
+
+  &__manufacturer-button-message-count-inner {
+    background: var(--blue-color);
+    padding-bottom: 100%;
+    width: 100%;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  &__manufacturer-button-message-count-inner-number {
+    position: absolute;
+    @include absolute-fill;
+    color: var(--white-color);
+    font-size: 11px;
+    @include flex-row-center;
+  }
+
+  &__header-product {
+    position: relative;
+    display: grid;
+    grid-template-columns: 114px 1fr;
+    padding-right: 25px;
+    grid-gap: 0 15px;
+    grid-template-areas: 'preview title' 'preview options';
+    align-items: center;
+    min-height: 132px;
+
+    &:after {
+      @include pseudo-absolute;
+      width: calc(100% - 128px);
+      //width: 100%;
+      height: 100%;
+      right: 0;
+      top: 0;
+      background: var(--light-gray-color);
+      border-radius: 8px;
+      z-index: -1;
+    }
+  }
+
+  &__header-preview {
+    grid-area: preview;
+    @include flex-row-center;
+    cursor: pointer;
+    height: 132px;
+    border: 1px solid var(--light-gray-color);
+    border-radius: 8px;
+
+    &:hover {
+      border-color: var(--light-blue-color);
+    }
+  }
+
+  &__header-preview-zoom-text {
+    position: absolute;
+    left: -4px;
+    bottom: 6px;
+    width: fit-content;
+    padding: 3px 8px;
+    background: var(--blue-color);
+    color: var(--white-color);
+    font-size: 11px;
+    border-radius: 4px;
+    z-index: 2;
+  }
+
+  &__header-preview-img {
+    width: 114px;
+    height: 114px;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    position: absolute;
+  }
+
+  &__header-logo {
+    width: 114px;
+    height: 114px;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    position: absolute;
+
+    &--empty {
+      background: var(--extra-light-blue-color);
+    }
+
+    &:after {
+      display: block;
+      position: absolute;
+      content: attr(data-name);
+      width: 100%;
+      height: 100%;
+      @include absolute-center;
+      @include flex-row-center;
+      font-size: 55px;
+      font-weight: 700;
+      color: var(--blue-color);
+    }
+  }
+
+  &__header-title {
+    grid-area: title;
+    font-weight: 700;
+    font-size: 24px;
+    padding: 16px 24px;
+    padding-bottom: 0;
+  }
+
+  &__header-options {
+    grid-area: options;
+    padding: 12px 24px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 5px;
+  }
+
+  &__header-option {
+    @include flex-row;
+    align-items: baseline;
+  }
+
+  &__header-option-name {
+    font-size: 16px;
+    color: var(--gray-color);
+  }
+
+  &__header-option-value {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--black-color);
+    margin-left: 5px;
+  }
+}

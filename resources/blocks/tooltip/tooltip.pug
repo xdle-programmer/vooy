@@ -1,0 +1,10 @@
+mixin tooltip(text,type,fill)
+    -let tooltipClass = 'tooltip'
+
+    if (type == 'right')
+        -tooltipClass = 'tooltip tooltip--right'
+    div(class=tooltipClass)
+        +iconSvg('exclamation', 'tooltip__button')
+        .tooltip__inner
+            +iconSvg('close', 'tooltip__close')
+            .tooltip__content=text

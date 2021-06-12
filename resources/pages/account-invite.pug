@@ -1,0 +1,68 @@
+extends ../templates/visitor
+
+
+block variables
+    - var title = 'Vooy'
+
+block content
+    section.section.section--small
+        .layout
+            +breadcrumbs([{name: 'Главная', link: '/_index.html'}, {name: 'Личный кабинет', link: '#'}])
+
+    section.section.section--small
+        .layout
+            .account
+                .account-menu
+                    .account-menu__header.account-menu__section.account-menu__section--header
+                        .account-menu__header-img-wrapper(data-name='В')
+                            .account-menu__header-img
+                            label.account-menu__header-button
+                                .account-menu__header-button-icon-wrapper
+                                    +iconSvg('photo','account-menu__header-button-icon')
+                                input(type='file').account-menu__header-input
+                        .account-menu__header-name Владимир Владимирович Длиннофамильский
+                        .account-menu__header-city Москва
+                        a(href='#').account-menu__link Личный кабинет
+                    .account-menu__section
+                        a(href='#').account-menu__link О реферальной программе
+                        a(href='#').account-menu__link Баланс
+                        a(href='#').account-menu__link Список партнёров
+                        a(href='#').account-menu__link.account-menu__link--bold Пригласить партнёров
+                    .account-menu__section
+                        a(href='#').account-menu__link Мои тендеры
+                    .account-menu__section
+                        a(href='#').account-menu__link Настройки
+                        a(href='#').account-menu__link.account-menu__link--red Выйти
+
+                .account__item.border-block
+                    .account__item-balance
+                        +titleCount('Пригласить партнёров')
+                        .account__item-balance-table
+                            .account__item-balance-table-title Есть несколько способов  приглашения партнёров
+
+                            .account__item-invite
+                                .account__item-invite-title Личная реферальная ссылка
+                                .account__item-invite-input-block
+                                    +iconSvg('link','account__item-invite-input-icon')
+                                    .account__item-invite-input.placeholder
+                                        input(placeholder='Реферальная ссылка' value='http://vooy.com/go/partner/white.php' disabled='true').input.placeholder__input
+                                        .placeholder__item Реферальная ссылка
+                                    .account__item-invite-input-button.button Скопировать
+
+                            .account__item-invite
+                                .account__item-invite-title Письмо на почту
+                                .account__item-invite-input-block.form-check
+                                    +iconSvg('email','account__item-invite-input-icon')
+                                    .account__item-invite-input.placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                                        input(placeholder='E-mail будущего партёра').input.placeholder__input
+                                        .placeholder__item E-mail будущего партёра
+                                    .account__item-invite-input-button.button.form-check__button Отправить
+                                .account__item-invite-desc Ваш будущий партнёр получит электронное письмо с предложением активировать регистрацию.
+                                +hint('Важно, что для активации учетной записи, нужно использовать параметры доступа, присланные в письме. ')
+
+
+
+
+
+
+

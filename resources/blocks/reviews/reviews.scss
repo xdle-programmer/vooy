@@ -1,0 +1,46 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.reviews {
+  height: fit-content;
+
+  &__desc {
+    @include flex-row-center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  
+  &__item {
+    @include flex-row-center;
+    justify-content: flex-start;
+    grid-area: item;
+  }
+
+  &__item-value {
+    font-weight: 500;
+    font-size: 20px;
+    margin-right: 8px;
+    color: var(--black-color);
+  }
+
+  &__item-star {
+    width: 22px;
+    height: 22px;
+    display: block;
+    fill: var(--gold-color);
+  }
+
+  &__count {
+    grid-area: count;
+    text-align: right;
+    font-size: 14px;
+    color: var(--gray-color);
+  }
+
+  &__button {
+    grid-area: button;
+    height: 40px;
+  }
+}

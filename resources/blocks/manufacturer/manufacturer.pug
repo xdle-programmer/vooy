@@ -1,0 +1,25 @@
+mixin manufacturer(name,icon)
+
+    -let firstLetter = name[0];
+
+    .manufacturer
+        if icon
+            img(src='images/examples/manufacturer/logo/manufacturer-logo-1.jpg').manufacturer__logo
+        else
+            .manufacturer__logo(data-name=firstLetter)
+        .manufacturer__title=name
+        .manufacturer__options
+            .manufacturer__option
+                .manufacturer__option-name Город:
+                .manufacturer__option-value Гуанчжоу
+            .manufacturer__option
+                .manufacturer__option-name Категория:
+                .manufacturer__option-value Мужская одежда
+            .manufacturer__option
+                .manufacturer__option-name Побед в тендерах:
+                .manufacturer__option-value 120
+            .manufacturer__option
+                .manufacturer__option-name Товаров в наличии:
+                .manufacturer__option-value 340
+        .manufacturer__reviews
+            include ../reviews/reviews

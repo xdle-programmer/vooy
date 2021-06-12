@@ -1,0 +1,85 @@
+extends ../templates/visitor
+
+
+block variables
+    - var title = 'Vooy'
+
+block content
+    section.section.section--small
+        .layout
+            +breadcrumbs([{name: 'Главная', link: '/_index.html'}, {name: 'Личный кабинет', link: '#'}])
+
+    section.section.section--small
+        .layout
+            .account
+                .account-menu
+                    .account-menu__header.account-menu__section.account-menu__section--header
+                        .account-menu__header-img-wrapper(data-name='В')
+                            .account-menu__header-img
+                            label.account-menu__header-button
+                                .account-menu__header-button-icon-wrapper
+                                    +iconSvg('photo','account-menu__header-button-icon')
+                                input(type='file').account-menu__header-input
+                        .account-menu__header-name Владимир Владимирович Длиннофамильский
+                        .account-menu__header-city Москва
+                        a(href='#').account-menu__link Личный кабинет
+                    .account-menu__section
+                        a(href='#').account-menu__link.account-menu__link--bold О реферальной программе
+                        a(href='#').account-menu__link Баланс
+                        a(href='#').account-menu__link Список партнёров
+                        a(href='#').account-menu__link Пригласить партнёров
+                    .account-menu__section
+                        a(href='#').account-menu__link Мои тендеры
+                    .account-menu__section
+                        a(href='#').account-menu__link Настройки
+                        a(href='#').account-menu__link.account-menu__link--red Выйти
+
+                .account__item
+                    .main-banner
+                        .main-banner__background
+                            .main-banner__background-el.main-banner__background-el--1
+                            .main-banner__background-el.main-banner__background-el--2
+                            .main-banner__background-el.main-banner__background-el--3
+                            .main-banner__background-el.main-banner__background-el--4
+                            .main-banner__background-el.main-banner__background-el--5
+                            .main-banner__background-el.main-banner__background-el--6
+                        .main-banner__content.main-banner__content--ref
+                            .main-banner__content-main
+                                .main-banner__content-title Реферальная программа
+                            .main-banner__content-natural
+                                .main-banner__content-natural-item
+                                    .main-banner__content-natural-item-percent 1%
+                                    .main-banner__content-natural-item-text за каждого активного покупателя
+                                .main-banner__content-natural-item
+                                    .main-banner__content-natural-item-percent 3%
+                                    .main-banner__content-natural-item-text за каждого активного поставщика
+
+                    .account__about-ref
+                        .account__about-ref-title Преимущества реферальной программы
+                        .account__about-ref-desc
+                            .account__about-ref-desc-article Абзац текста о том, как бесконечно прекрасна реферальная программа и о том, почему нужно прямо сейчас использовать ее. Абзац текста о том, как бесконечно прекрасна реферальная программа и о том, почему нужно прямо сейчас использовать ее.
+                            .account__about-ref-desc-article Абзац текста о том, как бесконечно прекрасна реферальная программа и о том, почему нужно прямо сейчас использовать ее.
+                            .account__about-ref-desc-percent
+                                .account__about-ref-desc-percent-title Реферальная программа в цифрах
+                                .account__about-ref-desc-percent-items
+                                    .account__about-ref-desc-percent-item
+                                        .account__about-ref-desc-percent-item-number 1%
+                                        .account__about-ref-desc-percent-item-text за каждый реализованный тендер от привлеченного покупателя
+                                    .account__about-ref-desc-percent-item
+                                        .account__about-ref-desc-percent-item-number 3%
+                                        .account__about-ref-desc-percent-item-text за каждый реализованный тендер от привлеченного продавца
+                                    .account__about-ref-desc-percent-item
+                                        .account__about-ref-desc-percent-item-number 18
+                                        .account__about-ref-desc-percent-item-text среднее количество тендеров реализуемых ежедневно
+                                    .account__about-ref-desc-percent-item
+                                        .account__about-ref-desc-percent-item-number 562 000
+                                        .account__about-ref-desc-percent-item-text средняя сумма тендера
+                            .account__about-ref-desc-article Абзац текста о том, как бесконечно прекрасна реферальная программа и о том, почему нужно прямо сейчас использовать ее.
+
+
+
+
+
+
+
+

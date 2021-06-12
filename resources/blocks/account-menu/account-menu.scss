@@ -1,0 +1,135 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.account-menu {
+  color: var(--black-color);
+
+  &__header {
+
+  }
+
+  &__header-img-wrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: var(--extra-light-blue-color);
+    border-radius: 50%;
+    margin-bottom: 20px;
+
+    &:after {
+      display: block;
+      position: absolute;
+      content: attr(data-name);
+      width: 100%;
+      height: 100%;
+      @include absolute-center;
+      @include flex-row-center;
+      font-size: 55px;
+      font-weight: 700;
+      color: var(--blue-color);
+      top: 47%;
+      left: 53%;
+    }
+  }
+
+  &__header-img {
+    z-index: 1;
+    position: relative;
+  }
+
+  &__header-img-item {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__header-button {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: 0;
+    top: 68px;
+    z-index: 100;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  $img-button-hover: '.account-menu__header-button:hover';
+
+  &__header-button-icon-wrapper {
+    width: 100%;
+    height: 100%;
+    @include flex-row-center;
+    background: var(--light-gray-color);
+
+    #{$img-button-hover} & {
+      background: var(--light-blue-color);
+    }
+  }
+
+  &__header-button-icon {
+    width: 18px;
+    height: 16px;
+    fill: var(--black-color);
+
+    #{$img-button-hover} & {
+      fill: var(--blue-color);
+    }
+  }
+
+  &__header-input {
+    display: none;
+  }
+
+  &__header-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  &__header-city {
+    font-size: 16px;
+    color: var(--gray-color);
+    margin-bottom: 10px;
+  }
+
+  &__section {
+    border-bottom: 1px solid var(--light-gray-color);
+    padding: 15px 0;
+
+    &:nth-last-of-type(1) {
+      border-bottom: none;
+    }
+
+    &--header {
+      padding-top: 0;
+    }
+  }
+
+  &__link {
+    display: block;
+    color: var(--blue-color);
+    font-size: 16px;
+    margin-bottom: 16px;
+
+    &:nth-last-of-type(1) {
+      margin-bottom: 0;
+    }
+
+    &--bold {
+      font-weight: 700;
+    }
+
+    &--red {
+      color: var(--red-color);
+    }
+
+  }
+
+}

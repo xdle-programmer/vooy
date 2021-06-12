@@ -1,0 +1,120 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.tabs {
+  width: 100%;
+
+  $small: '.tabs--small';
+
+  &__header {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &__toggle-nav {
+    display: none;
+
+    @include tablet-big-screen {
+      display: block;
+    }
+  }
+
+  &__toggle-nav-button {
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    top: 0;
+    cursor: pointer;
+    z-index: 1;
+
+    &[aria-disabled="true"] {
+      opacity: .2;
+    }
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+
+  }
+
+  &__toggle-buttons {
+    width: 100%;
+    border-bottom: 2px solid var(--light-gray-color);
+    @include flex-row;
+
+    @include tablet-big-screen {
+      display: block;
+    }
+  }
+
+  &__toggle-button {
+    cursor: pointer;
+    @include flex-row-center;
+    text-align: center;
+    padding: 10px 17px;
+    font-weight: 500;
+    font-size: 16px;
+    @include unselectable;
+    position: relative;
+
+    &:after {
+      @include pseudo-absolute;
+      height: 2px;
+      width: 100%;
+      top: 100%;
+      left: 0;
+      background: var(--blue-color);
+      opacity: 0;
+    }
+
+    &:hover:after,
+    &--active:after {
+      opacity: 1;
+    }
+
+    &:hover,
+    &--active {
+      color: var(--blue-color);
+      outline: none;
+
+      @include tablet-big-screen {
+        background: none;
+      }
+    }
+  }
+
+  &__toggle-item {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: scaleY(0);
+    transform-origin: top;
+    padding: 24px 0;
+
+    #{$small} & {
+      padding: 10px 17px;
+    }
+
+    @include tablet-big-screen {
+      transform: none;
+    }
+
+    &--active {
+      display: block;
+    }
+
+    &--active-effect {
+      opacity: 1;
+      visibility: visible;
+      transform: scaleY(1);
+
+      @include tablet-big-screen {
+        transform: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+extends ../templates/visitor
+
+block variables
+    - var title = 'Vooy'
+
+block content
+    section.section.section--small
+        .layout
+            +breadcrumbs([{name: 'Главная', link: '/_index.html'}, {name: 'Список поставщиков', link: '#'}])
+
+            .title-input-wrapper
+                .title-input-wrapper__item
+                    +titleCount('Список поставщиков','201')
+                .title-input-wrapper__input-wrapper.placeholder
+                    input(placeholder='Поиск поставщика').input.placeholder__input
+                    .placeholder__item Поиск поставщика
+
+    section.section.section--small
+        .layout
+            .catalog
+                .catalog__filters.border-block
+                    .catalog__filters-group
+                        .catalog__filters-title Категория
+                        .catalog__filters-group-item
+                            a(href='#').catalog__filters-link-counter
+                                .catalog__filters-link-counter-text Футболки и майки
+                                .catalog__filters-link-counter-count (234)
+                            a(href='#').catalog__filters-link-counter
+                                .catalog__filters-link-counter-text Джинсы
+                                .catalog__filters-link-counter-count (56)
+                            a(href='#').catalog__filters-link-counter
+                                .catalog__filters-link-counter-text Брюки
+                                .catalog__filters-link-counter-count (12)
+                            a(href='#').catalog__filters-link-counter
+                                .catalog__filters-link-counter-text Рубашки
+                                .catalog__filters-link-counter-count (789)
+                            a(href='#').catalog__filters-link-counter
+                                .catalog__filters-link-counter-text Свитшоты
+                                .catalog__filters-link-counter-count (667)
+                            a(href='#').catalog__filters-link-counter
+                                .catalog__filters-link-counter-text Верхняя одежда
+                                .catalog__filters-link-counter-count (9)
+
+                    .catalog__filters-group
+                        .catalog__filters-title Отзывы
+                        .catalog__filters-group-item
+                            +checkbox('Только с отзывами')
+
+                .catalog__items
+                    .catalog__items-header
+                        .catalog__sort
+                            .catalog__sort-title Сортрировать по
+                            select.catalog__sort-select
+                                option(value='0' selected='') популярности
+                                option(value='1') количеству побед
+                                option(value='2') количеству товаров
+                    .catalog__items-list
+                        +manufacturerPreview(true)
+                        +manufacturerPreview(false)
+                        +manufacturerPreview(false)
+                        +manufacturerPreview(true)
+                        +manufacturerPreview(true)
+                        +manufacturerPreview(true)
+                        +manufacturerPreview(true)
+                        +manufacturerPreview(true)
+                        +manufacturerPreview(true)
+                        +manufacturerPreview(true)
+                        +manufacturerPreview(true)

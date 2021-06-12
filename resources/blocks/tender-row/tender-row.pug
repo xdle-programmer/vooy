@@ -1,0 +1,284 @@
+//
+    Миксины
+    Строка тендера: Товар, название, дата, номер, количество, стоимость, статус, опционально оценка
+    Строка товара в тендере: Товар, название, количество, образец, комментарий
+    Строка предложения товара: Товар, название, количество, стоимость, срок, образец, комментарий поставщика
+    Строка предложения поставщика: Лого, поставщик, количество, стоимость, срок, образец, комментарий поставщика, победитель, чат
+
+//
+    Роль: Посетитель
+    Страница: Общий список, миксины: Строка тендера
+    Страница: Страница тендера, миксины: Строка товара в тендере
+    Страница: Страница поставщика, миксины: Строка тендера (с оценкой)
+
+//
+    Роль: Покупатель
+    Страница: Общий список, миксины: Строка тендера
+    Страница: Страница поиска поставщика, миксины: Строка товара в тендере, Строка предложения товара, Строка предложения поставщика
+    Страница: Страница тендера в реализации, миксины: Строка предложения товара
+    Страница: Страница архивного тендера, миксины: Строка предложения товара
+
+//
+    Роль: Производитель
+    Страница: Общий список Строка тендера
+    Страница: Страница тендера без ответа, миксины: Строка товара в тендере
+    Страница: Страница тендера с ответом, миксины: Товар на странице тендера, Строка предложения товара
+    Страница: Страница тендера в реализации, миксины: Строка предложения товара
+    Страница: Страница архивного тендера, миксины: Строка предложения товара
+
+
+//Строка тендера (заголовок)
+mixin tenderRowHeader(options)
+    - let imgTitle = options.imgTitle
+    - let nameTitle = options.nameTitle
+    - let dateTitle = options.dateTitle
+    - let numberTitle = options.numberTitle
+    - let productCountTitle = options.productCountTitle
+    - let priceTitle = options.priceTitle
+    - let statusTitle = options.statusTitle
+    - let assessment = options.assessment
+    - let assessmentTitle = options.assessmentTitle
+
+    - let rowClass = 'tender-row--without-assessment'
+
+    if assessment
+        - rowClass = ''
+
+    .tender-row.tender-row--header(class=rowClass)
+        .tender-row__item=imgTitle
+        .tender-row__item=nameTitle
+        .tender-row__item=dateTitle
+        .tender-row__item=numberTitle
+        .tender-row__item=productCountTitle
+        .tender-row__item=priceTitle
+        .tender-row__item=statusTitle
+
+        if assessment
+            .tender-row__item.tender-row__item--right=assessmentTitle
+
+//Строка тендера
+mixin tenderRow(options)
+    - let link = options.link
+    - let imgSrc = options.imgSrc
+    - let name = options.name
+    - let date = options.date
+    - let number = options.number
+    - let productCount = options.productCount
+    - let price = options.price
+    - let textStatus = options.textStatus
+    - let numberStatus = options.numberStatus
+    - let assessment = options.assessment
+    - let assessmentNumber = options.assessmentNumber
+    - let selected = options.selected
+
+    - let rowClass = 'tender-row--without-assessment'
+    - let selectedClass = 'tender-row--selected'
+
+    if assessment
+        - rowClass = ''
+
+    if !selected
+        - selectedClass = ''
+
+    .tender-row(class=rowClass + ' ' + selectedClass)
+        .tender-row__item
+            img(src=imgSrc).tender-row__preview
+        a(href=link).tender-row__item.tender-row__item--left.tender-row__item--link.tender-row__item--middle=name
+        .tender-row__item.tender-row__item--small=date
+        .tender-row__item.tender-row__item--small=number
+        .tender-row__item.tender-row__item--big=productCount
+        .tender-row__item.tender-row__item--big=price + ' ₽'
+        .tender-row__item
+            .tender-row__status
+                .tender-row__status-title=textStatus
+                .tender-row__status-line
+                    +statusLine(numberStatus)
+
+        if assessment
+            .tender-row__item
+                if assessmentNumber
+                    .tender-row__item-assessment
+                        .tender-row__item-assessment-value=assessmentNumber
+                        +iconSvg('star','tender-row__item-assessment-star')
+                else
+                    .tender-row__item-assessment.tender-row__item-assessment--empty
+
+
+//Строка товара в тендере (заголовок)
+mixin tenderRowProductHeader(options)
+    - let imgTitle = options.imgTitle
+    - let nameTitle = options.nameTitle
+    - let productCountTitle = options.productCountTitle
+    - let exampleTitle = options.exampleTitle
+    - let commentTitle = options.commentTitle
+
+    .tender-row.tender-row--product.tender-row--header
+        .tender-row__item=imgTitle
+        .tender-row__item=nameTitle
+        .tender-row__item=productCountTitle
+        .tender-row__item=exampleTitle
+        .tender-row__item.tender-row__item--center=commentTitle
+
+//Строка товара в тендере
+mixin tenderRowProduct(options)
+    - let imgSrc = options.imgSrc
+    - let name = options.name
+    - let productCount = options.productCount
+    - let example = options.example
+    - let comment = options.comment
+    - let productImages = options.productImages
+    - let productImagesDataAttr = ''
+    - let productImagesCount = productImages.length
+
+    - for (let index = 0; index < productImages.length; index++)
+        - let separator = ','
+        if (index === productImages.length - 1)
+            - separator = ''
+        - productImagesDataAttr += productImages[index] + separator
+
+    .tender-row.tender-row--product
+        .tender-row__item(data-product-img-slider=productImagesDataAttr)
+            .tender-row__preview.tender-row__preview--zoom
+                .tender-row__preview-zoom-text=productImagesCount + ' фото'
+                img(src=imgSrc).tender-row__preview-img
+        .tender-row__item.tender-row__item--middle=name
+        .tender-row__item.tender-row__item--big=productCount
+        .tender-row__item
+            if example
+                +iconSvg('check','tender-row__item-icon tender-row__item-icon--check')
+            else
+                +iconSvg('close','tender-row__item-icon tender-row__item-icon--not-check')
+
+        .tender-row__item.tender-row__item--left=comment
+
+
+//Строка предложения товара
+mixin tenderRowOfferHeader(options)
+    - let imgTitle = options.imgTitle
+    - let nameTitle = options.nameTitle
+    - let productCountTitle = options.productCountTitle
+    - let priceTitle = options.priceTitle
+    - let termTitle = options.termTitle
+    - let exampleTitle = options.exampleTitle
+    - let commentTitle = options.commentTitle
+
+    .tender-row.tender-row--offer.tender-row--header
+        .tender-row__item=imgTitle
+        .tender-row__item=nameTitle
+        .tender-row__item=productCountTitle
+        .tender-row__item=priceTitle
+        .tender-row__item=termTitle
+        .tender-row__item=exampleTitle
+        .tender-row__item.tender-row__item--center=commentTitle
+
+mixin tenderRowOffer(options)
+    - let imgSrc = options.imgSrc
+    - let name = options.name
+    - let productCount = options.productCount
+    - let price = options.price
+    - let term = options.term
+    - let example = options.example
+    - let comment = options.comment
+    - let productImages = options.productImages
+    - let productImagesDataAttr = ''
+    - let productImagesCount = productImages.length
+
+    - for (let index = 0; index < productImages.length; index++)
+        - let separator = ','
+        if (index === productImages.length - 1)
+            - separator = ''
+        - productImagesDataAttr += productImages[index] + separator
+
+    .tender-row.tender-row--offer
+        .tender-row__item(data-product-img-slider=productImagesDataAttr)
+            .tender-row__preview.tender-row__preview--zoom
+                .tender-row__preview-zoom-text=productImagesCount + ' фото'
+                img(src=imgSrc).tender-row__preview-img
+        .tender-row__item.tender-row__item--middle=name
+        .tender-row__item.tender-row__item--big=productCount
+        .tender-row__item.tender-row__item--big=price + ' ₽'
+        .tender-row__item.tender-row__item--big=term + ' дней'
+        .tender-row__item
+            if example
+                +iconSvg('check','tender-row__item-icon tender-row__item-icon--check')
+            else
+                +iconSvg('close','tender-row__item-icon tender-row__item-icon--not-check')
+
+        .tender-row__item.tender-row__item--left=comment
+
+
+//Строка предложения поставщика
+mixin tenderRowOfferWithManufacturerHeader(options)
+    - let imgTitle = options.imgTitle
+    - let offerTitle = options.offerTitle
+    - let productCountTitle = options.productCountTitle
+    - let priceTitle = options.priceTitle
+    - let termTitle = options.termTitle
+    - let exampleTitle = options.exampleTitle
+
+    .tender-row.tender-row--offer-with-manufacturer.tender-row--header
+        .tender-row__item=imgTitle
+        .tender-row__item=offerTitle
+        .tender-row__item=productCountTitle
+        .tender-row__item=priceTitle
+        .tender-row__item=termTitle
+        .tender-row__item=exampleTitle
+        .tender-row__item
+        .tender-row__item
+
+mixin tenderRowOfferWithManufacturer(options)
+    - let imgSrc = options.imgSrc
+    - let name = options.name
+    - let manufacturerName = options.manufacturerName
+    - let productCount = options.productCount
+    - let example = options.example
+    - let comment = options.comment
+    - let price = options.price
+    - let term = options.term
+    - let messagesNumber = options.messagesNumber
+    - let chatId = options.chatId
+    - let productImages = options.productImages
+    - let productImagesDataAttr = ''
+    - let productImagesCount = productImages.length
+
+    - for (let index = 0; index < productImages.length; index++)
+        - let separator = ','
+        if (index === productImages.length - 1)
+            - separator = ''
+        - productImagesDataAttr += productImages[index] + separator
+
+    .tender-row.tender-row--offer-with-manufacturer
+        .tender-row__item(data-product-img-slider=productImagesDataAttr)
+            .tender-row__preview.tender-row__preview--zoom
+                .tender-row__preview-zoom-text=productImagesCount + ' фото'
+                img(src=imgSrc).tender-row__preview-img
+        .tender-row__item.tender-row__item--middle
+            .tender-row__item-options
+                .tender-row__item-option
+                    .tender-row__item-text.tender-row__item-text--bold=manufacturerName
+                .tender-row__item-option
+                    .tender-row__item-title Предложение
+                    .tender-row__item-text=name
+                .tender-row__item-option
+                    .tender-row__item-title Комментарий
+                    .tender-row__item-text=comment
+        .tender-row__item.tender-row__item--big=productCount
+        .tender-row__item.tender-row__item--big=price + ' ₽'
+        .tender-row__item.tender-row__item--big=term + ' дней'
+        .tender-row__item
+            if example
+                +iconSvg('check','tender-row__item-icon tender-row__item-icon--check')
+            else
+                +iconSvg('close','tender-row__item-icon tender-row__item-icon--not-check')
+
+        .tender-row__item
+            .offer__manufacturer-button.offer__manufacturer-button--center.offer__manufacturer-button--green
+                .offer__manufacturer-button-text Выбрать победителем
+        .tender-row__item
+            .offer__manufacturer-button.offer__manufacturer-button--center.offer__manufacturer-button--message.tenders-chat__button(data-chat=chatId)
+                .offer__manufacturer-button-text.offer__manufacturer-button-text--center.tenders-chat__button-text
+                    .offer__manufacturer-button-message.offer__manufacturer-button-message--center
+                        +iconSvg('message','offer__manufacturer-button-message-icon')
+                        .offer__manufacturer-button-message-count
+                            .offer__manufacturer-button-message-count-inner
+                                .offer__manufacturer-button-message-count-inner-number=messagesNumber

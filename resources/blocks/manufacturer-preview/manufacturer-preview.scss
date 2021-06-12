@@ -1,0 +1,76 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.manufacturer-preview {
+  padding: 18px 13px;
+  display: grid;
+  grid-template-columns: 156px 1fr;
+  grid-gap: 18px;
+
+  &__img {
+    width: 100%;
+    height: 156px;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  &__desc {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 0;
+  }
+
+  &__desc-title {
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 8px;
+    margin-top: -5px;
+  }
+
+  &__assessment {
+    @include flex-row;
+    align-items: center;
+  }
+
+  $empty-assessment:'.manufacturer-preview__assessment--empty';
+
+  &__assessment-value {
+    font-size: 16px;
+    margin-right: 5px;
+
+    #{$empty-assessment} & {
+      color: var(--gray-color);
+    }
+  }
+
+  &__assessment-star {
+    width: 18px;
+    height: 18px;
+    fill: var(--gold-color);
+
+    #{$empty-assessment} & {
+      fill: var(--gray-color);
+    }
+  }
+
+  &__desc-counters {
+    margin-top: auto;
+  }
+
+  &__desc-counter {
+    margin-top: 5px;
+    font-size: 16px;
+  }
+
+  &__desc-counter-number {
+    display: inline;
+    color: var(--black-color);
+  }
+
+  &__desc-counter-text {
+    display: inline;
+    color: var(--gray-color);
+  }
+}

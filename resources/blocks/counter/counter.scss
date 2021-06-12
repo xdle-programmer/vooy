@@ -1,0 +1,42 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.counter {
+  display: grid;
+  grid-template-columns: 33px 60px 33px;
+  grid-gap: 5px;
+
+  &__button {
+    width: 33px;
+    height: 33px;
+    background: var(--blue-color);
+    position: relative;
+    @include active-button-effect(50%);
+    border-radius: 50%;
+    @include flex-row-center;
+    @include unselectable;
+
+    &--minus {
+    }
+
+    &--plus {
+    }
+  }
+
+  &__button-icon {
+    width: 15px;
+    height: 15px;
+    fill: var(--white-color);
+  }
+
+  &__input {
+    border-radius: 8px;
+    text-align: center;
+    background: var(--extra-light-blue-color);
+    color: var(--black-color);
+    font-size: 16px;
+    padding: 0;
+  }
+}

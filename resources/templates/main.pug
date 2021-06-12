@@ -1,0 +1,34 @@
+block variables
+
+doctype html
+include ../blocks/base/mixin
+include ../blocks/product-preview/product-preview
+include ../blocks/products-grid/product-grid
+include ../blocks/hint/hint
+include ../blocks/breadcrumbs/breadcrumbs
+include ../blocks/title-count/title-count
+include ../blocks/tender-row/tender-row
+include ../blocks/counter/counter
+include ../blocks/checkbox/checkbox
+include ../blocks/tooltip/tooltip
+include ../blocks/manufacturer-preview/manufacturer-preview
+include ../blocks/min-max-slider/min-max-slider
+include ../blocks/assessment/assessment
+include ../blocks/manufacturer/manufacturer
+include ../blocks/chat/chat
+include ../blocks/status-line/status-line
+include ../blocks/buyer/buyer
+include ../blocks/account-menu/account-menu
+include ../blocks/photo-upload/photo-upload
+include ../blocks/captcha/captcha
+
+
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title #{title}
+        block scripts
+
+    body
+        block page

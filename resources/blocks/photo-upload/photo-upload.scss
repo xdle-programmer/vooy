@@ -1,0 +1,124 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.photo-upload {
+
+  $product-in-tender: '.product-in-tender';
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+
+    #{$product-in-tender} & {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &--six {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  &__label-wrapper {
+    width: 100%;
+  }
+
+  &__label {
+    padding-bottom: 100%;
+    position: relative;
+    border: 1px dashed var(--gray-color);
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--super-light-blue-color);
+    }
+  }
+
+  &__input-text {
+    position: absolute;
+    left: 50%;
+    bottom: 20%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--blue-color);
+
+    #{$product-in-tender} & {
+      bottom: 15%;
+    }
+  }
+
+  &__input-icon-wrapper {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+
+    #{$product-in-tender} & {
+      top: 15%;
+    }
+  }
+
+  &__input-icon {
+    width: 100%;
+    height: 100%;
+    display: block;
+    fill: var(--blue-color);
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__preview-wrapper {
+    width: 100%;
+    position: relative;
+  }
+
+  &__preview-item {
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+  }
+
+  &__preview {
+    display: block;
+    position: absolute;
+    @include absolute-fill;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__preview-star {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    background: var(--white-color);
+    border-radius: 50%;
+    z-index: 1;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  $preview-star-hover: '.photo-upload__preview-star:hover';
+  $preview-star-active: '.photo-upload__preview-star--active';
+
+  &__preview-star-img {
+    width: 100%;
+    height: 100%;
+    fill: var(--gray-color);
+
+
+    #{$preview-star-active} &,
+    #{$preview-star-hover} & {
+      fill: var(--blue-color);
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  padding: 10px 0;
+
+  &__item {
+    font-size: 15px;
+  }
+
+  &__item-name {
+    display: inline;
+    color: var(--gray-color);
+  }
+
+  &__item-value {
+    display: inline;
+    color: var(--black-color);
+  }
+
+}

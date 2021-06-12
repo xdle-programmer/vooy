@@ -1,0 +1,7 @@
+mixin breadcrumbs(pages)
+    .breadcrumbs
+        - for (let index = 0; index < pages.length; index++)
+        if index == pages.length - 1
+            .breadcrumbs__item.breadcrumbs__item--active=pages[index].name
+        else
+            a(href=pages[index].link).breadcrumbs__item=pages[index].name

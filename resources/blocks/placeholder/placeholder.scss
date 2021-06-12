@@ -1,0 +1,44 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.placeholder {
+  position: relative;
+  display: block;
+
+  $not-empty: '.placeholder--not-empty';
+  $error: '.form-check__error--show';
+
+  &__item {
+    color: var(--gray-color);
+    cursor: text;
+    font-size: 16px;
+    position: absolute;
+    top: 0;
+    left: 15px;
+    padding-left: 0;
+    height: auto;
+    transform: translateY(22px) scale(1);
+    transition: transform 0.2s, opacity 0s;
+    transform-origin: left bottom;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 101;
+
+    #{$not-empty} & {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(9px) scale(.75)
+    }
+
+
+    #{$error} & {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+  }
+
+}

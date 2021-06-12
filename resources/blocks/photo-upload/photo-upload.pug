@@ -1,0 +1,45 @@
+mixin photoUploadEmpty
+    .photo-upload
+        .photo-upload__items
+            label.photo-upload__label-wrapper
+                .photo-upload__label
+                    .photo-upload__input-icon-wrapper
+                        +iconSvg('upload','photo-upload__input-icon')
+                    .photo-upload__input-text Загрузите фото
+                    input(type='file' multiple accept='image/*').photo-upload__input
+
+mixin photoUploadEmptySix
+    .photo-upload
+        .photo-upload__items.photo-upload__items--six
+            label.photo-upload__label-wrapper
+                .photo-upload__label
+                    .photo-upload__input-icon-wrapper
+                        +iconSvg('upload','photo-upload__input-icon')
+                    .photo-upload__input-text Загрузите фото
+                    input(type='file' multiple accept='image/*').photo-upload__input
+
+mixin photoUploadEmptyStars
+    .photo-upload.photo-upload--stars
+        .photo-upload__items
+            label.photo-upload__label-wrapper
+                .photo-upload__label
+                    .photo-upload__input-icon-wrapper
+                        +iconSvg('upload','photo-upload__input-icon')
+                    .photo-upload__input-text Загрузите фото
+                    input(type='file' multiple accept='image/*').photo-upload__input
+
+mixin photoUploadNotEmpty
+    .photo-upload
+        .photo-upload__items
+            .photo-upload__preview-wrapper(data-upload-preview)
+                .photo-upload__preview-item
+                    img.photo-upload__preview(src='images/examples/products-preview/products-preview-1.jpg')
+            .photo-upload__preview-wrapper(data-upload-preview)
+                .photo-upload__preview-item
+                    img.photo-upload__preview(src='images/examples/products-preview/products-preview-0.jpg')
+            label.photo-upload__label-wrapper
+                .photo-upload__label
+                    .photo-upload__input-icon-wrapper
+                        +iconSvg('upload','photo-upload__input-icon')
+                    .photo-upload__input-text Загрузите фото
+                    input(type='file' multiple accept='image/*').photo-upload__input

@@ -1,0 +1,19 @@
+extends ../templates/visitor
+
+block variables
+    - var title = 'Vooy'
+
+block content
+    section.section.section--small
+        .layout
+            +breadcrumbs([{name:'Главная',link:'/_index.html'},{name:'Одежда',link:'/_products.html'},{name:'Мужская одежда',link:'/_products.html'},{name:'Мужские джинсы',link:'#'}])
+
+            include ../blocks/product-cart/product-cart
+
+    section.section.section--small
+        .layout
+            include ../blocks/lead/lead
+    section.section
+        .layout
+            .title.title--small Похожие товары!
+            +productGrid(5)

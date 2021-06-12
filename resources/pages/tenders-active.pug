@@ -1,0 +1,68 @@
+extends ../templates/visitor
+
+block variables
+    - var title = 'Vooy'
+
+block content
+    section.section.section--small
+        .layout
+            +breadcrumbs([{name: 'Главная', link: '/_index.html'}, {name: 'Список тендеров', link: '/_tenders-list.html'}, {name: 'Тендер 12345', link: '#'}])
+
+    section.section.section--small
+        .layout
+            .tender-header
+                .tender-header__main
+                    .tender-header__main-title
+                        .tender-header__main-title-name Тендер на товары
+                        .tender-header__main-title-number №2345678
+                        .tender-header__main-title-status
+                            .tender-header__main-title-status-title.tender-header__main-title-status-title--gold Поиск поставщика
+                            .tender-header__main-title-status-line
+                                .status-line.status-line--2
+                    .tender-header__main-buttons
+                        .tender-header__main-button.button Скопировать
+                            +iconSvg('copy','button__icon')
+                .tender-header__desc
+                    .tender-header__desc-item
+                        .tender-header__desc-item-name Cоздан:
+                        .tender-header__desc-item-value 24.02.2020
+                        .tender-header__desc-item-name Осталось времени:
+                        .tender-header__desc-item-value 48ч
+
+    section.section.section--small
+        .layout
+            +tenderRowProductHeader({
+                imgTitle: 'Фото',
+                nameTitle: 'Наименование',
+                productCountTitle: 'Количество',
+                exampleTitle: 'Необходим образец',
+                commentTitle: 'Комментарий'
+            })
+
+            +tenderRowProduct({
+                imgSrc: 'images/examples/products-preview/products-preview-5.jpg',
+                name: 'Синие джинсы',
+                productCount: '1 000',
+                example: true,
+                comment: 'Короткий комментарий',
+                productImages: [
+                    'images/examples/product/big/product-1.jpg',
+                    'images/examples/product/big/product-2.jpg',
+                    'images/examples/product/big/product-3.jpg',
+                    'images/examples/product/big/product-4.jpg',
+                    'images/examples/product/big/product-5.jpg',
+                    'images/examples/product/big/product-6.jpg',
+                    'images/examples/product/big/product-7.jpg',
+                ]
+            })
+
+            +tenderRowProduct({
+                imgSrc: 'images/examples/products-preview/products-preview-1.jpg',
+                name: 'Заводская дешевая горячая Распродажа летняя повседневная одежда.',
+                productCount: '1 200',
+                example: false,
+                comment: 'Очень длинный комментарий в несколько строк с переносом на другие строки',
+                productImages: [
+                    'images/examples/products-preview/products-preview-1.jpg'
+                ]
+            })

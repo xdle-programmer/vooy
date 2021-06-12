@@ -1,0 +1,144 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.product-preview {
+  width: 100%;
+  position: relative;
+
+  &:after {
+    @include pseudo-absolute;
+    @include absolute-center;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    z-index: -1;
+    border-radius: 12px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .1);
+    opacity: 0;
+  }
+
+  &:hover:after {
+    opacity: 1;
+  }
+
+  $big: '.product-preview--big';
+
+  &__img {
+    width: 100%;
+    display: block;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    height: 214px;
+    object-fit: contain;
+    object-position: center;
+    margin-bottom: 10px;
+
+    #{$big} & {
+      height: 286px;
+    }
+  }
+
+  &__desc {
+    margin-bottom: 24px;
+  }
+
+  &__price {
+    font-weight: bold;
+    font-size: 24px;
+    color: var(--black-color);
+    margin-bottom: 3px;
+  }
+
+  &__minimal {
+    @include flex-row;
+    align-items: baseline;
+    font-size: 14px;
+    margin-bottom: 7px;
+  }
+
+  &__minimal-count {
+    font-weight: 500;
+    color: var(--black-color);
+  }
+
+  &__minimal-desc {
+    color: var(--gray-color);
+    margin-left: 8px;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 18px;
+    height: 54px;
+    overflow: hidden;
+    display: block;
+    color: var(--blue-color);
+
+    &:hover {
+      color: var(--light-blue-color);
+    }
+
+
+  }
+
+  &__buttons {
+    @include flex-row;
+  }
+
+  &__button {
+    flex-grow: 1;
+    background: var(--blue-color);
+    color: var(--white-color);
+    height: 40px;
+    @include flex-row-center;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid var(--blue-color);
+    position: relative;
+    @include unselectable;
+    @include active-button-effect;
+
+    &:hover {
+      background: var(--white-color);
+      color: var(--blue-color);
+    }
+
+    &--gray {
+      flex-grow: 0;
+      background: var(--light-gray-color);
+      border-color: var(--light-gray-color);
+      margin-left: 10px;
+
+      &:hover {
+        background: var(--light-blue-color);
+      }
+    }
+  }
+
+  $button-hover: '.product-preview__button:hover';
+
+  &__button-text {
+    margin-right: 10px;
+  }
+
+  $gray-button: '.product-preview__button--gray';
+
+  &__button-icon {
+    width: 18px;
+    height: 18px;
+    fill: var(--white-color);
+
+    #{$button-hover} & {
+      fill: var(--blue-color);
+    }
+
+    #{$gray-button} & {
+      fill: var(--blue-color);
+    }
+
+  }
+}

@@ -1,0 +1,10 @@
+mixin minMaxSlider(min,max)
+    .min-max-slider
+        .min-max-slider__inputs
+            .min-max-slider__input-wrapper.placeholder
+                input(placeholder='Мин.').input.placeholder__input.min-max-slider__input.min-max-slider__input--min
+                .placeholder__item Мин.
+            .min-max-slider__input-wrapper.placeholder
+                input(placeholder='Макс.').input.placeholder__input.min-max-slider__input.min-max-slider__input--max
+                .placeholder__item Макс.
+        .min-max-slider__range(data-min=min data-max=max)

@@ -1,0 +1,25 @@
+extends ../templates/visitor
+
+block variables
+    - var title = 'Vooy'
+
+block content
+    section.section.section--small
+        .layout
+            +breadcrumbs([{name: 'Главная', link: '/_index.html'}, {name: 'Список поставщиков', link: '/_manufacturer-list.html'}, {name: 'Название поставщика', link: '#'}])
+
+    section.section.section--small
+        .layout
+            div #[br]
+            div #[br]
+            div #[br]
+
+            .form-check
+                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                    input(placeholder='Поиск поставщика').input.placeholder__input
+                    .placeholder__item Поиск поставщика
+
+                div #[br]
+                div #[br]
+                div #[br]
+                .button.form-check__button Тестs

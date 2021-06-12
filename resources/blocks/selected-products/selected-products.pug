@@ -1,0 +1,26 @@
+mixin items
+    .selected-products__items
+        - let n = 0;
+        - while (n < 3)
+            .selected-products__item
+                img.selected-products__item-img(src='../images/examples/products-preview/products-preview-2.jpg')
+                .selected-products__item-price 3999 - 6000 ₽ шт.
+                .selected-products__minimal
+                    .selected-products__minimal-count 500 шт.
+                    .selected-products__minimal-desc Минимальный заказ
+                - n++
+
+.selected-products
+    .selected-products__block.border-block
+        .selected-products__title
+            .selected-products__title-text Лучшее из лучшего
+            +iconSvg('star','selected-products__title-icon selected-products__title-icon--star')
+        +items
+    .selected-products__block.border-block
+        .selected-products__title
+            .selected-products__title-text Новинки
+            +iconSvg('new-products','selected-products__title-icon selected-products__title-icon--new-products')
+        +items
+
+
+

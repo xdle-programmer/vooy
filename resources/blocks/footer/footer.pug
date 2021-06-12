@@ -1,0 +1,33 @@
+footer.footer
+    .layout.footer__block
+        .footer__top
+            .footer__logo-wrapper
+                .footer__logo
+                    include ../logo/logo
+            .footer__menu
+                .footer__menu-col
+                    .footer__menu-title О компании
+                    a(href='#').footer__menu-link Контакты
+                    a(href='#').footer__menu-link Сотрудничество
+                .footer__menu-col
+                    .footer__menu-title Информация
+                    a(href='#').footer__menu-link Оферта
+                    a(href='#').footer__menu-link Карта сайта
+                    a(href='#').footer__menu-link Оплата
+                .footer__menu-col
+                    .footer__menu-title Помощь
+                    a(href='#').footer__menu-link Как заказать?
+                    a(href='#').footer__menu-link Гарантии
+                    a(href='#').footer__menu-link Стать поставщиком
+                .footer__menu-col
+                    .footer__menu-title Служба поддержки
+                    a(href='#').footer__menu-link
+                        +iconSvg('phone','footer__menu-link-icon')
+                        .footer__menu-link-text 8-800-77-77-777
+                    a(href='#').footer__menu-link
+                        +iconSvg('mail','footer__menu-link-icon')
+                        .footer__menu-link-text info@gmail.com
+        .footer__bottom
+            .footer__copyright © 2020—2021 компания Сайт ОПТ
+            .footer__social
+                include ../social/social

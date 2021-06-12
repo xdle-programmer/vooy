@@ -1,0 +1,99 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.advantages {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
+
+  *,
+  *:before,
+  *:after {
+    transition: all .25s ease-out;
+  }
+
+
+  &__item {
+    padding: 30px 20px;
+    border: 1px solid var(--light-gray-color);
+    border-radius: 5px;
+    cursor: default;
+
+    &:hover {
+      border-color: var(--blue-color);
+      background: var(--light-gray-color);
+    }
+  }
+
+  $hover: '.advantages__item:hover';
+
+  &__icon {
+    width: 56px;
+    height: 56px;
+    display: block;
+    stroke: var(--blue-color);
+    fill: none;
+    stroke-width: 3.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    z-index: 2;
+    stroke-dashoffset: 0;
+    margin-bottom: 7px;
+
+    &--1 {
+      stroke-dasharray: 255.202, 255.202;
+
+      #{$hover} & {
+        stroke-dashoffset: 255.202;
+      }
+    }
+
+    &--2 {
+      stroke-dasharray: 212.191, 212.191;
+
+      #{$hover} & {
+        stroke-dashoffset: 212.191;
+      }
+    }
+
+    &--3 {
+      stroke-dasharray: 201.648, 201.648;
+
+      #{$hover} & {
+        stroke-dashoffset: 201.648;
+      }
+    }
+
+    &--4 {
+      stroke-dasharray: 263.599, 263.599;
+
+      #{$hover} & {
+        stroke-dashoffset: 263.599;
+      }
+    }
+  }
+
+  &__item-title {
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--black-color);
+    margin-bottom: 5px;
+    transform-origin: left bottom;
+
+    #{$hover} & {
+      transform: scale(1.2);
+      color: var(--blue-color);
+    }
+  }
+
+  &__item-desc {
+    font-size: 16px;
+    color: var(--gray-color);
+
+    #{$hover} & {
+      color: var(--blue-color);
+    }
+  }
+}

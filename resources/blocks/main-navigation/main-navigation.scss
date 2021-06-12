@@ -1,0 +1,73 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.main-navigation {
+
+  &__content {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 2fr 1.27fr;
+    align-items: center;
+    height: 100%;
+
+    &:after {
+      @include pseudo-absolute;
+      width: 1px;
+      height: calc(100% + 10px);
+      left: 59%;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--gray-color);
+      opacity: .5;
+    }
+  }
+
+  &__item {
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+
+  &__desc {
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+
+  &__button {
+    border-radius: 5px;
+    border: 1px solid var(--blue-color);
+    background: var(--blue-color);
+    color: var(--white-color);
+    font-weight: 500;
+    font-size: 16px;
+    @include flex-row-center;
+    text-align: center;
+    width: 290px;
+    height: 56px;
+    cursor: pointer;
+    position: relative;
+    @include active-button-effect;
+    @include unselectable;
+
+    &:hover {
+      background: var(--white-color);
+      color: var(--blue-color);
+    }
+
+    &--invert {
+      background: var(--white-color);
+      color: var(--blue-color);
+
+      &:hover {
+        background: var(--blue-color);
+        color: var(--white-color);
+      }
+    }
+  }
+}

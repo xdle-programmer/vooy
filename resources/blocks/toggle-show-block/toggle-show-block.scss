@@ -1,0 +1,27 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.toggle-show-block {
+  &__button {
+  }
+
+  $active-button: '.toggle-show-block__button--active';
+
+  &__button-text {
+    &--default {}
+    &--active {display: none}
+
+    #{$active-button} &--default {display: none}
+    #{$active-button} &--active {display: flex}
+  }
+
+  &__item {
+    display: none;
+
+    &--active {
+      display: block;
+    }
+  }
+}

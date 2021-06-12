@@ -1,0 +1,9 @@
+mixin hint(text, inner)
+    if inner == 'inner'
+        .hint.hint--inner
+            +iconSvg('exclamation','hint__icon')
+            .hint__text=text
+    else
+        .hint
+            +iconSvg('exclamation','hint__icon')
+            .hint__text=text

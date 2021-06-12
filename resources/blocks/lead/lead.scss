@@ -1,0 +1,37 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.lead {
+  display: flex;
+  align-items: center;
+  padding: 18px 32px;
+  padding-bottom: 10px;
+
+  &__icon {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  &__desc {
+    padding-left: 25px;
+    padding-right: 15%;
+  }
+
+  &__desc-title {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  &__desc-text {
+    font-size: 16px;
+  }
+
+  &__button {
+
+  }
+}

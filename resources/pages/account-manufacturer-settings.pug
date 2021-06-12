@@ -1,0 +1,80 @@
+extends ../templates/visitor
+
+
+block variables
+    - var title = 'Vooy'
+
+block content
+    section.section.section--small
+        .layout
+            +breadcrumbs([{name: 'Главная', link: '/_index.html'}, {name: 'Личный кабинет', link: '#'}])
+
+    section.section.section--small
+        .layout
+            .account
+                .account-menu
+                    .account-menu__header.account-menu__section.account-menu__section--header
+                        .account-menu__header-img-wrapper(data-name='Н')
+                            .account-menu__header-img
+                            label.account-menu__header-button
+                                .account-menu__header-button-icon-wrapper
+                                    +iconSvg('photo','account-menu__header-button-icon')
+                                input(type='file').account-menu__header-input
+                        .account-menu__header-name Название поставщика
+                        .account-menu__header-city Гуаньджоу
+                        a(href='#').account-menu__link Личный кабинет
+                    .account-menu__section
+                        a(href='#').account-menu__link О реферальной программе
+                        a(href='#').account-menu__link Баланс
+                        a(href='#').account-menu__link Список партнёров
+                        a(href='#').account-menu__link Пригласить партнёров
+                    .account-menu__section
+                        a(href='#').account-menu__link Мои тендеры
+                    .account-menu__section
+                        a(href='#').account-menu__link.account-menu__link--bold Настройки
+                        a(href='#').account-menu__link.account-menu__link--red Выйти
+
+                .account__item.border-block
+                    .account__item-settings
+                        +titleCount('Настройки')
+
+                        .account__item-settings-item
+                            .account__item-settings-item-title Телефон
+                            .account__item-settings-block.account__item-settings-block--two-col
+                                .account__item-settings-block-item.placeholder
+                                    input(placeholder='Телефон' value='+79111111111').input.placeholder__input
+                                    .placeholder__item Телефон
+                                .account__item-settings-block-item
+                                    .account__item-settings-block-item-success
+                                        +iconSvg('check','account__item-settings-block-item-success-icon')
+                                        .account__item-settings-block-item-success-text Подтвержден
+
+                        .account__item-settings-item
+                            .account__item-settings-item-title Личные данные
+                            .account__item-settings-block.account__item-settings-block--two-col
+                                .account__item-settings-block-item.placeholder
+                                    input(placeholder='Название поставщика' value='Название поставщика').input.placeholder__input
+                                    .placeholder__item Название поставщика
+                                .account__item-settings-block-item.placeholder
+                                    input(placeholder='Город' value='Гуаньджоу').input.placeholder__input
+                                    .placeholder__item Город
+
+                        .account__item-settings-item
+                            .account__item-settings-item-title Фото с производства
+                            +photoUploadEmptySix
+
+                        .account__item-settings-item
+                            .account__item-settings-item-title Изменить пароль
+                            .account__item-settings-block.account__item-settings-block--three-col
+                                .account__item-settings-block-item.placeholder
+                                    input(placeholder='Текущий пароль' type='password').input.placeholder__input
+                                    .placeholder__item Текущий пароль
+                                .account__item-settings-block-item.placeholder
+                                    input(placeholder='Новый пароль' type='password').input.placeholder__input
+                                    .placeholder__item Новый пароль
+                                .account__item-settings-block-item.placeholder
+                                    input(placeholder='Повторите новый пароль' type='password').input.placeholder__input
+                                    .placeholder__item Повторите новый пароль
+
+                        .account__item-settings-item.account__item-settings-item--no-border
+                            .button Сохранить изменения

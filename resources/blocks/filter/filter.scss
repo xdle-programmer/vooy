@@ -1,0 +1,15 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.filter {
+
+  &__item {
+
+
+    &--hide {
+      display: none;
+    }
+  }
+}

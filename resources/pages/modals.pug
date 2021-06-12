@@ -1,0 +1,35 @@
+extends ../templates/visitor
+
+block variables
+    - var title = 'Vooy'
+
+block content
+
+    section.section.section--small
+        .layout
+            .button.button--invert.button--fill(data-modal-open='login') Модалка авторизации
+            div #[br]
+            .button.button--invert.button--fill(data-modal-open='register') Модалка регистрации
+            div #[br]
+            .button.button--invert.button--fill(data-modal-open='check-phone') Модалка проверки телефона
+            div #[br]
+            .button.button--invert.button--fill(data-modal-open='register-manufacturer') Модалка регистрации поставщика
+            div #[br]
+            .button.button--invert.button--fill(data-modal-open='new-tender') Модалка публикации тендера
+            div #[br]
+            .button.button--invert.button--fill(data-modal-open='new-tender-success') Модалка подтверждения тендера
+            div #[br]
+            .button.button--invert.button--fill(data-modal-open='tender-copied') Модалка тендер успешно скопирован
+            div #[br]
+            .button.button--invert.button--fill(data-modal-open='changes-saved') Модалка изменения сохранены
+            div #[br]
+            .button.button--invert.button--fill(data-modal-open='winner-question') Проверка победителя
+            div #[br]
+            .button.button--invert.button--fill(data-modal-open='winner-success') Подтверждение победителя
+            div #[br]
+            .button.button--invert.button--fill(data-modal-open='new-tender-products') Модалка тендера с товарами
+
+
+
+
+

@@ -1,0 +1,92 @@
+extends ../templates/visitor
+
+block variables
+    - var title = 'Vooy'
+
+block content
+    section.section.section--small
+        .layout
+            +breadcrumbs([{name: 'Главная', link: '/_index.html'}, {name: 'Мой тендер', link: '#'}])
+            +titleCount('Мой тендер','2 товара')
+
+    section.section.section--small
+        .layout
+            .basket
+                .basket__list
+                    .basket__list-item.border-block
+                        img(src='images/examples/products-preview/products-preview-1.jpg').basket__list-item-photo
+                        .basket__list-item-name Заводская дешевая горячая Распродажа летняя повседневная одежда.
+                        .basket__list-item-count
+                            +counter(100)
+                        .basket__list-item-sum
+                            .basket__list-item-sum-title Стоимость примерно:
+                            .basket__list-item-sum-value 1 130 000 ₽
+                        .basket__list-item-example
+                            .basket__list-item-example-checkbox
+                                +checkbox('Необходим образец',true)
+                            .basket__list-item-example-tooltip
+                                +tooltip('Поставьте галочку, если перед заказом вы требуете тестовый образец','left',false)
+                        .basket__list-item-desc
+                            .basket__list-item-manufacturer
+                                .basket__list-item-manufacturer-title Поставщик:
+                                .basket__list-item-manufacturer-name Название поставщика
+                            .basket__list-item-controls
+                                .basket__list-item-control
+                                    +iconSvg('star','basket__list-item-control-icon basket__list-item-control-icon--favorites')
+                                    .basket__list-item-control-text В избранное
+                                .basket__list-item-control
+                                    +iconSvg('close','basket__list-item-control-icon basket__list-item-control-icon--delete')
+                                    .basket__list-item-control-text Удалить
+
+
+
+
+
+
+                    .basket__list-item.border-block
+                        img(src='images/examples/products-preview/products-preview-1.jpg').basket__list-item-photo
+                        .basket__list-item-name Заводская дешевая горячая Распродажа летняя повседневная одежда.
+                        .basket__list-item-count
+                            +counter(100)
+                        .basket__list-item-sum
+                            .basket__list-item-sum-title Стоимость примерно:
+                            .basket__list-item-sum-value 1 130 000 ₽
+                        .basket__list-item-example
+                            .basket__list-item-example-checkbox
+                                +checkbox('Необходим образец',true)
+                            .basket__list-item-example-tooltip
+                                +tooltip('Поставьте галочку, если перед заказом вы требуете тестовый образец','left',false)
+                        .basket__list-item-desc
+                            .basket__list-item-manufacturer
+                                .basket__list-item-manufacturer-title Поставщик:
+                                .basket__list-item-manufacturer-name Название поставщика
+                            .basket__list-item-controls
+                                .basket__list-item-control
+                                    +iconSvg('star','basket__list-item-control-icon basket__list-item-control-icon--favorites')
+                                    .basket__list-item-control-text В избранное
+                                .basket__list-item-control
+                                    +iconSvg('close','basket__list-item-control-icon basket__list-item-control-icon--delete')
+                                    .basket__list-item-control-text Удалить
+
+
+
+
+
+
+                    .lead.border-block
+                        img(src='images/icons/illustrations/hands-coin.png').lead__icon
+                        .lead__desc
+                            .lead__desc-title Больше товаров, больше выгода!
+                            .lead__desc-text Напоминаем, что стоимость единицы товара снижается, в зависимости от его количества в тендере.
+                .basket__sum.border-block
+                    .basket__sum-row.basket__sum-row--big
+                        .basket__sum-row-item Итого:
+                        .basket__sum-row-item 32 199 ₽
+                    .basket__sum-row
+                        .basket__sum-row-item Заводская дешевая горячая Распродажа летняя повседневная одежда.
+                        .basket__sum-row-item 30 199 ₽
+                    .basket__sum-row
+                        .basket__sum-row-item Заводская дешевая горячая Распродажа летняя повседневная одежда.
+                        .basket__sum-row-item 2 199 ₽
+                    +hint('Стоимость указана примерно, так как предложения поставщиков всегда различаются','inner')
+                    .basket__sum-button.button Оформить тендер

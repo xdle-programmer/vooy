@@ -1,0 +1,67 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.form {
+  display: grid;
+
+  &__item-wrapper {
+
+    &--sticky {
+      position: sticky;
+      top: 85px;
+      height: 500px;
+    }
+
+  }
+
+  &--two-col {
+    grid-template-columns: 1fr 450px;
+    grid-gap: 15px;
+  }
+
+  &__item-group-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0 15px;
+  }
+
+  &__item {
+    padding: 20px;
+  }
+
+  &__item-group {
+    margin-bottom: 30px
+  }
+
+  &__item-group-title {
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 25px;
+
+    &--center {
+      text-align: center;
+    }
+  }
+
+  &__item-group-item {
+    margin-bottom: 15px
+  }
+
+  &__item-footer {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 250px 250px 1fr;
+    grid-gap: 30px;
+  }
+
+  &__copy-button {
+    @include margin-auto;
+  }
+
+  &__item-group-text {
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+}

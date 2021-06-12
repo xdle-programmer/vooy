@@ -1,0 +1,23 @@
+mixin manufacturerPreview(assessment)
+    a(href='/_manufacturer.html').manufacturer-preview.border-block
+        img(src='images/examples/manufacturer/logo/manufacturer-logo-1.jpg').manufacturer-preview__img
+        .manufacturer-preview__desc
+            .manufacturer-preview__desc-title Название поставщика
+
+            if assessment
+                .manufacturer-preview__assessment
+                    .manufacturer-preview__assessment-value 4.93
+                    +iconSvg('star','manufacturer-preview__assessment-star')
+            else
+                .manufacturer-preview__assessment.manufacturer-preview__assessment--empty
+                    .manufacturer-preview__assessment-value Нет рейтинга
+                    +iconSvg('star','manufacturer-preview__assessment-star')
+
+            .manufacturer-preview__desc-counters
+                .manufacturer-preview__desc-counter
+                    .manufacturer-preview__desc-counter-number 30
+                    .manufacturer-preview__desc-counter-text побед в тендерах
+                .manufacturer-preview__desc-counter
+                    .manufacturer-preview__desc-counter-number 120
+                    .manufacturer-preview__desc-counter-text товаров
+

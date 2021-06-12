@@ -1,0 +1,44 @@
+extends ../templates/visitor
+
+block variables
+    - var title = 'Vooy'
+
+block content
+    section.section
+        include ../blocks/main-banner/main-banner
+    section.section
+        include ../blocks/main-navigation/main-navigation
+    section.section
+        .layout
+            .title.title--small Предложения недели!
+            +productGrid(5)
+    section.section
+        .layout
+            include ../blocks/advantages/advantages
+
+    section.section
+        .layout
+            .products-grid.products-grid--4
+                include ../blocks/banner/banner
+                +productPreview(2,'Дешевая мода 2020, оптовая продажа, комплекты детской', false, true)
+                +productPreview(3,'Заводская дешевая горячая Распродажа летняя повседневная одежда', false, true)
+                +productPreview(4,'Коллекция 2020 года, дизайнерская мужская блестящая пузырьковая', false, true)
+
+    section.section
+        .layout
+            .title.title--small Предложения недели!
+            +productGrid(5)
+
+    section.section
+        .layout
+            .title.title--small Выгодные предложения
+            include ../blocks/categories-preview/categories-preview
+
+    section.section
+        .layout
+            include ../blocks/selected-products/selected-products
+
+    section.section
+        .layout
+            .title.title--small Категории с самой высокой наценкой
+            include ../blocks/categories-labels/categories-labels

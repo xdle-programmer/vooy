@@ -1,0 +1,468 @@
+extends ../templates/visitor
+
+block variables
+    - var title = 'Vooy'
+
+block content
+    section.section.section--small
+        .layout
+            +breadcrumbs([{name: 'Главная', link: '/_index.html'}, {name: 'Список тендеров', link: '/_tenders-list-buyer.html'}, {name: 'Тендер 12345', link: '#'}])
+
+    section.section.section--small
+        .layout
+            .tender-header
+                .tender-header__main
+                    .tender-header__main-title
+                        .tender-header__main-title-name Тендер на товары
+                        .tender-header__main-title-number №2345678
+                        .tender-header__main-title-status
+                            .tender-header__main-title-status-title.tender-header__main-title-status-title--gold Поиск поставщика
+                            .tender-header__main-title-status-line
+                                .status-line.status-line--2
+                    .tender-header__main-buttons
+                        .tender-header__main-button.button.button--small Скопировать
+                            +iconSvg('copy','button__icon button__icon--small')
+                        .tender-header__main-button.button.button--small Редактировать
+                            +iconSvg('pencil','button__icon')
+                        .tender-header__main-button.button.button--small Закрыть
+                            +iconSvg('close','button__icon button__icon--small')
+                .tender-header__desc
+                    .tender-header__desc-item
+                        .tender-header__desc-item-name Cоздан:
+                        .tender-header__desc-item-value 24.02.2020
+                        .tender-header__desc-item-name Осталось времени:
+                        .tender-header__desc-item-value 48ч
+
+    section.section.section--small
+        .layout
+            .tabs
+                .tabs__header
+                    .tabs__toggle-nav
+                        .tabs__toggle-nav-button.tabs__toggle-nav-button--prev
+                            +iconSvg('arrow','tabs__toggle-nav-button-icon')
+                        .tabs__toggle-nav-button.tabs__toggle-nav-button--next
+                            +iconSvg('arrow','tabs__toggle-nav-button-icon')
+                    .tabs__toggle-buttons
+                        .tabs__toggle-button Тендер
+                        .tabs__toggle-button.tabs__toggle-button--active Ответы (сгруппировать по поставщикам)
+                        .tabs__toggle-button Ответы (сгруппировать по товарам)
+                .tabs__toggle-items
+                    .tabs__toggle-item
+                        +tenderRowProductHeader({
+                            imgTitle: 'Фото',
+                            nameTitle: 'Наименование',
+                            productCountTitle: 'Количество',
+                            exampleTitle: 'Необходим образец',
+                            commentTitle: 'Комментарий'
+                        })
+
+                        +tenderRowProduct({
+                            imgSrc: 'images/examples/products-preview/products-preview-5.jpg',
+                            name: 'Синие джинсы',
+                            productCount: '1 000',
+                            example: true,
+                            comment: 'Короткий комментарий',
+                            productImages: [
+                                'images/examples/product/big/product-1.jpg',
+                                'images/examples/product/big/product-2.jpg',
+                                'images/examples/product/big/product-3.jpg',
+                                'images/examples/product/big/product-4.jpg',
+                                'images/examples/product/big/product-5.jpg',
+                                'images/examples/product/big/product-6.jpg',
+                                'images/examples/product/big/product-7.jpg',
+                            ]
+                        })
+
+                        +tenderRowProduct({
+                            imgSrc: 'images/examples/products-preview/products-preview-1.jpg',
+                            name: 'Заводская дешевая горячая Распродажа летняя повседневная одежда.',
+                            productCount: '1 200',
+                            example: false,
+                            comment: 'Очень длинный комментарий в несколько строк с переносом на другие строки',
+                            productImages: [
+                                'images/examples/products-preview/products-preview-1.jpg'
+                            ]
+                        })
+                    .tabs__toggle-item.tabs__toggle-item--active.tabs__toggle-item--active-effect
+                        .border-block.offer.tenders-chat
+                            .offer__manufacturer-buttons
+                                .offer__manufacturer-button.offer__manufacturer-button--green
+                                    .offer__manufacturer-button-text Выбрать победителем
+                                    +iconSvg('check-circle','offer__manufacturer-button-icon')
+                                .offer__manufacturer-button.offer__manufacturer-button--gray
+                                    .offer__manufacturer-button-text Скрыть из списка
+                                    +iconSvg('close','offer__manufacturer-button-icon offer__manufacturer-button-icon--small')
+                                .offer__manufacturer-button.offer__manufacturer-button--message.tenders-chat__button(data-chat='1')
+                                    .offer__manufacturer-button-text.tenders-chat__button-text.tenders-chat__button-text--default Написать поставщику
+                                    .offer__manufacturer-button-text.tenders-chat__button-text.tenders-chat__button-text--active Скрыть переписку
+                                    .offer__manufacturer-button-message
+                                        +iconSvg('message','offer__manufacturer-button-message-icon')
+                                        .offer__manufacturer-button-message-count
+                                            .offer__manufacturer-button-message-count-inner
+                                                .offer__manufacturer-button-message-count-inner-number 3
+                            .offer__header
+                                +manufacturer('Первый поставщик',true)
+                            +tenderRowOfferHeader({
+                                imgTitle: 'Фото',
+                                nameTitle: 'Наименование',
+                                productCountTitle: 'Количество',
+                                priceTitle: 'Стоимость',
+                                termTitle: 'Срок реализации',
+                                exampleTitle: 'Предоставим образец',
+                                commentTitle:'Комментарий поставщика'
+                            })
+
+                            +tenderRowOffer({
+                                imgSrc: 'images/examples/products-preview/products-preview-5.jpg',
+                                name: 'Синие джинсы',
+                                productCount: '1 000',
+                                price:'10 000',
+                                term:'10',
+                                example: true,
+                                comment: 'Короткий комментарий',
+                                productImages: [
+                                    'images/examples/product/big/product-1.jpg',
+                                    'images/examples/product/big/product-2.jpg',
+                                    'images/examples/product/big/product-3.jpg',
+                                    'images/examples/product/big/product-4.jpg',
+                                    'images/examples/product/big/product-5.jpg',
+                                    'images/examples/product/big/product-6.jpg',
+                                    'images/examples/product/big/product-7.jpg',
+                                ]
+                            })
+
+                            +tenderRowOffer({
+                                imgSrc: 'images/examples/products-preview/products-preview-1.jpg',
+                                name: 'Заводская дешевая горячая Распродажа летняя повседневная одежда.',
+                                productCount: '1 000',
+                                price: '10 000',
+                                term: '10',
+                                example: false,
+                                comment: 'Очень длинный комментарий в несколько строк с переносом на другие строки',
+                                productImages: [
+                                    'images/examples/products-preview/products-preview-1.jpg',
+                                ]
+                            })
+
+
+                            .tenders-chat__wrapper
+                                .tenders-chat__content(data-chat-name='1')
+                                    +chat({
+                                        exampleNumber:'1',
+                                        title:'Переговоры с "Первый поставщик"',
+                                        form:true
+                                    })
+
+                        .border-block.offer.tenders-chat
+                            .offer__manufacturer-buttons
+                                .offer__manufacturer-button.offer__manufacturer-button--green
+                                    .offer__manufacturer-button-text Выбрать победителем
+                                    +iconSvg('check-circle','offer__manufacturer-button-icon')
+                                .offer__manufacturer-button.offer__manufacturer-button--gray
+                                    .offer__manufacturer-button-text Скрыть из списка
+                                    +iconSvg('close','offer__manufacturer-button-icon offer__manufacturer-button-icon--small')
+                                .offer__manufacturer-button.offer__manufacturer-button--message.tenders-chat__button(data-chat='1')
+                                    .offer__manufacturer-button-text.tenders-chat__button-text.tenders-chat__button-text--default Написать поставщику
+                                    .offer__manufacturer-button-text.tenders-chat__button-text.tenders-chat__button-text--active Скрыть переписку
+                                    .offer__manufacturer-button-message
+                                        +iconSvg('message','offer__manufacturer-button-message-icon')
+                                        .offer__manufacturer-button-message-count
+                                            .offer__manufacturer-button-message-count-inner
+                                                .offer__manufacturer-button-message-count-inner-number 6
+                            .offer__header
+                                +manufacturer('Второй поставщик',false)
+                            +tenderRowOfferHeader({
+                                imgTitle: 'Фото',
+                                nameTitle: 'Наименование',
+                                productCountTitle: 'Количество',
+                                priceTitle: 'Стоимость',
+                                termTitle: 'Срок реализации',
+                                exampleTitle: 'Предоставим образец',
+                                commentTitle: 'Комментарий поставщика'
+                            })
+
+                            +tenderRowOffer({
+                                    imgSrc: 'images/examples/products-preview/products-preview-5.jpg',
+                                    name: 'Синие джинсы',
+                                    productCount: '2 000',
+                                    price: '20 000',
+                                    term: '20',
+                                    example: true,
+                                    comment: 'Короткий комментарий',
+                                    productImages: [
+                                        'images/examples/product/big/product-1.jpg',
+                                        'images/examples/product/big/product-2.jpg',
+                                        'images/examples/product/big/product-3.jpg',
+                                        'images/examples/product/big/product-4.jpg',
+                                        'images/examples/product/big/product-5.jpg',
+                                        'images/examples/product/big/product-6.jpg',
+                                        'images/examples/product/big/product-7.jpg',
+                                    ]
+                                })
+
+                            +tenderRowOffer({
+                                    imgSrc: 'images/examples/products-preview/products-preview-1.jpg',
+                                    name: 'Заводская дешевая горячая Распродажа летняя повседневная одежда.',
+                                    productCount: '2 000',
+                                    price: '20 000',
+                                    term: '20',
+                                    example: false,
+                                    comment: 'Очень длинный комментарий в несколько строк с переносом на другие строки',
+                                    productImages: [
+                                        'images/examples/products-preview/products-preview-1.jpg',
+                                    ]
+                                })
+
+
+                            .tenders-chat__wrapper
+                                .tenders-chat__content(data-chat-name='1')
+                                    +chat({
+                                        exampleNumber: '2',
+                                        title: 'Переговоры с "Второй поставщик"',
+                                        form: true
+                                    })
+                        .toggle-show-block
+                            .section.section--small.section--center
+                                .toggle-show-block__button.button.button--invert.button--auto-width
+                                    .toggle-show-block__button-text.toggle-show-block__button-text--default Показать скрытых поставщиков
+                                    .toggle-show-block__button-text.toggle-show-block__button-text--active Скрыть поставщиков
+                            .toggle-show-block__item
+                                .title-separator Скрытые поставщики
+                                .border-block.offer.tenders-chat
+                                    .offer__manufacturer-buttons
+                                        .offer__manufacturer-button.offer__manufacturer-button--green
+                                            .offer__manufacturer-button-text Выбрать победителем
+                                            +iconSvg('check-circle','offer__manufacturer-button-icon')
+                                        .offer__manufacturer-button.offer__manufacturer-button--gray
+                                            .offer__manufacturer-button-text Вернуть в список
+                                            +iconSvg('return','offer__manufacturer-button-icon')
+                                        .offer__manufacturer-button.offer__manufacturer-button--message.tenders-chat__button(data-chat='1')
+                                            .offer__manufacturer-button-text.tenders-chat__button-text.tenders-chat__button-text--default Написать поставщику
+                                            .offer__manufacturer-button-text.tenders-chat__button-text.tenders-chat__button-text--active Скрыть переписку
+                                            .offer__manufacturer-button-message
+                                                +iconSvg('message','offer__manufacturer-button-message-icon')
+                                    .offer__header
+                                        +manufacturer('Третий поставщик',false)
+
+                                    +tenderRowOfferHeader({
+                                        imgTitle: 'Фото',
+                                        nameTitle: 'Наименование',
+                                        productCountTitle: 'Количество',
+                                        priceTitle: 'Стоимость',
+                                        termTitle: 'Срок реализации',
+                                        exampleTitle: 'Предоставим образец',
+                                        commentTitle: 'Комментарий поставщика'
+                                    })
+
+                                    +tenderRowOffer({
+                                        imgSrc: 'images/examples/products-preview/products-preview-5.jpg',
+                                        name: 'Синие джинсы',
+                                        productCount: '3000',
+                                        price: '30 000',
+                                        term: '30',
+                                        example: true,
+                                        comment: 'Короткий комментарий',
+                                        productImages: [
+                                            'images/examples/product/big/product-1.jpg',
+                                            'images/examples/product/big/product-2.jpg',
+                                            'images/examples/product/big/product-3.jpg',
+                                            'images/examples/product/big/product-4.jpg',
+                                            'images/examples/product/big/product-5.jpg',
+                                            'images/examples/product/big/product-6.jpg',
+                                            'images/examples/product/big/product-7.jpg',
+                                        ]
+                                    })
+
+                                    +tenderRowOffer({
+                                        imgSrc: 'images/examples/products-preview/products-preview-1.jpg',
+                                        name: 'Заводская дешевая горячая Распродажа летняя повседневная одежда.',
+                                        productCount: '3000',
+                                        price: '30 000',
+                                        term: '30',
+                                        example: false,
+                                        comment: 'Очень длинный комментарий в несколько строк с переносом на другие строки',
+                                        productImages: [
+                                            'images/examples/products-preview/products-preview-1.jpg',
+                                        ]
+                                    })
+
+                                    .tenders-chat__wrapper
+                                        .tenders-chat__content(data-chat-name='1')
+                                            +chat({
+                                                exampleNumber: '3',
+                                                title: 'Переговоры с "Третий поставщик"',
+                                                form: true
+                                            })
+
+
+
+
+
+
+
+
+                    .tabs__toggle-item
+                        .border-block.offer.tenders-chat
+                            .offer__header
+                                .offer__header-product
+
+                                    .offer__header-preview(data-product-img-slider='images/examples/product/big/product-1.jpg,images/examples/product/big/product-2.jpg,images/examples/product/big/product-3.jpg,images/examples/product/big/product-4.jpg,images/examples/product/big/product-5.jpg,images/examples/product/big/product-6.jpg,images/examples/product/big/product-7.jpg')
+                                        .offer__header-preview-zoom-text 7 фото
+                                        img(src='images/examples/products-preview/products-preview-5.jpg').offer__header-preview-img
+                                    .offer__header-title Синие джинсы
+                                    .offer__header-options
+                                        .offer__header-option
+                                            .offer__header-option-name Количество:
+                                            .offer__header-option-value 1 000
+                                        .offer__header-option
+                                            .offer__header-option-name Образец:
+                                            .offer__header-option-value Обязателен
+                                        .offer__header-option
+                                            .offer__header-option-name Комментарий:
+                                            .offer__header-option-value Короткий комментарий
+
+
+                            +tenderRowOfferWithManufacturerHeader({
+                                imgTitle: 'Фото',
+                                offerTitle: 'Предложение',
+                                productCountTitle: 'Количество',
+                                priceTitle: 'Стоимость',
+                                termTitle: 'Срок реализации',
+                                exampleTitle: 'Предоставим образец',
+                            })
+
+                            +tenderRowOfferWithManufacturer({
+                                imgSrc: 'images/examples/products-preview/products-preview-5.jpg',
+                                name: 'Синие джинсы',
+                                manufacturerName:'Первый поставщик',
+                                productCount: '1 000',
+                                price: '10 000',
+                                term: '10',
+                                example: true,
+                                comment: 'Короткий комментарий',
+                                messagesNumber: '3',
+                                chatId: '1',
+                                productImages: [
+                                    'images/examples/product/big/product-1.jpg',
+                                    'images/examples/product/big/product-2.jpg',
+                                    'images/examples/product/big/product-3.jpg',
+                                    'images/examples/product/big/product-4.jpg',
+                                    'images/examples/product/big/product-5.jpg',
+                                    'images/examples/product/big/product-6.jpg',
+                                    'images/examples/product/big/product-7.jpg',
+                                ]
+                            })
+
+                            .tenders-chat__wrapper.tenders-chat__wrapper--in-row
+                                .tenders-chat__content(data-chat-name='1')
+                                    +chat({
+                                        exampleNumber: '1',
+                                        title: 'Переговоры с "Первый поставщик"',
+                                        form: true
+                                    })
+
+                            +tenderRowOfferWithManufacturer({
+                                imgSrc: 'images/examples/products-preview/products-preview-5.jpg',
+                                name: 'Синие джинсы',
+                                manufacturerName: 'Второй поставщик',
+                                productCount: '2 000',
+                                price: '20 000',
+                                term: '20',
+                                example: false,
+                                comment: 'Очень длинный комментарий в несколько строк с переносом на другие строки',
+                                messagesNumber:'6',
+                                chatId:'2',
+                                productImages: [
+                                    'images/examples/product/big/product-1.jpg',
+                                    'images/examples/product/big/product-2.jpg',
+                                    'images/examples/product/big/product-3.jpg',
+                                    'images/examples/product/big/product-4.jpg',
+                                    'images/examples/product/big/product-5.jpg',
+                                    'images/examples/product/big/product-6.jpg',
+                                ]
+                            })
+
+                            .tenders-chat__wrapper.tenders-chat__wrapper--in-row
+                                .tenders-chat__content(data-chat-name='2')
+                                    +chat({
+                                        exampleNumber: '2',
+                                        title: 'Переговоры с "Второй поставщик"',
+                                        form: true
+                                    })
+
+                        .border-block.offer.tenders-chat
+                            .offer__header
+                                .offer__header-product
+
+                                    .offer__header-preview(data-product-img-slider='images/examples/products-preview/products-preview-1.jpg')
+                                        .offer__header-preview-zoom-text 1 фото
+                                        img(src='images/examples/products-preview/products-preview-1.jpg').offer__header-preview-img
+                                    .offer__header-title Заводская дешевая горячая Распродажа летняя повседневная одежда.
+                                    .offer__header-options
+                                        .offer__header-option
+                                            .offer__header-option-name Количество:
+                                            .offer__header-option-value 1 200
+                                        .offer__header-option
+                                            .offer__header-option-name Образец:
+                                            .offer__header-option-value Не обязателен
+                                        .offer__header-option
+                                            .offer__header-option-name Комментарий:
+                                            .offer__header-option-value Очень длинный комментарий в несколько строк с переносом на другие строки
+
+
+                            +tenderRowOfferWithManufacturerHeader({
+                                imgTitle: 'Фото',
+                                offerTitle: 'Предложение',
+                                productCountTitle: 'Количество',
+                                priceTitle: 'Стоимость',
+                                termTitle: 'Срок реализации',
+                                exampleTitle: 'Предоставим образец',
+                            })
+
+                            +tenderRowOfferWithManufacturer({
+                                imgSrc: 'images/examples/products-preview/products-preview-1.jpg',
+                                name: 'Заводская дешевая горячая Распродажа летняя повседневная одежда.',
+                                manufacturerName: 'Первый поставщик',
+                                productCount: '1 000',
+                                price: '10 000',
+                                term: '10',
+                                example: true,
+                                comment: 'Короткий комментарий',
+                                messagesNumber: '3',
+                                chatId: '1',
+                                productImages: [
+                                    'images/examples/products-preview/products-preview-1.jpg',
+                                ]
+                            })
+
+                            .tenders-chat__wrapper.tenders-chat__wrapper--in-row
+                                .tenders-chat__content(data-chat-name='1')
+                                    +chat({
+                                        exampleNumber: '1',
+                                        title: 'Переговоры с "Первый поставщик"',
+                                        form: true
+                                    })
+
+                            +tenderRowOfferWithManufacturer({
+                                imgSrc: 'images/examples/products-preview/products-preview-1.jpg',
+                                name: 'Заводская дешевая горячая Распродажа летняя повседневная одежда.',
+                                manufacturerName: 'Второй поставщик',
+                                productCount: '2 000',
+                                price: '20 000',
+                                term: '20',
+                                example: false,
+                                comment: 'Очень длинный комментарий в несколько строк с переносом на другие строки',
+                                messagesNumber: '6',
+                                chatId: '2',
+                                productImages: [
+                                    'images/examples/products-preview/products-preview-1.jpg',
+                                ]
+                            })
+
+                            .tenders-chat__wrapper.tenders-chat__wrapper--in-row
+                                .tenders-chat__content(data-chat-name='2')
+                                    +chat({
+                                        exampleNumber: '2',
+                                        title: 'Переговоры с "Второй поставщик"',
+                                        form: true
+                                    })

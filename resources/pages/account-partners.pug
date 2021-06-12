@@ -1,0 +1,66 @@
+extends ../templates/visitor
+
+
+block variables
+    - var title = 'Vooy'
+
+block content
+    section.section.section--small
+        .layout
+            +breadcrumbs([{name: 'Главная', link: '/_index.html'}, {name: 'Личный кабинет', link: '#'}])
+
+    section.section.section--small
+        .layout
+            .account
+                .account-menu
+                    .account-menu__header.account-menu__section.account-menu__section--header
+                        .account-menu__header-img-wrapper(data-name='В')
+                            .account-menu__header-img
+                            label.account-menu__header-button
+                                .account-menu__header-button-icon-wrapper
+                                    +iconSvg('photo','account-menu__header-button-icon')
+                                input(type='file').account-menu__header-input
+                        .account-menu__header-name Владимир Владимирович Длиннофамильский
+                        .account-menu__header-city Москва
+                        a(href='#').account-menu__link Личный кабинет
+                    .account-menu__section
+                        a(href='#').account-menu__link О реферальной программе
+                        a(href='#').account-menu__link Баланс
+                        a(href='#').account-menu__link.account-menu__link--bold Список партнёров
+                        a(href='#').account-menu__link Пригласить партнёров
+                    .account-menu__section
+                        a(href='#').account-menu__link Мои тендеры
+                    .account-menu__section
+                        a(href='#').account-menu__link Настройки
+                        a(href='#').account-menu__link.account-menu__link--red Выйти
+
+                .account__item.border-block
+                    .account__item-balance
+                        +titleCount('Мои партнёры')
+                        .account__item-balance-table
+                            .account__item-balance-table-title Список из приглашённых вами поставщиков
+                            .account__item-balance-table-rows
+                                .account__item-balance-table-row.account__item-balance-table-row--header
+                                    .account__item-balance-table-cell Имя поставщика
+                                    .account__item-balance-table-cell Объем продаж
+                                    .account__item-balance-table-cell Мой бонус
+                                .account__item-balance-table-row
+                                    .account__item-balance-table-cell Поставщик 1
+                                    .account__item-balance-table-cell 20
+                                    .account__item-balance-table-cell 456 ₽
+                                .account__item-balance-table-row
+                                    .account__item-balance-table-cell Поставщик 2
+                                    .account__item-balance-table-cell 20
+                                    .account__item-balance-table-cell 456 ₽
+                                .account__item-balance-table-row
+                                    .account__item-balance-table-cell Поставщик 3
+                                    .account__item-balance-table-cell 20
+                                    .account__item-balance-table-cell 456 ₽
+
+
+
+
+
+
+
+

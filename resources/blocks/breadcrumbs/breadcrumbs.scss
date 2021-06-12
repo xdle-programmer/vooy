@@ -1,0 +1,48 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.breadcrumbs {
+  @include flex-row;
+  margin-bottom: 18px;
+
+  &__item {
+    font-size: 12px;
+    color: var(--gray-color);
+    @include flex-row;
+    align-items: center;
+    cursor: pointer;
+
+    &:after {
+      content: '';
+      border: solid var(--gray-color);
+      border-width: 0 1px 1px 0;
+      display: block;
+      margin: 0 10px;
+      width: 6px;
+      height: 6px;
+      transform: rotate(-45deg);
+    }
+
+    &:hover {
+      color: var(--blue-color);
+    }
+
+
+    &--active {
+      color: var(--black-color);
+      cursor: default;
+
+      &:after {
+        display: none;
+      }
+
+      &:hover {
+        color: var(--black-color);
+      }
+
+    }
+
+  }
+}

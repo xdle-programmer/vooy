@@ -1,0 +1,54 @@
+mixin accountMenu(options)
+    - let name = options.name
+    - let city = options.city
+    - let linkAccount = options.linkAccount
+    - let linkSettings = options.linkSettings
+    .account-menu
+        .account-menu__header.account-menu__section.account-menu__section--header
+            .account-menu__header-img-wrapper(data-name='В')
+                .account-menu__header-img
+                label.account-menu__header-button
+                    .account-menu__header-button-icon-wrapper
+                        +iconSvg('photo','account-menu__header-button-icon')
+                    input(type='file').account-menu__header-input
+            .account-menu__header-name=name
+            .account-menu__header-city=city
+            a(href=linkAccount).account-menu__link.account-menu__link--bold Личный кабинет
+        .account-menu__section
+            a(href='#').account-menu__link О реферальной программе
+            a(href='#').account-menu__link Баланс
+            a(href='#').account-menu__link Список партнёров
+            a(href='#').account-menu__link Пригласить партнёров
+        .account-menu__section
+            a(href='#').account-menu__link Мои тендеры
+        .account-menu__section
+            a(href=linkSettings).account-menu__link Настройки
+            a(href='#').account-menu__link.account-menu__link--red Выйти
+
+
+mixin accountMenuManufacturer(options)
+    - let name = options.name
+    - let city = options.city
+    - let linkAccount = options.linkAccount
+    - let linkSettings = options.linkSettings
+    .account-menu
+        .account-menu__header.account-menu__section.account-menu__section--header
+            .account-menu__header-img-wrapper(data-name='Н')
+                .account-menu__header-img
+                label.account-menu__header-button
+                    .account-menu__header-button-icon-wrapper
+                        +iconSvg('photo','account-menu__header-button-icon')
+                    input(type='file').account-menu__header-input
+            .account-menu__header-name=name
+            .account-menu__header-city=city
+            a(href=linkAccount).account-menu__link.account-menu__link--bold Личный кабинет
+        .account-menu__section
+            a(href='#').account-menu__link О реферальной программе
+            a(href='#').account-menu__link Баланс
+            a(href='#').account-menu__link Список партнёров
+            a(href='#').account-menu__link Пригласить партнёров
+        .account-menu__section
+            a(href='#').account-menu__link Мои тендеры
+        .account-menu__section
+            a(href=linkSettings).account-menu__link Настройки
+            a(href='#').account-menu__link.account-menu__link--red Выйти

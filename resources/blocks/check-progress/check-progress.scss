@@ -1,0 +1,27 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.check-progress {
+
+  &__chart {
+    width: 240px;
+    height: 240px;
+    @include margin-auto;
+    margin-bottom: 20px;
+  }
+
+  &__desc {
+    font-size: 16px;
+    color: var(--gray-color);
+    text-align: center;
+    padding: 0 40px;
+  }
+
+  & .progressbar-text {
+    font-size: 40px;
+    font-weight: 700;
+  }
+}
+

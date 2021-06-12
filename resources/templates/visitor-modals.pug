@@ -1,0 +1,290 @@
+#login.modal
+    .modal__content.form-check
+        .modal__header
+            .modal__header-title Вход
+            .modal__header-close(data-modal-close)
+                +iconSvg('close','modal__header-close-icon')
+
+        .modal__content-items
+            .modal__content-item
+                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                    input(placeholder='Телефон').input.placeholder__input
+                    .placeholder__item Телефон
+
+            .modal__content-item
+                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                    input(placeholder='Пароль').input.placeholder__input
+                    .placeholder__item Пароль
+
+            .modal__content-item
+                .modal__link Не помню пароль
+
+            .modal__content-item
+                +hint('Этот телефон уже используется на другом аккаунте')
+
+            .modal__content-item
+                .modal__two-buttons
+                    .modal__button.button.button--invert Зарегистрироваться
+                    .modal__button.button.button--invert.form-check__button Войти
+
+        .modal__footer
+            .modal__link Политика конфиденцальности
+
+#register.modal
+    .modal__content.form-check
+        .modal__header
+            .modal__header-title Регистрация
+            .modal__header-close(data-modal-close)
+                +iconSvg('close','modal__header-close-icon')
+
+        .modal__content-items
+            .modal__content-item
+                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                    input(placeholder='Имя').input.placeholder__input
+                    .placeholder__item Имя
+            .modal__content-item
+                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                    input(placeholder='Телефон').input.placeholder__input
+                    .placeholder__item Телефон
+
+            .modal__content-item
+                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                    input(placeholder='Пароль').input.placeholder__input
+                    .placeholder__item Пароль
+
+            .modal__content-item
+                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                    input(placeholder='Реферальный код').input.placeholder__input
+                    .placeholder__item Реферальный код
+
+            .modal__content-item
+                +checkbox('Я согласен на обработку Персональных данных')
+
+            .modal__content-item
+                +hint('Этот телефон уже используется на другом аккаунте')
+
+            .modal__content-item
+                .modal__button.button.button--invert.form-check__button Зарегистрироваться
+
+        .modal__footer
+            .modal__link Политика конфиденцальности
+
+#register-manufacturer.modal
+    .modal__content.form-check
+        .modal__header
+            .modal__header-title Регистрация поставщика
+            .modal__header-close(data-modal-close)
+                +iconSvg('close','modal__header-close-icon')
+
+        .modal__content-items
+            .modal__content-item
+                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                    input(placeholder='Название компании').input.placeholder__input
+                    .placeholder__item Название компании
+            .modal__content-item
+                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                    input(placeholder='Телефон').input.placeholder__input
+                    .placeholder__item Телефон
+
+            .modal__content-item
+                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                    input(placeholder='Пароль').input.placeholder__input
+                    .placeholder__item Пароль
+
+            .modal__content-item
+                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                    input(placeholder='Реферальный код').input.placeholder__input
+                    .placeholder__item Реферальный код
+
+            .modal__content-item
+                +checkbox('Я согласен на обработку Персональных данных')
+
+            .modal__content-item
+                +hint('Этот телефон уже используется на другом аккаунте')
+
+            .modal__content-item
+                .modal__button.button.button--invert.form-check__button Зарегистрироваться
+
+        .modal__footer
+            .modal__link Политика конфиденцальности
+
+#check-phone.modal
+    .modal__content.form-check
+        .modal__header
+            .modal__header-title Подтвердить телефон
+            .modal__header-close(data-modal-close)
+                +iconSvg('close','modal__header-close-icon')
+
+        .modal__content-items
+            .modal__content-item
+                .modal__content-item-subtitle Мы отправили на номер +79051234567 код для подтверждения, введите его в поле ниже.
+                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                    input(placeholder='Код подтвреждения*').input.placeholder__input
+                    .placeholder__item Код подтвреждения*
+
+            .modal__content-item
+                +hint('Неправильный код')
+
+            .modal__content-item
+                .modal__button.button.button--invert.form-check__button Подтвердить
+
+        .modal__footer
+            .modal__link Политика конфиденцальности
+
+#product-img-slider-modal.modal
+    .modal__content
+        .modal__close(data-modal-close)
+            +iconSvg('close','modal__close-icon')
+        include ../blocks/product-img-slider/product-img-slider
+
+#new-tender.modal.modal--wide
+    .modal__content.form-check
+        .modal__header
+            .modal__header-title Заявка на товар
+            .modal__header-close(data-modal-close)
+                +iconSvg('close','modal__header-close-icon')
+
+        .modal__content-items.modal__content-items--two-col
+            .modal__content-item
+                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                    input(placeholder='Ваше имя').input.placeholder__input
+                    .placeholder__item Ваше имя
+
+            .modal__content-item
+                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                    input(placeholder='Номер телефона').input.placeholder__input
+                    .placeholder__item Номер телефона
+
+        .modal__content-section-title Информация о товаре
+
+        .modal__content-items.modal__content-items--two-col
+            .modal__content-item
+                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                    input(placeholder='Наименование товара').input.placeholder__input
+                    .placeholder__item Наименование товара
+
+            .modal__content-item
+                .modal__content-counter
+                    .modal__content-counter-title Количество
+                    +counter(100)
+
+        .modal__content-items.modal__content-items--two-col
+            .modal__content-item
+                +photoUploadNotEmpty
+
+        .modal__content-items.modal__content-items--two-col.modal__content-items--bottom
+            .modal__content-item
+                .placeholder.form-check__field(data-elem='textarea' data-rule='input-empty')
+                    textarea(placeholder='Ваш комментарий').input.input--textarea.placeholder__input
+                    .placeholder__item Ваш комментарий
+
+
+            .modal__content-item
+                .modal__content-item-captcha
+                    +captcha
+                .modal__content-item-hint
+                    +hint('Стоимость минимального заказа 500$','inner')
+                .modal__button.button.button--invert.form-check__button Отправить заявку
+
+#new-tender-success.modal
+    .modal__content
+        .modal__close(data-modal-close)
+            +iconSvg('close','modal__close-icon')
+        .modal__content-message
+            +iconSvg('check-circle','modal__content-message-icon')
+            .modal__content-message-text Ваш тендер успешно опубликован!
+            .modal__content-message-two-buttons
+                .button.button--small.button--invert ПОСМОТРЕТЬ ЕЩЁ
+                .button.button--small В ТЕНДЕРЫ
+
+#tender-copied.modal
+    .modal__content
+        .modal__close(data-modal-close)
+            +iconSvg('close','modal__close-icon')
+        .modal__content-message
+            +iconSvg('check-circle','modal__content-message-icon')
+            .modal__content-message-text Тендер успешно скопирован
+            .modal__content-message-one-button
+                .button.button--small Ок
+
+#changes-saved.modal
+    .modal__content
+        .modal__close(data-modal-close)
+            +iconSvg('close','modal__close-icon')
+        .modal__content-message
+            +iconSvg('check-circle','modal__content-message-icon')
+            .modal__content-message-text Изменения успешно сохранены
+            .modal__content-message-one-button
+                .button.button--small Ок
+
+#winner-question.modal
+    .modal__content
+        .modal__close(data-modal-close)
+            +iconSvg('close','modal__close-icon')
+        .modal__content-message
+            +iconSvg('check-circle','modal__content-message-icon')
+            .modal__content-message-text Выбрать победителем
+                .modal__content-message-text-inner Название поставщика?
+            .modal__content-message-two-buttons
+                .button.button--small.button--invert Отмена
+                .button.button--small Да, выбрать победителем
+
+#winner-success.modal
+    .modal__content
+        .modal__close(data-modal-close)
+            +iconSvg('close','modal__close-icon')
+        .modal__content-message
+            +iconSvg('check-circle','modal__content-message-icon')
+            .modal__content-message-text Вы выбрали победителем
+                .modal__content-message-text-inner Название поставщика
+            .modal__content-message-one-button
+                .button.button--small Ок
+
+#new-tender-products.modal.modal--wide
+    .modal__content.form-check
+        .modal__header
+            .modal__header-title Новый тендер
+            .modal__header-close(data-modal-close)
+                +iconSvg('close','modal__header-close-icon')
+
+        #new-products-form.product-in-tender.form-check
+            .product-in-tender__wrapper
+                .product-in-tender__items
+                    .product-in-tender__item
+                        .product-in-tender__item-header
+                            .product-in-tender__item-header-title
+                                .product-in-tender__item-header-title-name Товар
+                                .product-in-tender__item-header-title-number 1
+                            .product-in-tender__item-header-delete
+                                .product-in-tender__item-header-delete-text Удалить
+                                +iconSvg('delete', 'product-in-tender__item-header-delete-icon')
+                        .product-in-tender__item-inputs
+                            .product-in-tender__item-input-name
+                                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                                    input(placeholder='Наименование товара').input.placeholder__input
+                                    .placeholder__item Наименование товара
+
+
+
+                            .product-in-tender__item-input-comment
+                                .placeholder.form-check__field(data-elem='textarea' data-rule='input-empty')
+                                    textarea(placeholder='Ваш комментарий').input.input--textarea.placeholder__input
+                                    .placeholder__item Ваш комментарий
+
+                            .product-in-tender__item-input-count
+                                .product-in-tender__item-input-count-title Количество
+                                .product-in-tender__item-input-count-item
+                                    +counter(100)
+
+                            .product-in-tender__item-input-example
+                                .product-in-tender__item-input-example-checkbox
+                                +checkbox('Необходим образец')
+                                .product-in-tender__item-input-example-tooltip
+                                +tooltip('Поставьте галочку, если перед заказом вы требуете тестовый образец','left',false)
+
+                            .product-in-tender__item-input-images
+                                +photoUploadNotEmpty
+
+                .button.button--invert.product-in-tender__add-product Добавить товар
+            .product-in-tender__footer
+                .button.form-check__button Опубликовать тендер

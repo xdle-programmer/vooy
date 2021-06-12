@@ -1,0 +1,108 @@
+extends ../templates/visitor
+
+block variables
+    - var title = 'Vooy'
+
+block content
+    section.section.section--small
+        .layout
+            +breadcrumbs([{name: 'Главная', link: '/_index.html'}, {name: 'Список товаров', link: '#'}])
+            +titleCount('Список поставщиков','201')
+
+    section.section.section--small
+        .layout
+            .catalog
+                .catalog__filters.border-block
+                    .catalog__filters-group
+                        .catalog__filters-title Категория
+                        .catalog__filters-group-item
+                            a(href='#').catalog__filters-link-counter
+                                .catalog__filters-link-counter-text Футболки и майки
+                                .catalog__filters-link-counter-count (234)
+                            a(href='#').catalog__filters-link-counter
+                                .catalog__filters-link-counter-text Джинсы
+                                .catalog__filters-link-counter-count (56)
+                            a(href='#').catalog__filters-link-counter
+                                .catalog__filters-link-counter-text Брюки
+                                .catalog__filters-link-counter-count (12)
+                            a(href='#').catalog__filters-link-counter
+                                .catalog__filters-link-counter-text Рубашки
+                                .catalog__filters-link-counter-count (789)
+                            a(href='#').catalog__filters-link-counter
+                                .catalog__filters-link-counter-text Свитшоты
+                                .catalog__filters-link-counter-count (667)
+                            a(href='#').catalog__filters-link-counter
+                                .catalog__filters-link-counter-text Верхняя одежда
+                                .catalog__filters-link-counter-count (9)
+
+                    .catalog__filters-group
+                        .catalog__filters-title Цена
+                        .catalog__filters-group-item
+                            .catalog__filters-item
+                                +minMaxSlider(300,30000)
+                    .catalog__filters-group
+                        .catalog__filters-title Мин.заказ
+                        .catalog__filters-group-item
+                            .catalog__filters-item
+                                +minMaxSlider(1000,100000)
+                    .catalog__filters-group
+                        .catalog__filters-title Сезон
+                        .catalog__filters-group-item
+                            .catalog__filters-item
+                                +checkbox('Осень')
+                            .catalog__filters-item
+                                +checkbox('Зима')
+                            .catalog__filters-item
+                                +checkbox('Весна')
+                            .catalog__filters-item
+                                +checkbox('Лето')
+                    .catalog__filters-group
+                        .catalog__filters-title Особенность
+                        .catalog__filters-group-item
+                            .catalog__filters-item
+                                +checkbox('Особенность 1')
+                            .catalog__filters-item
+                                +checkbox('Особенность 2')
+                            .catalog__filters-item
+                                +checkbox('Особенность 3')
+                            .catalog__filters-item
+                                +checkbox('Особенность 4')
+
+                .catalog__items
+                    .catalog__items-lead.lead.border-block
+                        img(src='images/icons/illustrations/hands-compass.png').lead__icon
+                        .lead__desc
+                            .lead__desc-title Полный спект услуг
+                            .lead__desc-text Мы можем организовать доставку по Китаю и России, растаможку в России, а так же поможем в переговорах с поставщиками
+                    .catalog__items-header
+                        .catalog__sort
+                            .catalog__sort-title Сортрировать по
+                            select.catalog__sort-select
+                                option(value='0' selected='') популярности
+                                option(value='1') количеству побед
+                                option(value='2') количеству товаров
+                    .catalog__items-list.catalog__items-list--products
+                        +productPreview(2,'Дешевая мода 2020, оптовая продажа, комплекты детской', false, true)
+                        +productPreview(3,'Заводская дешевая горячая Распродажа летняя повседневная одежда', false, true)
+                        +productPreview(4,'Коллекция 2020 года, дизайнерская мужская блестящая пузырьковая', false, true)
+                        +productPreview(2,'Дешевая мода 2020, оптовая продажа, комплекты детской', false, true)
+                        +productPreview(3,'Заводская дешевая горячая Распродажа летняя повседневная одежда', false, true)
+                        +productPreview(4,'Коллекция 2020 года, дизайнерская мужская блестящая пузырьковая', false, true)
+                        +productPreview(2,'Дешевая мода 2020, оптовая продажа, комплекты детской', false, true)
+                        +productPreview(3,'Заводская дешевая горячая Распродажа летняя повседневная одежда', false, true)
+                        +productPreview(4,'Коллекция 2020 года, дизайнерская мужская блестящая пузырьковая', false, true)
+                        +productPreview(2,'Дешевая мода 2020, оптовая продажа, комплекты детской', false, true)
+                        +productPreview(3,'Заводская дешевая горячая Распродажа летняя повседневная одежда', false, true)
+                        +productPreview(4,'Коллекция 2020 года, дизайнерская мужская блестящая пузырьковая', false, true)
+                        +productPreview(2,'Дешевая мода 2020, оптовая продажа, комплекты детской', false, true)
+                        +productPreview(3,'Заводская дешевая горячая Распродажа летняя повседневная одежда', false, true)
+                        +productPreview(4,'Коллекция 2020 года, дизайнерская мужская блестящая пузырьковая', false, true)
+                        +productPreview(2,'Дешевая мода 2020, оптовая продажа, комплекты детской', false, true)
+                        +productPreview(3,'Заводская дешевая горячая Распродажа летняя повседневная одежда', false, true)
+                        +productPreview(4,'Коллекция 2020 года, дизайнерская мужская блестящая пузырьковая', false, true)
+                        +productPreview(2,'Дешевая мода 2020, оптовая продажа, комплекты детской', false, true)
+                        +productPreview(3,'Заводская дешевая горячая Распродажа летняя повседневная одежда', false, true)
+                        +productPreview(4,'Коллекция 2020 года, дизайнерская мужская блестящая пузырьковая', false, true)
+                        +productPreview(2,'Дешевая мода 2020, оптовая продажа, комплекты детской', false, true)
+                        +productPreview(3,'Заводская дешевая горячая Распродажа летняя повседневная одежда', false, true)
+                        +productPreview(4,'Коллекция 2020 года, дизайнерская мужская блестящая пузырьковая', false, true)

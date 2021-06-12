@@ -1,0 +1,227 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.catalog {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-gap: 20px;
+  color: var(--black-color);
+  align-items: flex-start;
+
+  &__filters {
+    padding: 14px;
+  }
+
+  &__filters-group {
+  }
+
+  &__filters-title {
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  &__filters-group-item {
+    padding: 4px 0;
+  }
+
+  &__filters-item {
+    margin-bottom: 15px;
+  }
+
+  &__filters-link-counter {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 17px;
+  }
+
+  $link-counter-hover: '.catalog__filters-link-counter:hover';
+
+  &__filters-link-counter-text {
+    color: var(--black-color);
+    display: inline;
+
+    #{$link-counter-hover} & {
+      color: var(--blue-color);
+    }
+  }
+
+  &__filters-link-counter-count {
+    color: var(--gray-color);
+    margin-left: 5px;
+    display: inline;
+
+    #{$link-counter-hover} & {
+      color: var(--blue-color);
+    }
+  }
+
+  &__items-lead {
+    margin-bottom: 20px;
+    padding: 5px 32px 4px!important;
+  }
+
+  &__items-header {
+    margin-bottom: 20px;
+  }
+
+  &__sort {
+    @include flex-row;
+    align-items: center;
+  }
+
+  &__sort-title {
+  }
+
+  &__sort-select-custom {
+    width: fit-content;
+    height: auto;
+    position: relative;
+    background: var(--white-color);
+    z-index: 100;
+    border-radius: 5px;
+    border: none;
+    margin-left: -1px;
+
+    & select {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 102;
+      opacity: 0;
+      display: none;
+      font-size: 14px;
+
+      @media (max-width: 1390px) {
+        display: block;
+      }
+    }
+
+    &--open {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      z-index: 101;
+    }
+
+    $open: '.catalog__sort-select-custom--open';
+    $hover: '.catalog__sort-select-custom:hover';
+
+    &__input {
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      position: relative;
+      @include flex-row;
+      align-items: center;
+    }
+
+    &__input-name {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      padding: 0 5px;
+      height: 100%;
+      color: var(--blue-color);
+      @include unselectable;
+      text-align: center;
+      position: relative;
+      width: 100%;
+    }
+
+    &__input-icon {
+      width: 10px;
+      height: 10px;
+      margin-left: 4px;
+      position: relative;
+
+      &:before,
+      &:after {
+        display: block;
+        content: '';
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        left: 0;
+        transform: rotate(45deg);
+        transform-origin: center;
+      }
+
+      &:before {
+        border-left: 1px solid var(--blue-color);
+        border-top: 1px solid var(--blue-color);
+        top: 0;
+      }
+
+      &:after {
+        border-right: 1px solid var(--blue-color);
+        border-bottom: 1px solid var(--blue-color);
+        bottom: 0;
+      }
+    }
+
+    &__list {
+      position: absolute;
+      left: 0;
+      top: calc(100% + 5px);
+      width: calc(100% + 2px);
+      background: inherit;
+      border-color: inherit;
+      border-top-color: transparent;
+      transform: scaleY(0);
+      visibility: hidden;
+      opacity: 0;
+      transform-origin: top;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .1);
+
+      #{$open} & {
+        transform: scaleX(1);
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    &__item {
+      padding: 5px;
+      cursor: pointer;
+      @include unselectable;
+      transition: none;
+
+      &:hover {
+        background: var(--light-blue-color);
+        color: var(--white-color);
+      }
+
+      &--selected {
+        background: var(--light-blue-color);
+        color: var(--white-color);
+      }
+
+      &--disabled {
+        cursor: default;
+        opacity: .7;
+
+        &:hover {
+          background: inherit;
+        }
+
+      }
+
+    }
+  }
+
+  &__items-list {
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: 1fr 1fr;
+
+    &--products {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+
+
+}

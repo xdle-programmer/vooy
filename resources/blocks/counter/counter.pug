@@ -1,0 +1,7 @@
+mixin counter(count)
+    .counter
+        .counter__button.counter__button--minus
+            +iconSvg('minus','counter__button-icon')
+        input(value=count).counter__input
+        .counter__button.counter__button--plus
+            +iconSvg('plus','counter__button-icon')

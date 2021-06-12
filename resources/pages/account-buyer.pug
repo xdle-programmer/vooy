@@ -1,0 +1,52 @@
+extends ../templates/visitor
+
+block variables
+    - var title = 'Vooy'
+
+block content
+    section.section.section--small
+        .layout
+            +breadcrumbs([{name: 'Главная', link: '/_index.html'}, {name: 'Личный кабинет', link: '#'}])
+
+    section.section.section--small
+        .layout
+            .account
+                +accountMenu({
+                    name: 'Владимир Владимирович Длиннофамильский',
+                    city: 'Москва',
+                    linkAccount: '#',
+                    linkSettings: '#'
+                })
+                .account__item
+                    .account__blocks
+                        a(href='#').account__block.account__block--gold.border-block
+                            .account__block-title Поиск поставщика
+                            .account__block-link 1 тендер
+                            +iconSvg('tenders','account__block-icon')
+                        a(href='#').account__block.account__block--green.border-block
+                            .account__block-title Реализация
+                            .account__block-link 2 тендера
+                            +iconSvg('tenders','account__block-icon')
+
+                    a(href='#').main-banner
+                        .main-banner__background
+                            .main-banner__background-el.main-banner__background-el--1
+                            .main-banner__background-el.main-banner__background-el--2
+                            .main-banner__background-el.main-banner__background-el--3
+                            .main-banner__background-el.main-banner__background-el--4
+                            .main-banner__background-el.main-banner__background-el--5
+                            .main-banner__background-el.main-banner__background-el--6
+                        .main-banner__content.main-banner__content--ref
+                            .main-banner__content-main
+                                .main-banner__content-title Реферальная программа
+                            .main-banner__content-natural
+                                .main-banner__content-natural-item
+                                    .main-banner__content-natural-item-percent 1%
+                                    .main-banner__content-natural-item-text за каждого активного покупателя
+                                .main-banner__content-natural-item
+                                    .main-banner__content-natural-item-percent 3%
+                                    .main-banner__content-natural-item-text за каждого активного поставщика
+
+
+
+

@@ -1,0 +1,14 @@
+extends ../templates/visitor
+
+block variables
+    - var title = 'Vooy'
+
+block content
+    section.section.section--small
+        .layout
+            +breadcrumbs([{name: 'Главная', link: '/_index.html'}, {name: 'Избранные товары', link: '#'}])
+            +titleCount('Избранные товары','8 товаров')
+
+    section.section.section--small
+        .layout
+            +productGrid(10)

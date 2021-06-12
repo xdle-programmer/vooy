@@ -1,0 +1,19 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.photo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 275px;
+  grid-gap: 15px;
+
+  &__item {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}

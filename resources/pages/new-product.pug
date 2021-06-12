@@ -1,0 +1,124 @@
+extends ../templates/visitor
+
+block variables
+    - var title = 'Vooy'
+
+block content
+    section.section.section--small
+        .layout
+            +breadcrumbs([{name: 'Главная', link: '/_index.html'}, {name: 'Личный кабинет', link: '#'}])
+
+    section.section.section--small
+        .layout
+            +titleCount('Редактирование товара')
+
+            #new-product.form.form--two-col.form-check.check-progress
+                .form__item-wrapper
+                    .form__item.border-block
+                        .form__item-group
+                            .form__item-group-title Наименование и описание
+                            .form__item-group-item
+                                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                                    input(placeholder='Наименование товара').input.placeholder__input.check-progress__input
+                                    .placeholder__item Наименование товара
+
+                            .form__item-group-item
+                                .placeholder.form-check__field(data-elem='textarea' data-rule='input-empty')
+                                    textarea(placeholder='Описание').input.input--textarea.placeholder__input.check-progress__input
+                                    .placeholder__item Описание
+
+                        .form__item-group
+                            .form__item-group-title Характеристики
+                            .form__item-group-items
+                                .form__item-group-item
+                                    .placeholder
+                                        select.custom-select.placeholder__select.check-progress__select
+                                            option(value='default' selected='' disabled='' hidden='') Категория
+                                            option(value='1') Мужская одежда
+                                            option(value='2') Женская одежда
+                                        .placeholder__item Категория
+                                .form__item-group-item
+                                    .placeholder
+                                        select.custom-select.placeholder__select.check-progress__select
+                                            option(value='default' selected='' disabled='' hidden='') Подкатегория
+                                            option(value='1') Мужская одежда
+                                            option(value='2') Женская одежда
+                                        .placeholder__item Подкатегория
+                                .form__item-group-item
+                                    .placeholder
+                                        select.custom-select.placeholder__select.check-progress__select
+                                            option(value='default' selected='' disabled='' hidden='') Опция товара
+                                            option(value='1') Мужская одежда
+                                            option(value='2') Женская одежда
+                                        .placeholder__item Опция товара
+                                .form__item-group-item
+                                    .placeholder
+                                        select.custom-select.placeholder__select.check-progress__select
+                                            option(value='default' selected='' disabled='' hidden='') Опция товара
+                                            option(value='1') Мужская одежда
+                                            option(value='2') Женская одежда
+                                        .placeholder__item Опция товара
+                                .form__item-group-item
+                                    .placeholder
+                                        select.custom-select.placeholder__select.check-progress__select
+                                            option(value='default' selected='' disabled='' hidden='') Подкатегория
+                                            option(value='1') Мужская одежда
+                                            option(value='2') Женская одежда
+                                        .placeholder__item Подкатегория
+                                .form__item-group-item
+                                    .placeholder
+                                        select.custom-select.placeholder__select.check-progress__select
+                                            option(value='default' selected='' disabled='' hidden='') Опция товара
+                                            option(value='1') Мужская одежда
+                                            option(value='2') Женская одежда
+                                        .placeholder__item Опция товара
+                                .form__item-group-item
+                                    .placeholder
+                                        select.custom-select.placeholder__select.check-progress__select
+                                            option(value='default' selected='' disabled='' hidden='') Опция товара
+                                            option(value='1') Мужская одежда
+                                            option(value='2') Женская одежда
+                                        .placeholder__item Опция товара
+
+                            .form__item-group
+                                .form__item-group-title Срок изготовления
+                                .form__item-group-items
+                                    .form__item-group-item
+                                        .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                                            input(placeholder='Срок изготовления').input.placeholder__input.check-progress__input
+                                            .placeholder__item Срок изготовления
+
+                            .form__item-group
+                                .form__item-group-title Список цен
+                                .form__copy-wrapper
+                                    .form__copy-items
+                                        .form__copy-item
+                                            .form__item-group-items
+                                                .form__item-group-item
+                                                    .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                                                        input(placeholder='Количество').input.placeholder__input.check-progress__input
+                                                        .placeholder__item Количество
+                                                .form__item-group-item
+                                                    .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                                                        input(placeholder='Стоимость').input.placeholder__input.check-progress__input
+                                                        .placeholder__item Стоимость
+                                    .form__copy-button.button.button--small Добавить пару
+                                        +iconSvg('plus','button__icon button__icon--small')
+
+                            .form__item-group
+                                .form__item-group-title Загрузка фото
+                                .form__item-group-text Загрузите главное и дополнительные изображения товара. #[br]#[br]Главное изображение показывается первым на карточке товара. Чтобы сделать изображение главным, наведите на него указатель и нажмите звездочку
+                                +photoUploadEmptyStars
+
+                    .form__item-footer
+                        .button.form-check__button Отправить на модерацию
+                        .button.button--invert Сохранить, как черновик
+                .form__item-wrapper.form__item-wrapper--sticky
+                    .form__item.border-block
+                        .form__item-group
+                            .form__item-group-title.form__item-group-title--center Заполнение формы
+                            .form__item-group-item
+                                .check-progress__chart
+                                .check-progress__desc Чем больше информации о товаре вы заполните, тем проще покупателям будет его искать
+
+

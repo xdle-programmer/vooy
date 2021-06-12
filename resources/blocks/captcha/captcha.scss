@@ -1,0 +1,16 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+
+.captcha {
+  display: block;
+  width: 300px;
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}

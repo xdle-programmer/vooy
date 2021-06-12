@@ -1,0 +1,75 @@
+extends ../templates/visitor
+
+block variables
+    - var title = 'Vooy'
+
+block content
+    section.section.section--small
+        .layout
+            +breadcrumbs([{name: 'Главная', link: '/_index.html'}, {name: 'Список поставщиков', link: '/_manufacturer-list.html'}, {name: 'Название поставщика', link: '#'}])
+            +manufacturer('Поставщик',true)
+
+    section.section.section--small
+        .layout
+            .tabs
+                .tabs__header
+                    .tabs__toggle-nav
+                        .tabs__toggle-nav-button.tabs__toggle-nav-button--prev
+                            +iconSvg('arrow','tabs__toggle-nav-button-icon')
+                        .tabs__toggle-nav-button.tabs__toggle-nav-button--next
+                            +iconSvg('arrow','tabs__toggle-nav-button-icon')
+                    .tabs__toggle-buttons
+                        .tabs__toggle-button.tabs__toggle-button--active Товары
+                        .tabs__toggle-button Тендеры
+                        .tabs__toggle-button Фото с производства
+                .tabs__toggle-items
+                    .tabs__toggle-item.tabs__toggle-item--active.tabs__toggle-item--active-effect
+                        +productGrid(10)
+                    .tabs__toggle-item
+                        +tenderRowHeader({
+                            imgTitle: 'Фото',
+                            nameTitle: 'Наименование',
+                            dateTitle: 'Дата создания',
+                            numberTitle: 'Номер',
+                            productCountTitle: 'Количество',
+                            priceTitle: 'Стоимость',
+                            statusTitle: 'Статус',
+                            assessment: true,
+                            assessmentTitle: 'Оценка',
+                        })
+
+                        +tenderRow({
+                            link: '/_tenders-archive.html',
+                            imgSrc: 'images/examples/products-preview/products-preview-3.jpg',
+                            name: 'Заводская дешевая горячая Распродажа летняя повседневная одежда.',
+                            date: '24.02.2021',
+                            number: '2345678',
+                            productCount: '1 200',
+                            price: '1 800',
+                            textStatus: 'Архивный',
+                            numberStatus: '4',
+                            assessment: true,
+                            assessmentNumber: '4.93',
+                        })
+
+
+                        +tenderRow({
+                            link: '/_tenders-archive.html',
+                            imgSrc: 'images/examples/products-preview/products-preview-2.jpg',
+                            name: 'Заводская дешевая горячая Распродажа летняя повседневная одежда.',
+                            date: '24.02.2021',
+                            number: '2345678',
+                            productCount: '1 200',
+                            price: '1 800',
+                            textStatus: 'Архивный',
+                            numberStatus: '4',
+                            assessment: true,
+                            assessmentNumber: '5',
+                        })
+
+                    .tabs__toggle-item
+                        .photo
+                            img(src='images/examples/manufacturer/production/production-1.jpg').photo__item
+                            img(src='images/examples/manufacturer/production/production-2.jpg').photo__item
+                            img(src='images/examples/manufacturer/production/production-3.jpg').photo__item
+                            img(src='images/examples/manufacturer/production/production-4.jpg').photo__item

@@ -1,0 +1,189 @@
+@import "~frontend-scss-mixins/mixins";
+@import "../base/mixins";
+@import "../base/variables";
+@import "../base/media-queries";
+
+.chat {
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 15px;
+
+  &__title {
+    text-align: center;
+    color: var(--gray-color);
+    font-size: 13px;
+  }
+
+  &__messages {
+    display: grid;
+    grid-gap: 10px;
+  }
+
+  &__date {
+    margin: 15px 0;
+    text-align: center;
+    color: var(--gray-color);
+  }
+
+  &__time {
+    text-align: right;
+  }
+
+  &__message {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    grid-gap: 20px;
+
+    &--invert {
+
+    }
+
+  }
+
+  $invert: '.chat__message--invert';
+
+  &__message-content {
+    padding: 15px;
+    background: var(--extra-light-blue-color);
+    border-radius: 8px;
+    width: calc(100% - 50px);
+    margin-left: auto;
+
+    #{$invert} & {
+      background: var(--light-gray-color);
+      margin-left: 0;
+    }
+  }
+
+  &__message-content-text {
+    color: var(--black-color);
+    font-size: 15px;
+  }
+
+  &__message-content-images {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__message-content-image {
+    display: block;
+    width: auto;
+    height: 200px;
+    border-radius: 5px;
+    border: 1px solid var(--light-blue-color);
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    #{$invert} & {
+      border-color: var(--gray-color);
+    }
+  }
+
+  &__message-content-files {
+    margin-top: 10px;
+  }
+
+  &__message-content-file {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    align-items: center;
+    width: fit-content;
+    grid-gap: 10px;
+  }
+
+  $file-hover: '.chat__message-content-file:hover';
+
+  &__message-content-file-icon {
+    width: 100%;
+    height: 30px;
+    fill: var(--blue-color);
+  }
+
+  &__message-content-file-text {
+    color: var(--blue-color);
+    font-size: 16px;
+
+    #{$file-hover} & {
+      text-decoration: underline;
+    }
+  }
+
+  &__form {
+    background: var(--extra-light-blue-color);
+    border-radius: 5px;
+    margin-top: 15px;
+    border: 1px var(--blue-color);
+    border-style: dashed;
+    padding-bottom: 15px;
+  }
+
+  &__form-buttons {
+    @include flex-row-center;
+    justify-content: flex-end;
+    padding: 0 15px;
+  }
+
+  &__form-file-input-label {
+    @include flex-row-center;
+    height: 48px;
+    padding: 0 20px;
+    cursor: pointer;
+    border: 2px var(--blue-color);
+    border-style: dashed;
+    border-radius: 5px;
+
+    &:hover {
+      border-style: solid;
+    }
+  }
+
+  &__form-file-input-text {
+    color: var(--blue-color);
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  &__form-file-input-icon {
+    width: 20px;
+    height: 20px;
+    fill: var(--blue-color);
+    margin-left: 5px;
+  }
+
+  &__form-file-preview {
+    padding: 0 15px;
+
+    &--empty {
+      display: none;
+    }
+  }
+
+  &__form-send {
+    margin-left: 20px;
+  }
+
+  &__form-file-input {
+    display: none;
+  }
+
+  &__form-wrapper {
+  }
+
+  &__form-wrapper-input {
+    width: calc(100% - 15px);
+    height: 100px;
+    min-height: 100px;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 15px;
+    padding-right: 0;
+    transition: none;
+    resize: vertical;
+
+    @include input-placeholder {
+      color: var(--light-blue-color);
+    }
+  }
+
+}
