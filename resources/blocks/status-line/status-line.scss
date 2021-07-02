@@ -11,13 +11,15 @@
         $activeColor: var(--gold-color);
 
         background: linear-gradient(90deg,
-            $activeColor 0%, $activeColor calc(25% - 4px),
-            var(--white-color) calc(25% - 4px), var(--white-color) 25%,
-            var(--light-gray-color) 25%, var(--light-gray-color) calc(50% - 4px),
-            var(--white-color) calc(50% - 4px), var(--white-color) 50%,
-            var(--light-gray-color) 50%, var(--light-gray-color) calc(75% - 4px),
-            var(--white-color) calc(75% - 4px), var(--white-color) 75%,
-            var(--light-gray-color) 75%, var(--light-gray-color) calc(100% - 4px),
+            $activeColor 0%, $activeColor calc(20% - 4px),
+            var(--white-color) calc(25% - 4px), var(--white-color) 20%,
+            $activeColor 20%, $activeColor calc(40% - 4px),
+            var(--white-color) calc(50% - 4px), var(--white-color) 40%,
+            $activeColor 40%, $activeColor calc(60% - 4px),
+            var(--white-color) calc(75% - 4px), var(--white-color) 60%,
+            $activeColor 60%, $activeColor calc(80% - 4px),
+            var(--white-color) calc(75% - 4px), var(--white-color) 80%,
+            $activeColor 80%, $activeColor calc(100% - 4px),
             var(--white-color) calc(100% - 4px), var(--white-color) 100%,
         );
     }
@@ -26,13 +28,15 @@
         $activeColor: var(--gold-color);
 
         background: linear-gradient(90deg,
-            $activeColor 0%, $activeColor calc(25% - 4px),
-            var(--white-color) calc(25% - 4px), var(--white-color) 25%,
-            $activeColor 25%, $activeColor calc(50% - 4px),
-            var(--white-color) calc(50% - 4px), var(--white-color) 50%,
-            var(--light-gray-color) 50%, var(--light-gray-color) calc(75% - 4px),
-            var(--white-color) calc(75% - 4px), var(--white-color) 75%,
-            var(--light-gray-color) 75%, var(--light-gray-color) calc(100% - 4px),
+            $activeColor 0%, $activeColor calc(20% - 4px),
+            var(--white-color) calc(25% - 4px), var(--white-color) 20%,
+            $activeColor 20%, $activeColor calc(40% - 4px),
+            var(--white-color) calc(50% - 4px), var(--white-color) 40%,
+            $activeColor 40%, $activeColor calc(60% - 4px),
+            var(--white-color) calc(75% - 4px), var(--white-color) 60%,
+            $activeColor 60%, $activeColor calc(80% - 4px),
+            var(--white-color) calc(75% - 4px), var(--white-color) 80%,
+            $activeColor 80%, $activeColor calc(100% - 4px),
             var(--white-color) calc(100% - 4px), var(--white-color) 100%,
         );
     }
@@ -41,13 +45,15 @@
         $activeColor: var(--middle-green-color);
 
         background: linear-gradient(90deg,
-            $activeColor 0%, $activeColor calc(25% - 4px),
-            var(--white-color) calc(25% - 4px), var(--white-color) 25%,
-            $activeColor 25%, $activeColor calc(50% - 4px),
-            var(--white-color) calc(50% - 4px), var(--white-color) 50%,
-            $activeColor 50%, $activeColor calc(75% - 4px),
-            var(--white-color) calc(75% - 4px), var(--white-color) 75%,
-            var(--light-gray-color) 75%, var(--light-gray-color) calc(100% - 4px),
+            $activeColor 0%, $activeColor calc(20% - 4px),
+            var(--white-color) calc(25% - 4px), var(--white-color) 20%,
+            $activeColor 20%, $activeColor calc(40% - 4px),
+            var(--white-color) calc(50% - 4px), var(--white-color) 40%,
+            $activeColor 40%, $activeColor calc(60% - 4px),
+            var(--white-color) calc(75% - 4px), var(--white-color) 60%,
+            $activeColor 60%, $activeColor calc(80% - 4px),
+            var(--white-color) calc(75% - 4px), var(--white-color) 80%,
+            $activeColor 80%, $activeColor calc(100% - 4px),
             var(--white-color) calc(100% - 4px), var(--white-color) 100%,
         );
     }
@@ -56,13 +62,15 @@
         $activeColor: var(--middle-green-color);
 
         background: linear-gradient(90deg,
-            $activeColor 0%, $activeColor calc(25% - 4px),
-            var(--white-color) calc(25% - 4px), var(--white-color) 25%,
-            $activeColor 25%, $activeColor calc(50% - 4px),
-            var(--white-color) calc(50% - 4px), var(--white-color) 50%,
-            $activeColor 50%, $activeColor calc(75% - 4px),
-            var(--white-color) calc(75% - 4px), var(--white-color) 75%,
-            $activeColor 75%, $activeColor calc(100% - 4px),
+            $activeColor 0%, $activeColor calc(20% - 4px),
+            var(--white-color) calc(25% - 4px), var(--white-color) 20%,
+            $activeColor 20%, $activeColor calc(40% - 4px),
+            var(--white-color) calc(50% - 4px), var(--white-color) 40%,
+            $activeColor 40%, $activeColor calc(60% - 4px),
+            var(--white-color) calc(75% - 4px), var(--white-color) 60%,
+            $activeColor 60%, $activeColor calc(80% - 4px),
+            var(--white-color) calc(75% - 4px), var(--white-color) 80%,
+            $activeColor 80%, $activeColor calc(100% - 4px),
             var(--white-color) calc(100% - 4px), var(--white-color) 100%,
         );
     }
@@ -73,13 +81,13 @@
         background: linear-gradient(90deg,
             $activeColor 0%, $activeColor calc(20% - 4px),
             var(--white-color) calc(25% - 4px), var(--white-color) 20%,
-            $activeColor 25%, $activeColor calc(40% - 4px),
+            $activeColor 20%, $activeColor calc(40% - 4px),
             var(--white-color) calc(50% - 4px), var(--white-color) 40%,
-            $activeColor 50%, $activeColor calc(60% - 4px),
+            $activeColor 40%, $activeColor calc(60% - 4px),
             var(--white-color) calc(75% - 4px), var(--white-color) 60%,
-            $activeColor 50%, $activeColor calc(80% - 4px),
+            $activeColor 60%, $activeColor calc(80% - 4px),
             var(--white-color) calc(75% - 4px), var(--white-color) 80%,
-            $activeColor 75%, $activeColor calc(100% - 4px),
+            $activeColor 80%, $activeColor calc(100% - 4px),
             var(--white-color) calc(100% - 4px), var(--white-color) 100%,
         );
     }
