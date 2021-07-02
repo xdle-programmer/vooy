@@ -34,7 +34,7 @@ class UserListLayout extends Table
                     return new Persona($user->presenter());
                 }),
 
-            TD::make('email', __('Email'))
+            TD::make('email', "Phone")
                 ->sort()
                 ->cantHide()
                 ->filter(TD::FILTER_TEXT)

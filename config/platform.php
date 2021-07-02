@@ -128,7 +128,7 @@ return [
     */
 
     'template' => [
-        'header' => null,
+        'header' => 'brand.header',
         'footer' => null,
     ],
 
@@ -190,7 +190,7 @@ return [
     */
 
     'turbo' => [
-        'cache' => false
+        'cache' => true
     ],
 
     /*

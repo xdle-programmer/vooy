@@ -15,6 +15,21 @@ use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
+
+use App\Orchid\Screens\StatusScreen;
+use App\Orchid\Screens\SubstatusScreen;
+use App\Orchid\Screens\SubstatusEditScreen;
+
+use App\Orchid\Screens\TenderScreen;
+use App\Orchid\Screens\TenderProductScreen;
+use App\Orchid\Screens\TenderModerationScreen;
+
+use App\Orchid\Screens\TenderOwnershipScreen;
+use App\Orchid\Screens\TenderOwnershipEditScreen;
+
+use App\Orchid\Screens\TenderSertificatScreen;
+use App\Orchid\Screens\TenderSertificatEditScreen;
+
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -32,6 +47,25 @@ use Tabuna\Breadcrumbs\Trail;
 // Main
 Route::screen('/main', PlatformScreen::class)
     ->name('platform.main');
+
+//STATUS
+Route::screen('status', StatusScreen::class)->name('platform.status');
+
+Route::screen('substatuses', SubstatusScreen::class)->name('platform.substatus');
+Route::screen('substatus/{substatus?}', SubstatusEditScreen::class)->name('platform.substatus.edit');
+
+//TENDER
+Route::screen('tenders', TenderScreen::class)->name('platform.tender');
+Route::screen('tender/{tender?}', TenderProductScreen::class)->name('platform.tender.products');
+Route::screen('tender/moderation/{tender?}', TenderModerationScreen::class)->name('platform.tender.moderation');
+
+//TENDER OWNERSHIP
+Route::screen('ownerships', TenderOwnershipScreen::class)->name('platform.ownership');
+Route::screen('ownership/{ownership?}', TenderOwnershipEditScreen::class)->name('platform.ownership.edit');
+
+//TENDER SERTIFICAT
+Route::screen('sertificats', TenderSertificatScreen::class)->name('platform.sertificat');
+Route::screen('sertificat/{sertificat?}', TenderSertificatEditScreen::class)->name('platform.sertificat.edit');
 
 // Platform > Profile
 Route::screen('profile', UserProfileScreen::class)

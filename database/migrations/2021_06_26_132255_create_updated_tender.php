@@ -1,0 +1,41 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateUpdatedTender extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+      Schema::table('tenders', function (Blueprint $table) {
+          $table->text('description');
+
+          $table->bigInteger('ownership_id')->unsigned()->nullable();
+          $table->foreign('ownership_id')
+              ->references('id')
+              ->on('tender_ownerships')
+              ->onDelete('cascade')
+              ->onUpdate('cascade');
+      });
+
+      Schema::table('tender_products', function (Blueprint $table) {
+            $table->boolean('branding')->nullable();
+            $table->boolean('packing')->nullable();
+      });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+    }
+}
