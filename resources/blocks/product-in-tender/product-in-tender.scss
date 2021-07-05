@@ -4,6 +4,7 @@
 @import "../base/media-queries";
 
 .product-in-tender {
+  padding: 0 24px;
 
   &__wrapper {
     max-height: calc(100vh - 300px);

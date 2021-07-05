@@ -78,7 +78,7 @@
   }
 
   &__content {
-    padding: 24px;
+    padding: 24px 0;
     position: relative;
     z-index: 1;
     background: var(--white-color);
@@ -89,6 +89,7 @@
     @include flex-row-center;
     justify-content: space-between;
     margin-bottom: 30px;
+    padding: 0 24px;
   }
 
   &__header-title {
@@ -114,6 +115,14 @@
   }
 
   &__content-items {
+    max-height: 80vh;
+    @include vertical-scroll(
+                    4,
+                    var(--light-gray-color),
+                    var(--blue-color),
+                    var(--dark-blue-color)
+    );
+    padding: 0 24px;
 
     &--two-col {
       display: grid;
@@ -166,7 +175,7 @@
 
   &__footer {
     border-top: 1px solid var(--light-gray-color);
-    padding: 20px 0;
+    padding: 20px 24px;
   }
 
   &__content-counter {
@@ -214,5 +223,22 @@
 
   &__content-message-one-button {
     @include flex-row-center;
+  }
+
+  &__content-item-checkbox-group {
+  }
+
+  &__content-item-checkbox-group-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  &__content-item-checkbox-group-items {
+    display: grid;
+    grid-gap: 6px;
+  }
+
+  &__content-item-checkbox-group-item {
   }
 }

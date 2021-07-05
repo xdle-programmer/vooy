@@ -79,6 +79,10 @@
         .modal__content-items
             .modal__content-item
                 .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                    input(placeholder='Имя').input.placeholder__input
+                    .placeholder__item Имя
+            .modal__content-item
+                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
                     input(placeholder='Название компании').input.placeholder__input
                     .placeholder__item Название компании
             .modal__content-item
@@ -90,6 +94,29 @@
                 .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
                     input(placeholder='Пароль').input.placeholder__input
                     .placeholder__item Пароль
+
+            .modal__content-item
+                .modal__content-item-checkbox-group
+                    .modal__content-item-checkbox-group-title Выберите, какие услуги вы можете оказывать
+                    .modal__content-item-checkbox-group-items
+                        .modal__content-item-checkbox-group-item
+                            +checkbox('Производство')
+                        .modal__content-item-checkbox-group-item
+                            +checkbox('Переговоры с производством, помощь в коммуникации')
+                        .modal__content-item-checkbox-group-item
+                            +checkbox('Контроль производства, доставка на склад в Китае')
+                        .modal__content-item-checkbox-group-item
+                            +checkbox('Таможенное оформление, доставка в Россию')
+                        .modal__content-item-checkbox-group-item
+                            +checkbox('Доставка по территории России')
+                        .modal__content-item-checkbox-group-item
+                            +checkbox('Производство')
+
+            .modal__content-item
+                .modal__content-item-checkbox-group
+                    .modal__content-item-checkbox-group-items
+                        .modal__content-item-checkbox-group-item
+                            +checkbox('Есть возможность работы с российскими юридическими лицами')
 
             .modal__content-item
                 .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
