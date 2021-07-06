@@ -18,6 +18,7 @@
 
     </head>
     <body class="font-sans antialiased">
+
             <!-- HEADER -->
             <header class="header">
               <div class="header__main-wrapper">
@@ -252,7 +253,10 @@
                   </div>
                 </form>
               </div>
+
               <div class="modal" id="register-manufacturer">
+                <form method="POST" action="{{ route('register-provider') }}">
+                @csrf
                 <div class="modal__content form-check">
                   <div class="modal__header">
                     <div class="modal__header-title">Регистрация поставщика</div>
@@ -265,25 +269,71 @@
                   <div class="modal__content-items">
                     <div class="modal__content-item">
                       <div class="placeholder form-check__field" data-elem="input" data-rule="input-empty">
-                        <input class="input placeholder__input" placeholder="Название компании">
+                        <input class="input placeholder__input" name="name" placeholder="Имя">
+                        <div class="placeholder__item">Имя</div>
+                      </div>
+                    </div>
+                    <div class="modal__content-item">
+                      <div class="placeholder form-check__field" data-elem="input" data-rule="input-empty">
+                        <input class="input placeholder__input" name="company"  placeholder="Название компании">
                         <div class="placeholder__item">Название компании</div>
                       </div>
                     </div>
                     <div class="modal__content-item">
                       <div class="placeholder form-check__field" data-elem="input" data-rule="input-empty">
-                        <input class="input placeholder__input" placeholder="Телефон">
+                        <input class="input placeholder__input" name="email" placeholder="Почта">
+                        <div class="placeholder__item">Почта</div>
+                      </div>
+                    </div>
+                    <div class="modal__content-item">
+                      <div class="placeholder form-check__field" data-elem="input" data-rule="input-empty">
+                        <input class="input placeholder__input" name="phone" placeholder="Телефон">
                         <div class="placeholder__item">Телефон</div>
                       </div>
                     </div>
                     <div class="modal__content-item">
                       <div class="placeholder form-check__field" data-elem="input" data-rule="input-empty">
-                        <input class="input placeholder__input" placeholder="Пароль">
+                        <input required type="password" class="input placeholder__input" name="password" placeholder="Пароль">
                         <div class="placeholder__item">Пароль</div>
                       </div>
                     </div>
                     <div class="modal__content-item">
+                      <div class="modal__content-item-checkbox-group">
+                        <div class="modal__content-item-checkbox-group-title">Выберите, какие услуги вы можете оказывать</div>
+                        <div class="modal__content-item-checkbox-group-items">
+                          @php
+                            $services = App\Models\ProviderService::all();
+                          @endphp
+                          @foreach ($services as $key => $service)
+                            <div class="modal__content-item-checkbox-group-item">
+                              <label class="checkbox">
+                                <input name="service[{{$service->id}}]" class="checkbox__input" type="checkbox"><span class="checkbox__item">
+                                  <svg class="checkbox__icon">
+                                    <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
+                                  </svg><span class="checkbox__text">{{$service->name}}</span></span>
+                              </label>
+                            </div>
+                          @endforeach
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal__content-item">
+                      <div class="modal__content-item-checkbox-group">
+                        <div class="modal__content-item-checkbox-group-items">
+                          <div class="modal__content-item-checkbox-group-item">
+                            <label class="checkbox">
+                              <input name="can_RLE" class="checkbox__input" type="checkbox"><span class="checkbox__item">
+                                <svg class="checkbox__icon">
+                                  <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
+                                </svg><span class="checkbox__text">Есть возможность работы с российскими юридическими лицами</span></span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal__content-item">
                       <div class="placeholder form-check__field" data-elem="input" data-rule="input-empty">
-                        <input class="input placeholder__input" placeholder="Реферальный код">
+                        <input name="referal" class="input placeholder__input" placeholder="Реферальный код">
                         <div class="placeholder__item">Реферальный код</div>
                       </div>
                     </div>
@@ -295,7 +345,7 @@
                           </svg><span class="checkbox__text">Я согласен на обработку Персональных данных</span></span>
                       </label>
                     </div>
-                    <div class="modal__content-item">
+                    <div style="display: none;" class="modal__content-item">
                       <div class="hint">
                         <svg class="hint__icon">
                           <use xlink:href="../images/icons/icons-sprite.svg#exclamation"></use>
@@ -304,14 +354,16 @@
                       </div>
                     </div>
                     <div class="modal__content-item">
-                      <div class="modal__button button button--invert form-check__button">Зарегистрироваться</div>
+                      <button class="modal__button button button--invert form-check__button">Зарегистрироваться</button>
                     </div>
                   </div>
                   <div class="modal__footer">
                     <div class="modal__link">Политика конфиденцальности</div>
                   </div>
                 </div>
+                </form>
               </div>
+
               <div class="modal" id="check-phone">
                 <div class="modal__content form-check">
                   <div class="modal__header">
@@ -667,7 +719,7 @@
                         </div>
 
                       </div>
-                      <div class="button button--invert product-in-tender__add-product">Добавить товар</div>
+                      <div id="tender_add_product_btn" class="button button--invert product-in-tender__add-product">Добавить товар</div>
                     </div>
                     <div class="product-in-tender__footer">
                       <div class="g-recaptcha" data-callback="captchaCallback" data-sitekey="6LdhzmMbAAAAAKurdp_jmE7bsuQK6bhLl-sMA8CA"></div>
