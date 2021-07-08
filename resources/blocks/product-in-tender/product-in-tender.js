@@ -32,6 +32,10 @@ function productInTenderHandler($wrapper) {
         setProductNumber();
     }
 
+    this.createNewProduct = () => {
+        createNewProduct();
+    };
+
     function createNewProduct() {
         let $newProduct = $wrapper.querySelector('.product-in-tender__item').cloneNode(true);
 
