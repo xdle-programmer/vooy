@@ -5,8 +5,7 @@
 @stop
 
 @section('content')
-    <h1>HELLOO</h1>
-    <h1>HELLOO2</h1>
+
 <div class="wrapper">
   <section class="section">
     <div class="main-banner layout">
