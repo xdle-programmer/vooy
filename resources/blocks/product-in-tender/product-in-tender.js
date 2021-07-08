@@ -26,15 +26,13 @@ function productInTenderHandler($wrapper) {
 
 
     function deleteProduct() {
-        console.log(this);
-
         this.closest('.product-in-tender__item').remove();
         setProductNumber();
     }
 
-    this.createNewProduct = () => {
-        createNewProduct();
-    };
+    // this.createNewProduct = () => {
+    //     createNewProduct();
+    // };
 
     function createNewProduct() {
         let $newProduct = $wrapper.querySelector('.product-in-tender__item').cloneNode(true);

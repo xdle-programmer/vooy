@@ -315,3 +315,68 @@
                 .button.button--invert.product-in-tender__add-product Добавить товар
             .product-in-tender__footer
                 .button.form-check__button Опубликовать тендер
+
+#new-offer-tender-products.modal.modal--wide
+    .modal__content.form-check
+        .modal__header
+            .modal__header-title Новый тендер
+            .modal__header-close(data-modal-close)
+                +iconSvg('close','modal__header-close-icon')
+
+        #new-offer-tender-products-form.product-in-tender.form-check
+            .product-in-tender__wrapper
+                .product-in-tender__items
+                    .product-in-tender__item
+                        .product-in-tender__item-header
+                            +tenderRow({
+                                link: '/_tenders-archive.html',
+                                imgSrc: 'images/examples/products-preview/products-preview-3.jpg',
+                                name: 'Заводская дешевая горячая Распродажа летняя повседневная одежда.',
+                                date: '24.02.2021',
+                                number: '2345678',
+                                productCount: '1 200',
+                                price: '1 800',
+                                textStatus: 'Архивный',
+                                numberStatus: '4',
+                                assessment: false,
+                            })
+                        .product-in-tender__item-inputs.product-in-tender__item-inputs--offer
+                            .product-in-tender__item-input-name
+                                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                                    input(placeholder='Наименование товара').input.placeholder__input
+                                    .placeholder__item Наименование товара
+
+
+
+                            .product-in-tender__item-input-comment
+                                .placeholder.form-check__field(data-elem='textarea' data-rule='input-empty')
+                                    textarea(placeholder='Ваш комментарий').input.input--textarea.placeholder__input
+                                    .placeholder__item Ваш комментарий
+
+                            .product-in-tender__item-input-count.product-in-tender__item-input-count--offer
+                                .product-in-tender__item-input-count-title Количество
+                                .product-in-tender__item-input-count-item
+                                    +counter(100)
+                            .product-in-tender__item-input-count.product-in-tender__item-input-count--offer.product-in-tender__item-input-count--term
+                                .product-in-tender__item-input-count-title Срок реализации
+                                .product-in-tender__item-input-count-item
+                                    +counter(10)
+                            .product-in-tender__item-input-example
+                                .product-in-tender__item-input-example-checkbox
+                                +checkbox('Предоставим образец')
+                                .product-in-tender__item-input-example-tooltip
+                                +tooltip('Поставьте галочку, если перед заказом вы готовы предоставить тестовый образец','left',false)
+
+                            .product-in-tender__item-input-images
+                                +photoUploadNotEmpty
+
+                            .product-in-tender__item-input-name.product-in-tender__item-input-name--price
+                                .placeholder.form-check__field(data-elem='input' data-rule='input-empty')
+                                    input(placeholder='Стоимость').input.placeholder__input
+                                    .placeholder__item Стоимость
+
+
+
+
+            .product-in-tender__footer
+                .button.form-check__button Сделать предложение
