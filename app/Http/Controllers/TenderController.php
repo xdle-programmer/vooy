@@ -25,7 +25,10 @@ class TenderController extends Controller
     $filePath = 'tenderProducts/24/01624908232.jpg';
     $content = Storage::disk('public')->get($filePath);
     dd($content);
-*/
+    */
+
+      //dd($request->file('tender.products.0.attachments'));
+
     //USER AUTH CHECK//
     $user = auth()->user();
   	if ($user == null){
@@ -33,7 +36,7 @@ class TenderController extends Controller
     }
 
     $tender = $request->input('tender');
-    //dd($tender);
+
     // CREATE TENDER //
     $tender_db = new Tender;
     $tender_db->status_id = 2;

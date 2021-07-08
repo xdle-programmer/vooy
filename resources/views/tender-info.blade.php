@@ -10,7 +10,7 @@
 <div class="wrapper">
   <section class="section section--small">
     <div class="layout">
-      <div class="breadcrumbs"><a class="breadcrumbs__item" href="/_index.html">Главная</a><a class="breadcrumbs__item" href="/_tenders-list.html">Список тендеров</a>
+      <div class="breadcrumbs"><a class="breadcrumbs__item" href="/">Главная</a><a class="breadcrumbs__item" href="/tenders">Список тендеров</a>
         <div class="breadcrumbs__item breadcrumbs__item--active">Тендер {{$tender->id}}</div>
       </div>
     </div>
@@ -29,6 +29,7 @@
               </div>
             </div>
           </div>
+            @if (Auth::check())
           <div class="tender-header__main-buttons">
             <div data-tender="{{$tender->id}}" onclick="copyTender(this)" class="tender-header__main-button button">Скопировать
               <svg class="button__icon">
@@ -36,6 +37,7 @@
               </svg>
             </div>
           </div>
+            @endif
         </div>
         <div class="tender-header__desc">
           <div class="tender-header__desc-item">
@@ -141,7 +143,7 @@
 <script>
   let cb = document.getElementById('tender-copy-btn');
   let isCopy = false;
-  let captchaState = true;
+  let captchaState = false;
 
   function captchaCallback() {
     captchaState = true;
@@ -210,8 +212,6 @@
         productId++;
       }
     });
-
-
   }
 
   function uploadTender(e) {
