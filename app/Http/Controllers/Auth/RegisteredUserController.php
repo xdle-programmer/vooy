@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+
 use App\Models\User;
+use App\Models\ProviderInfo;
+use App\Models\ProviderService;
+
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -44,6 +48,53 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        event(new Registered($user));
+
+        Auth::login($user);
+
+        return redirect(RouteServiceProvider::HOME);
+    }
+
+    public function storeProvider(Request $request)
+    {
+    //  dd($request->all());
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required',
+            'password' => 'required',
+            'phone' => 'required',
+            'company' => 'required',
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'surname' => " ",
+            'midname' => " ",
+            'city' => " ",
+            'phone' => $request->phone,
+            'password' => Hash::make($request->password),
+        ]);
+
+        $providerInfo = new ProviderInfo;
+        $providerInfo->user_id = $user->id;
+        $providerInfo->company = $request->company;
+
+        if ($request->can_RLE)
+          $providerInfo->can_RLE = 1;
+        else
+          $providerInfo->can_RLE = 0;
+
+        $providerInfo->save();
+
+        if ($request->service) {
+          foreach ($request->service as $key => $s) {
+            $ps = ProviderService::find($key);
+              if ($ps !== null)
+              $providerInfo->services()->attach($ps->id);
+          }
+        }
 
         event(new Registered($user));
 
