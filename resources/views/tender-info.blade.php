@@ -215,6 +215,7 @@
             });
             template.remove();
             productsInTenderFunc.get('new-offer-tender-products-form').refreshOffersPhotoUpload();
+            productsInTenderFunc.get('new-offer-tender-products-form').refreshFormCheck();
 
             /*
             modalItems.childNodes.forEach((formItem,index)=>{

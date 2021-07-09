@@ -12353,6 +12353,10 @@ function productInTenderHandler(options) {
     refreshOffersPhotoUpload();
   };
 
+  this.refreshFormCheck = function () {
+    refreshFormCheck();
+  };
+
   function refreshOffersPhotoUpload() {
     var $offers = $wrapper.querySelectorAll('.product-in-tender__item');
 
@@ -12379,6 +12383,10 @@ function productInTenderHandler(options) {
     } finally {
       _iterator.f();
     }
+  }
+
+  function refreshFormCheck() {
+    window.formsArray.get($wrapper.id).refresh();
   }
 
   if (editable) {
@@ -12436,7 +12444,7 @@ function productInTenderHandler(options) {
       imgPreviewCreateFunction: _photo_upload_photo_upload__WEBPACK_IMPORTED_MODULE_4__["setPreviewImg"]
     });
     $itemsWrapper.appendChild($newProduct);
-    window.formsArray.get('new-products-form').refresh();
+    refreshFormCheck();
     window.modals.setCenter($wrapper.closest('.modal').id);
     setProductNumber();
   }
