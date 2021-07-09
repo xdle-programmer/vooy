@@ -206,7 +206,7 @@
 
 
             tender.products.forEach((product)=>{
-                let newProduct = template.cloneNode(true);
+                let newProduct = template.cloneNode(    true);
                 //console.log('A')
                 //console.log(newProduct.childNodes[1]);
                 let newProductHeader = document.getElementById('tender-table-product-' + product.id).cloneNode(true);
@@ -214,6 +214,7 @@
                 modalItems.appendChild(newProduct);
             });
             template.remove();
+            productsInTenderFunc.get('new-offer-tender-products-form').refreshOffersPhotoUpload();
 
             /*
             modalItems.childNodes.forEach((formItem,index)=>{
