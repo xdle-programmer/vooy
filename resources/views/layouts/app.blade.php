@@ -807,7 +807,7 @@
             </div>
         </div>
 
-        <div class="product-in-tender form-check" id="new-products-form">
+        <div class="product-in-tender product-in-tender--editable form-check" id="new-products-form">
             <div class="product-in-tender__wrapper">
                 <div class="product-in-tender__items" id="new-tender-products-list">
 

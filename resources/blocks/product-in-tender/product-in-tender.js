@@ -4,24 +4,69 @@ import {counter} from "../counter/counter";
 import {upload} from "../upload/upload";
 import {setPreviewImg} from "../photo-upload/photo-upload";
 
-
 let productsInTender = Array.from(document.querySelectorAll('.product-in-tender'));
 
+window.productsInTenderFunc = new Map();
+
 if (productsInTender.length > 0) {
-    for (let $productInTender of productsInTender) {
-        productInTenderHandler($productInTender);
+    for (let index = 0; index < productsInTender.length; index++) {
+        let $wrapper = productsInTender[index];
+        let editable = false;
+
+        if ($wrapper.classList.contains('product-in-tender--editable')) {
+            editable = true;
+        }
+
+        if ($wrapper.id !== '') {
+            window.productsInTenderFunc.set($wrapper.id, new productInTenderHandler({
+                $wrapper: $wrapper,
+                editable: editable
+            }));
+        } else {
+            window.productsInTenderFunc.set('i' + index, new productInTenderHandler({
+                $wrapper: $wrapper,
+                editable: editable
+            }));
+        }
     }
 }
 
-function productInTenderHandler($wrapper) {
+
+function productInTenderHandler(options) {
+    let $wrapper = options.$wrapper;
+    let editable = options.editable;
     let $addButton = $wrapper.querySelector('.product-in-tender__add-product');
     let removeButtons = Array.from($wrapper.querySelectorAll('.product-in-tender__item-header-delete'));
     let $itemsWrapper = $wrapper.querySelector('.product-in-tender__items');
 
-    $addButton.addEventListener('click', createNewProduct);
+    this.refreshOffersPhotoUpload = () => {
+        refreshOffersPhotoUpload();
+    };
 
-    for (let $removeButton of removeButtons) {
-        $removeButton.addEventListener('click', deleteProduct);
+    function refreshOffersPhotoUpload() {
+        let $offers = $wrapper.querySelectorAll('.product-in-tender__item');
+
+        for (let $offer of $offers) {
+            let $photoUpload = $offer.querySelector('.photo-upload');
+            upload({
+                $wrapper: $photoUpload,
+                $input: $photoUpload.querySelector('.photo-upload__input'),
+                $previewWrapper: $photoUpload.querySelector('.photo-upload__items'),
+                previewWrapperEmptyClass: 'chat__form-file-preview--empty',
+                $filePreviewWrapper: $photoUpload.querySelector('.photo-upload__items'),
+                $imgPreviewWrapper: $photoUpload.querySelector('.photo-upload__items'),
+                filePreviewCreateFunction: setPreviewImg,
+                imgPreviewCreateFunction: setPreviewImg,
+            });
+        }
+    }
+
+    if (editable) {
+        $addButton.addEventListener('click', createNewProduct);
+
+        for (let $removeButton of removeButtons) {
+            $removeButton.addEventListener('click', deleteProduct);
+        }
     }
 
 
@@ -29,10 +74,6 @@ function productInTenderHandler($wrapper) {
         this.closest('.product-in-tender__item').remove();
         setProductNumber();
     }
-
-    // this.createNewProduct = () => {
-    //     createNewProduct();
-    // };
 
     function createNewProduct() {
         let $newProduct = $wrapper.querySelector('.product-in-tender__item').cloneNode(true);
