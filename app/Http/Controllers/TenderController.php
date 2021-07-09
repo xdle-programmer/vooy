@@ -168,9 +168,14 @@ class TenderController extends Controller
 
   public function showTender(Request $request, int $id)
   {
+      $user = auth()->user();
+      $role = null;
+      if ($user != null && $user->roles()->firstOrFail() != null)
+          $role = $user->roles()->first();
+
       $tender = Tender::with("products", "buyer", "provider", "status", "substatus")->where('id', $id)->first();
 
-      return view('tender-info',['tender' => $tender]);
+      return view('tender-info',['tender' => $tender, 'role' => $role]);
   }
 
 }
