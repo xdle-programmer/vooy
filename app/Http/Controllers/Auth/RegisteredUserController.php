@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 
+use App\Models\Role;
 use App\Models\User;
 use App\Models\ProviderInfo;
 use App\Models\ProviderService;
@@ -40,14 +41,24 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required',
+            'phone' => 'required',
             'password' => 'required',
         ]);
+
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'surname' => " ",
+            'midname' => " ",
+            'city' => " ",
+            'phone' => $request->phone,
             'password' => Hash::make($request->password),
         ]);
+
+        $role = Role::where('slug', 'buyer')->first();
+        if ($role != null)
+            $user->addRole($role);
 
         event(new Registered($user));
 
@@ -76,6 +87,10 @@ class RegisteredUserController extends Controller
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
         ]);
+
+        $role = Role::where('slug', 'provider')->first();
+        if ($role != null)
+            $user->addRole($role);
 
         $providerInfo = new ProviderInfo;
         $providerInfo->user_id = $user->id;

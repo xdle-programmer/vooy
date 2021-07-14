@@ -222,8 +222,14 @@
                 </div>
                 <div class="modal__content-item">
                     <div class="placeholder form-check__field" data-elem="input" data-rule="input-empty">
-                        <input name="email" required class="input placeholder__input" placeholder="Телефон">
-                        <div for="email" class="placeholder__item">Телефон</div>
+                        <input name="email" required class="input placeholder__input" placeholder="Почта">
+                        <div for="email" class="placeholder__item">Почта</div>
+                    </div>
+                </div>
+                <div class="modal__content-item">
+                    <div class="placeholder form-check__field" data-elem="input" data-rule="input-empty">
+                        <input name="phone" required class="input placeholder__input" placeholder="Телефон">
+                        <div for="phone" class="placeholder__item">Телефон</div>
                     </div>
                 </div>
                 <div class="modal__content-item">
@@ -754,16 +760,6 @@
                             <div class="product-in-tender__item-input-images">
                                 <div class="photo-upload">
                                     <div class="photo-upload__items">
-                                        <div class="photo-upload__preview-wrapper" data-upload-preview>
-                                            <div class="photo-upload__preview-item"><img class="photo-upload__preview"
-                                                                                         src="images/examples/products-preview/products-preview-1.jpg">
-                                            </div>
-                                        </div>
-                                        <div class="photo-upload__preview-wrapper" data-upload-preview>
-                                            <div class="photo-upload__preview-item"><img class="photo-upload__preview"
-                                                                                         src="images/examples/products-preview/products-preview-0.jpg">
-                                            </div>
-                                        </div>
                                         <label class="photo-upload__label-wrapper">
                                             <div class="photo-upload__label">
                                                 <div class="photo-upload__input-icon-wrapper">
@@ -791,7 +787,7 @@
                 </div>
             </div>
             <div class="product-in-tender__footer">
-                <div class="button form-check__button">Сделать предложение</div>
+                <div id="review-upload-btn" onclick="uploadReview()" class="button form-check__button">Сделать предложение</div>
             </div>
         </div>
     </div>

@@ -35,6 +35,11 @@ class TenderProduct extends Model
       return $this->hasMany(TenderProductAttachment::class, 'tender_product_id');
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(TenderProductReviewItem::class, 'product_id');
+    }
+
     public function tender()
     {
       return $this->belongsTo(Tender::class, 'tender_id');

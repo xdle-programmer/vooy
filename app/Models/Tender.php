@@ -49,6 +49,11 @@ class Tender extends Model
       return $this->belongsTo(TenderSubstatus::class, 'substatus_id');
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(TenderProductReview::class, 'tender_id');
+    }
+
     public function products()
     {
       return $this->hasMany(TenderProduct::class, 'tender_id');
