@@ -15,7 +15,7 @@ class CreateTenderProductsTable extends Migration
     {
         Schema::create('tender_products', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 50);
+            $table->string('title', 255);
             $table->text('description');
 
             $table->bigInteger('tender_id')->unsigned();

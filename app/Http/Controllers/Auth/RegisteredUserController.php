@@ -78,6 +78,8 @@ class RegisteredUserController extends Controller
             'company' => 'required',
         ]);
 
+        //dd($request->all());
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -87,7 +89,7 @@ class RegisteredUserController extends Controller
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
         ]);
-
+        $subrole = 0;
         $role = Role::where('slug', 'provider')->first();
         if ($role != null)
             $user->addRole($role);
@@ -97,7 +99,10 @@ class RegisteredUserController extends Controller
         $providerInfo->company = $request->company;
 
         if ($request->can_RLE)
-          $providerInfo->can_RLE = 1;
+        {
+            $providerInfo->can_RLE = 1;
+            $user->subroles()->attach(4);
+        }
         else
           $providerInfo->can_RLE = 0;
 
@@ -106,10 +111,18 @@ class RegisteredUserController extends Controller
         if ($request->service) {
           foreach ($request->service as $key => $s) {
             $ps = ProviderService::find($key);
-              if ($ps !== null)
-              $providerInfo->services()->attach($ps->id);
+              if ($ps !== null){
+                  $providerInfo->services()->attach($ps->id);
+
+                  if ($ps->id == 1) $subrole = 1;
+                  else if($ps->id == 2) $subrole = 2;
+              }
+
           }
         }
+
+        if ($subrole != 0)
+            $user->subroles()->attach($subrole);
 
         event(new Registered($user));
 

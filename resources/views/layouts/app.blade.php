@@ -328,7 +328,8 @@
                             @foreach ($services as $key => $service)
                                 <div class="modal__content-item-checkbox-group-item">
                                     <label class="checkbox">
-                                        <input name="service[{{$service->id}}]" class="checkbox__input" type="checkbox"><span
+                                        <input id="service-{{$service->id}}" onchange="providerServiceCheck(this)"
+                                               name="service[{{$service->id}}]" class="checkbox__input" type="checkbox"><span
                                             class="checkbox__item">
                                   <svg class="checkbox__icon">
                                     <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
@@ -344,11 +345,12 @@
                         <div class="modal__content-item-checkbox-group-items">
                             <div class="modal__content-item-checkbox-group-item">
                                 <label class="checkbox">
-                                    <input name="can_RLE" class="checkbox__input" type="checkbox"><span
+                                    <input onchange="providerServiceCheck(this)" id="service-ru" name="can_RLE"
+                                           class="checkbox__input" type="checkbox"><span
                                         class="checkbox__item">
                                 <svg class="checkbox__icon">
                                   <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
-                                </svg><span class="checkbox__text">Есть возможность работы с российскими юридическими лицами</span></span>
+                                </svg><span class="checkbox__text">Есть российское юр. лицо</span></span>
                                 </label>
                             </div>
                         </div>
@@ -636,10 +638,10 @@
                 <use xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
             </svg>
             <div class="modal__content-message-text">Вы выбрали победителем
-                <div class="modal__content-message-text-inner">Название поставщика</div>
+                <div id="modal-winner-success-providerName" class="modal__content-message-text-inner">Название поставщика</div>
             </div>
             <div class="modal__content-message-one-button">
-                <div class="button button--small">Ок</div>
+                <div onclick="window.location = window.location" class="button button--small">Ок</div>
             </div>
         </div>
     </div>
@@ -656,33 +658,20 @@
         </div>
 
         <div class="product-in-tender form-check" id="new-offer-tender-products-form">
+            <div class="tender-row tender-row--product tender-row--header">
+                <div class="tender-row__item">Фото</div>
+                <div class="tender-row__item">Наименование</div>
+                <div class="tender-row__item">Количество</div>
+                <div class="tender-row__item">Необходим образец</div>
+                <div class="tender-row__item">Брэндинг</div>
+                <div class="tender-row__item">Упаковка</div>
+                <div class="tender-row__item">Сертификаты</div>
+                <div class="tender-row__item tender-row__item--center">Комментарий</div>
+            </div>
+
             <div class="product-in-tender__wrapper">
                 <div id="tender-offer-items" class="product-in-tender__items">
                     <div id="tender-offer-item-template" class="product-in-tender__item">
-                        {{--
-                        <div class="product-in-tender__item-header">
-                            <div class="tender-row tender-row--without-assessment ">
-                                <div class="tender-row__item">
-                                    <img class="tender-row__preview"
-                                         src="images/examples/products-preview/products-preview-3.jpg">
-                                </div>
-                                <a class="tender-row__item tender-row__item--left tender-row__item--link tender-row__item--middle"
-                                   href="/_tenders-archive.html">Заголовок товара</a>
-                                <div class="tender-row__item tender-row__item--small">24.02.2021</div>
-                                <div class="tender-row__item tender-row__item--small">2345678</div>
-                                <div class="tender-row__item tender-row__item--big">1 200</div>
-                                <div class="tender-row__item tender-row__item--big">1 800 ₽</div>
-                                <div class="tender-row__item">
-                                    <div class="tender-row__status">
-                                        <div class="tender-row__status-title">Архивный</div>
-                                        <div class="tender-row__status-line">
-                                            <div class="status-line status-line--4"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        --}}
                         <div class="product-in-tender__item-inputs product-in-tender__item-inputs--offer">
                             <div class="product-in-tender__item-input-name">
                                 <div class="placeholder form-check__field" data-elem="input" data-rule="input-empty">
@@ -757,6 +746,52 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="product-in-tender__item-input-branding">
+                                <div class="product-in-tender__item-input-example-checkbox"></div>
+                                <label class="checkbox">
+                                    <input class="checkbox__input" type="checkbox"><span class="checkbox__item">
+                        <svg class="checkbox__icon">
+                          <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
+                        </svg><span class="checkbox__text">Брэндинг</span></span>
+                                </label>
+                                <div class="product-in-tender__item-input-example-tooltip"></div>
+                                <div class="tooltip">
+                                    <svg class="tooltip__button">
+                                        <use xlink:href="../images/icons/icons-sprite.svg#exclamation"></use>
+                                    </svg>
+                                    <div class="tooltip__inner">
+                                        <svg class="tooltip__close">
+                                            <use xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                                        </svg>
+                                        <div class="tooltip__content">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-in-tender__item-input-packing">
+                                <div class="product-in-tender__item-input-example-checkbox"></div>
+                                <label class="checkbox">
+                                    <input class="checkbox__input" type="checkbox"><span class="checkbox__item">
+                        <svg class="checkbox__icon">
+                          <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
+                        </svg><span class="checkbox__text">Упаковка</span></span>
+                                </label>
+                                <div class="product-in-tender__item-input-example-tooltip"></div>
+                                <div class="tooltip">
+                                    <svg class="tooltip__button">
+                                        <use xlink:href="../images/icons/icons-sprite.svg#exclamation"></use>
+                                    </svg>
+                                    <div class="tooltip__inner">
+                                        <svg class="tooltip__close">
+                                            <use xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                                        </svg>
+                                        <div class="tooltip__content">Поставьте галочку, если вы готовы
+                                            предоставить упаковку
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="product-in-tender__item-input-images">
                                 <div class="photo-upload">
                                     <div class="photo-upload__items">
@@ -779,15 +814,42 @@
                                 <div class="placeholder form-check__field" data-elem="input" data-rule="input-empty">
                                     <input class="input placeholder__input" placeholder="Стоимость">
                                     <div class="placeholder__item">Стоимость</div>
+                                    <select class="select">
+                                        @foreach(App\Models\Currency::where('is_active', 1)->get() as $currency)
+                                            <option value="{{$currency->id}}">{{$currency->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            @if(Auth::user())
+                                @php
+                                    $bothProvider = false;
+                                    $userChRole = Auth::user()->subroles()->where('provider_subroles.subrole_id','!=', 4)->first();
+                                    $userRuRole = Auth::user()->subroles()->where('provider_subroles.subrole_id', 4)->first();
+                                    if ($userChRole != null && $userRuRole != null)
+                                        $bothProvider = true;
+                                @endphp
+                                @if($bothProvider == true)
+                                    <div class="product-in-tender__item-input-fromCountry">
+                                        <p><input onclick="changeRadioFromCountry(this)" name="fromCountry" type="radio" value="2"> Из Китая</p>
+                                        <p><input onclick="changeRadioFromCountry(this)" name="fromCountry" type="radio" value="1"> Из России</p>
+                                    </div>
+                                @endif
+                            @endif
+                            <div class="product-in-tender__item-input-doOffer">
+                                <div class="button">Сделать
+                                    предложение
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
             <div class="product-in-tender__footer">
-                <div id="review-upload-btn" onclick="uploadReview()" class="button form-check__button">Сделать предложение</div>
+                <div id="review-upload-btn" onclick="uploadReview()" class="button form-check__button">Сделать
+                    предложение
+                </div>
             </div>
         </div>
     </div>
@@ -981,6 +1043,42 @@
 </footer>
 
 <script src="{{ asset('main.js') }}"></script>
+<script>
+
+    let fromCountry = '0';
+
+    function changeRadioFromCountry(e){
+        console.log('a')
+        console.log(e.value)
+        fromCountry = e.value;
+    }
+
+
+    function providerServiceCheck(e) {
+        if (e.id == 'service-2') {
+            if (e.checked == true) {
+                document.getElementById('service-1').checked = true;
+                document.getElementById('service-1').setAttribute('onclick', 'return false;')
+                document.getElementById('service-ru').checked = true;
+                document.getElementById('service-ru').setAttribute('onclick', 'return false;')
+
+            } else {
+                document.getElementById('service-1').removeAttribute('onclick');
+                document.getElementById('service-ru').removeAttribute('onclick');
+            }
+        }
+        if (e.id == 'service-3') {
+            if (e.checked == true) {
+                document.getElementById('service-ru').checked = true;
+                document.getElementById('service-ru').setAttribute('onclick', 'return false;')
+
+            } else {
+                document.getElementById('service-ru').removeAttribute('onclick');
+            }
+        }
+    }
+
+</script>
 @yield('f_script')
 </body>
 </html>

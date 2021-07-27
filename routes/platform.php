@@ -23,12 +23,21 @@ use App\Orchid\Screens\SubstatusEditScreen;
 use App\Orchid\Screens\TenderScreen;
 use App\Orchid\Screens\TenderProductScreen;
 use App\Orchid\Screens\TenderModerationScreen;
+use App\Orchid\Screens\TenderReviewCreationScreen;
+use App\Orchid\Screens\TenderParthnerScreen;
 
 use App\Orchid\Screens\TenderOwnershipScreen;
 use App\Orchid\Screens\TenderOwnershipEditScreen;
 
 use App\Orchid\Screens\TenderSertificatScreen;
 use App\Orchid\Screens\TenderSertificatEditScreen;
+
+use App\Orchid\Screens\ProviderDistributor;
+use App\Orchid\Screens\ProviderSellerRep;
+use App\Orchid\Screens\ProviderSellerRu;
+use App\Orchid\Screens\ProviderConnector;
+
+use App\Orchid\Screens\Currencies;
 
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
@@ -58,6 +67,9 @@ Route::screen('substatus/{substatus?}', SubstatusEditScreen::class)->name('platf
 Route::screen('tenders', TenderScreen::class)->name('platform.tender');
 Route::screen('tender/{tender?}', TenderProductScreen::class)->name('platform.tender.products');
 Route::screen('tender/moderation/{tender?}', TenderModerationScreen::class)->name('platform.tender.moderation');
+Route::screen('tender/review/{tender?}', TenderReviewCreationScreen::class)->name('platform.tender.review');
+Route::screen('tender/parthner/{tender?}', TenderParthnerScreen::class)->name('platform.tender.parthner');
+
 
 //TENDER OWNERSHIP
 Route::screen('ownerships', TenderOwnershipScreen::class)->name('platform.ownership');
@@ -66,6 +78,17 @@ Route::screen('ownership/{ownership?}', TenderOwnershipEditScreen::class)->name(
 //TENDER SERTIFICAT
 Route::screen('sertificats', TenderSertificatScreen::class)->name('platform.sertificat');
 Route::screen('sertificat/{sertificat?}', TenderSertificatEditScreen::class)->name('platform.sertificat.edit');
+
+//PROVIDER
+Route::screen('distributors', ProviderDistributor::class)->name('platform.distributors');
+Route::screen('sellerReps', ProviderSellerRep::class)->name('platform.sellerReps');
+Route::screen('sellerRus', ProviderSellerRu::class)->name('platform.sellerRus');
+Route::screen('connectors', ProviderConnector::class)->name('platform.connectors');
+
+//Currency
+Route::screen('currencies', Currencies::class)->name('platform.currencies');
+
+
 
 // Platform > Profile
 Route::screen('profile', UserProfileScreen::class)

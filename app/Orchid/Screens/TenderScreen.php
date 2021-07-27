@@ -37,9 +37,10 @@ class TenderScreen extends Screen
      */
     public function query(): array
     {
-        $tender = Tender::with("products", "buyer", "provider", "status", "substatus")->filters()->defaultSort('status_id')->paginate();
+        $tender = Tender::with("products", "deliveryman", "negotiator", "buyer", "provider", "status", "substatus")->filters()->defaultSort('status_id')->paginate(20);
+        //dd($tender);
         return [
-          'tenders' => $tender
+            'tenders' => $tender
         ];
     }
 
@@ -61,85 +62,146 @@ class TenderScreen extends Screen
     public function layout(): array
     {
         return [
-          Layout::table('tenders',[
-            TD::make('id')
-            ->sort(),
+            Layout::table('tenders', [
+                TD::make('id')
+                    ->sort(),
 
-            TD::make('status_id', 'Статус')
-            ->sort()
-            ->render(function (Tender $tender) {
-                return $tender->status->name;
-            }),
+                TD::make('status_id', 'Статус')
+                    ->sort()
+                    ->render(function (Tender $tender) {
+                        return $tender->status->name;
+                    }),
 
-            TD::make('substatus.name', 'Статус реализации'),
-
-
-            TD::make('buyer.name', 'Покупатель'),
+                TD::make('substatus.name', 'Статус реализации'),
 
 
-            TD::make('provider.name', 'Поставщик'),
+                TD::make('buyer.name', 'Покупатель'),
 
 
-            TD::make('Количество товаров')
+                TD::make('provider.name', 'Поставщик'),
+                TD::make('negotiator.name', 'Переговорщик'),
+                TD::make('deliveryman.name', 'Доставщик'),
+
+
+                TD::make('Количество товаров')
                     ->render(function (Tender $tender) {
 
                         return $tender->products->count();
-            }),
+                    }),
 
-            TD::make('created_at', 'Дата создания')
+                TD::make('created_at', 'Дата создания')
                     ->sort()
                     ->render(function (Tender $tender) {
 
                         return $tender->created_at->format('Y-m-d');
-            }),
+                    }),
 
-            TD::make('Действия')
-                ->align(TD::ALIGN_CENTER)
-                ->width('100px')
-                ->render(function (Tender $tender) {
-                    if ($tender->status_id == 2) {
-                      return DropDown::make()
-                          ->icon('options-vertical')
-                          ->list([
+                TD::make('Действия')
+                    ->align(TD::ALIGN_CENTER)
+                    ->width('100px')
+                    ->render(function (Tender $tender) {
+                        if ($tender->status_id == 2) {
+                            return DropDown::make()
+                                ->icon('options-vertical')
+                                ->list([
+                                    Link::make("Проверить")
+                                        ->route('platform.tender.moderation', $tender->id)
+                                        ->icon('magnifier'),
 
-                                  Link::make("Проверить")
-                                    ->route('platform.tender.moderation', $tender->id)
-                                    ->icon('magnifier'),
+                                    Link::make("Посмотреть")
+                                        ->route('platform.tender.products', $tender->id)
+                                        ->icon('eye'),
 
-                                  Link::make("Посмотреть")
-                                      ->route('platform.tender.products', $tender->id)
-                                      ->icon('eye'),
+                                    Button::make("Удалить")
+                                        ->method('remove')
+                                        ->confirm('Вы уверены что хотите удалить этот тендер?')
+                                        ->parameters([
+                                            'id' => $tender->id,
+                                        ])
+                                        ->icon('trash'),
+                                ]);
+                        } elseif ($tender->status_id == 3) {
+                            return DropDown::make()
+                                ->icon('options-vertical')
+                                ->list([
 
-                                  Button::make("Удалить")
-                                      ->method('remove')
-                                      ->confirm('Вы уверены что хотите удалить этот тендер?')
-                                      ->parameters([
-                                          'id' => $tender->id,
-                                      ])
-                                      ->icon('trash'),
-                          ]);
-                    }
-                    else {
-                      return DropDown::make()
-                          ->icon('options-vertical')
-                          ->list([
+                                    Link::make("Ответить")
+                                        ->route('platform.tender.review', $tender->id)
+                                        ->icon('pencil'),
 
-                              Link::make("Посмотреть")
-                                  ->route('platform.tender.products', $tender->id)
-                                  ->icon('eye'),
+                                    Link::make("Посмотреть")
+                                        ->route('platform.tender.products', $tender->id)
+                                        ->icon('eye'),
 
-                                  Button::make("Удалить")
-                                      ->method('remove')
-                                      ->confirm('Вы уверены что хотите удалить этот тендер?')
-                                      ->parameters([
-                                          'id' => $tender->id,
-                                      ])
-                                      ->icon('trash'),
-                          ]);
-                    }
-                }),
+                                    Button::make("Удалить")
+                                        ->method('remove')
+                                        ->confirm('Вы уверены что хотите удалить этот тендер?')
+                                        ->parameters([
+                                            'id' => $tender->id,
+                                        ])
+                                        ->icon('trash'),
+                                ]);
+                        } elseif ($tender->status_id == 4) {
+                            if ($tender->substatus_id == 1) {
+                                return DropDown::make()
+                                    ->icon('options-vertical')
+                                    ->list([
 
-          ]),
+                                        Link::make("Посмотреть")
+                                            ->route('platform.tender.products', $tender->id)
+                                            ->icon('eye'),
+
+                                        Link::make("Подключить партнёра")
+                                            ->route('platform.tender.parthner', $tender->id)
+                                            ->icon('eye'),
+
+                                        Button::make("Удалить")
+                                            ->method('remove')
+                                            ->confirm('Вы уверены что хотите удалить этот тендер?')
+                                            ->parameters([
+                                                'id' => $tender->id,
+                                            ])
+                                            ->icon('trash'),
+                                    ]);
+                            } else {
+                                return DropDown::make()
+                                    ->icon('options-vertical')
+                                    ->list([
+
+                                        Link::make("Посмотреть")
+                                            ->route('platform.tender.products', $tender->id)
+                                            ->icon('eye'),
+
+                                        Button::make("Удалить")
+                                            ->method('remove')
+                                            ->confirm('Вы уверены что хотите удалить этот тендер?')
+                                            ->parameters([
+                                                'id' => $tender->id,
+                                            ])
+                                            ->icon('trash'),
+                                    ]);
+                            }
+                        } else {
+                            return DropDown::make()
+                                ->icon('options-vertical')
+                                ->list([
+
+                                    Link::make("Посмотреть")
+                                        ->route('platform.tender.products', $tender->id)
+                                        ->icon('eye'),
+
+                                    Button::make("Удалить")
+                                        ->method('remove')
+                                        ->confirm('Вы уверены что хотите удалить этот тендер?')
+                                        ->parameters([
+                                            'id' => $tender->id,
+                                        ])
+                                        ->icon('trash'),
+                                ]);
+                        }
+                    }),
+
+            ]),
         ];
     }
 

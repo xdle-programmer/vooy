@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TenderController;
+use App\Http\Controllers\CurrencyController;
+use App\Http\Controllers\EmailController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +28,7 @@ Route::get('/dashboard', function () {
 //TENDER
 Route::post('/tender/create', [TenderController::class, 'createTender'])->name("tender-create");
 Route::post('/tender/review/create', [TenderController::class, 'createReview'])->name("tender-review-create");
+Route::post('/tender/setWinner', [TenderController::class, 'setWinner'])->name("tender-setWinner");
 
 Route::get('/tenders', [TenderController::class, 'showTenders'])->name("tenders-list");
 
@@ -33,6 +38,18 @@ Route::get('/tender/get/{id}', [TenderController::class, 'getTender'])->name("te
 
 Route::post('/review/hide', [TenderController::class, 'hideReview'])->name("review-hide");
 Route::post('/review/unhide', [TenderController::class, 'unhideReview'])->name("review-unhide");
+
+//CHAT
+Route::get('/chat', [TenderController::class, 'showChat'])->name("chat");
+Route::post('/chat/{id}/message', [TenderController::class, 'sendMessage'])->name("chat-message-send");
+Route::get('/chat/{id}/messages', [TenderController::class, 'getMessages'])->name("chat-messages-get");
+Route::post('/chat/newRoom', [TenderController::class, 'createRoom'])->name("chat-new");
+
+//CURRENCY
+Route::post('/currency/update', [CurrencyController::class, 'update'])->name("currency-update");
+
+//EMAIL
+Route::post('/email/send', [EmailController::class, 'sendMessage'])->name("email-send");
 
 
 require __DIR__.'/auth.php';

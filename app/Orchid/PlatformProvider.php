@@ -52,6 +52,26 @@ class PlatformProvider extends OrchidServiceProvider
               ->icon('layers')
               ->route('platform.sertificat'),
 
+            Menu::make('Поставщики')
+                ->icon('code')
+                ->list([
+                    Menu::make("Торговые представители")
+                        ->icon('layers')
+                        ->route('platform.sellerReps'),
+                    Menu::make("Дистрибьютеры")
+                        ->icon('layers')
+                        ->route('platform.distributors'),
+                    Menu::make("Коннекторы")
+                        ->icon('layers')
+                        ->route('platform.connectors'),
+                    Menu::make("Продавецы в России")
+                        ->icon('layers')
+                        ->route('platform.sellerRus'),
+                ]),
+
+            Menu::make("Валюты")
+                ->icon('layers')
+                ->route('platform.currencies'),
 
 
             Menu::make('Example screen')

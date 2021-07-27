@@ -67,4 +67,20 @@ class User extends Authenticatable
         'updated_at',
         'created_at',
     ];
+
+    public function chats(){
+        return $this->belongsToMany(Chat::class, "chats_users","user_id","chat_id");
+    }
+    public function subroles(){
+        return $this->belongsToMany(Subrole::class, "provider_subroles","user_id","subrole_id");
+    }
+    public function provider_infos()
+    {
+        return $this->hasMany(ProviderInfo::class, 'user_id');
+    }
+    public function tender_product_reviews()
+    {
+        return $this->hasMany(TenderProductReview::class, 'provider_id');
+    }
+
 }

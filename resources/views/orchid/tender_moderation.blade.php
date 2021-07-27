@@ -316,7 +316,7 @@
               </div>
             </td>
 
-            <td contenteditable="true" class="text-left" colspan="1" data-column="title" colspan="1">
+            <td contenteditable="true" class="text-left" data-column="title" colspan="1">
               <div id="product-{{$product->id}}-description">
                 {{$product->description}}
               </div>
@@ -507,7 +507,7 @@ function sendTenderData()
   console.log($('meta[name="csrf_token"]').attr('content'));
   axios({
     method: 'POST',
-    url: `http://188.225.85.66/admin/tender/moderation/3/test`,
+    url: `${window.location.origin}/admin/tender/moderation/${TENDER.id}/test`,
     data: tender,
     headers: {
       'X-Requested-With': 'XMLHttpRequest',
