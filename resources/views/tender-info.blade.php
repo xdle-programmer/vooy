@@ -37,29 +37,35 @@
                             @if (Auth::check())
                                 <div class="tender-header__main-buttons">
                                     @if($role->slug == 'buyer')
-                                        @php
-                                        $hasReview = App\Models\TenderProductReview::where('provider_id', $user->id)->where('tender_id', $tender->id)->first();
-                                        @endphp
-                                        @if($hasReview != null)
-                                            <h1>Предложение сделано {{$hasReview->created_at->format('d.m.Y')}}</h1>
-                                        @else
-                                            <div data-tender="{{$tender->id}}" onclick="copyTender(this)"
-                                                 class="tender-header__main-button button">Скопировать
-                                                <svg class="button__icon">
-                                                    <use xlink:href="../images/icons/icons-sprite.svg#copy"></use>
-                                                </svg>
-                                            </div>
-                                        @endif
+
+                                        <div data-tender="{{$tender->id}}" onclick="copyTender(this)"
+                                             class="tender-header__main-button button">Скопировать
+                                            <svg class="button__icon">
+                                                <use xlink:href="../images/icons/icons-sprite.svg#copy"></use>
+                                            </svg>
+                                        </div>
+
                                     @endif
                                     @if($role->slug == 'provider')
+
                                         @if(!$tender->reviews->where('provider_id', $user->id ?? 0 )->first())
+
                                             <div onclick="openReview()"
                                                  class="tender-header__main-button button button--small">Ответить на
                                                 тендер
                                                 <svg class="button__icon button__icon--small">
-                                                    <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                                                    <use
+                                                        xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
                                                 </svg>
                                             </div>
+                                        @else
+                                            @php
+                                                $hasReview = App\Models\TenderProductReview::where('provider_id', $user->id)->where('tender_id', $tender->id)->first();
+                                            @endphp
+                                            @if($hasReview != null)
+                                                <div class="tender-header__desc-item-name">Предложение сделано: </div>
+                                                <div class="tender-header__desc-item-value"> {{$hasReview->created_at->format('d.m.Y')}}</div>
+                                            @endif
                                         @endif
                                     @endif
                                 </div>
