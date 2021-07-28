@@ -425,9 +425,6 @@
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
-console.log($('meta[name="csrf_token"]').attr('content'));
-
-
 let TENDER = {!! json_encode($tender) !!};
 let SERTIFICATS = {!! json_encode($sertificats) !!};
 
@@ -448,8 +445,6 @@ let tender = {
   products: []
 }
 
-
-
   TENDER.products.forEach((prod) => {
     SERTIFICATS.forEach((s) => {
       let ifHas = false;
@@ -467,6 +462,7 @@ let tender = {
   });
 
 function getTender(){
+    console.log('getTender()');
   tender.buyer.id = document.getElementById("byuer-id").dataset.buyer;
   tender.buyer.phone = document.getElementById("byuer-phone").textContent;
   tender.buyer.name = document.getElementById("byuer-name").textContent;
@@ -504,7 +500,7 @@ function getTender(){
 
 function sendTenderData()
 {
-  console.log($('meta[name="csrf_token"]').attr('content'));
+    console.log('sendTenderData()');
   axios({
     method: 'POST',
     url: `${window.location.origin}/admin/tender/moderation/${TENDER.id}/test`,

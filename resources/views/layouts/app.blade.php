@@ -271,7 +271,6 @@
         </div>
     </form>
 </div>
-
 <div class="modal" id="register-manufacturer">
     <form method="POST" action="{{ route('register-provider') }}">
         @csrf
@@ -388,7 +387,6 @@
         </div>
     </form>
 </div>
-
 <div class="modal" id="check-phone">
     <div class="modal__content form-check">
         <div class="modal__header">
@@ -561,15 +559,26 @@
             <svg class="modal__content-message-icon">
                 <use xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
             </svg>
-            <div class="modal__content-message-text">Ваш тендер успешно опубликован!</div>
+            <div  class="modal__content-message-text">Ваш тендер успешно опубликован!</div>
             <div class="modal__content-message-two-buttons">
-                <div class="button button--small button--invert">ПОСМОТРЕТЬ ЕЩЁ</div>
-                <div class="button button--small">В ТЕНДЕРЫ</div>
+                <div data-modal-close class="button button--small button--invert">ЗАКРЫТЬ</div>
+                <a class="button button--small" href="{{route('tenders-list')}}">В ТЕНДЕРЫ</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="new-review-success">
+    <div class="modal__content">
+        <div class="modal__content-message">
+            <div  class="modal__content-message-text">Ваш ответ на тендер успешно отправлен!</div>
+            <div class="modal__content-message-two-buttons">
+                <div onclick="window.location = window.location" class="button button--small">ОК</div>
             </div>
         </div>
     </div>
 </div>
 <div class="modal" id="tender-copied">
+    <div class="modal__content">
     <div class="modal__content">
         <div class="modal__close" data-modal-close>
             <svg class="modal__close-icon">
@@ -628,11 +637,6 @@
 </div>
 <div class="modal" id="winner-success">
     <div class="modal__content">
-        <div class="modal__close" data-modal-close>
-            <svg class="modal__close-icon">
-                <use xlink:href="../images/icons/icons-sprite.svg#close"></use>
-            </svg>
-        </div>
         <div class="modal__content-message">
             <svg class="modal__content-message-icon">
                 <use xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
@@ -838,8 +842,7 @@
                                 @endif
                             @endif
                             <div class="product-in-tender__item-input-doOffer">
-                                <div class="button">Сделать
-                                    предложение
+                                <div class="button">Выбрать из существующих
                                 </div>
                             </div>
                         </div>
@@ -847,7 +850,14 @@
                 </div>
             </div>
             <div class="product-in-tender__footer">
-                <div id="review-upload-btn" onclick="uploadReview()" class="button form-check__button">Сделать
+                <div id="review-upload-btn" onclick="()=>{
+                    if (!this.target.classList.contains('form-check__button--disabled')) {
+                        console.log('send')
+                        uploadReview()
+                    } else {
+                        console.log('not send')
+                    }
+                }" class="button form-check__button">Сделать
                     предложение
                 </div>
             </div>
@@ -1079,6 +1089,7 @@
     }
 
 </script>
+
 @yield('f_script')
 </body>
 </html>

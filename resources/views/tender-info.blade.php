@@ -37,12 +37,19 @@
                             @if (Auth::check())
                                 <div class="tender-header__main-buttons">
                                     @if($role->slug == 'buyer')
-                                        <div data-tender="{{$tender->id}}" onclick="copyTender(this)"
-                                             class="tender-header__main-button button">Скопировать
-                                            <svg class="button__icon">
-                                                <use xlink:href="../images/icons/icons-sprite.svg#copy"></use>
-                                            </svg>
-                                        </div>
+                                        @php
+                                        $hasReview = App\Models\TenderProductReview::where('provider_id', $user->id)->where('tender_id', $tender->id)->first();
+                                        @endphp
+                                        @if($hasReview != null)
+                                            <h1>Предложение сделано {{$hasReview->created_at->format('d.m.Y')}}</h1>
+                                        @else
+                                            <div data-tender="{{$tender->id}}" onclick="copyTender(this)"
+                                                 class="tender-header__main-button button">Скопировать
+                                                <svg class="button__icon">
+                                                    <use xlink:href="../images/icons/icons-sprite.svg#copy"></use>
+                                                </svg>
+                                            </div>
+                                        @endif
                                     @endif
                                     @if($role->slug == 'provider')
                                         @if(!$tender->reviews->where('provider_id', $user->id ?? 0 )->first())
@@ -1804,9 +1811,8 @@
                     console.log("AX");
                     console.log(response.data);
                     modals.close('new-offer-tender-products');
-                    //modals.close('new-tender-products');
-                    //modals.open('new-tender-success');
-                    //window.location = 'http://188.225.85.66?message=' + response.data;
+                    modals.close('new-tender-products');
+                    modals.open('new-tender-success');
                 })
                 .catch((err) => {
                     console.log(err)

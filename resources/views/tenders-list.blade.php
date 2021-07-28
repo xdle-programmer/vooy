@@ -47,6 +47,7 @@
                             </div>
                             @if ($buyer_id != 0)
                                 @if($role->slug == 'provider')
+                                    {{--
                                     <div class="header-checkbox__item">
                                         <label class="checkbox">
                                             <input
@@ -59,7 +60,7 @@
                     <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
                   </svg><span class="checkbox__text">Только с моими предложениями</span></span>
                                         </label>
-                                    </div>
+                                    </div>--}}
                                 @endif
                                 @if($role->slug == 'buyer')
                                     <div class="header-checkbox__item">
