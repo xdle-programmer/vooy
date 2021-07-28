@@ -6,7 +6,9 @@
     "scripts": {
         "dev": "webpack-dev-server --open -p --config ./webpack.config.dev.js --mode development",
         "build": "webpack -p --config ./webpack.config.dev.js --mode production",
-        "watch": "webpack --config ./webpack.config.watch.js --mode development --progress"
+        "watch": "webpack --config ./webpack.config.watch.js --mode development --progress",
+        "start-currency-updater": "node ./currencyUpdater/currencyUpdater.js",
+        "start-socket-chat": "node ./socketChat/chatserver.js"
     },
     "browserslist": [
         "> 1%",
@@ -62,6 +64,10 @@
         "simple-custom-select": "^1.0.3",
         "single-menu": "^1.0.1",
         "tiny-slider": "^2.9.3",
-        "@babel/runtime": "^7.14.0"
+        "@babel/runtime": "^7.14.0",
+        "axios": "^0.21.1",
+        "node-schedule": "^2.0.0",
+        "express": "^4.17.1",
+        "socket.io": "^2.3.0"
     }
 }
