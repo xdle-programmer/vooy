@@ -94,13 +94,12 @@
                         if ($tender->buyer_id == $user->id) {
                             $hasTabs = true;
                         }
-
                     @endphp
 
                     @if ($hasTabs == false)
                         <div class="tabs--not">
                             @else
-                                <div class="tabs--not">
+                                <div class="tabs">
                                     @endif
 
 
@@ -1828,7 +1827,7 @@
 
                         </div>
                 </div>
-        </section>
+            </section>
         </div>
     @else
         <div class="wrapper">

@@ -268,8 +268,19 @@ class TenderController extends Controller
             ->where('id', $id)->first();
 
         if ($tender != null && $user != null){
-            if ($tender->provider_id == $user->id)
-                return view('tender-info-provider', ['tender' => $tender, 'user' => $user, 'role' => $role]);
+            $hasTender = Tender::whereHas('reviews', function ($q) use($user){
+                $q->where('provider_id', $user->id);
+            })->where('id', $id)->first();
+            $review = $tender->reviews->where('tender_id',$id)->where('provider_id',$user->id)->first();
+            if ($hasTender != null)
+            {
+                return view('tender-info-provider', ['tender' => $tender, 'review'=>$review, 'user' => $user, 'role' => $role]);
+            }
+
+            if ($tender->provider_id == $user->id ){
+                return view('tender-info-provider', ['tender' => $tender, 'review'=>$review, 'user' => $user, 'role' => $role]);
+            }
+
         }
         //dd($tender);
         return view('tender-info', ['tender' => $tender, 'user' => $user, 'role' => $role]);
