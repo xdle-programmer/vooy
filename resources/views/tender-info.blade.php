@@ -1828,7 +1828,6 @@
 
                         </div>
                 </div>
-        </div>
         </section>
         </div>
     @else

@@ -205,16 +205,24 @@ class TenderController extends Controller
         $tenders;
         $buyer_id = 0;
 
+        $isFiltered =  $request->input('filtered');
         $onlyMy = $request->input('onlyMy');
+        $onlyMyProvider = $request->input('onlyMyProvider');
         $onlyActive = $request->input('onlyActive');
         $onlyArchive = $request->input('onlyArchive');
 
-        if ($onlyMy != null || $onlyActive != null || $onlyArchive != null) {
+        if ($isFiltered) {
             $tenders = Tender::with("products", "buyer", "provider", "status", "substatus");
             if ($user != null) {
                 $buyer_id = $user->id;
+
                 if ($onlyMy == 'on') {
                     $tenders = $tenders->where('buyer_id', $user->id);
+                }
+                if ($onlyMyProvider == 'on') {
+                    $tenders = $tenders->whereHas('reviews', function ($q) use($user){
+                        $q->where('provider_id', $user->id);
+                    });
                 }
             }
             if ($onlyActive == 'on') {
@@ -242,7 +250,7 @@ class TenderController extends Controller
         //$tenders = Tender::with("products", "buyer", "provider", "status", "substatus")->where('buyer_id', $user->id)->filters()->paginate();
 
         return view('tenders-list', ['tenders' => $tenders, 'role' => $role, 'buyer_id' => $buyer_id,
-            'onlyMy' => $onlyMy, 'onlyActive' => $onlyActive, 'onlyArchive' => $onlyArchive]);
+            'onlyMy' => $onlyMy,'onlyMyProvider' => $onlyMyProvider, 'onlyActive' => $onlyActive, 'onlyArchive' => $onlyArchive]);
     }
 
     public function showTender(Request $request, int $id)
