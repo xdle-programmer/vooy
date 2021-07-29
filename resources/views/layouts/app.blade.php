@@ -570,6 +570,9 @@
 <div class="modal" id="new-review-success">
     <div class="modal__content">
         <div class="modal__content-message">
+            <svg class="modal__content-message-icon">
+                {{--<use xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>--}}
+            </svg>
             <div  class="modal__content-message-text">Ваш ответ на тендер успешно отправлен!</div>
             <div class="modal__content-message-two-buttons">
                 <div onclick="window.location = window.location" class="button button--small">ОК</div>
@@ -578,7 +581,6 @@
     </div>
 </div>
 <div class="modal" id="tender-copied">
-    <div class="modal__content">
     <div class="modal__content">
         <div class="modal__close" data-modal-close>
             <svg class="modal__close-icon">
@@ -639,7 +641,7 @@
     <div class="modal__content">
         <div class="modal__content-message">
             <svg class="modal__content-message-icon">
-                <use xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
+                {{--<use xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>--}}
             </svg>
             <div class="modal__content-message-text">Вы выбрали победителем
                 <div id="modal-winner-success-providerName" class="modal__content-message-text-inner">Название поставщика</div>
@@ -1089,6 +1091,7 @@
     }
 
 </script>
+
 
 @yield('f_script')
 </body>

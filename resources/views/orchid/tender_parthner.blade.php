@@ -457,16 +457,24 @@
                     'Content-Type': 'application/json'
                 },
             })
-                .then((response) => {
+                .then(async (response) => {
                     console.log("AX");
                     console.log(response.data.provider.email);
 
                     let mailData = {
                         title: 'Вас выбрали ответственным за доставку',
                         body: 'Вас выбрали ответственным за доставку',
+                        email: response.data.delivery.email,
+                    }
+                    await sendMessageToEmail(mailData);
+                    mailData = {
+                        title: 'выбрали ответственного за доставку',
+                        body: 'выбрали ответственного за доставку',
                         email: response.data.provider.email,
                     }
-                    sendMessageToEmail(mailData);
+                    await sendMessageToEmail(mailData);
+
+                    window.location = `${window.location.origin}/admin/tenders`;
                 })
         }
 
@@ -484,7 +492,6 @@
                 },
             }).then((response) => {
                 console.log(response.data)
-                window.location = `${window.location.origin}/admin/tenders`;
             })
         }
 

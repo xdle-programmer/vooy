@@ -87,8 +87,9 @@ class TenderParthnerScreen extends Screen
         $tender->deliveryman_id = $provider_id;
         $tender->save();
 
-        $provider = User::find($provider_id);
+        $delivery = User::find($provider_id);
+        $provider = User::find($tender->provider_id);
 
-        return response()->json(['provider'=>$provider],200);
+        return response()->json(['delivery'=>$delivery,'provider'=>$provider],200);
     }
 }
