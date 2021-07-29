@@ -63,8 +63,9 @@
                                                 $hasReview = App\Models\TenderProductReview::where('provider_id', $user->id)->where('tender_id', $tender->id)->first();
                                             @endphp
                                             @if($hasReview != null)
-                                                <div class="tender-header__desc-item-name">Предложение сделано: </div>
-                                                <div class="tender-header__desc-item-value"> {{$hasReview->created_at->format('d.m.Y')}}</div>
+                                                <div class="tender-header__desc-item-name">Предложение сделано:</div>
+                                                <div
+                                                    class="tender-header__desc-item-value"> {{$hasReview->created_at->format('d.m.Y')}}</div>
                                             @endif
                                         @endif
                                     @endif
@@ -88,854 +89,1452 @@
 
             <section class="section section--small">
                 <div class="layout">
+                    @php
+                        $hasTabs = false;
+                        if ($tender->buyer_id == $user->id) {
+                            $hasTabs = true;
+                        }
 
-                    <div class="tabs">
-                        @if($role != null)
-                            @if( 'provider' == $role->slug)
-                                <div class="buyer">
-                                    <div class="buyer__logo" data-name="П"></div>
-                                    <div class="buyer__title">{{$tender->buyer->name}}</div>
-                                    <div class="buyer__options">
-                                        <div class="buyer__option">
-                                            <div class="buyer__option-name">Город:</div>
-                                            <div class="buyer__option-value">{{$tender->buyer->city}}</div>
-                                        </div>
-                                        <div class="buyer__option">
-                                            <div class="buyer__option-name">Тендеров:</div>
-                                            <div class="buyer__option-value">1</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
-                            @if( 'buyer' == $role->slug & $tender->status_id == 3)
-                                <div class="tabs__header">
-                                    <div class="tabs__toggle-nav" aria-label="Carousel Navigation" tabindex="0"
-                                         style="display: none;">
-                                        <div class="tabs__toggle-nav-button tabs__toggle-nav-button--prev"
-                                             aria-controls="tns2"
-                                             tabindex="-1" data-controls="prev">
-                                            <svg class="tabs__toggle-nav-button-icon">
-                                                <use xlink:href="../images/icons/icons-sprite.svg#arrow"></use>
-                                            </svg>
-                                        </div>
-                                        <div class="tabs__toggle-nav-button tabs__toggle-nav-button--next"
-                                             aria-controls="tns2"
-                                             tabindex="-1" data-controls="next">
-                                            <svg class="tabs__toggle-nav-button-icon">
-                                                <use xlink:href="../images/icons/icons-sprite.svg#arrow"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="tns-outer" id="tns2-ow">
-                                        <div class="tns-liveregion tns-visually-hidden" aria-live="polite"
-                                             aria-atomic="true">
-                                            slide <span class="current">1</span> of 3
-                                        </div>
-                                        <div id="tns2-mw" class="tns-ovh">
-                                            <div class="tns-inner" id="tns2-iw">
-                                                <div class="tabs__toggle-buttons  " id="tns2" style="">
+                    @endphp
+
+                    @if ($hasTabs == false)
+                        <div class="tabs--not">
+                            @else
+                                <div class="tabs--not">
+                                    @endif
+
+
+                                    @if($role != null)
+                                        @if( 'provider' == $role->slug)
+                                            <div class="buyer">
+                                                <div class="buyer__logo" data-name="П"></div>
+                                                <div class="buyer__title">{{$tender->buyer->name}}</div>
+                                                <div class="buyer__options">
+                                                    <div class="buyer__option">
+                                                        <div class="buyer__option-name">Город:</div>
+                                                        <div
+                                                            class="buyer__option-value">{{$tender->buyer->city}}</div>
+                                                    </div>
+                                                    <div class="buyer__option">
+                                                        <div class="buyer__option-name">Тендеров:</div>
+                                                        <div class="buyer__option-value">1</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
+                                        @if( 'buyer' == $role->slug & $tender->status_id == 3 & $hasTabs == true)
+                                            <div class="tabs__header">
+                                                <div class="tabs__toggle-nav"
+                                                     aria-label="Carousel Navigation" tabindex="0"
+                                                     style="display: none;">
                                                     <div
-                                                        class="tabs__toggle-button tns-item tns-slide-active tabs__toggle-button--active"
-                                                        id="tns2-item0">Тендер
-                                                    </div>
-                                                    <div class="tabs__toggle-button tns-item" id="tns2-item1"
-                                                         aria-hidden="true"
-                                                         tabindex="-1">Ответы (сгруппировать по
-                                                        поставщикам)
-                                                    </div>
-                                                    <div class="tabs__toggle-button tns-item" id="tns2-item2"
-                                                         aria-hidden="true"
-                                                         tabindex="-1">Ответы (сгруппировать по товарам)
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endif
-                        @endif
-                        <div class="tabs__toggle-items">
-                            <div class="tabs__toggle-item tabs__toggle-item--active tabs__toggle-item--active-effect">
-                                <div class="tender-row tender-row--product tender-row--header">
-                                    <div class="tender-row__item">Фото</div>
-                                    <div class="tender-row__item">Наименование</div>
-                                    <div class="tender-row__item">Количество</div>
-                                    <div class="tender-row__item">Необходим образец</div>
-                                    <div class="tender-row__item">Брэндинг</div>
-                                    <div class="tender-row__item">Упаковка</div>
-                                    <div class="tender-row__item">Сертификаты</div>
-                                    <div class="tender-row__item tender-row__item--center">Комментарий</div>
-                                </div>
-                                @if ($tender->products)
-                                    @foreach ($tender->products as $key => $product)
-                                        <div id="tender-table-product-{{$product->id}}"
-                                             class="tender-row tender-row--product">
-
-                                            @if ($product->attachments->first())
-                                                @php
-                                                    $path = "";
-                                                    $photoCount = 0;
-                                                @endphp
-                                                @foreach ($product->attachments as $key => $attachment)
-                                                    @php
-                                                        $path .= '../storage/tenderProducts/'.$attachment->path;
-                                                        $photoCount++;
-                                                        if(!$loop->last)
-                                                          $path .= ','
-                                                    @endphp
-                                                @endforeach
-                                                <div class="tender-row__item" data-product-img-slider="{{$path}}">
-                                                    <div class="tender-row__preview tender-row__preview--zoom">
-                                                        <div class="tender-row__preview-zoom-text">{{$photoCount}}
-                                                            фото
-                                                        </div>
-                                                        <img class="tender-row__preview-img"
-                                                             src="../storage/tenderProducts/{{$product->attachments->first()->path}}">
-                                                    </div>
-                                                </div>
-                                            @else
-                                                <div class="tender-row__item"
-                                                     data-product-img-slider="../storage/tenderProducts/empty.jpg">
-                                                    <div class="tender-row__preview tender-row__preview--zoom">
-                                                        <div class="tender-row__preview-zoom-text">0 фото</div>
-                                                        <img class="tender-row__preview-img"
-                                                             src="../storage/tenderProducts/empty.jpg">
-                                                    </div>
-                                                </div>
-                                            @endif
-
-                                            <div
-                                                class="tender-row__item tender-row__item--middle">{{$product->title}}</div>
-                                            <div
-                                                class="tender-row__item tender-row__item--big">{{$product->count}}</div>
-                                            <div class="tender-row__item">
-                                                @if ($product->sample)
-                                                    <svg class="tender-row__item-icon tender-row__item-icon--check">
-                                                        <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
-                                                    </svg>
-                                                @else
-                                                    <svg class="tender-row__item-icon tender-row__item-icon--not-check">
-                                                        <use xlink:href="../images/icons/icons-sprite.svg#close"></use>
-                                                    </svg>
-                                                @endif
-                                            </div>
-                                            <div class="tender-row__item">
-                                                @if ($product->branding)
-                                                    <svg class="tender-row__item-icon tender-row__item-icon--check">
-                                                        <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
-                                                    </svg>
-                                                @else
-                                                    <svg class="tender-row__item-icon tender-row__item-icon--not-check">
-                                                        <use xlink:href="../images/icons/icons-sprite.svg#close"></use>
-                                                    </svg>
-                                                @endif
-                                            </div>
-                                            <div class="tender-row__item">
-                                                @if ($product->packing)
-                                                    <svg class="tender-row__item-icon tender-row__item-icon--check">
-                                                        <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
-                                                    </svg>
-                                                @else
-                                                    <svg class="tender-row__item-icon tender-row__item-icon--not-check">
-                                                        <use xlink:href="../images/icons/icons-sprite.svg#close"></use>
-                                                    </svg>
-                                                @endif
-                                            </div>
-                                            <div class="tender-row__item tender-row__item--left">
-                                                @foreach($product->sertificats as $sertificat)
-                                                    @if($loop->last)
-                                                        {{$sertificat->name}}
-                                                    @else
-                                                        {{$sertificat->name}},
-                                                    @endif
-                                                @endforeach
-                                            </div>
-                                            <div
-                                                class="tender-row__item tender-row__item--left">{{$product->description}}</div>
-                                        </div>
-                                    @endforeach
-                                @else
-                                    <h1>Пусто</h1>
-                                @endif
-                            </div>
-
-                            @if($tender->status_id == 3)
-                                <div id="reviews" class="tabs__toggle-item">
-                                    @if($tender->reviews != null)
-                                        @foreach($tender->reviews->where('hidden', 0) as $key => $review)
-                                            <div id="review-{{$review->id}}" class="border-block offer tenders-chat">
-                                                {{--CONFIRM REVIEW BUTTONS SECTION--}}
-                                                <div class="offer__manufacturer-buttons">
-                                                    @php
-                                                        $state = 0;
-                                                    @endphp
-                                                    @if($review->provider->subroles->first())
-                                                        @php
-                                                            if($review->provider->subroles->where('id', 4)->first()){
-                                                               $state = 1;
-                                                            }
-                                                            elseif ($review->provider->subroles->where('id', 3)->first()){
-                                                               $state = 2;
-                                                            }
-                                                            elseif ($review->provider->subroles->where('id', 2)->first()){
-                                                               $state = 2;
-                                                            }
-                                                            elseif ($review->provider->subroles->where('id', 1)->first()){
-                                                               $state = 3;
-                                                            }
-                                                        @endphp
-
-                                                    @endif
-
-                                                    @if($state == 1)
-                                                        <div data-type="2" data-review="{{$review->id}}"
-                                                             data-delivery="1" data-country="1"
-                                                             class="offer__manufacturer-button offer__manufacturer-button--green offer__manufacturer-button--accept">
-                                                            <div class="offer__manufacturer-button-text">Меня устраивают
-                                                                условия, выбрать поставщика победителем
-                                                            </div>
-                                                            <svg class="offer__manufacturer-button-icon">
-                                                                <use
-                                                                    xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
-                                                            </svg>
-                                                        </div>
-                                                    @elseif($state == 2)
-                                                        <div data-type="2" data-review="{{$review->id}}"
-                                                             data-delivery="0" data-country="2"
-                                                             class="offer__manufacturer-button offer__manufacturer-button--green offer__manufacturer-button--accept">
-                                                            <div class="offer__manufacturer-button-text">Меня устраивают
-                                                                условия, я заберу товар из Китая сам, выбрать поставщика
-                                                                победителем тендера
-                                                            </div>
-                                                            <svg class="offer__manufacturer-button-icon">
-                                                                <use
-                                                                    xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
-                                                            </svg>
-                                                        </div>
-                                                        <div data-type="2" data-review="{{$review->id}}"
-                                                             data-delivery="1" data-country="1"
-                                                             class="offer__manufacturer-button offer__manufacturer-button--green offer__manufacturer-button--accept">
-                                                            <div class="offer__manufacturer-button-text">Меня устраивают
-                                                                условия, но я хочу забрать товар из России
-                                                            </div>
-                                                            <svg class="offer__manufacturer-button-icon">
-                                                                <use
-                                                                    xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
-                                                            </svg>
-                                                        </div>
-                                                    @elseif($state == 3)
-                                                        <div data-type="1" data-review="{{$review->id}}"
-                                                             data-delivery="0" data-country="2"
-                                                             class="offer__manufacturer-button offer__manufacturer-button--green offer__manufacturer-button--accept">
-                                                            <div class="offer__manufacturer-button-text">Меня устраивают
-                                                                условия, я заберу товар из Китая сам, выбрать поставщика
-                                                                победителем тендера
-                                                            </div>
-                                                            <svg class="offer__manufacturer-button-icon">
-                                                                <use
-                                                                    xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
-                                                            </svg>
-                                                        </div>
-                                                        <div data-type="1" data-review="{{$review->id}}"
-                                                             data-delivery="1" data-country="1"
-                                                             class="offer__manufacturer-button offer__manufacturer-button--green offer__manufacturer-button--accept">
-                                                            <div class="offer__manufacturer-button-text">Меня устраивают
-                                                                условия, но я хочу забрать товар из России, хочу
-                                                                запросить
-                                                                расчет доставки в Россию из Китая у партнера Vooy
-                                                            </div>
-                                                            <svg class="offer__manufacturer-button-icon">
-                                                                <use
-                                                                    xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
-                                                            </svg>
-                                                        </div>
-                                                    @endif
-                                                    {{--CONFIRM REVIEW BUTTONS SECTION--
-                                                    <div
-                                                        class="offer__manufacturer-button offer__manufacturer-button--green">
-                                                        <div class="offer__manufacturer-button-text">Выбрать победителем
-                                                        </div>
-                                                        <svg class="offer__manufacturer-button-icon">
+                                                        class="tabs__toggle-nav-button tabs__toggle-nav-button--prev"
+                                                        aria-controls="tns2"
+                                                        tabindex="-1" data-controls="prev">
+                                                        <svg class="tabs__toggle-nav-button-icon">
                                                             <use
-                                                                xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
-                                                        </svg>
-                                                    </div>--}}
-
-                                                    <div
-                                                        class="offer__manufacturer-button offer__manufacturer-button--gray">
-                                                        <div onclick="hideReview(this)" data-review="{{$review->id}}"
-                                                             class="offer__manufacturer-button-text">Скрыть из списка
-                                                        </div>
-                                                        <svg
-                                                            class="offer__manufacturer-button-icon offer__manufacturer-button-icon--small">
-                                                            <use
-                                                                xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                                                                xlink:href="../images/icons/icons-sprite.svg#arrow"></use>
                                                         </svg>
                                                     </div>
                                                     <div
-                                                        class="offer__manufacturer-button offer__manufacturer-button--message tenders-chat__button"
-                                                        data-chat="1">
-                                                        <div
-                                                            class="offer__manufacturer-button-text tenders-chat__button-text tenders-chat__button-text--default">
-                                                            Написать поставщику
-                                                        </div>
-                                                        <div
-                                                            class="offer__manufacturer-button-text tenders-chat__button-text tenders-chat__button-text--active">
-                                                            Скрыть переписку
-                                                        </div>
-                                                        <div class="offer__manufacturer-button-message">
-                                                            <svg class="offer__manufacturer-button-message-icon">
-                                                                <use
-                                                                    xlink:href="../images/icons/icons-sprite.svg#message"></use>
-                                                            </svg>
-                                                            <div class="offer__manufacturer-button-message-count">
+                                                        class="tabs__toggle-nav-button tabs__toggle-nav-button--next"
+                                                        aria-controls="tns2"
+                                                        tabindex="-1" data-controls="next">
+                                                        <svg class="tabs__toggle-nav-button-icon">
+                                                            <use
+                                                                xlink:href="../images/icons/icons-sprite.svg#arrow"></use>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <div class="tns-outer" id="tns2-ow">
+                                                    <div class="tns-liveregion tns-visually-hidden"
+                                                         aria-live="polite"
+                                                         aria-atomic="true">
+                                                        slide <span class="current">1</span> of 3
+                                                    </div>
+                                                    <div id="tns2-mw" class="tns-ovh">
+                                                        <div class="tns-inner" id="tns2-iw">
+                                                            <div class="tabs__toggle-buttons" id="tns2"
+                                                                 style="">
                                                                 <div
-                                                                    class="offer__manufacturer-button-message-count-inner">
-                                                                    <div
-                                                                        class="offer__manufacturer-button-message-count-inner-number">
-                                                                        3
-                                                                    </div>
+                                                                    class="tabs__toggle-button tns-item tns-slide-active tabs__toggle-button--active"
+                                                                    id="tns2-item0">Тендер
+                                                                </div>
+                                                                <div class="tabs__toggle-button tns-item"
+                                                                     id="tns2-item1"
+                                                                     aria-hidden="true"
+                                                                     tabindex="-1">Ответы (сгруппировать по
+                                                                    поставщикам)
+                                                                </div>
+                                                                <div class="tabs__toggle-button tns-item"
+                                                                     id="tns2-item2"
+                                                                     aria-hidden="true"
+                                                                     tabindex="-1">Ответы (сгруппировать по
+                                                                    товарам)
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="offer__header">
-                                                    <div class="manufacturer">
-                                                        <div class="manufacturer__logo"
-                                                             data-name="{{substr($review->provider->name,0,2)}}"></div>
-                                                        <div class="manufacturer__title">{{$review->provider->name}}
-                                                            @if($review->provider->subroles->first())
-                                                                (
-                                                                @foreach($review->provider->subroles as $subrole)
-                                                                    @if($loop->last)
-                                                                        {{@$subrole->name}}
-                                                                    @else
-                                                                        {{@$subrole->name}},
-                                                                    @endif
-                                                                @endforeach
-                                                                 )
-                                                            @endif
-                                                        </div>
-                                                        <div class="manufacturer__options">
-                                                            <div class="manufacturer__option">
-                                                                <div class="manufacturer__option-name">Город:</div>
-                                                                <div
-                                                                    class="manufacturer__option-value">{{$review->provider->city}}</div>
-                                                            </div>
-                                                            <div class="manufacturer__option">
-                                                                <div class="manufacturer__option-name">Категория:</div>
-                                                                <div class="manufacturer__option-value">Мужская одежда
-                                                                </div>
-                                                            </div>
-                                                            <div class="manufacturer__option">
-                                                                <div class="manufacturer__option-name">Побед в тендерах:
-                                                                </div>
-                                                                <div class="manufacturer__option-value">120</div>
-                                                            </div>
-                                                            <div class="manufacturer__option">
-                                                                <div class="manufacturer__option-name">Товаров в
-                                                                    наличии:
-                                                                </div>
-                                                                <div class="manufacturer__option-value">340</div>
-                                                            </div>
-
-                                                            <div class="manufacturer__option">
-                                                                <div class="manufacturer__option-name">Поставка из:
-                                                                </div>
-                                                                @if($review->from_country == 1)
-                                                                    <div class="manufacturer__option-value">России</div>
-                                                                @elseif($review->from_country == 2)
-                                                                    <div class="manufacturer__option-value">Китая</div>
-                                                                @endif
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="manufacturer__reviews">
-                                                            <div class="reviews">
-                                                                <div class="reviews__desc">
-                                                                    <div class="reviews__item">
-                                                                        <div class="reviews__item-value">4.93</div>
-                                                                        <svg class="reviews__item-star">
-                                                                            <use
-                                                                                xlink:href="../images/icons/icons-sprite.svg#star"></use>
-                                                                        </svg>
-                                                                    </div>
-                                                                    <div class="reviews__count">34 отзыва</div>
-                                                                </div>
-                                                                <div class="reviews__button button">Посмотреть отзывы
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="tender-row tender-row--offer tender-row--header">
-                                                    <div class="tender-row__item">Фото</div>
-                                                    <div class="tender-row__item">Наименование</div>
-                                                    <div class="tender-row__item">Количество</div>
-                                                    <div class="tender-row__item">Стоимость</div>
-                                                    <div class="tender-row__item">Срок реализации</div>
-                                                    <div class="tender-row__item">Предоставим образец</div>
-                                                    <div class="tender-row__item">Брэндинг</div>
-                                                    <div class="tender-row__item">Упаковка</div>
-                                                    <div class="tender-row__item tender-row__item--center">Комментарий
-                                                        поставщика
-                                                    </div>
-                                                </div>
-                                                @if($review->items != null)
-                                                    @foreach($review->items as $itemKey => $item)
-                                                        <div class="tender-row tender-row--offer">
-                                                            @if ($item->attachments->first())
-                                                                @php
-                                                                    $path = "";
-                                                                    $photoCount = 0;
-                                                                @endphp
-                                                                @foreach ($item->attachments as $key => $attachment)
-                                                                    @php
-                                                                        $path .= '../storage/reviewProducts/'.$attachment->path;
-                                                                        $photoCount++;
-                                                                        if(!$loop->last)
-                                                                          $path .= ','
-                                                                    @endphp
-                                                                @endforeach
-                                                                <div class="tender-row__item"
-                                                                     data-product-img-slider="{{$path}}">
-                                                                    <div
-                                                                        class="tender-row__preview tender-row__preview--zoom">
-                                                                        <div
-                                                                            class="tender-row__preview-zoom-text">{{$photoCount}}
-                                                                            фото
-                                                                        </div>
-                                                                        <img class="tender-row__preview-img"
-                                                                             src="../storage/reviewProducts/{{$item->attachments->first()->path}}">
-                                                                    </div>
-                                                                </div>
-                                                            @else
-                                                                <div class="tender-row__item"
-                                                                     data-product-img-slider="../storage/tenderProducts/empty.jpg">
-                                                                    <div
-                                                                        class="tender-row__preview tender-row__preview--zoom">
-                                                                        <div class="tender-row__preview-zoom-text">0
-                                                                            фото
-                                                                        </div>
-                                                                        <img class="tender-row__preview-img"
-                                                                             src="../storage/tenderProducts/empty.jpg">
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-
-                                                            <div
-                                                                class="tender-row__item tender-row__item--middle">{{$item->name}}
-                                                            </div>
-                                                            <div
-                                                                class="tender-row__item tender-row__item--big">{{$item->count}}</div>
-                                                            <div
-                                                                @php
-                                                                    $price = $item->price . " RUB";
-                                                                    if ($item->currency_id != null) {
-                                                                         if ($item->currency_id != 1){
-                                                                             $currency = App\Models\Currency::find($item->currency_id);
-                                                                             $formatedPrice = $currency->price_back * $item->price;
-                                                                             $price = round($formatedPrice, 2) .' RUB'. ' ('. $item->price .' '.$currency->code.')';
-                                                                         }
-
-                                                                        }
-                                                                @endphp
-                                                                class="tender-row__item tender-row__item--big">
-                                                                {{$price}}
-                                                            </div>
-                                                            <div
-                                                                class="tender-row__item tender-row__item--big">{{$item->release_time}}</div>
-                                                            <div class="tender-row__item">
-                                                                @if ($item->sample)
-                                                                    <svg
-                                                                        class="tender-row__item-icon tender-row__item-icon--check">
-                                                                        <use
-                                                                            xlink:href="../images/icons/icons-sprite.svg#check"></use>
-                                                                    </svg>
-                                                                @else
-                                                                    <svg
-                                                                        class="tender-row__item-icon tender-row__item-icon--not-check">
-                                                                        <use
-                                                                            xlink:href="../images/icons/icons-sprite.svg#close"></use>
-                                                                    </svg>
-                                                                @endif
-                                                            </div>
-
-                                                            <div class="tender-row__item">
-                                                                @if ($item->branding)
-                                                                    <svg
-                                                                        class="tender-row__item-icon tender-row__item-icon--check">
-                                                                        <use
-                                                                            xlink:href="../images/icons/icons-sprite.svg#check"></use>
-                                                                    </svg>
-                                                                @else
-                                                                    <svg
-                                                                        class="tender-row__item-icon tender-row__item-icon--not-check">
-                                                                        <use
-                                                                            xlink:href="../images/icons/icons-sprite.svg#close"></use>
-                                                                    </svg>
-                                                                @endif
-                                                            </div>
-
-                                                            <div class="tender-row__item">
-                                                                @if ($item->packing)
-                                                                    <svg
-                                                                        class="tender-row__item-icon tender-row__item-icon--check">
-                                                                        <use
-                                                                            xlink:href="../images/icons/icons-sprite.svg#check"></use>
-                                                                    </svg>
-                                                                @else
-                                                                    <svg
-                                                                        class="tender-row__item-icon tender-row__item-icon--not-check">
-                                                                        <use
-                                                                            xlink:href="../images/icons/icons-sprite.svg#close"></use>
-                                                                    </svg>
-                                                                @endif
-                                                            </div>
-                                                            <div
-                                                                class="tender-row__item tender-row__item--left">{{$item->description}}
-                                                            </div>
-                                                        </div>
-                                                    @endforeach
-                                                @endif
-                                                <div class="tenders-chat__wrapper">
-                                                    <div class="tenders-chat__content" data-chat-name="1">
-                                                        <div class="chat">
-                                                            <div class="chat__title">Переговоры с "Первый поставщик"
-                                                            </div>
-                                                            <div class="chat__messages">
-                                                                <div class="chat__date">08.05.2021</div>
-                                                                <div class="chat__message">
-                                                                    <div class="chat__message-content">
-                                                                        <div class="chat__message-content-text">Уверены,
-                                                                            что
-                                                                            уложитесь в
-                                                                            сроки? Куртка будет выглядеть точно так?
-                                                                        </div>
-                                                                        <div class="chat__message-content-images"><img
-                                                                                class="chat__message-content-image"
-                                                                                src="images/examples/products-preview/products-preview-3.jpg">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="chat__message-time">13:15</div>
-                                                                </div>
-                                                                <div class="chat__message chat__message--invert">
-                                                                    <div class="chat__message-content">
-                                                                        <div class="chat__message-content-text">Нет,
-                                                                            такой
-                                                                            ткани
-                                                                            нет
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="chat__message-time">13:15</div>
-                                                                </div>
-                                                                <div class="chat__message">
-                                                                    <div class="chat__message-content">
-                                                                        <div class="chat__message-content-text">Понял
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="chat__message-time">13:15</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="chat__form">
-                                                                <div class="chat__form-wrapper">
-                                                        <textarea class="chat__form-wrapper-input"
-                                                                  placeholder="Введите сообщение"></textarea>
-                                                                </div>
-                                                                <div
-                                                                    class="chat__form-file-preview chat__form-file-preview--empty">
-                                                                    <div class="chat__message-content-images"></div>
-                                                                    <div class="chat__message-content-files"></div>
-                                                                </div>
-                                                                <div class="chat__form-buttons">
-                                                                    <label class="chat__form-file-input-label">
-                                                                        <div class="chat__form-file-input-text">
-                                                                            Прикрепить
-                                                                            файл
-                                                                        </div>
-                                                                        <svg class="chat__form-file-input-icon">
-                                                                            <use
-                                                                                xlink:href="../images/icons/icons-sprite.svg#upload"></use>
-                                                                        </svg>
-                                                                        <input class="chat__form-file-input" type="file"
-                                                                               multiple="">
-                                                                    </label>
-                                                                    <div class="chat__form-send button button--small">
-                                                                        Отправить
-                                                                        сообщение
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        @endforeach
-                                        <div class="toggle-show-block">
-                                            <div class="section section--small section--center">
-                                                <div
-                                                    class="toggle-show-block__button button button--invert button--auto-width">
-                                                    <div
-                                                        class="toggle-show-block__button-text toggle-show-block__button-text--default">
-                                                        Показать скрытых поставщиков
-                                                    </div>
-                                                    <div
-                                                        class="toggle-show-block__button-text toggle-show-block__button-text--active">
-                                                        Скрыть поставщиков
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div id="hidden-reviews" class="toggle-show-block__item">
-                                                <div class="title-separator">Скрытые поставщики</div>
+                                        @endif
+                                    @endif
 
-                                                @foreach($tender->reviews->where('hidden', 1) as $key => $review)
-                                                    <div id="review-{{$review->id}}"
-                                                         class="border-block offer tenders-chat">
+                                    <div class="tabs__toggle-items">
+                                        <div
+                                            class="tabs__toggle-item tabs__toggle-item--active tabs__toggle-item--active-effect">
+                                            <div class="tender-row tender-row--product tender-row--header">
+                                                <div class="tender-row__item">Фото</div>
+                                                <div class="tender-row__item">Наименование</div>
+                                                <div class="tender-row__item">Количество</div>
+                                                <div class="tender-row__item">Необходим образец</div>
+                                                <div class="tender-row__item">Брэндинг</div>
+                                                <div class="tender-row__item">Упаковка</div>
+                                                <div class="tender-row__item">Сертификаты</div>
+                                                <div class="tender-row__item tender-row__item--center">
+                                                    Комментарий
+                                                </div>
+                                            </div>
+                                            @if ($tender->products)
+                                                @foreach ($tender->products as $key => $product)
+                                                    <div id="tender-table-product-{{$product->id}}"
+                                                         class="tender-row tender-row--product">
 
-                                                        {{--CONFIRM REVIEW BUTTONS SECTION--}}
-                                                        <div class="offer__manufacturer-buttons">
+                                                        @if ($product->attachments->first())
                                                             @php
-                                                                $state = 0;
+                                                                $path = "";
+                                                                $photoCount = 0;
                                                             @endphp
-                                                            @if($review->provider->subroles->first())
+                                                            @foreach ($product->attachments as $key => $attachment)
                                                                 @php
-                                                                    if($review->provider->subroles->where('id', 4)->first()){
-                                                                       $state = 1;
-                                                                    }
-                                                                    elseif ($review->provider->subroles->where('id', 3)->first()){
-                                                                       $state = 2;
-                                                                    }
-                                                                    elseif ($review->provider->subroles->where('id', 2)->first()){
-                                                                       $state = 2;
-                                                                    }
-                                                                    elseif ($review->provider->subroles->where('id', 1)->first()){
-                                                                       $state = 3;
-                                                                    }
+                                                                    $path .= '../storage/tenderProducts/'.$attachment->path;
+                                                                    $photoCount++;
+                                                                    if(!$loop->last)
+                                                                      $path .= ','
                                                                 @endphp
-
-                                                            @endif
-
-                                                            @if($state == 1)
+                                                            @endforeach
+                                                            <div class="tender-row__item"
+                                                                 data-product-img-slider="{{$path}}">
                                                                 <div
-                                                                    class="offer__manufacturer-button offer__manufacturer-button--green">
-                                                                    <div class="offer__manufacturer-button-text">Меня
-                                                                        устраивают
-                                                                        условия, выбрать поставщика победителем
-                                                                    </div>
-                                                                    <svg class="offer__manufacturer-button-icon">
-                                                                        <use
-                                                                            xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
-                                                                    </svg>
-                                                                </div>
-                                                            @elseif($state == 2)
-                                                                <div
-                                                                    class="offer__manufacturer-button offer__manufacturer-button--green">
-                                                                    <div class="offer__manufacturer-button-text">Меня
-                                                                        устраивают
-                                                                        условия, я заберу товар из Китая сам, выбрать
-                                                                        поставщика
-                                                                        победителем тендера
-                                                                    </div>
-                                                                    <svg class="offer__manufacturer-button-icon">
-                                                                        <use
-                                                                            xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
-                                                                    </svg>
-                                                                </div>
-                                                                <div
-                                                                    class="offer__manufacturer-button offer__manufacturer-button--green">
-                                                                    <div class="offer__manufacturer-button-text">Меня
-                                                                        устраивают
-                                                                        условия, но я хочу забрать товар из России
-                                                                    </div>
-                                                                    <svg class="offer__manufacturer-button-icon">
-                                                                        <use
-                                                                            xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
-                                                                    </svg>
-                                                                </div>
-                                                            @elseif($state == 3)
-                                                                <div
-                                                                    class="offer__manufacturer-button offer__manufacturer-button--green">
-                                                                    <div class="offer__manufacturer-button-text">Меня
-                                                                        устраивают условия, я заберу товар из Китая сам,
-                                                                        выбрать поставщика победителем тендера
-                                                                    </div>
-                                                                    <svg class="offer__manufacturer-button-icon">
-                                                                        <use
-                                                                            xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
-                                                                    </svg>
-                                                                </div>
-                                                                <div
-                                                                    class="offer__manufacturer-button offer__manufacturer-button--green">
-                                                                    <div class="offer__manufacturer-button-text">Меня
-                                                                        устраивают условия, но я хочу забрать товар из
-                                                                        России, хочу запросить расчет доставки в Россию
-                                                                        из Китая у партнера Vooy
-                                                                    </div>
-                                                                    <svg class="offer__manufacturer-button-icon">
-                                                                        <use
-                                                                            xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
-                                                                    </svg>
-                                                                </div>
-                                                            @endif
-                                                            {{--CONFIRM REVIEW BUTTONS SECTION--
-
+                                                                    class="tender-row__preview tender-row__preview--zoom">
                                                                     <div
-                                                                        class="offer__manufacturer-button offer__manufacturer-button--green">
-                                                                        <div class="offer__manufacturer-button-text">Выбрать2
+                                                                        class="tender-row__preview-zoom-text">{{$photoCount}}
+                                                                        фото
+                                                                    </div>
+                                                                    <img class="tender-row__preview-img"
+                                                                         src="../storage/tenderProducts/{{$product->attachments->first()->path}}">
+                                                                </div>
+                                                            </div>
+                                                        @else
+                                                            <div class="tender-row__item"
+                                                                 data-product-img-slider="../storage/tenderProducts/empty.jpg">
+                                                                <div
+                                                                    class="tender-row__preview tender-row__preview--zoom">
+                                                                    <div
+                                                                        class="tender-row__preview-zoom-text">
+                                                                        0 фото
+                                                                    </div>
+                                                                    <img class="tender-row__preview-img"
+                                                                         src="../storage/tenderProducts/empty.jpg">
+                                                                </div>
+                                                            </div>
+                                                        @endif
+
+                                                        <div
+                                                            class="tender-row__item tender-row__item--middle">{{$product->title}}</div>
+                                                        <div
+                                                            class="tender-row__item tender-row__item--big">{{$product->count}}</div>
+                                                        <div class="tender-row__item">
+                                                            @if ($product->sample)
+                                                                <svg
+                                                                    class="tender-row__item-icon tender-row__item-icon--check">
+                                                                    <use
+                                                                        xlink:href="../images/icons/icons-sprite.svg#check"></use>
+                                                                </svg>
+                                                            @else
+                                                                <svg
+                                                                    class="tender-row__item-icon tender-row__item-icon--not-check">
+                                                                    <use
+                                                                        xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                                                                </svg>
+                                                            @endif
+                                                        </div>
+                                                        <div class="tender-row__item">
+                                                            @if ($product->branding)
+                                                                <svg
+                                                                    class="tender-row__item-icon tender-row__item-icon--check">
+                                                                    <use
+                                                                        xlink:href="../images/icons/icons-sprite.svg#check"></use>
+                                                                </svg>
+                                                            @else
+                                                                <svg
+                                                                    class="tender-row__item-icon tender-row__item-icon--not-check">
+                                                                    <use
+                                                                        xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                                                                </svg>
+                                                            @endif
+                                                        </div>
+                                                        <div class="tender-row__item">
+                                                            @if ($product->packing)
+                                                                <svg
+                                                                    class="tender-row__item-icon tender-row__item-icon--check">
+                                                                    <use
+                                                                        xlink:href="../images/icons/icons-sprite.svg#check"></use>
+                                                                </svg>
+                                                            @else
+                                                                <svg
+                                                                    class="tender-row__item-icon tender-row__item-icon--not-check">
+                                                                    <use
+                                                                        xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                                                                </svg>
+                                                            @endif
+                                                        </div>
+                                                        <div
+                                                            class="tender-row__item tender-row__item--left">
+                                                            @foreach($product->sertificats as $sertificat)
+                                                                @if($loop->last)
+                                                                    {{$sertificat->name}}
+                                                                @else
+                                                                    {{$sertificat->name}},
+                                                                @endif
+                                                            @endforeach
+                                                        </div>
+                                                        <div
+                                                            class="tender-row__item tender-row__item--left">{{$product->description}}</div>
+                                                    </div>
+                                                @endforeach
+                                            @else
+                                                <h1>Пусто</h1>
+                                            @endif
+                                        </div>
+
+                                        @if($tender->status_id == 3)
+                                            <div id="reviews" class="tabs__toggle-item">
+                                                @if($tender->reviews != null)
+                                                    @foreach($tender->reviews->where('hidden', 0) as $key => $review)
+                                                        <div id="review-{{$review->id}}"
+                                                             class="border-block offer tenders-chat">
+                                                            {{--CONFIRM REVIEW BUTTONS SECTION--}}
+                                                            <div class="offer__manufacturer-buttons">
+                                                                @php
+                                                                    $state = 0;
+                                                                @endphp
+                                                                @if($review->provider->subroles->first() != null)
+                                                                    @php
+                                                                        if($review->provider->subroles->where('id', 4)->first()){
+                                                                           $state = 1;
+                                                                        }
+                                                                        elseif ($review->provider->subroles->where('id', 3)->first()){
+                                                                           $state = 2;
+                                                                        }
+                                                                        elseif ($review->provider->subroles->where('id', 2)->first()){
+                                                                           $state = 2;
+                                                                        }
+                                                                        elseif ($review->provider->subroles->where('id', 1)->first()){
+                                                                           $state = 3;
+                                                                        }
+                                                                    @endphp
+
+                                                                @endif
+
+                                                                @if($state == 1)
+                                                                    <div data-type="2"
+                                                                         data-review="{{$review->id}}"
+                                                                         data-delivery="1" data-country="1"
+                                                                         class="offer__manufacturer-button offer__manufacturer-button--green offer__manufacturer-button--accept">
+                                                                        <div
+                                                                            class="offer__manufacturer-button-text">
+                                                                            Меня устраивают
+                                                                            условия, выбрать поставщика
                                                                             победителем
                                                                         </div>
-                                                                        <svg class="offer__manufacturer-button-icon">
+                                                                        <svg
+                                                                            class="offer__manufacturer-button-icon">
                                                                             <use
                                                                                 xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
                                                                         </svg>
-                                                                    </div>--}}
-
-                                                            <div
-                                                                class="offer__manufacturer-button offer__manufacturer-button--gray">
-                                                                <div onclick="unhideReview(this)"
-                                                                     data-review="{{$review->id}}"
-                                                                     class="offer__manufacturer-button-text">Вернуть в
-                                                                    список
-                                                                </div>
-                                                                <svg class="offer__manufacturer-button-icon">
-                                                                    <use
-                                                                        xlink:href="../images/icons/icons-sprite.svg#return"></use>
-                                                                </svg>
-                                                            </div>
-                                                            <div
-                                                                class="offer__manufacturer-button offer__manufacturer-button--message tenders-chat__button"
-                                                                data-chat="1">
+                                                                    </div>
+                                                                @elseif($state == 2)
+                                                                    <div data-type="2"
+                                                                         data-review="{{$review->id}}"
+                                                                         data-delivery="0" data-country="2"
+                                                                         class="offer__manufacturer-button offer__manufacturer-button--green offer__manufacturer-button--accept">
+                                                                        <div
+                                                                            class="offer__manufacturer-button-text">
+                                                                            Меня устраивают
+                                                                            условия, я заберу товар из Китая
+                                                                            сам, выбрать поставщика
+                                                                            победителем тендера
+                                                                        </div>
+                                                                        <svg
+                                                                            class="offer__manufacturer-button-icon">
+                                                                            <use
+                                                                                xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div data-type="2"
+                                                                         data-review="{{$review->id}}"
+                                                                         data-delivery="1" data-country="1"
+                                                                         class="offer__manufacturer-button offer__manufacturer-button--green offer__manufacturer-button--accept">
+                                                                        <div
+                                                                            class="offer__manufacturer-button-text">
+                                                                            Меня устраивают
+                                                                            условия, но я хочу забрать товар
+                                                                            из России
+                                                                        </div>
+                                                                        <svg
+                                                                            class="offer__manufacturer-button-icon">
+                                                                            <use
+                                                                                xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
+                                                                        </svg>
+                                                                    </div>
+                                                                @elseif($state == 3)
+                                                                    <div data-type="1"
+                                                                         data-review="{{$review->id}}"
+                                                                         data-delivery="0" data-country="2"
+                                                                         class="offer__manufacturer-button offer__manufacturer-button--green offer__manufacturer-button--accept">
+                                                                        <div
+                                                                            class="offer__manufacturer-button-text">
+                                                                            Меня устраивают
+                                                                            условия, я заберу товар из Китая
+                                                                            сам, выбрать поставщика
+                                                                            победителем тендера
+                                                                        </div>
+                                                                        <svg
+                                                                            class="offer__manufacturer-button-icon">
+                                                                            <use
+                                                                                xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div data-type="1"
+                                                                         data-review="{{$review->id}}"
+                                                                         data-delivery="1" data-country="1"
+                                                                         class="offer__manufacturer-button offer__manufacturer-button--green offer__manufacturer-button--accept">
+                                                                        <div
+                                                                            class="offer__manufacturer-button-text">
+                                                                            Меня устраивают
+                                                                            условия, но я хочу забрать товар
+                                                                            из России, хочу
+                                                                            запросить
+                                                                            расчет доставки в Россию из
+                                                                            Китая у партнера Vooy
+                                                                        </div>
+                                                                        <svg
+                                                                            class="offer__manufacturer-button-icon">
+                                                                            <use
+                                                                                xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
+                                                                        </svg>
+                                                                    </div>
+                                                                @endif
+                                                                {{--CONFIRM REVIEW BUTTONS SECTION--
                                                                 <div
-                                                                    class="offer__manufacturer-button-text tenders-chat__button-text tenders-chat__button-text--default">
-                                                                    Написать поставщику
-                                                                </div>
-                                                                <div
-                                                                    class="offer__manufacturer-button-text tenders-chat__button-text tenders-chat__button-text--active">
-                                                                    Скрыть переписку
-                                                                </div>
-                                                                <div class="offer__manufacturer-button-message">
-                                                                    <svg
-                                                                        class="offer__manufacturer-button-message-icon">
+                                                                    class="offer__manufacturer-button offer__manufacturer-button--green">
+                                                                    <div class="offer__manufacturer-button-text">Выбрать победителем
+                                                                    </div>
+                                                                    <svg class="offer__manufacturer-button-icon">
                                                                         <use
-                                                                            xlink:href="../images/icons/icons-sprite.svg#message"></use>
+                                                                            xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
                                                                     </svg>
+                                                                </div>--}}
+
+                                                                <div
+                                                                    class="offer__manufacturer-button offer__manufacturer-button--gray">
+                                                                    <div onclick="hideReview(this)"
+                                                                         data-review="{{$review->id}}"
+                                                                         class="offer__manufacturer-button-text">
+                                                                        Скрыть из списка
+                                                                    </div>
+                                                                    <svg
+                                                                        class="offer__manufacturer-button-icon offer__manufacturer-button-icon--small">
+                                                                        <use
+                                                                            xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                                                                    </svg>
+                                                                </div>
+                                                                <div
+                                                                    class="offer__manufacturer-button offer__manufacturer-button--message tenders-chat__button"
+                                                                    data-chat="1">
                                                                     <div
-                                                                        class="offer__manufacturer-button-message-count">
+                                                                        class="offer__manufacturer-button-text tenders-chat__button-text tenders-chat__button-text--default">
+                                                                        Написать поставщику
+                                                                    </div>
+                                                                    <div
+                                                                        class="offer__manufacturer-button-text tenders-chat__button-text tenders-chat__button-text--active">
+                                                                        Скрыть переписку
+                                                                    </div>
+                                                                    <div
+                                                                        class="offer__manufacturer-button-message">
+                                                                        <svg
+                                                                            class="offer__manufacturer-button-message-icon">
+                                                                            <use
+                                                                                xlink:href="../images/icons/icons-sprite.svg#message"></use>
+                                                                        </svg>
                                                                         <div
-                                                                            class="offer__manufacturer-button-message-count-inner">
+                                                                            class="offer__manufacturer-button-message-count">
                                                                             <div
-                                                                                class="offer__manufacturer-button-message-count-inner-number">
-                                                                                3
+                                                                                class="offer__manufacturer-button-message-count-inner">
+                                                                                <div
+                                                                                    class="offer__manufacturer-button-message-count-inner-number">
+                                                                                    3
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="offer__header">
-                                                            <div class="manufacturer">
-                                                                <div class="manufacturer__logo"
-                                                                     data-name="{{substr($review->provider->name,0,2)}}"></div>
-                                                                {{--<img class="manufacturer__logo" src="images/examples/manufacturer/logo/manufacturer-logo-1.jpg">--}}
-                                                                <div
-                                                                    class="manufacturer__title">{{$review->provider->name}}
-
-                                                                    @if($review->provider->subroles->first())
-                                                                        (
-                                                                        @foreach($review->provider->subroles as $subrole)
-                                                                            @if($loop->last)
-                                                                                {{@$subrole->name}}
-                                                                            @else
-                                                                                {{@$subrole->name}},
-                                                                            @endif
-                                                                        @endforeach
-                                                                         )
-                                                                    @endif
-
-                                                                </div>
-                                                                <div class="manufacturer__options">
-                                                                    <div class="manufacturer__option">
-                                                                        <div class="manufacturer__option-name">Город:
-                                                                        </div>
-                                                                        <div
-                                                                            class="manufacturer__option-value">{{$review->provider->city}}</div>
-                                                                    </div>
-                                                                    <div class="manufacturer__option">
-                                                                        <div class="manufacturer__option-name">
-                                                                            Категория:
-                                                                        </div>
-                                                                        <div class="manufacturer__option-value">Мужская
-                                                                            одежда
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="manufacturer__option">
-                                                                        <div class="manufacturer__option-name">Побед в
-                                                                            тендерах:
-                                                                        </div>
-                                                                        <div class="manufacturer__option-value">120
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="manufacturer__option">
-                                                                        <div class="manufacturer__option-name">Товаров в
-                                                                            наличии:
-                                                                        </div>
-                                                                        <div class="manufacturer__option-value">340
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="manufacturer__option">
-                                                                        <div class="manufacturer__option-name">Поставка
-                                                                            из:
-                                                                        </div>
-                                                                        @if($review->from_country == 1)
-                                                                            <div class="manufacturer__option-value">
-                                                                                России
-                                                                            </div>
-                                                                        @elseif($review->from_country == 2)
-                                                                            <div class="manufacturer__option-value">
-                                                                                Китая
-                                                                            </div>
+                                                            <div class="offer__header">
+                                                                <div class="manufacturer">
+                                                                    <div class="manufacturer__logo"
+                                                                         data-name="{{substr($review->provider->name,0,2)}}"></div>
+                                                                    <div
+                                                                        class="manufacturer__title">{{$review->provider->name}}
+                                                                        @if($review->provider->subroles->first() != null)
+                                                                            (
+                                                                            @foreach($review->provider->subroles as $subrole)
+                                                                                @if($loop->last)
+                                                                                    {{@$subrole->name}}
+                                                                                @else
+                                                                                    {{@$subrole->name}},
+                                                                                @endif
+                                                                            @endforeach
+                                                                             )
                                                                         @endif
                                                                     </div>
-                                                                </div>
-                                                                <div class="manufacturer__reviews">
-                                                                    <div class="reviews">
-                                                                        <div class="reviews__desc">
-                                                                            <div class="reviews__item">
-                                                                                <div class="reviews__item-value">4.93
-                                                                                </div>
-                                                                                <svg class="reviews__item-star">
-                                                                                    <use
-                                                                                        xlink:href="../images/icons/icons-sprite.svg#star"></use>
-                                                                                </svg>
+                                                                    <div class="manufacturer__options">
+                                                                        <div class="manufacturer__option">
+                                                                            <div
+                                                                                class="manufacturer__option-name">
+                                                                                Город:
                                                                             </div>
-                                                                            <div class="reviews__count">34 отзыва</div>
+                                                                            <div
+                                                                                class="manufacturer__option-value">{{$review->provider->city}}</div>
                                                                         </div>
-                                                                        <div class="reviews__button button">Посмотреть
-                                                                            отзывы
+                                                                        <div class="manufacturer__option">
+                                                                            <div
+                                                                                class="manufacturer__option-name">
+                                                                                Категория:
+                                                                            </div>
+                                                                            <div
+                                                                                class="manufacturer__option-value">
+                                                                                Мужская одежда
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="manufacturer__option">
+                                                                            <div
+                                                                                class="manufacturer__option-name">
+                                                                                Побед в тендерах:
+                                                                            </div>
+                                                                            <div
+                                                                                class="manufacturer__option-value">
+                                                                                120
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="manufacturer__option">
+                                                                            <div
+                                                                                class="manufacturer__option-name">
+                                                                                Товаров в
+                                                                                наличии:
+                                                                            </div>
+                                                                            <div
+                                                                                class="manufacturer__option-value">
+                                                                                340
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="manufacturer__option">
+                                                                            <div
+                                                                                class="manufacturer__option-name">
+                                                                                Поставка из:
+                                                                            </div>
+                                                                            @if($review->from_country == 1)
+                                                                                <div
+                                                                                    class="manufacturer__option-value">
+                                                                                    России
+                                                                                </div>
+                                                                            @elseif($review->from_country == 2)
+                                                                                <div
+                                                                                    class="manufacturer__option-value">
+                                                                                    Китая
+                                                                                </div>
+                                                                            @endif
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="manufacturer__reviews">
+                                                                        <div class="reviews">
+                                                                            <div class="reviews__desc">
+                                                                                <div class="reviews__item">
+                                                                                    <div
+                                                                                        class="reviews__item-value">
+                                                                                        4.93
+                                                                                    </div>
+                                                                                    <svg
+                                                                                        class="reviews__item-star">
+                                                                                        <use
+                                                                                            xlink:href="../images/icons/icons-sprite.svg#star"></use>
+                                                                                    </svg>
+                                                                                </div>
+                                                                                <div class="reviews__count">
+                                                                                    34 отзыва
+                                                                                </div>
+                                                                            </div>
+                                                                            <div
+                                                                                class="reviews__button button">
+                                                                                Посмотреть отзывы
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <div
+                                                                class="tender-row tender-row--offer tender-row--header">
+                                                                <div class="tender-row__item">Фото</div>
+                                                                <div class="tender-row__item">Наименование
+                                                                </div>
+                                                                <div class="tender-row__item">Количество
+                                                                </div>
+                                                                <div class="tender-row__item">Стоимость
+                                                                </div>
+                                                                <div class="tender-row__item">Срок
+                                                                    реализации
+                                                                </div>
+                                                                <div class="tender-row__item">Предоставим
+                                                                    образец
+                                                                </div>
+                                                                <div class="tender-row__item">Брэндинг</div>
+                                                                <div class="tender-row__item">Упаковка</div>
+                                                                <div
+                                                                    class="tender-row__item tender-row__item--center">
+                                                                    Комментарий
+                                                                    поставщика
+                                                                </div>
+                                                            </div>
+                                                            @if($review->items != null)
+                                                                @foreach($review->items as $itemKey => $item)
+                                                                    <div
+                                                                        class="tender-row tender-row--offer">
+                                                                        @if ($item->attachments->first())
+                                                                            @php
+                                                                                $path = "";
+                                                                                $photoCount = 0;
+                                                                            @endphp
+                                                                            @foreach ($item->attachments as $key => $attachment)
+                                                                                @php
+                                                                                    $path .= '../storage/reviewProducts/'.$attachment->path;
+                                                                                    $photoCount++;
+                                                                                    if(!$loop->last)
+                                                                                      $path .= ','
+                                                                                @endphp
+                                                                            @endforeach
+                                                                            <div class="tender-row__item"
+                                                                                 data-product-img-slider="{{$path}}">
+                                                                                <div
+                                                                                    class="tender-row__preview tender-row__preview--zoom">
+                                                                                    <div
+                                                                                        class="tender-row__preview-zoom-text">{{$photoCount}}
+                                                                                        фото
+                                                                                    </div>
+                                                                                    <img
+                                                                                        class="tender-row__preview-img"
+                                                                                        src="../storage/reviewProducts/{{$item->attachments->first()->path}}">
+                                                                                </div>
+                                                                            </div>
+                                                                        @else
+                                                                            <div class="tender-row__item"
+                                                                                 data-product-img-slider="../storage/tenderProducts/empty.jpg">
+                                                                                <div
+                                                                                    class="tender-row__preview tender-row__preview--zoom">
+                                                                                    <div
+                                                                                        class="tender-row__preview-zoom-text">
+                                                                                        0
+                                                                                        фото
+                                                                                    </div>
+                                                                                    <img
+                                                                                        class="tender-row__preview-img"
+                                                                                        src="../storage/tenderProducts/empty.jpg">
+                                                                                </div>
+                                                                            </div>
+                                                                        @endif
+
+                                                                        <div
+                                                                            class="tender-row__item tender-row__item--middle">{{$item->name}}
+                                                                        </div>
+                                                                        <div
+                                                                            class="tender-row__item tender-row__item--big">{{$item->count}}</div>
+                                                                        <div
+                                                                            @php
+                                                                                $price = $item->price . " RUB";
+                                                                                if ($item->currency_id != null) {
+                                                                                     if ($item->currency_id != 1){
+                                                                                         $currency = App\Models\Currency::find($item->currency_id);
+                                                                                         $formatedPrice = $currency->price_back * $item->price;
+                                                                                         $price = round($formatedPrice, 2) .' RUB'. ' ('. $item->price .' '.$currency->code.')';
+                                                                                     }
+
+                                                                                    }
+                                                                            @endphp
+                                                                            class="tender-row__item tender-row__item--big">
+                                                                            {{$price}}
+                                                                        </div>
+                                                                        <div
+                                                                            class="tender-row__item tender-row__item--big">{{$item->release_time}}</div>
+                                                                        <div class="tender-row__item">
+                                                                            @if ($item->sample)
+                                                                                <svg
+                                                                                    class="tender-row__item-icon tender-row__item-icon--check">
+                                                                                    <use
+                                                                                        xlink:href="../images/icons/icons-sprite.svg#check"></use>
+                                                                                </svg>
+                                                                            @else
+                                                                                <svg
+                                                                                    class="tender-row__item-icon tender-row__item-icon--not-check">
+                                                                                    <use
+                                                                                        xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                                                                                </svg>
+                                                                            @endif
+                                                                        </div>
+
+                                                                        <div class="tender-row__item">
+                                                                            @if ($item->branding)
+                                                                                <svg
+                                                                                    class="tender-row__item-icon tender-row__item-icon--check">
+                                                                                    <use
+                                                                                        xlink:href="../images/icons/icons-sprite.svg#check"></use>
+                                                                                </svg>
+                                                                            @else
+                                                                                <svg
+                                                                                    class="tender-row__item-icon tender-row__item-icon--not-check">
+                                                                                    <use
+                                                                                        xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                                                                                </svg>
+                                                                            @endif
+                                                                        </div>
+
+                                                                        <div class="tender-row__item">
+                                                                            @if ($item->packing)
+                                                                                <svg
+                                                                                    class="tender-row__item-icon tender-row__item-icon--check">
+                                                                                    <use
+                                                                                        xlink:href="../images/icons/icons-sprite.svg#check"></use>
+                                                                                </svg>
+                                                                            @else
+                                                                                <svg
+                                                                                    class="tender-row__item-icon tender-row__item-icon--not-check">
+                                                                                    <use
+                                                                                        xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                                                                                </svg>
+                                                                            @endif
+                                                                        </div>
+                                                                        <div
+                                                                            class="tender-row__item tender-row__item--left">{{$item->description}}
+                                                                        </div>
+                                                                    </div>
+                                                                @endforeach
+                                                            @endif
+                                                            <div class="tenders-chat__wrapper">
+                                                                <div class="tenders-chat__content"
+                                                                     data-chat-name="1">
+                                                                    <div class="chat">
+                                                                        <div class="chat__title">Переговоры
+                                                                            с "Первый поставщик"
+                                                                        </div>
+                                                                        <div class="chat__messages">
+                                                                            <div class="chat__date">
+                                                                                08.05.2021
+                                                                            </div>
+                                                                            <div class="chat__message">
+                                                                                <div
+                                                                                    class="chat__message-content">
+                                                                                    <div
+                                                                                        class="chat__message-content-text">
+                                                                                        Уверены,
+                                                                                        что
+                                                                                        уложитесь в
+                                                                                        сроки? Куртка будет
+                                                                                        выглядеть точно так?
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="chat__message-content-images">
+                                                                                        <img
+                                                                                            class="chat__message-content-image"
+                                                                                            src="images/examples/products-preview/products-preview-3.jpg">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div
+                                                                                    class="chat__message-time">
+                                                                                    13:15
+                                                                                </div>
+                                                                            </div>
+                                                                            <div
+                                                                                class="chat__message chat__message--invert">
+                                                                                <div
+                                                                                    class="chat__message-content">
+                                                                                    <div
+                                                                                        class="chat__message-content-text">
+                                                                                        Нет,
+                                                                                        такой
+                                                                                        ткани
+                                                                                        нет
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div
+                                                                                    class="chat__message-time">
+                                                                                    13:15
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="chat__message">
+                                                                                <div
+                                                                                    class="chat__message-content">
+                                                                                    <div
+                                                                                        class="chat__message-content-text">
+                                                                                        Понял
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div
+                                                                                    class="chat__message-time">
+                                                                                    13:15
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="chat__form">
+                                                                            <div class="chat__form-wrapper">
+                                                        <textarea class="chat__form-wrapper-input"
+                                                                  placeholder="Введите сообщение"></textarea>
+                                                                            </div>
+                                                                            <div
+                                                                                class="chat__form-file-preview chat__form-file-preview--empty">
+                                                                                <div
+                                                                                    class="chat__message-content-images"></div>
+                                                                                <div
+                                                                                    class="chat__message-content-files"></div>
+                                                                            </div>
+                                                                            <div class="chat__form-buttons">
+                                                                                <label
+                                                                                    class="chat__form-file-input-label">
+                                                                                    <div
+                                                                                        class="chat__form-file-input-text">
+                                                                                        Прикрепить
+                                                                                        файл
+                                                                                    </div>
+                                                                                    <svg
+                                                                                        class="chat__form-file-input-icon">
+                                                                                        <use
+                                                                                            xlink:href="../images/icons/icons-sprite.svg#upload"></use>
+                                                                                    </svg>
+                                                                                    <input
+                                                                                        class="chat__form-file-input"
+                                                                                        type="file"
+                                                                                        multiple="">
+                                                                                </label>
+                                                                                <div
+                                                                                    class="chat__form-send button button--small">
+                                                                                    Отправить
+                                                                                    сообщение
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
                                                         </div>
-                                                        <div class="tender-row tender-row--offer tender-row--header">
-                                                            <div class="tender-row__item">Фото</div>
-                                                            <div class="tender-row__item">Наименование</div>
-                                                            <div class="tender-row__item">Количество</div>
-                                                            <div class="tender-row__item">Стоимость</div>
-                                                            <div class="tender-row__item">Срок реализации</div>
-                                                            <div class="tender-row__item">Предоставим образец</div>
-                                                            <div class="tender-row__item">Брэндинг</div>
-                                                            <div class="tender-row__item">Упаковка</div>
-                                                            <div class="tender-row__item tender-row__item--center">
-                                                                Комментарий
-                                                                поставщика
+                                                    @endforeach
+                                                    <div class="toggle-show-block">
+                                                        <div class="section section--small section--center">
+                                                            <div
+                                                                class="toggle-show-block__button button button--invert button--auto-width">
+                                                                <div
+                                                                    class="toggle-show-block__button-text toggle-show-block__button-text--default">
+                                                                    Показать скрытых поставщиков
+                                                                </div>
+                                                                <div
+                                                                    class="toggle-show-block__button-text toggle-show-block__button-text--active">
+                                                                    Скрыть поставщиков
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        @if($review->items != null)
-                                                            @foreach($review->items as $itemKey => $item)
-                                                                <div class="tender-row tender-row--offer">
+                                                        <div id="hidden-reviews"
+                                                             class="toggle-show-block__item">
+                                                            <div class="title-separator">Скрытые
+                                                                поставщики
+                                                            </div>
+
+                                                            @foreach($tender->reviews->where('hidden', 1) as $key => $review)
+                                                                <div id="review-{{$review->id}}"
+                                                                     class="border-block offer tenders-chat">
+
+                                                                    {{--CONFIRM REVIEW BUTTONS SECTION--}}
+                                                                    <div
+                                                                        class="offer__manufacturer-buttons">
+                                                                        @php
+                                                                            $state = 0;
+                                                                        @endphp
+                                                                        @if($review->provider->subroles->first() != null)
+                                                                            @php
+                                                                                if($review->provider->subroles->where('id', 4)->first()){
+                                                                                   $state = 1;
+                                                                                }
+                                                                                elseif ($review->provider->subroles->where('id', 3)->first()){
+                                                                                   $state = 2;
+                                                                                }
+                                                                                elseif ($review->provider->subroles->where('id', 2)->first()){
+                                                                                   $state = 2;
+                                                                                }
+                                                                                elseif ($review->provider->subroles->where('id', 1)->first()){
+                                                                                   $state = 3;
+                                                                                }
+                                                                            @endphp
+
+                                                                        @endif
+
+                                                                        @if($state == 1)
+                                                                            <div
+                                                                                class="offer__manufacturer-button offer__manufacturer-button--green">
+                                                                                <div
+                                                                                    class="offer__manufacturer-button-text">
+                                                                                    Меня
+                                                                                    устраивают
+                                                                                    условия, выбрать
+                                                                                    поставщика победителем
+                                                                                </div>
+                                                                                <svg
+                                                                                    class="offer__manufacturer-button-icon">
+                                                                                    <use
+                                                                                        xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
+                                                                                </svg>
+                                                                            </div>
+                                                                        @elseif($state == 2)
+                                                                            <div
+                                                                                class="offer__manufacturer-button offer__manufacturer-button--green">
+                                                                                <div
+                                                                                    class="offer__manufacturer-button-text">
+                                                                                    Меня
+                                                                                    устраивают
+                                                                                    условия, я заберу товар
+                                                                                    из Китая сам, выбрать
+                                                                                    поставщика
+                                                                                    победителем тендера
+                                                                                </div>
+                                                                                <svg
+                                                                                    class="offer__manufacturer-button-icon">
+                                                                                    <use
+                                                                                        xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
+                                                                                </svg>
+                                                                            </div>
+                                                                            <div
+                                                                                class="offer__manufacturer-button offer__manufacturer-button--green">
+                                                                                <div
+                                                                                    class="offer__manufacturer-button-text">
+                                                                                    Меня
+                                                                                    устраивают
+                                                                                    условия, но я хочу
+                                                                                    забрать товар из России
+                                                                                </div>
+                                                                                <svg
+                                                                                    class="offer__manufacturer-button-icon">
+                                                                                    <use
+                                                                                        xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
+                                                                                </svg>
+                                                                            </div>
+                                                                        @elseif($state == 3)
+                                                                            <div
+                                                                                class="offer__manufacturer-button offer__manufacturer-button--green">
+                                                                                <div
+                                                                                    class="offer__manufacturer-button-text">
+                                                                                    Меня
+                                                                                    устраивают условия, я
+                                                                                    заберу товар из Китая
+                                                                                    сам,
+                                                                                    выбрать поставщика
+                                                                                    победителем тендера
+                                                                                </div>
+                                                                                <svg
+                                                                                    class="offer__manufacturer-button-icon">
+                                                                                    <use
+                                                                                        xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
+                                                                                </svg>
+                                                                            </div>
+                                                                            <div
+                                                                                class="offer__manufacturer-button offer__manufacturer-button--green">
+                                                                                <div
+                                                                                    class="offer__manufacturer-button-text">
+                                                                                    Меня
+                                                                                    устраивают условия, но я
+                                                                                    хочу забрать товар из
+                                                                                    России, хочу запросить
+                                                                                    расчет доставки в Россию
+                                                                                    из Китая у партнера Vooy
+                                                                                </div>
+                                                                                <svg
+                                                                                    class="offer__manufacturer-button-icon">
+                                                                                    <use
+                                                                                        xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
+                                                                                </svg>
+                                                                            </div>
+                                                                        @endif
+                                                                        {{--CONFIRM REVIEW BUTTONS SECTION--
+
+                                                                                <div
+                                                                                    class="offer__manufacturer-button offer__manufacturer-button--green">
+                                                                                    <div class="offer__manufacturer-button-text">Выбрать2
+                                                                                        победителем
+                                                                                    </div>
+                                                                                    <svg class="offer__manufacturer-button-icon">
+                                                                                        <use
+                                                                                            xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
+                                                                                    </svg>
+                                                                                </div>--}}
+
+                                                                        <div
+                                                                            class="offer__manufacturer-button offer__manufacturer-button--gray">
+                                                                            <div
+                                                                                onclick="unhideReview(this)"
+                                                                                data-review="{{$review->id}}"
+                                                                                class="offer__manufacturer-button-text">
+                                                                                Вернуть в
+                                                                                список
+                                                                            </div>
+                                                                            <svg
+                                                                                class="offer__manufacturer-button-icon">
+                                                                                <use
+                                                                                    xlink:href="../images/icons/icons-sprite.svg#return"></use>
+                                                                            </svg>
+                                                                        </div>
+                                                                        <div
+                                                                            class="offer__manufacturer-button offer__manufacturer-button--message tenders-chat__button"
+                                                                            data-chat="1">
+                                                                            <div
+                                                                                class="offer__manufacturer-button-text tenders-chat__button-text tenders-chat__button-text--default">
+                                                                                Написать поставщику
+                                                                            </div>
+                                                                            <div
+                                                                                class="offer__manufacturer-button-text tenders-chat__button-text tenders-chat__button-text--active">
+                                                                                Скрыть переписку
+                                                                            </div>
+                                                                            <div
+                                                                                class="offer__manufacturer-button-message">
+                                                                                <svg
+                                                                                    class="offer__manufacturer-button-message-icon">
+                                                                                    <use
+                                                                                        xlink:href="../images/icons/icons-sprite.svg#message"></use>
+                                                                                </svg>
+                                                                                <div
+                                                                                    class="offer__manufacturer-button-message-count">
+                                                                                    <div
+                                                                                        class="offer__manufacturer-button-message-count-inner">
+                                                                                        <div
+                                                                                            class="offer__manufacturer-button-message-count-inner-number">
+                                                                                            3
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="offer__header">
+                                                                        <div class="manufacturer">
+                                                                            <div class="manufacturer__logo"
+                                                                                 data-name="{{substr($review->provider->name,0,2)}}"></div>
+                                                                            {{--<img class="manufacturer__logo" src="images/examples/manufacturer/logo/manufacturer-logo-1.jpg">--}}
+                                                                            <div
+                                                                                class="manufacturer__title">{{$review->provider->name}}
+
+                                                                                @if($review->provider->subroles->first() != null)
+                                                                                    (
+                                                                                    @foreach($review->provider->subroles as $subrole)
+                                                                                        @if($loop->last)
+                                                                                            {{@$subrole->name}}
+                                                                                        @else
+                                                                                            {{@$subrole->name}}
+                                                                                            ,
+                                                                                        @endif
+                                                                                    @endforeach
+                                                                                     )
+                                                                                @endif
+
+                                                                            </div>
+                                                                            <div
+                                                                                class="manufacturer__options">
+                                                                                <div
+                                                                                    class="manufacturer__option">
+                                                                                    <div
+                                                                                        class="manufacturer__option-name">
+                                                                                        Город:
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="manufacturer__option-value">{{$review->provider->city}}</div>
+                                                                                </div>
+                                                                                <div
+                                                                                    class="manufacturer__option">
+                                                                                    <div
+                                                                                        class="manufacturer__option-name">
+                                                                                        Категория:
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="manufacturer__option-value">
+                                                                                        Мужская
+                                                                                        одежда
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div
+                                                                                    class="manufacturer__option">
+                                                                                    <div
+                                                                                        class="manufacturer__option-name">
+                                                                                        Побед в
+                                                                                        тендерах:
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="manufacturer__option-value">
+                                                                                        120
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div
+                                                                                    class="manufacturer__option">
+                                                                                    <div
+                                                                                        class="manufacturer__option-name">
+                                                                                        Товаров в
+                                                                                        наличии:
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="manufacturer__option-value">
+                                                                                        340
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div
+                                                                                    class="manufacturer__option">
+                                                                                    <div
+                                                                                        class="manufacturer__option-name">
+                                                                                        Поставка
+                                                                                        из:
+                                                                                    </div>
+                                                                                    @if($review->from_country == 1)
+                                                                                        <div
+                                                                                            class="manufacturer__option-value">
+                                                                                            России
+                                                                                        </div>
+                                                                                    @elseif($review->from_country == 2)
+                                                                                        <div
+                                                                                            class="manufacturer__option-value">
+                                                                                            Китая
+                                                                                        </div>
+                                                                                    @endif
+                                                                                </div>
+                                                                            </div>
+                                                                            <div
+                                                                                class="manufacturer__reviews">
+                                                                                <div class="reviews">
+                                                                                    <div
+                                                                                        class="reviews__desc">
+                                                                                        <div
+                                                                                            class="reviews__item">
+                                                                                            <div
+                                                                                                class="reviews__item-value">
+                                                                                                4.93
+                                                                                            </div>
+                                                                                            <svg
+                                                                                                class="reviews__item-star">
+                                                                                                <use
+                                                                                                    xlink:href="../images/icons/icons-sprite.svg#star"></use>
+                                                                                            </svg>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="reviews__count">
+                                                                                            34 отзыва
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="reviews__button button">
+                                                                                        Посмотреть
+                                                                                        отзывы
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div
+                                                                        class="tender-row tender-row--offer tender-row--header">
+                                                                        <div class="tender-row__item">Фото
+                                                                        </div>
+                                                                        <div class="tender-row__item">
+                                                                            Наименование
+                                                                        </div>
+                                                                        <div class="tender-row__item">
+                                                                            Количество
+                                                                        </div>
+                                                                        <div class="tender-row__item">
+                                                                            Стоимость
+                                                                        </div>
+                                                                        <div class="tender-row__item">Срок
+                                                                            реализации
+                                                                        </div>
+                                                                        <div class="tender-row__item">
+                                                                            Предоставим образец
+                                                                        </div>
+                                                                        <div class="tender-row__item">
+                                                                            Брэндинг
+                                                                        </div>
+                                                                        <div class="tender-row__item">
+                                                                            Упаковка
+                                                                        </div>
+                                                                        <div
+                                                                            class="tender-row__item tender-row__item--center">
+                                                                            Комментарий
+                                                                            поставщика
+                                                                        </div>
+                                                                    </div>
+                                                                    @if($review->items != null)
+                                                                        @foreach($review->items as $itemKey => $item)
+                                                                            <div
+                                                                                class="tender-row tender-row--offer">
+                                                                                @if ($item->attachments->first())
+                                                                                    @php
+                                                                                        $path = "";
+                                                                                        $photoCount = 0;
+                                                                                    @endphp
+                                                                                    @foreach ($item->attachments as $key => $attachment)
+                                                                                        @php
+                                                                                            $path .= '../storage/reviewProducts/'.$attachment->path;
+                                                                                            $photoCount++;
+                                                                                            if(!$loop->last)
+                                                                                              $path .= ','
+                                                                                        @endphp
+                                                                                    @endforeach
+                                                                                    <div
+                                                                                        class="tender-row__item"
+                                                                                        data-product-img-slider="{{$path}}">
+                                                                                        <div
+                                                                                            class="tender-row__preview tender-row__preview--zoom">
+                                                                                            <div
+                                                                                                class="tender-row__preview-zoom-text">{{$photoCount}}
+                                                                                                фото
+                                                                                            </div>
+                                                                                            <img
+                                                                                                class="tender-row__preview-img"
+                                                                                                src="../storage/reviewProducts/{{$item->attachments->first()->path}}">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                @else
+                                                                                    <div
+                                                                                        class="tender-row__item"
+                                                                                        data-product-img-slider="../storage/tenderProducts/empty.jpg">
+                                                                                        <div
+                                                                                            class="tender-row__preview tender-row__preview--zoom">
+                                                                                            <div
+                                                                                                class="tender-row__preview-zoom-text">
+                                                                                                0
+                                                                                                фото
+                                                                                            </div>
+                                                                                            <img
+                                                                                                class="tender-row__preview-img"
+                                                                                                src="../storage/tenderProducts/empty.jpg">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                @endif
+
+                                                                                <div
+                                                                                    class="tender-row__item tender-row__item--middle">{{$item->name}}
+                                                                                </div>
+                                                                                <div
+                                                                                    class="tender-row__item tender-row__item--big">{{$item->count}}</div>
+                                                                                <div
+                                                                                    @php
+                                                                                        $price = $item->price . " RUB";
+                                                                                        if ($item->currency_id != null) {
+                                                                                             if ($item->currency_id != 1){
+                                                                                                 $currency = App\Models\Currency::find($item->currency_id);
+                                                                                                 $formatedPrice = $currency->price_back * $item->price;
+                                                                                                 $price = round($formatedPrice, 2) .' RUB'. ' ('. $item->price .' '.$currency->code.')';
+                                                                                             }
+
+                                                                                            }
+                                                                                    @endphp
+                                                                                    class="tender-row__item tender-row__item--big">
+                                                                                    {{$price}}
+                                                                                </div>
+                                                                                <div
+                                                                                    class="tender-row__item tender-row__item--big">{{$item->release_time}}</div>
+                                                                                <div
+                                                                                    class="tender-row__item">
+                                                                                    @if ($item->sample)
+                                                                                        <svg
+                                                                                            class="tender-row__item-icon tender-row__item-icon--check">
+                                                                                            <use
+                                                                                                xlink:href="../images/icons/icons-sprite.svg#check"></use>
+                                                                                        </svg>
+                                                                                    @else
+                                                                                        <svg
+                                                                                            class="tender-row__item-icon tender-row__item-icon--not-check">
+                                                                                            <use
+                                                                                                xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                                                                                        </svg>
+                                                                                    @endif
+                                                                                </div>
+                                                                                <div
+                                                                                    class="tender-row__item">
+                                                                                    @if ($item->branding)
+                                                                                        <svg
+                                                                                            class="tender-row__item-icon tender-row__item-icon--check">
+                                                                                            <use
+                                                                                                xlink:href="../images/icons/icons-sprite.svg#check"></use>
+                                                                                        </svg>
+                                                                                    @else
+                                                                                        <svg
+                                                                                            class="tender-row__item-icon tender-row__item-icon--not-check">
+                                                                                            <use
+                                                                                                xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                                                                                        </svg>
+                                                                                    @endif
+                                                                                </div>
+
+                                                                                <div
+                                                                                    class="tender-row__item">
+                                                                                    @if ($item->packing)
+                                                                                        <svg
+                                                                                            class="tender-row__item-icon tender-row__item-icon--check">
+                                                                                            <use
+                                                                                                xlink:href="../images/icons/icons-sprite.svg#check"></use>
+                                                                                        </svg>
+                                                                                    @else
+                                                                                        <svg
+                                                                                            class="tender-row__item-icon tender-row__item-icon--not-check">
+                                                                                            <use
+                                                                                                xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                                                                                        </svg>
+                                                                                    @endif
+                                                                                </div>
+                                                                                <div
+                                                                                    class="tender-row__item tender-row__item--left">{{$item->description}}
+                                                                                </div>
+                                                                            </div>
+                                                                        @endforeach
+                                                                    @endif
+                                                                    <div class="tenders-chat__wrapper">
+                                                                        <div class="tenders-chat__content"
+                                                                             data-chat-name="1">
+                                                                            <div class="chat">
+                                                                                <div class="chat__title">
+                                                                                    Переговоры с "Первый
+                                                                                    поставщик"
+                                                                                </div>
+                                                                                <div class="chat__messages">
+                                                                                    <div class="chat__date">
+                                                                                        08.05.2021
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="chat__message">
+                                                                                        <div
+                                                                                            class="chat__message-content">
+                                                                                            <div
+                                                                                                class="chat__message-content-text">
+                                                                                                Уверены, что
+                                                                                                уложитесь в
+                                                                                                сроки?
+                                                                                                Куртка будет
+                                                                                                выглядеть
+                                                                                                точно
+                                                                                                так?
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="chat__message-content-images">
+                                                                                                <img
+                                                                                                    class="chat__message-content-image"
+                                                                                                    src="images/examples/products-preview/products-preview-3.jpg">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="chat__message-time">
+                                                                                            13:15
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="chat__message chat__message--invert">
+                                                                                        <div
+                                                                                            class="chat__message-content">
+                                                                                            <div
+                                                                                                class="chat__message-content-text">
+                                                                                                Нет,
+                                                                                                такой
+                                                                                                ткани
+                                                                                                нет
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="chat__message-time">
+                                                                                            13:15
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="chat__message">
+                                                                                        <div
+                                                                                            class="chat__message-content">
+                                                                                            <div
+                                                                                                class="chat__message-content-text">
+                                                                                                Понял
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="chat__message-time">
+                                                                                            13:15
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="chat__form">
+                                                                                    <div
+                                                                                        class="chat__form-wrapper">
+                                                        <textarea class="chat__form-wrapper-input"
+                                                                  placeholder="Введите сообщение"></textarea>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="chat__form-file-preview chat__form-file-preview--empty">
+                                                                                        <div
+                                                                                            class="chat__message-content-images"></div>
+                                                                                        <div
+                                                                                            class="chat__message-content-files"></div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="chat__form-buttons">
+                                                                                        <label
+                                                                                            class="chat__form-file-input-label">
+                                                                                            <div
+                                                                                                class="chat__form-file-input-text">
+                                                                                                Прикрепить
+                                                                                                файл
+                                                                                            </div>
+                                                                                            <svg
+                                                                                                class="chat__form-file-input-icon">
+                                                                                                <use
+                                                                                                    xlink:href="../images/icons/icons-sprite.svg#upload"></use>
+                                                                                            </svg>
+                                                                                            <input
+                                                                                                class="chat__form-file-input"
+                                                                                                type="file"
+                                                                                                multiple="">
+                                                                                        </label>
+                                                                                        <div
+                                                                                            class="chat__form-send button button--small">
+                                                                                            Отправить
+                                                                                            сообщение
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            @endforeach
+                                                        </div>
+                                                    </div>
+                                                @else
+                                                    <h2>Пусто</h2>
+                                                @endif
+                                            </div>
+
+                                            <div class="tabs__toggle-item">
+                                                @if ($tender->products)
+                                                    @foreach ($tender->products as $key => $product)
+                                                        <div class="border-block offer tenders-chat">
+                                                            <div class="offer__header">
+                                                                <div class="offer__header-product">
+
+                                                                    @if ($product->attachments->first())
+                                                                        @php
+                                                                            $path = "";
+                                                                            $photoCount = 0;
+                                                                        @endphp
+                                                                        @foreach ($product->attachments as $key => $attachment)
+                                                                            @php
+                                                                                $path .= '../storage/tenderProducts/'.$attachment->path;
+                                                                                $photoCount++;
+                                                                                if(!$loop->last)
+                                                                                  $path .= ','
+                                                                            @endphp
+                                                                        @endforeach
+                                                                        <div class="offer__header-preview"
+                                                                             data-product-img-slider="{{$path}}">
+                                                                            <div
+                                                                                class="offer__header-preview-zoom-text">{{$photoCount}}
+                                                                                фото
+                                                                            </div>
+                                                                            <img
+                                                                                class="offer__header-preview-img"
+                                                                                src="../storage/tenderProducts/{{$product->attachments->first()->path}}">
+                                                                        </div>
+                                                                    @else
+                                                                        <div class="offer__header-preview"
+                                                                             data-product-img-slider="../storage/tenderProducts/empty.jpg">
+                                                                            <div
+                                                                                class="offer__header-preview-zoom-text">
+                                                                                0
+                                                                                фото
+                                                                            </div>
+                                                                            <img
+                                                                                class="offer__header-preview-img"
+                                                                                src="../storage/tenderProducts/empty.jpg">
+                                                                        </div>
+                                                                    @endif
+                                                                    <div
+                                                                        class="offer__header-title">{{$product->title}}</div>
+                                                                    <div class="offer__header-options">
+                                                                        <div class="offer__header-option">
+                                                                            <div
+                                                                                class="offer__header-option-name">
+                                                                                Количество:
+                                                                            </div>
+                                                                            <div
+                                                                                class="offer__header-option-value">{{$product->count}}</div>
+                                                                        </div>
+                                                                        <div class="offer__header-option">
+                                                                            <div
+                                                                                class="offer__header-option-name">
+                                                                                Образец:
+                                                                            </div>
+                                                                            @if($product->sample)
+                                                                                <div
+                                                                                    class="offer__header-option-value">
+                                                                                    Обязателен
+                                                                                </div>
+                                                                            @else
+                                                                                <div
+                                                                                    class="offer__header-option-value">
+                                                                                    Необязателен
+                                                                                </div>
+                                                                            @endif
+                                                                        </div>
+                                                                        <div class="offer__header-option">
+                                                                            <div
+                                                                                class="offer__header-option-name">
+                                                                                Комментарий:
+                                                                            </div>
+                                                                            <div
+                                                                                class="offer__header-option-value">{{$product->description}}</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div
+                                                                class="tender-row tender-row--offer-with-manufacturer tender-row--header">
+                                                                <div class="tender-row__item">Фото</div>
+                                                                <div class="tender-row__item">Предложение
+                                                                </div>
+                                                                <div class="tender-row__item">Количество
+                                                                </div>
+                                                                <div class="tender-row__item">Стоимость
+                                                                </div>
+                                                                <div class="tender-row__item">Срок
+                                                                    реализации
+                                                                </div>
+                                                                <div class="tender-row__item">Предоставим
+                                                                    образец
+                                                                </div>
+                                                                <div class="tender-row__item">Брэндинг</div>
+                                                                <div class="tender-row__item">Упаковка</div>
+                                                                <div class="tender-row__item"></div>
+                                                                <div class="tender-row__item"></div>
+                                                            </div>
+                                                            @foreach($product->reviews as $revKey => $item)
+                                                                <div
+                                                                    class="tender-row tender-row--offer-with-manufacturer">
+
                                                                     @if ($item->attachments->first())
                                                                         @php
                                                                             $path = "";
@@ -957,8 +1556,9 @@
                                                                                     class="tender-row__preview-zoom-text">{{$photoCount}}
                                                                                     фото
                                                                                 </div>
-                                                                                <img class="tender-row__preview-img"
-                                                                                     src="../storage/reviewProducts/{{$item->attachments->first()->path}}">
+                                                                                <img
+                                                                                    class="tender-row__preview-img"
+                                                                                    src="../storage/reviewProducts/{{$item->attachments->first()->path}}">
                                                                             </div>
                                                                         </div>
                                                                     @else
@@ -971,34 +1571,53 @@
                                                                                     0
                                                                                     фото
                                                                                 </div>
-                                                                                <img class="tender-row__preview-img"
-                                                                                     src="../storage/tenderProducts/empty.jpg">
+                                                                                <img
+                                                                                    class="tender-row__preview-img"
+                                                                                    src="../storage/tenderProducts/empty.jpg">
                                                                             </div>
                                                                         </div>
                                                                     @endif
-
                                                                     <div
-                                                                        class="tender-row__item tender-row__item--middle">{{$item->name}}
+                                                                        class="tender-row__item tender-row__item--middle">
+                                                                        <div
+                                                                            class="tender-row__item-options">
+                                                                            <div
+                                                                                class="tender-row__item-option">
+                                                                                <div
+                                                                                    class="tender-row__item-text tender-row__item-text--bold">
+                                                                                    {{$item->review->provider->name}}
+                                                                                </div>
+                                                                            </div>
+                                                                            <div
+                                                                                class="tender-row__item-option">
+                                                                                <div
+                                                                                    class="tender-row__item-title">
+                                                                                    Предложение
+                                                                                </div>
+                                                                                <div
+                                                                                    class="tender-row__item-text">{{$item->title}}</div>
+                                                                            </div>
+                                                                            <div
+                                                                                class="tender-row__item-option">
+                                                                                <div
+                                                                                    class="tender-row__item-title">
+                                                                                    Комментарий
+                                                                                </div>
+                                                                                <div
+                                                                                    class="tender-row__item-text">{{$item->description}}</div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                     <div
                                                                         class="tender-row__item tender-row__item--big">{{$item->count}}</div>
                                                                     <div
-                                                                        @php
-                                                                            $price = $item->price . " RUB";
-                                                                            if ($item->currency_id != null) {
-                                                                                 if ($item->currency_id != 1){
-                                                                                     $currency = App\Models\Currency::find($item->currency_id);
-                                                                                     $formatedPrice = $currency->price_back * $item->price;
-                                                                                     $price = round($formatedPrice, 2) .' RUB'. ' ('. $item->price .' '.$currency->code.')';
-                                                                                 }
-
-                                                                                }
-                                                                        @endphp
-                                                                        class="tender-row__item tender-row__item--big">
-                                                                        {{$price}}
+                                                                        class="tender-row__item tender-row__item--big">{{$item->price}}
+                                                                        ₽
                                                                     </div>
                                                                     <div
-                                                                        class="tender-row__item tender-row__item--big">{{$item->release_time}}</div>
+                                                                        class="tender-row__item tender-row__item--big">{{$item->release_time}}
+                                                                        дней
+                                                                    </div>
                                                                     <div class="tender-row__item">
                                                                         @if ($item->sample)
                                                                             <svg
@@ -1014,6 +1633,7 @@
                                                                             </svg>
                                                                         @endif
                                                                     </div>
+
                                                                     <div class="tender-row__item">
                                                                         @if ($item->branding)
                                                                             <svg
@@ -1045,442 +1665,171 @@
                                                                             </svg>
                                                                         @endif
                                                                     </div>
-                                                                    <div
-                                                                        class="tender-row__item tender-row__item--left">{{$item->description}}
+
+                                                                    <div class="tender-row__item">
+                                                                        <div
+                                                                            class="offer__manufacturer-button offer__manufacturer-button--center offer__manufacturer-button--green">
+                                                                            <div
+                                                                                class="offer__manufacturer-button-text">
+                                                                                Выбрать
+                                                                                победителем
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="tender-row__item">
+                                                                        <div
+                                                                            class="offer__manufacturer-button offer__manufacturer-button--center offer__manufacturer-button--message tenders-chat__button"
+                                                                            data-chat="1">
+                                                                            <div
+                                                                                class="offer__manufacturer-button-text offer__manufacturer-button-text--center tenders-chat__button-text">
+                                                                                <div
+                                                                                    class="offer__manufacturer-button-message offer__manufacturer-button-message--center">
+                                                                                    <svg
+                                                                                        class="offer__manufacturer-button-message-icon">
+                                                                                        <use
+                                                                                            xlink:href="../images/icons/icons-sprite.svg#message"></use>
+                                                                                    </svg>
+                                                                                    <div
+                                                                                        class="offer__manufacturer-button-message-count">
+                                                                                        <div
+                                                                                            class="offer__manufacturer-button-message-count-inner">
+                                                                                            <div
+                                                                                                class="offer__manufacturer-button-message-count-inner-number">
+                                                                                                3
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            @endforeach
-                                                        @endif
-                                                        <div class="tenders-chat__wrapper">
-                                                            <div class="tenders-chat__content" data-chat-name="1">
-                                                                <div class="chat">
-                                                                    <div class="chat__title">Переговоры с "Первый
-                                                                        поставщик"
-                                                                    </div>
-                                                                    <div class="chat__messages">
-                                                                        <div class="chat__date">08.05.2021</div>
-                                                                        <div class="chat__message">
-                                                                            <div class="chat__message-content">
-                                                                                <div class="chat__message-content-text">
-                                                                                    Уверены, что
-                                                                                    уложитесь в
-                                                                                    сроки? Куртка будет выглядеть точно
-                                                                                    так?
+                                                                <div
+                                                                    class="tenders-chat__wrapper tenders-chat__wrapper--in-row">
+                                                                    <div class="tenders-chat__content"
+                                                                         data-chat-name="1">
+                                                                        <div class="chat">
+                                                                            <div class="chat__title">
+                                                                                Переговоры с "Первый
+                                                                                поставщик"
+                                                                            </div>
+                                                                            <div class="chat__messages">
+                                                                                <div class="chat__date">
+                                                                                    08.05.2021
+                                                                                </div>
+                                                                                <div class="chat__message">
+                                                                                    <div
+                                                                                        class="chat__message-content">
+                                                                                        <div
+                                                                                            class="chat__message-content-text">
+                                                                                            Уверены,
+                                                                                            что
+                                                                                            уложитесь в
+                                                                                            сроки? Куртка
+                                                                                            будет выглядеть
+                                                                                            точно
+                                                                                            так?
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="chat__message-content-images">
+                                                                                            <img
+                                                                                                class="chat__message-content-image"
+                                                                                                src="images/examples/products-preview/products-preview-3.jpg">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="chat__message-time">
+                                                                                        13:15
+                                                                                    </div>
                                                                                 </div>
                                                                                 <div
-                                                                                    class="chat__message-content-images">
-                                                                                    <img
-                                                                                        class="chat__message-content-image"
-                                                                                        src="images/examples/products-preview/products-preview-3.jpg">
+                                                                                    class="chat__message chat__message--invert">
+                                                                                    <div
+                                                                                        class="chat__message-content">
+                                                                                        <div
+                                                                                            class="chat__message-content-text">
+                                                                                            Нет,
+                                                                                            такой ткани
+                                                                                            нет
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="chat__message-time">
+                                                                                        13:15
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="chat__message">
+                                                                                    <div
+                                                                                        class="chat__message-content">
+                                                                                        <div
+                                                                                            class="chat__message-content-text">
+                                                                                            Понял
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="chat__message-time">
+                                                                                        13:15
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="chat__message-time">13:15</div>
-                                                                        </div>
-                                                                        <div
-                                                                            class="chat__message chat__message--invert">
-                                                                            <div class="chat__message-content">
-                                                                                <div class="chat__message-content-text">
-                                                                                    Нет,
-                                                                                    такой
-                                                                                    ткани
-                                                                                    нет
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="chat__message-time">13:15</div>
-                                                                        </div>
-                                                                        <div class="chat__message">
-                                                                            <div class="chat__message-content">
-                                                                                <div class="chat__message-content-text">
-                                                                                    Понял
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="chat__message-time">13:15</div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="chat__form">
-                                                                        <div class="chat__form-wrapper">
-                                                        <textarea class="chat__form-wrapper-input"
-                                                                  placeholder="Введите сообщение"></textarea>
-                                                                        </div>
-                                                                        <div
-                                                                            class="chat__form-file-preview chat__form-file-preview--empty">
-                                                                            <div
-                                                                                class="chat__message-content-images"></div>
-                                                                            <div
-                                                                                class="chat__message-content-files"></div>
-                                                                        </div>
-                                                                        <div class="chat__form-buttons">
-                                                                            <label class="chat__form-file-input-label">
-                                                                                <div class="chat__form-file-input-text">
-                                                                                    Прикрепить
-                                                                                    файл
-                                                                                </div>
-                                                                                <svg class="chat__form-file-input-icon">
-                                                                                    <use
-                                                                                        xlink:href="../images/icons/icons-sprite.svg#upload"></use>
-                                                                                </svg>
-                                                                                <input class="chat__form-file-input"
-                                                                                       type="file"
-                                                                                       multiple="">
-                                                                            </label>
-                                                                            <div
-                                                                                class="chat__form-send button button--small">
-                                                                                Отправить
-                                                                                сообщение
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    @else
-                                        <h2>Пусто</h2>
-                                    @endif
-                                </div>
-
-                                <div class="tabs__toggle-item">
-                                    @if ($tender->products)
-                                        @foreach ($tender->products as $key => $product)
-                                            <div class="border-block offer tenders-chat">
-                                                <div class="offer__header">
-                                                    <div class="offer__header-product">
-
-                                                        @if ($product->attachments->first())
-                                                            @php
-                                                                $path = "";
-                                                                $photoCount = 0;
-                                                            @endphp
-                                                            @foreach ($product->attachments as $key => $attachment)
-                                                                @php
-                                                                    $path .= '../storage/tenderProducts/'.$attachment->path;
-                                                                    $photoCount++;
-                                                                    if(!$loop->last)
-                                                                      $path .= ','
-                                                                @endphp
-                                                            @endforeach
-                                                            <div class="offer__header-preview"
-                                                                 data-product-img-slider="{{$path}}">
-                                                                <div
-                                                                    class="offer__header-preview-zoom-text">{{$photoCount}}
-                                                                    фото
-                                                                </div>
-                                                                <img class="offer__header-preview-img"
-                                                                     src="../storage/tenderProducts/{{$product->attachments->first()->path}}">
-                                                            </div>
-                                                        @else
-                                                            <div class="offer__header-preview"
-                                                                 data-product-img-slider="../storage/tenderProducts/empty.jpg">
-                                                                <div class="offer__header-preview-zoom-text">0
-                                                                    фото
-                                                                </div>
-                                                                <img class="offer__header-preview-img"
-                                                                     src="../storage/tenderProducts/empty.jpg">
-                                                            </div>
-                                                        @endif
-                                                        <div class="offer__header-title">{{$product->title}}</div>
-                                                        <div class="offer__header-options">
-                                                            <div class="offer__header-option">
-                                                                <div class="offer__header-option-name">Количество:
-                                                                </div>
-                                                                <div
-                                                                    class="offer__header-option-value">{{$product->count}}</div>
-                                                            </div>
-                                                            <div class="offer__header-option">
-                                                                <div class="offer__header-option-name">Образец:
-                                                                </div>
-                                                                @if($product->sample)
-                                                                    <div class="offer__header-option-value">
-                                                                        Обязателен
-                                                                    </div>
-                                                                @else
-                                                                    <div class="offer__header-option-value">
-                                                                        Необязателен
-                                                                    </div>
-                                                                @endif
-                                                            </div>
-                                                            <div class="offer__header-option">
-                                                                <div class="offer__header-option-name">
-                                                                    Комментарий:
-                                                                </div>
-                                                                <div
-                                                                    class="offer__header-option-value">{{$product->description}}</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    class="tender-row tender-row--offer-with-manufacturer tender-row--header">
-                                                    <div class="tender-row__item">Фото</div>
-                                                    <div class="tender-row__item">Предложение</div>
-                                                    <div class="tender-row__item">Количество</div>
-                                                    <div class="tender-row__item">Стоимость</div>
-                                                    <div class="tender-row__item">Срок реализации</div>
-                                                    <div class="tender-row__item">Предоставим образец</div>
-                                                    <div class="tender-row__item">Брэндинг</div>
-                                                    <div class="tender-row__item">Упаковка</div>
-                                                    <div class="tender-row__item"></div>
-                                                    <div class="tender-row__item"></div>
-                                                </div>
-                                                @foreach($product->reviews as $revKey => $item)
-                                                    <div class="tender-row tender-row--offer-with-manufacturer">
-
-                                                        @if ($item->attachments->first())
-                                                            @php
-                                                                $path = "";
-                                                                $photoCount = 0;
-                                                            @endphp
-                                                            @foreach ($item->attachments as $key => $attachment)
-                                                                @php
-                                                                    $path .= '../storage/reviewProducts/'.$attachment->path;
-                                                                    $photoCount++;
-                                                                    if(!$loop->last)
-                                                                      $path .= ','
-                                                                @endphp
-                                                            @endforeach
-                                                            <div class="tender-row__item"
-                                                                 data-product-img-slider="{{$path}}">
-                                                                <div
-                                                                    class="tender-row__preview tender-row__preview--zoom">
-                                                                    <div
-                                                                        class="tender-row__preview-zoom-text">{{$photoCount}}
-                                                                        фото
-                                                                    </div>
-                                                                    <img class="tender-row__preview-img"
-                                                                         src="../storage/reviewProducts/{{$item->attachments->first()->path}}">
-                                                                </div>
-                                                            </div>
-                                                        @else
-                                                            <div class="tender-row__item"
-                                                                 data-product-img-slider="../storage/tenderProducts/empty.jpg">
-                                                                <div
-                                                                    class="tender-row__preview tender-row__preview--zoom">
-                                                                    <div class="tender-row__preview-zoom-text">0
-                                                                        фото
-                                                                    </div>
-                                                                    <img class="tender-row__preview-img"
-                                                                         src="../storage/tenderProducts/empty.jpg">
-                                                                </div>
-                                                            </div>
-                                                        @endif
-                                                        <div class="tender-row__item tender-row__item--middle">
-                                                            <div class="tender-row__item-options">
-                                                                <div class="tender-row__item-option">
-                                                                    <div
-                                                                        class="tender-row__item-text tender-row__item-text--bold">
-                                                                        {{$item->review->provider->name}}
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tender-row__item-option">
-                                                                    <div class="tender-row__item-title">
-                                                                        Предложение
-                                                                    </div>
-                                                                    <div
-                                                                        class="tender-row__item-text">{{$item->title}}</div>
-                                                                </div>
-                                                                <div class="tender-row__item-option">
-                                                                    <div class="tender-row__item-title">
-                                                                        Комментарий
-                                                                    </div>
-                                                                    <div
-                                                                        class="tender-row__item-text">{{$item->description}}</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div
-                                                            class="tender-row__item tender-row__item--big">{{$item->count}}</div>
-                                                        <div
-                                                            class="tender-row__item tender-row__item--big">{{$item->price}}
-                                                            ₽
-                                                        </div>
-                                                        <div
-                                                            class="tender-row__item tender-row__item--big">{{$item->release_time}}
-                                                            дней
-                                                        </div>
-                                                        <div class="tender-row__item">
-                                                            @if ($item->sample)
-                                                                <svg
-                                                                    class="tender-row__item-icon tender-row__item-icon--check">
-                                                                    <use
-                                                                        xlink:href="../images/icons/icons-sprite.svg#check"></use>
-                                                                </svg>
-                                                            @else
-                                                                <svg
-                                                                    class="tender-row__item-icon tender-row__item-icon--not-check">
-                                                                    <use
-                                                                        xlink:href="../images/icons/icons-sprite.svg#close"></use>
-                                                                </svg>
-                                                            @endif
-                                                        </div>
-
-                                                        <div class="tender-row__item">
-                                                            @if ($item->branding)
-                                                                <svg
-                                                                    class="tender-row__item-icon tender-row__item-icon--check">
-                                                                    <use
-                                                                        xlink:href="../images/icons/icons-sprite.svg#check"></use>
-                                                                </svg>
-                                                            @else
-                                                                <svg
-                                                                    class="tender-row__item-icon tender-row__item-icon--not-check">
-                                                                    <use
-                                                                        xlink:href="../images/icons/icons-sprite.svg#close"></use>
-                                                                </svg>
-                                                            @endif
-                                                        </div>
-
-                                                        <div class="tender-row__item">
-                                                            @if ($item->packing)
-                                                                <svg
-                                                                    class="tender-row__item-icon tender-row__item-icon--check">
-                                                                    <use
-                                                                        xlink:href="../images/icons/icons-sprite.svg#check"></use>
-                                                                </svg>
-                                                            @else
-                                                                <svg
-                                                                    class="tender-row__item-icon tender-row__item-icon--not-check">
-                                                                    <use
-                                                                        xlink:href="../images/icons/icons-sprite.svg#close"></use>
-                                                                </svg>
-                                                            @endif
-                                                        </div>
-
-                                                        <div class="tender-row__item">
-                                                            <div
-                                                                class="offer__manufacturer-button offer__manufacturer-button--center offer__manufacturer-button--green">
-                                                                <div class="offer__manufacturer-button-text">Выбрать
-                                                                    победителем
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="tender-row__item">
-                                                            <div
-                                                                class="offer__manufacturer-button offer__manufacturer-button--center offer__manufacturer-button--message tenders-chat__button"
-                                                                data-chat="1">
-                                                                <div
-                                                                    class="offer__manufacturer-button-text offer__manufacturer-button-text--center tenders-chat__button-text">
-                                                                    <div
-                                                                        class="offer__manufacturer-button-message offer__manufacturer-button-message--center">
-                                                                        <svg
-                                                                            class="offer__manufacturer-button-message-icon">
-                                                                            <use
-                                                                                xlink:href="../images/icons/icons-sprite.svg#message"></use>
-                                                                        </svg>
-                                                                        <div
-                                                                            class="offer__manufacturer-button-message-count">
-                                                                            <div
-                                                                                class="offer__manufacturer-button-message-count-inner">
+                                                                            <div class="chat__form">
                                                                                 <div
-                                                                                    class="offer__manufacturer-button-message-count-inner-number">
-                                                                                    3
+                                                                                    class="chat__form-wrapper">
+                                                        <textarea class="chat__form-wrapper-input"
+                                                                  placeholder="Введите сообщение"></textarea>
+                                                                                </div>
+                                                                                <div
+                                                                                    class="chat__form-file-preview chat__form-file-preview--empty">
+                                                                                    <div
+                                                                                        class="chat__message-content-images"></div>
+                                                                                    <div
+                                                                                        class="chat__message-content-files"></div>
+                                                                                </div>
+                                                                                <div
+                                                                                    class="chat__form-buttons">
+                                                                                    <label
+                                                                                        class="chat__form-file-input-label">
+                                                                                        <div
+                                                                                            class="chat__form-file-input-text">
+                                                                                            Прикрепить файл
+                                                                                        </div>
+                                                                                        <svg
+                                                                                            class="chat__form-file-input-icon">
+                                                                                            <use
+                                                                                                xlink:href="../images/icons/icons-sprite.svg#upload"></use>
+                                                                                        </svg>
+                                                                                        <input
+                                                                                            class="chat__form-file-input"
+                                                                                            type="file"
+                                                                                            multiple="">
+                                                                                    </label>
+                                                                                    <div
+                                                                                        class="chat__form-send button button--small">
+                                                                                        Отправить
+                                                                                        сообщение
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                            @endforeach
                                                         </div>
-                                                    </div>
-                                                    <div
-                                                        class="tenders-chat__wrapper tenders-chat__wrapper--in-row">
-                                                        <div class="tenders-chat__content" data-chat-name="1">
-                                                            <div class="chat">
-                                                                <div class="chat__title">Переговоры с "Первый
-                                                                    поставщик"
-                                                                </div>
-                                                                <div class="chat__messages">
-                                                                    <div class="chat__date">08.05.2021</div>
-                                                                    <div class="chat__message">
-                                                                        <div class="chat__message-content">
-                                                                            <div class="chat__message-content-text">
-                                                                                Уверены,
-                                                                                что
-                                                                                уложитесь в
-                                                                                сроки? Куртка будет выглядеть точно
-                                                                                так?
-                                                                            </div>
-                                                                            <div
-                                                                                class="chat__message-content-images">
-                                                                                <img
-                                                                                    class="chat__message-content-image"
-                                                                                    src="images/examples/products-preview/products-preview-3.jpg">
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="chat__message-time">13:15</div>
-                                                                    </div>
-                                                                    <div
-                                                                        class="chat__message chat__message--invert">
-                                                                        <div class="chat__message-content">
-                                                                            <div class="chat__message-content-text">
-                                                                                Нет,
-                                                                                такой ткани
-                                                                                нет
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="chat__message-time">13:15</div>
-                                                                    </div>
-                                                                    <div class="chat__message">
-                                                                        <div class="chat__message-content">
-                                                                            <div class="chat__message-content-text">
-                                                                                Понял
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="chat__message-time">13:15</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="chat__form">
-                                                                    <div class="chat__form-wrapper">
-                                                        <textarea class="chat__form-wrapper-input"
-                                                                  placeholder="Введите сообщение"></textarea>
-                                                                    </div>
-                                                                    <div
-                                                                        class="chat__form-file-preview chat__form-file-preview--empty">
-                                                                        <div
-                                                                            class="chat__message-content-images"></div>
-                                                                        <div
-                                                                            class="chat__message-content-files"></div>
-                                                                    </div>
-                                                                    <div class="chat__form-buttons">
-                                                                        <label class="chat__form-file-input-label">
-                                                                            <div class="chat__form-file-input-text">
-                                                                                Прикрепить файл
-                                                                            </div>
-                                                                            <svg class="chat__form-file-input-icon">
-                                                                                <use
-                                                                                    xlink:href="../images/icons/icons-sprite.svg#upload"></use>
-                                                                            </svg>
-                                                                            <input class="chat__form-file-input"
-                                                                                   type="file"
-                                                                                   multiple="">
-                                                                        </label>
-                                                                        <div
-                                                                            class="chat__form-send button button--small">
-                                                                            Отправить
-                                                                            сообщение
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
+                                                    @endforeach
+                                                @else
+                                                    <h1>Пусто</h1>
+                                                @endif
                                             </div>
-                                        @endforeach
-                                    @else
-                                        <h1>Пусто</h1>
-                                    @endif
+                                        @endif
+                                    </div>
+
                                 </div>
-                            @endif
+
                         </div>
-                    </div>
-
                 </div>
-            </section>
+        </div>
+        </section>
         </div>
     @else
         <div class="wrapper">
@@ -1511,7 +1860,8 @@
 @section('f_script')
     @php
         $countryFrom = false;
-                    $userChRole = $user->subroles->where('id', '!=', '4')->first();
+                    if ($user != null) {
+                             $userChRole = $user->subroles->where('id', '!=', '4')->first();
                     $userRuRole = $user->subroles->where('id', '=' ,'4')->first();
 
                     if ($userChRole != null && $userRuRole != null){
@@ -1523,6 +1873,8 @@
                     elseif ($userChRole == null && $userRuRole != null){
                         $countryFrom = 1;
                     }
+                    }
+
 
     @endphp
 
