@@ -99,12 +99,9 @@ class RegisteredUserController extends Controller
         $providerInfo->company = $request->company;
 
         if ($request->can_RLE)
-        {
             $providerInfo->can_RLE = 1;
-            $user->subroles()->attach(4);
-        }
         else
-          $providerInfo->can_RLE = 0;
+            $providerInfo->can_RLE = 0;
 
         $providerInfo->save();
 
@@ -116,6 +113,10 @@ class RegisteredUserController extends Controller
 
                   if ($ps->id == 1) $subrole = 1;
                   else if($ps->id == 2) $subrole = 2;
+                  else if ($ps->id == 3) {
+                      $user->subroles()->attach(4);
+                  }
+
               }
 
           }

@@ -91,8 +91,10 @@
                 <div class="layout">
                     @php
                         $hasTabs = false;
-                        if ($tender->buyer_id == $user->id) {
+                        if ($user != null) {
+                            if ($tender->buyer_id == $user->id) {
                             $hasTabs = true;
+                            }
                         }
                     @endphp
 
