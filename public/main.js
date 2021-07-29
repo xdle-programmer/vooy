@@ -10152,9 +10152,9 @@ if (accountInputs.length > 0) {
   !*** ./resources/blocks/account-menu/account-menu.scss ***!
   \*********************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10174,9 +10174,9 @@ if (accountInputs.length > 0) {
   !*** ./resources/blocks/account/account.scss ***!
   \***********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10185,9 +10185,9 @@ if (accountInputs.length > 0) {
   !*** ./resources/blocks/advantages/advantages.scss ***!
   \*****************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10196,9 +10196,9 @@ if (accountInputs.length > 0) {
   !*** ./resources/blocks/assessment/assessment.scss ***!
   \*****************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10207,9 +10207,9 @@ if (accountInputs.length > 0) {
   !*** ./resources/blocks/balance/balance.scss ***!
   \***********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10218,9 +10218,9 @@ if (accountInputs.length > 0) {
   !*** ./resources/blocks/banner/banner.scss ***!
   \*********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10229,9 +10229,9 @@ if (accountInputs.length > 0) {
   !*** ./resources/blocks/base/main.scss ***!
   \*****************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10240,9 +10240,9 @@ if (accountInputs.length > 0) {
   !*** ./resources/blocks/base/media-queries.scss ***!
   \**************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10251,9 +10251,9 @@ if (accountInputs.length > 0) {
   !*** ./resources/blocks/base/mixins.scss ***!
   \*******************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10262,9 +10262,9 @@ if (accountInputs.length > 0) {
   !*** ./resources/blocks/base/variables.scss ***!
   \**********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10284,9 +10284,9 @@ if (accountInputs.length > 0) {
   !*** ./resources/blocks/basket/basket.scss ***!
   \*********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10295,9 +10295,9 @@ if (accountInputs.length > 0) {
   !*** ./resources/blocks/border-block/border-block.scss ***!
   \*********************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10306,9 +10306,9 @@ if (accountInputs.length > 0) {
   !*** ./resources/blocks/breadcrumbs/breadcrumbs.scss ***!
   \*******************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10317,9 +10317,9 @@ if (accountInputs.length > 0) {
   !*** ./resources/blocks/button/button.scss ***!
   \*********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10328,9 +10328,9 @@ if (accountInputs.length > 0) {
   !*** ./resources/blocks/buyer/buyer.scss ***!
   \*******************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10339,9 +10339,9 @@ if (accountInputs.length > 0) {
   !*** ./resources/blocks/captcha/captcha.scss ***!
   \***********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10376,9 +10376,9 @@ if (selects.length > 0) {
   !*** ./resources/blocks/catalog/catalog.scss ***!
   \***********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10387,9 +10387,9 @@ if (selects.length > 0) {
   !*** ./resources/blocks/categories-labels/categories-labels.scss ***!
   \*******************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10398,9 +10398,9 @@ if (selects.length > 0) {
   !*** ./resources/blocks/categories-preview/categories-preview.scss ***!
   \*********************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10470,9 +10470,9 @@ if (chatInputs.length > 0) {
   !*** ./resources/blocks/chat/chat.scss ***!
   \*****************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10667,9 +10667,9 @@ function checkProgressHandler($wrapper) {
   !*** ./resources/blocks/check-progress/check-progress.scss ***!
   \*************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10689,9 +10689,9 @@ function checkProgressHandler($wrapper) {
   !*** ./resources/blocks/checkbox/checkbox.scss ***!
   \*************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10773,9 +10773,9 @@ function counter($counter) {
   !*** ./resources/blocks/counter/counter.scss ***!
   \***********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11062,9 +11062,9 @@ if (selects.length > 0) {
   !*** ./resources/blocks/custom-select/custom-select.scss ***!
   \***********************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11215,9 +11215,9 @@ function toggleFilter($wrapper) {
   !*** ./resources/blocks/filter/filter.scss ***!
   \*********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11237,9 +11237,9 @@ function toggleFilter($wrapper) {
   !*** ./resources/blocks/footer/footer.scss ***!
   \*********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11281,9 +11281,9 @@ if (forms.length > 0) {
   !*** ./resources/blocks/form-check/form-check.scss ***!
   \*****************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11354,9 +11354,9 @@ function copyForm($wrapper) {
   !*** ./resources/blocks/form/form.scss ***!
   \*****************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11376,9 +11376,9 @@ function copyForm($wrapper) {
   !*** ./resources/blocks/header-buttons/header-buttons.scss ***!
   \*************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11398,9 +11398,9 @@ function copyForm($wrapper) {
   !*** ./resources/blocks/header-checkbox/header-checkbox.scss ***!
   \***************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11455,9 +11455,9 @@ window.addEventListener('scroll', function () {
   !*** ./resources/blocks/header/header.scss ***!
   \*********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11466,9 +11466,9 @@ window.addEventListener('scroll', function () {
   !*** ./resources/blocks/hint/hint.scss ***!
   \*****************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11488,9 +11488,9 @@ window.addEventListener('scroll', function () {
   !*** ./resources/blocks/input/input.scss ***!
   \*******************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11499,9 +11499,9 @@ window.addEventListener('scroll', function () {
   !*** ./resources/blocks/layout/layout.scss ***!
   \*********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11510,9 +11510,9 @@ window.addEventListener('scroll', function () {
   !*** ./resources/blocks/lead-search/lead-search.scss ***!
   \*******************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11521,9 +11521,9 @@ window.addEventListener('scroll', function () {
   !*** ./resources/blocks/lead/lead.scss ***!
   \*****************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11532,9 +11532,9 @@ window.addEventListener('scroll', function () {
   !*** ./resources/blocks/logo/logo.scss ***!
   \*****************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11554,9 +11554,9 @@ window.addEventListener('scroll', function () {
   !*** ./resources/blocks/main-banner/main-banner.scss ***!
   \*******************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11565,9 +11565,9 @@ window.addEventListener('scroll', function () {
   !*** ./resources/blocks/main-navigation/main-navigation.scss ***!
   \***************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11576,9 +11576,9 @@ window.addEventListener('scroll', function () {
   !*** ./resources/blocks/manufacturer-preview/manufacturer-preview.scss ***!
   \*************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11587,9 +11587,9 @@ window.addEventListener('scroll', function () {
   !*** ./resources/blocks/manufacturer/manufacturer.scss ***!
   \*********************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11686,9 +11686,9 @@ function minMaxSlider($wrapper) {
   !*** ./resources/blocks/min-max-slider/min-max-slider.scss ***!
   \*************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11808,9 +11808,9 @@ window.modals = new Modals();
   !*** ./resources/blocks/modal/modal.scss ***!
   \*******************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11830,9 +11830,9 @@ window.modals = new Modals();
   !*** ./resources/blocks/offer-form/offer-form.scss ***!
   \*****************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11841,9 +11841,9 @@ window.modals = new Modals();
   !*** ./resources/blocks/offer/offer.scss ***!
   \*******************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11852,9 +11852,9 @@ window.modals = new Modals();
   !*** ./resources/blocks/options/options.scss ***!
   \***********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11950,9 +11950,9 @@ document.addEventListener('click', function (event) {
   !*** ./resources/blocks/photo-upload/photo-upload.scss ***!
   \*********************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11972,9 +11972,9 @@ document.addEventListener('click', function (event) {
   !*** ./resources/blocks/photo/photo.scss ***!
   \*******************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12064,9 +12064,9 @@ function checkEmptyInput($wrapper) {
   !*** ./resources/blocks/placeholder/placeholder.scss ***!
   \*******************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12147,9 +12147,9 @@ if (document.getElementsByClassName('product-cart__slide-img').length > 0) {
   !*** ./resources/blocks/product-cart/product-cart.scss ***!
   \*********************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12285,9 +12285,9 @@ function productImgSlider() {
   !*** ./resources/blocks/product-img-slider/product-img-slider.scss ***!
   \*********************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12467,9 +12467,9 @@ function productInTenderHandler(options) {
   !*** ./resources/blocks/product-in-tender/product-in-tender.scss ***!
   \*******************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12489,9 +12489,9 @@ function productInTenderHandler(options) {
   !*** ./resources/blocks/product-preview/product-preview.scss ***!
   \***************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12500,9 +12500,9 @@ function productInTenderHandler(options) {
   !*** ./resources/blocks/products-grid/products-grid.scss ***!
   \***********************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12511,9 +12511,9 @@ function productInTenderHandler(options) {
   !*** ./resources/blocks/reviews/reviews.scss ***!
   \***********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12533,9 +12533,9 @@ function productInTenderHandler(options) {
   !*** ./resources/blocks/search-box/search-box.scss ***!
   \*****************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12564,9 +12564,9 @@ window.select = new simple_custom_select__WEBPACK_IMPORTED_MODULE_0___default.a(
   !*** ./resources/blocks/search-select/search-select.scss ***!
   \***********************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12575,9 +12575,9 @@ window.select = new simple_custom_select__WEBPACK_IMPORTED_MODULE_0___default.a(
   !*** ./resources/blocks/section/section.scss ***!
   \***********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12586,9 +12586,9 @@ window.select = new simple_custom_select__WEBPACK_IMPORTED_MODULE_0___default.a(
   !*** ./resources/blocks/selected-products/selected-products.scss ***!
   \*******************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12597,9 +12597,9 @@ window.select = new simple_custom_select__WEBPACK_IMPORTED_MODULE_0___default.a(
   !*** ./resources/blocks/social/social.scss ***!
   \*********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12608,9 +12608,9 @@ window.select = new simple_custom_select__WEBPACK_IMPORTED_MODULE_0___default.a(
   !*** ./resources/blocks/status-line/status-line.scss ***!
   \*******************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12702,6 +12702,7 @@ function toggleTabs(options) {
 }
 
 if (Array.from(document.getElementsByClassName('tabs')).length > 0) {
+  console.log(document.getElementsByClassName('tabs'));
   window.tabs = new toggleTabs();
   var $slider = document.getElementsByClassName('tabs__toggle-buttons')[0];
   setTabsSlider($slider);
@@ -12742,9 +12743,9 @@ function setTabsSlider($slider) {
   !*** ./resources/blocks/tabs/tabs.scss ***!
   \*****************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12764,9 +12765,9 @@ function setTabsSlider($slider) {
   !*** ./resources/blocks/tender-header/tender-header.scss ***!
   \***********************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12775,9 +12776,9 @@ function setTabsSlider($slider) {
   !*** ./resources/blocks/tender-row/tender-row.scss ***!
   \*****************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12899,9 +12900,9 @@ function tendersChat($wrapper) {
   !*** ./resources/blocks/tenders-chat/tenders-chat.scss ***!
   \*********************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12910,9 +12911,9 @@ function tendersChat($wrapper) {
   !*** ./resources/blocks/title-count/title-count.scss ***!
   \*******************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12932,9 +12933,9 @@ function tendersChat($wrapper) {
   !*** ./resources/blocks/title-input-wrapper/title-input-wrapper.scss ***!
   \***********************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12943,9 +12944,9 @@ function tendersChat($wrapper) {
   !*** ./resources/blocks/title-separator/title-separator.scss ***!
   \***************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12954,9 +12955,9 @@ function tendersChat($wrapper) {
   !*** ./resources/blocks/title/title.scss ***!
   \*******************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -13009,9 +13010,9 @@ function toggleShowBlockHandler($wrapper) {
   !*** ./resources/blocks/toggle-show-block/toggle-show-block.scss ***!
   \*******************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -13135,9 +13136,9 @@ function toggleTooltip($tooltip) {
   !*** ./resources/blocks/tooltip/tooltip.scss ***!
   \***********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -13214,9 +13215,9 @@ function upload(options) {
   !*** ./resources/blocks/upload/upload.scss ***!
   \*********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -13225,9 +13226,9 @@ function upload(options) {
   !*** ./resources/blocks/wrapper/wrapper.scss ***!
   \***********************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// extracted by mini-css-extract-plugin
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 

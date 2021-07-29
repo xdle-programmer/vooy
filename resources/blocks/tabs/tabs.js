@@ -88,7 +88,11 @@ function toggleTabs(options) {
 }
 
 if (Array.from(document.getElementsByClassName('tabs')).length > 0) {
+
+    console.log(document.getElementsByClassName('tabs'))
+
     window.tabs = new toggleTabs();
+
 
     let $slider = document.getElementsByClassName('tabs__toggle-buttons')[0];
 

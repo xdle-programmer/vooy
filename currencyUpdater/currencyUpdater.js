@@ -1,7 +1,5 @@
-const axios = require('axios').default;
+const axios = require('axios');
 const schedule = require('node-schedule');
-
-console.log("start");
 
 let API_KEY = '44c24040a7c44ad38f42ac24b685d475'
 let LOCATION = 'http://188.225.85.66'
