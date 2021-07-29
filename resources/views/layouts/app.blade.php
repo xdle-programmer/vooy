@@ -559,7 +559,7 @@
             <svg class="modal__content-message-icon">
                 <use xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
             </svg>
-            <div  class="modal__content-message-text">Ваш тендер успешно опубликован!</div>
+            <div class="modal__content-message-text">Ваш тендер успешно опубликован!</div>
             <div class="modal__content-message-two-buttons">
                 <div data-modal-close class="button button--small button--invert">ЗАКРЫТЬ</div>
                 <a class="button button--small" href="{{route('tenders-list')}}">В ТЕНДЕРЫ</a>
@@ -573,7 +573,7 @@
             <svg class="modal__content-message-icon">
                 {{--<use xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>--}}
             </svg>
-            <div  class="modal__content-message-text">Ваш ответ на тендер успешно отправлен!</div>
+            <div class="modal__content-message-text">Ваш ответ на тендер успешно отправлен!</div>
             <div class="modal__content-message-two-buttons">
                 <div onclick="window.location = window.location" class="button button--small">ОК</div>
             </div>
@@ -644,7 +644,9 @@
                 {{--<use xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>--}}
             </svg>
             <div class="modal__content-message-text">Вы выбрали победителем
-                <div id="modal-winner-success-providerName" class="modal__content-message-text-inner">Название поставщика</div>
+                <div id="modal-winner-success-providerName" class="modal__content-message-text-inner">Название
+                    поставщика
+                </div>
             </div>
             <div class="modal__content-message-one-button">
                 <div onclick="window.location = window.location" class="button button--small">Ок</div>
@@ -831,15 +833,19 @@
                             @if(Auth::user())
                                 @php
                                     $bothProvider = false;
-                                    $userChRole = Auth::user()->subroles()->where('provider_subroles.subrole_id','!=', 4)->first();
-                                    $userRuRole = Auth::user()->subroles()->where('provider_subroles.subrole_id', 4)->first();
-                                    if ($userChRole != null && $userRuRole != null)
-                                        $bothProvider = true;
+                                    if (Auth::user() != null) {
+                                        $userChRole = Auth::user()->subroles()->where('provider_subroles.subrole_id','!=', 4)->first();
+                                        $userRuRole = Auth::user()->subroles()->where('provider_subroles.subrole_id', 4)->first();
+                                        if ($userChRole != null && $userRuRole != null)
+                                             $bothProvider = true;
+                                    }
                                 @endphp
                                 @if($bothProvider == true)
                                     <div class="product-in-tender__item-input-fromCountry">
-                                        <p><input onclick="changeRadioFromCountry(this)" name="fromCountry" type="radio" value="2"> Из Китая</p>
-                                        <p><input onclick="changeRadioFromCountry(this)" name="fromCountry" type="radio" value="1"> Из России</p>
+                                        <p><input onclick="changeRadioFromCountry(this)" name="fromCountry" type="radio"
+                                                  value="2"> Из Китая</p>
+                                        <p><input onclick="changeRadioFromCountry(this)" name="fromCountry" type="radio"
+                                                  value="1"> Из России</p>
                                     </div>
                                 @endif
                             @endif
@@ -1059,7 +1065,7 @@
 
     let fromCountry = '0';
 
-    function changeRadioFromCountry(e){
+    function changeRadioFromCountry(e) {
         console.log('a')
         console.log(e.value)
         fromCountry = e.value;
