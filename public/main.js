@@ -1,116 +1,36 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
-/******/ })
-/************************************************************************/
-/******/ ({
+/******/ (function() { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
 
-/***/ "./node_modules/@babel/runtime/helpers/classCallCheck.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/classCallCheck.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js ***!
+  \*******************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ _classCallCheck; }
+/* harmony export */ });
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
   }
 }
 
-module.exports = _classCallCheck;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime/helpers/createClass.js":
-/*!************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/createClass.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/@babel/runtime/helpers/esm/createClass.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/createClass.js ***!
+  \****************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ _createClass; }
+/* harmony export */ });
 function _defineProperties(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
@@ -127,18 +47,19 @@ function _createClass(Constructor, protoProps, staticProps) {
   return Constructor;
 }
 
-module.exports = _createClass;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime/helpers/defineProperty.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/defineProperty.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/defineProperty.js ***!
+  \*******************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ _defineProperty; }
+/* harmony export */ });
 function _defineProperty(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
@@ -154,17 +75,13 @@ function _defineProperty(obj, key, value) {
   return obj;
 }
 
-module.exports = _defineProperty;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-
 /***/ }),
 
 /***/ "./node_modules/form-validation-expandable/dist/script.js":
 /*!****************************************************************!*\
   !*** ./node_modules/form-validation-expandable/dist/script.js ***!
   \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 "use strict";
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
@@ -285,9 +202,9 @@ function _typeof(obj) {
   if (true) {
     // AMD. Register as an anonymous module.
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
   } else {}
 })(function () {
   var Validation = /*#__PURE__*/function () {
@@ -689,8 +606,7 @@ function _typeof(obj) {
 /*!**********************************************************!*\
   !*** ./node_modules/get-viewport-options/dist/script.js ***!
   \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 "use strict";
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
@@ -751,9 +667,9 @@ function _typeof(obj) {
   if (true) {
     // AMD. Register as an anonymous module.
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
   } else {}
 })(function () {
   var _setup = _classPrivateFieldLooseKey("setup");
@@ -846,11 +762,10 @@ function _typeof(obj) {
 /*!****************************************************!*\
   !*** ./node_modules/nouislider/dist/nouislider.js ***!
   \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(__unused_webpack_module, exports) {
 
 (function (global, factory) {
-   true ? factory(exports) : undefined;
+   true ? factory(exports) : 0;
 })(this, function (exports) {
   'use strict';
 
@@ -3365,10 +3280,9 @@ function _typeof(obj) {
 /*!*********************************************************!*\
   !*** ./node_modules/progressbar.js/dist/progressbar.js ***!
   \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module) {
 
-var require;var require;// ProgressBar.js 1.1.0
+// ProgressBar.js 1.1.0
 // https://kimmobrunfeldt.github.io/progressbar.js
 // License: MIT
 (function (f) {
@@ -3382,7 +3296,7 @@ var require;var require;// ProgressBar.js 1.1.0
       function o(i, f) {
         if (!n[i]) {
           if (!e[i]) {
-            var c = "function" == typeof require && require;
+            var c = undefined;
             if (!f && c) return require(i, !0);
             if (u) return u(i, !0);
             var a = new Error("Cannot find module '" + i + "'");
@@ -3401,7 +3315,7 @@ var require;var require;// ProgressBar.js 1.1.0
         return n[i].exports;
       }
 
-      for (var u = "function" == typeof require && require, i = 0; i < t.length; i++) o(t[i]);
+      for (var u = undefined, i = 0; i < t.length; i++) o(t[i]);
 
       return o;
     }
@@ -5180,8 +5094,7 @@ var require;var require;// ProgressBar.js 1.1.0
 /*!******************************************************!*\
   !*** ./node_modules/search-row-hints/dist/script.js ***!
   \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 "use strict";
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
@@ -5242,9 +5155,9 @@ function _typeof(obj) {
   if (true) {
     // AMD. Register as an anonymous module.
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
   } else {}
 })(function () {
   var _createDom = _classPrivateFieldLooseKey("createDom");
@@ -5419,8 +5332,7 @@ function _typeof(obj) {
 /*!**********************************************************!*\
   !*** ./node_modules/simple-custom-select/dist/script.js ***!
   \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 "use strict";
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
@@ -5555,9 +5467,9 @@ function _typeof(obj) {
   if (true) {
     // AMD. Register as an anonymous module.
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
   } else {}
 })(function () {
   var _getSelectData = _classPrivateFieldLooseKey("getSelectData");
@@ -5796,12 +5708,13 @@ function _typeof(obj) {
 /*!************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/addCSSRule.js ***!
   \************************************************************/
-/*! exports provided: addCSSRule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addCSSRule", function() { return addCSSRule; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "addCSSRule": function() { return /* binding */ addCSSRule; }
+/* harmony export */ });
 /* harmony import */ var _raf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./raf.js */ "./node_modules/tiny-slider/src/helpers/raf.js");
 // cross browsers addRule method
 
@@ -5816,20 +5729,21 @@ function addCSSRule(sheet, selector, rules, index) {
 /*!**********************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/addClass.js ***!
   \**********************************************************/
-/*! exports provided: addClass */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addClass", function() { return addClass; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "addClass": function() { return /* binding */ addClass; }
+/* harmony export */ });
 /* harmony import */ var _hasClass_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./hasClass.js */ "./node_modules/tiny-slider/src/helpers/hasClass.js");
 
-var addClass = _hasClass_js__WEBPACK_IMPORTED_MODULE_0__["classListSupport"] ? function (el, str) {
-  if (!Object(_hasClass_js__WEBPACK_IMPORTED_MODULE_0__["hasClass"])(el, str)) {
+var addClass = _hasClass_js__WEBPACK_IMPORTED_MODULE_0__.classListSupport ? function (el, str) {
+  if (!(0,_hasClass_js__WEBPACK_IMPORTED_MODULE_0__.hasClass)(el, str)) {
     el.classList.add(str);
   }
 } : function (el, str) {
-  if (!Object(_hasClass_js__WEBPACK_IMPORTED_MODULE_0__["hasClass"])(el, str)) {
+  if (!(0,_hasClass_js__WEBPACK_IMPORTED_MODULE_0__.hasClass)(el, str)) {
     el.className += ' ' + str;
   }
 };
@@ -5841,17 +5755,18 @@ var addClass = _hasClass_js__WEBPACK_IMPORTED_MODULE_0__["classListSupport"] ? f
 /*!***********************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/addEvents.js ***!
   \***********************************************************/
-/*! exports provided: addEvents */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addEvents", function() { return addEvents; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "addEvents": function() { return /* binding */ addEvents; }
+/* harmony export */ });
 /* harmony import */ var _passiveOption_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./passiveOption.js */ "./node_modules/tiny-slider/src/helpers/passiveOption.js");
 
 function addEvents(el, obj, preventScrolling) {
   for (var prop in obj) {
-    var option = ['touchstart', 'touchmove'].indexOf(prop) >= 0 && !preventScrolling ? _passiveOption_js__WEBPACK_IMPORTED_MODULE_0__["passiveOption"] : false;
+    var option = ['touchstart', 'touchmove'].indexOf(prop) >= 0 && !preventScrolling ? _passiveOption_js__WEBPACK_IMPORTED_MODULE_0__.passiveOption : false;
     el.addEventListener(prop, obj[prop], option);
   }
 }
@@ -5862,12 +5777,13 @@ function addEvents(el, obj, preventScrolling) {
 /*!*******************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/arrayFromNodeList.js ***!
   \*******************************************************************/
-/*! exports provided: arrayFromNodeList */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "arrayFromNodeList", function() { return arrayFromNodeList; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "arrayFromNodeList": function() { return /* binding */ arrayFromNodeList; }
+/* harmony export */ });
 function arrayFromNodeList(nl) {
   var arr = [];
 
@@ -5884,12 +5800,13 @@ function arrayFromNodeList(nl) {
 /*!*****************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/caf.js ***!
   \*****************************************************/
-/*! exports provided: caf */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "caf", function() { return caf; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "caf": function() { return /* binding */ caf; }
+/* harmony export */ });
 var win = window;
 var caf = win.cancelAnimationFrame || win.mozCancelAnimationFrame || function (id) {
   clearTimeout(id);
@@ -5901,12 +5818,13 @@ var caf = win.cancelAnimationFrame || win.mozCancelAnimationFrame || function (i
 /*!******************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/calc.js ***!
   \******************************************************/
-/*! exports provided: calc */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "calc", function() { return calc; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "calc": function() { return /* binding */ calc; }
+/* harmony export */ });
 /* harmony import */ var _getBody_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getBody.js */ "./node_modules/tiny-slider/src/helpers/getBody.js");
 /* harmony import */ var _setFakeBody_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./setFakeBody.js */ "./node_modules/tiny-slider/src/helpers/setFakeBody.js");
 /* harmony import */ var _resetFakeBody_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./resetFakeBody.js */ "./node_modules/tiny-slider/src/helpers/resetFakeBody.js");
@@ -5918,8 +5836,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function calc() {
   var doc = document,
-      body = Object(_getBody_js__WEBPACK_IMPORTED_MODULE_0__["getBody"])(),
-      docOverflow = Object(_setFakeBody_js__WEBPACK_IMPORTED_MODULE_1__["setFakeBody"])(body),
+      body = (0,_getBody_js__WEBPACK_IMPORTED_MODULE_0__.getBody)(),
+      docOverflow = (0,_setFakeBody_js__WEBPACK_IMPORTED_MODULE_1__.setFakeBody)(body),
       div = doc.createElement('div'),
       result = false;
   body.appendChild(div);
@@ -5940,7 +5858,7 @@ function calc() {
     }
   } catch (e) {}
 
-  body.fake ? Object(_resetFakeBody_js__WEBPACK_IMPORTED_MODULE_2__["resetFakeBody"])(body, docOverflow) : div.remove();
+  body.fake ? (0,_resetFakeBody_js__WEBPACK_IMPORTED_MODULE_2__.resetFakeBody)(body, docOverflow) : div.remove();
   return result;
 }
 
@@ -5950,12 +5868,13 @@ function calc() {
 /*!*******************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/checkStorageValue.js ***!
   \*******************************************************************/
-/*! exports provided: checkStorageValue */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkStorageValue", function() { return checkStorageValue; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "checkStorageValue": function() { return /* binding */ checkStorageValue; }
+/* harmony export */ });
 function checkStorageValue(value) {
   return ['true', 'false'].indexOf(value) >= 0 ? JSON.parse(value) : value;
 }
@@ -5966,12 +5885,13 @@ function checkStorageValue(value) {
 /*!******************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/classListSupport.js ***!
   \******************************************************************/
-/*! exports provided: classListSupport */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "classListSupport", function() { return classListSupport; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "classListSupport": function() { return /* binding */ classListSupport; }
+/* harmony export */ });
 var classListSupport = ('classList' in document.createElement('_'));
 
 /***/ }),
@@ -5980,12 +5900,13 @@ var classListSupport = ('classList' in document.createElement('_'));
 /*!******************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/createStyleSheet.js ***!
   \******************************************************************/
-/*! exports provided: createStyleSheet */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createStyleSheet", function() { return createStyleSheet; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "createStyleSheet": function() { return /* binding */ createStyleSheet; }
+/* harmony export */ });
 // create and append style sheet
 function createStyleSheet(media, nonce) {
   // Create the <style> tag
@@ -6017,12 +5938,13 @@ function createStyleSheet(media, nonce) {
 /*!************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/docElement.js ***!
   \************************************************************/
-/*! exports provided: docElement */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "docElement", function() { return docElement; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "docElement": function() { return /* binding */ docElement; }
+/* harmony export */ });
 var docElement = document.documentElement;
 
 /***/ }),
@@ -6031,12 +5953,13 @@ var docElement = document.documentElement;
 /*!********************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/events.js ***!
   \********************************************************/
-/*! exports provided: Events */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Events", function() { return Events; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Events": function() { return /* binding */ Events; }
+/* harmony export */ });
 function Events() {
   return {
     topics: {},
@@ -6073,12 +5996,13 @@ function Events() {
 /*!********************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/extend.js ***!
   \********************************************************/
-/*! exports provided: extend */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "extend", function() { return extend; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "extend": function() { return /* binding */ extend; }
+/* harmony export */ });
 function extend() {
   var obj,
       name,
@@ -6110,12 +6034,13 @@ function extend() {
 /*!*********************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/forEach.js ***!
   \*********************************************************/
-/*! exports provided: forEach */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "forEach", function() { return forEach; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "forEach": function() { return /* binding */ forEach; }
+/* harmony export */ });
 // https://toddmotto.com/ditch-the-array-foreach-call-nodelist-hack/
 function forEach(arr, callback, scope) {
   for (var i = 0, l = arr.length; i < l; i++) {
@@ -6129,12 +6054,13 @@ function forEach(arr, callback, scope) {
 /*!*********************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/getAttr.js ***!
   \*********************************************************/
-/*! exports provided: getAttr */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAttr", function() { return getAttr; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getAttr": function() { return /* binding */ getAttr; }
+/* harmony export */ });
 function getAttr(el, attr) {
   return el.getAttribute(attr);
 }
@@ -6145,12 +6071,13 @@ function getAttr(el, attr) {
 /*!*********************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/getBody.js ***!
   \*********************************************************/
-/*! exports provided: getBody */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBody", function() { return getBody; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getBody": function() { return /* binding */ getBody; }
+/* harmony export */ });
 function getBody() {
   var doc = document,
       body = doc.body;
@@ -6169,12 +6096,13 @@ function getBody() {
 /*!*******************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/getCssRulesLength.js ***!
   \*******************************************************************/
-/*! exports provided: getCssRulesLength */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCssRulesLength", function() { return getCssRulesLength; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getCssRulesLength": function() { return /* binding */ getCssRulesLength; }
+/* harmony export */ });
 function getCssRulesLength(sheet) {
   var rule = 'insertRule' in sheet ? sheet.cssRules : sheet.rules;
   return rule.length;
@@ -6186,12 +6114,13 @@ function getCssRulesLength(sheet) {
 /*!****************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/getEndProperty.js ***!
   \****************************************************************/
-/*! exports provided: getEndProperty */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEndProperty", function() { return getEndProperty; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getEndProperty": function() { return /* binding */ getEndProperty; }
+/* harmony export */ });
 // get transitionend, animationend based on transitionDuration
 // @propin: string
 // @propOut: string, first-letter uppercase
@@ -6216,12 +6145,13 @@ function getEndProperty(propIn, propOut) {
 /*!************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/getSlideId.js ***!
   \************************************************************/
-/*! exports provided: getSlideId */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSlideId", function() { return getSlideId; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getSlideId": function() { return /* binding */ getSlideId; }
+/* harmony export */ });
 function getSlideId() {
   var id = window.tnsId;
   window.tnsId = !id ? 1 : id + 1;
@@ -6234,12 +6164,13 @@ function getSlideId() {
 /*!*******************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/getTouchDirection.js ***!
   \*******************************************************************/
-/*! exports provided: getTouchDirection */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTouchDirection", function() { return getTouchDirection; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getTouchDirection": function() { return /* binding */ getTouchDirection; }
+/* harmony export */ });
 function getTouchDirection(angle, range) {
   var direction = false,
       gap = Math.abs(90 - Math.abs(angle));
@@ -6259,12 +6190,13 @@ function getTouchDirection(angle, range) {
 /*!*****************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/has3DTransforms.js ***!
   \*****************************************************************/
-/*! exports provided: has3DTransforms */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "has3DTransforms", function() { return has3DTransforms; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "has3DTransforms": function() { return /* binding */ has3DTransforms; }
+/* harmony export */ });
 /* harmony import */ var _getBody_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getBody.js */ "./node_modules/tiny-slider/src/helpers/getBody.js");
 /* harmony import */ var _setFakeBody_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./setFakeBody.js */ "./node_modules/tiny-slider/src/helpers/setFakeBody.js");
 /* harmony import */ var _resetFakeBody_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./resetFakeBody.js */ "./node_modules/tiny-slider/src/helpers/resetFakeBody.js");
@@ -6281,8 +6213,8 @@ function has3DTransforms(tf) {
   }
 
   var doc = document,
-      body = Object(_getBody_js__WEBPACK_IMPORTED_MODULE_0__["getBody"])(),
-      docOverflow = Object(_setFakeBody_js__WEBPACK_IMPORTED_MODULE_1__["setFakeBody"])(body),
+      body = (0,_getBody_js__WEBPACK_IMPORTED_MODULE_0__.getBody)(),
+      docOverflow = (0,_setFakeBody_js__WEBPACK_IMPORTED_MODULE_1__.setFakeBody)(body),
       el = doc.createElement('p'),
       has3d,
       cssTF = tf.length > 9 ? '-' + tf.slice(0, -9).toLowerCase() + '-' : '';
@@ -6291,7 +6223,7 @@ function has3DTransforms(tf) {
   body.insertBefore(el, null);
   el.style[tf] = 'translate3d(1px,1px,1px)';
   has3d = window.getComputedStyle(el).getPropertyValue(cssTF);
-  body.fake ? Object(_resetFakeBody_js__WEBPACK_IMPORTED_MODULE_2__["resetFakeBody"])(body, docOverflow) : el.remove();
+  body.fake ? (0,_resetFakeBody_js__WEBPACK_IMPORTED_MODULE_2__.resetFakeBody)(body, docOverflow) : el.remove();
   return has3d !== undefined && has3d.length > 0 && has3d !== "none";
 }
 
@@ -6301,12 +6233,13 @@ function has3DTransforms(tf) {
 /*!*********************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/hasAttr.js ***!
   \*********************************************************/
-/*! exports provided: hasAttr */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasAttr", function() { return hasAttr; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "hasAttr": function() { return /* binding */ hasAttr; }
+/* harmony export */ });
 function hasAttr(el, attr) {
   return el.hasAttribute(attr);
 }
@@ -6317,17 +6250,17 @@ function hasAttr(el, attr) {
 /*!**********************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/hasClass.js ***!
   \**********************************************************/
-/*! exports provided: classListSupport, hasClass */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasClass", function() { return hasClass; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "classListSupport": function() { return /* reexport safe */ _classListSupport_js__WEBPACK_IMPORTED_MODULE_0__.classListSupport; },
+/* harmony export */   "hasClass": function() { return /* binding */ hasClass; }
+/* harmony export */ });
 /* harmony import */ var _classListSupport_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./classListSupport.js */ "./node_modules/tiny-slider/src/helpers/classListSupport.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "classListSupport", function() { return _classListSupport_js__WEBPACK_IMPORTED_MODULE_0__["classListSupport"]; });
 
-
-var hasClass = _classListSupport_js__WEBPACK_IMPORTED_MODULE_0__["classListSupport"] ? function (el, str) {
+var hasClass = _classListSupport_js__WEBPACK_IMPORTED_MODULE_0__.classListSupport ? function (el, str) {
   return el.classList.contains(str);
 } : function (el, str) {
   return el.className.indexOf(str) >= 0;
@@ -6340,12 +6273,13 @@ var hasClass = _classListSupport_js__WEBPACK_IMPORTED_MODULE_0__["classListSuppo
 /*!*************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/hideElement.js ***!
   \*************************************************************/
-/*! exports provided: hideElement */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hideElement", function() { return hideElement; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "hideElement": function() { return /* binding */ hideElement; }
+/* harmony export */ });
 function hideElement(el, forceHide) {
   if (el.style.display !== 'none') {
     el.style.display = 'none';
@@ -6358,12 +6292,13 @@ function hideElement(el, forceHide) {
 /*!************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/isNodeList.js ***!
   \************************************************************/
-/*! exports provided: isNodeList */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isNodeList", function() { return isNodeList; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "isNodeList": function() { return /* binding */ isNodeList; }
+/* harmony export */ });
 function isNodeList(el) {
   // Only NodeList has the "item()" function
   return typeof el.item !== "undefined";
@@ -6375,12 +6310,13 @@ function isNodeList(el) {
 /*!***********************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/isVisible.js ***!
   \***********************************************************/
-/*! exports provided: isVisible */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isVisible", function() { return isVisible; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "isVisible": function() { return /* binding */ isVisible; }
+/* harmony export */ });
 function isVisible(el) {
   return window.getComputedStyle(el).display !== 'none';
 }
@@ -6391,12 +6327,13 @@ function isVisible(el) {
 /*!*************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/jsTransform.js ***!
   \*************************************************************/
-/*! exports provided: jsTransform */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "jsTransform", function() { return jsTransform; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "jsTransform": function() { return /* binding */ jsTransform; }
+/* harmony export */ });
 function jsTransform(element, attr, prefix, postfix, to, duration, callback) {
   var tick = Math.min(duration, 10),
       unit = to.indexOf('%') >= 0 ? '%' : 'px',
@@ -6425,12 +6362,13 @@ function jsTransform(element, attr, prefix, postfix, to, duration, callback) {
 /*!*******************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/mediaquerySupport.js ***!
   \*******************************************************************/
-/*! exports provided: mediaquerySupport */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mediaquerySupport", function() { return mediaquerySupport; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "mediaquerySupport": function() { return /* binding */ mediaquerySupport; }
+/* harmony export */ });
 /* harmony import */ var _getBody_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getBody.js */ "./node_modules/tiny-slider/src/helpers/getBody.js");
 /* harmony import */ var _setFakeBody_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./setFakeBody.js */ "./node_modules/tiny-slider/src/helpers/setFakeBody.js");
 /* harmony import */ var _resetFakeBody_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./resetFakeBody.js */ "./node_modules/tiny-slider/src/helpers/resetFakeBody.js");
@@ -6443,8 +6381,8 @@ function mediaquerySupport() {
   }
 
   var doc = document,
-      body = Object(_getBody_js__WEBPACK_IMPORTED_MODULE_0__["getBody"])(),
-      docOverflow = Object(_setFakeBody_js__WEBPACK_IMPORTED_MODULE_1__["setFakeBody"])(body),
+      body = (0,_getBody_js__WEBPACK_IMPORTED_MODULE_0__.getBody)(),
+      docOverflow = (0,_setFakeBody_js__WEBPACK_IMPORTED_MODULE_1__.setFakeBody)(body),
       div = doc.createElement('div'),
       style = doc.createElement('style'),
       rule = '@media all and (min-width:1px){.tns-mq-test{position:absolute}}',
@@ -6461,7 +6399,7 @@ function mediaquerySupport() {
   }
 
   position = window.getComputedStyle ? window.getComputedStyle(div).position : div.currentStyle['position'];
-  body.fake ? Object(_resetFakeBody_js__WEBPACK_IMPORTED_MODULE_2__["resetFakeBody"])(body, docOverflow) : div.remove();
+  body.fake ? (0,_resetFakeBody_js__WEBPACK_IMPORTED_MODULE_2__.resetFakeBody)(body, docOverflow) : div.remove();
   return position === "absolute";
 }
 
@@ -6471,12 +6409,13 @@ function mediaquerySupport() {
 /*!***************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/passiveOption.js ***!
   \***************************************************************/
-/*! exports provided: passiveOption */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "passiveOption", function() { return passiveOption; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "passiveOption": function() { return /* binding */ passiveOption; }
+/* harmony export */ });
 // Test via a getter in the options object to see if the passive property is accessed
 var supportsPassive = false;
 
@@ -6499,12 +6438,13 @@ var passiveOption = supportsPassive ? {
 /*!******************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/percentageLayout.js ***!
   \******************************************************************/
-/*! exports provided: percentageLayout */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "percentageLayout", function() { return percentageLayout; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "percentageLayout": function() { return /* binding */ percentageLayout; }
+/* harmony export */ });
 /* harmony import */ var _getBody_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getBody.js */ "./node_modules/tiny-slider/src/helpers/getBody.js");
 /* harmony import */ var _setFakeBody_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./setFakeBody.js */ "./node_modules/tiny-slider/src/helpers/setFakeBody.js");
 /* harmony import */ var _resetFakeBody_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./resetFakeBody.js */ "./node_modules/tiny-slider/src/helpers/resetFakeBody.js");
@@ -6516,8 +6456,8 @@ __webpack_require__.r(__webpack_exports__);
 function percentageLayout() {
   // check subpixel layout supporting
   var doc = document,
-      body = Object(_getBody_js__WEBPACK_IMPORTED_MODULE_0__["getBody"])(),
-      docOverflow = Object(_setFakeBody_js__WEBPACK_IMPORTED_MODULE_1__["setFakeBody"])(body),
+      body = (0,_getBody_js__WEBPACK_IMPORTED_MODULE_0__.getBody)(),
+      docOverflow = (0,_setFakeBody_js__WEBPACK_IMPORTED_MODULE_1__.setFakeBody)(body),
       wrapper = doc.createElement('div'),
       outer = doc.createElement('div'),
       str = '',
@@ -6535,7 +6475,7 @@ function percentageLayout() {
   wrapper.appendChild(outer);
   body.appendChild(wrapper);
   supported = Math.abs(wrapper.getBoundingClientRect().left - outer.children[count - perPage].getBoundingClientRect().left) < 2;
-  body.fake ? Object(_resetFakeBody_js__WEBPACK_IMPORTED_MODULE_2__["resetFakeBody"])(body, docOverflow) : wrapper.remove();
+  body.fake ? (0,_resetFakeBody_js__WEBPACK_IMPORTED_MODULE_2__.resetFakeBody)(body, docOverflow) : wrapper.remove();
   return supported;
 }
 
@@ -6545,12 +6485,13 @@ function percentageLayout() {
 /*!*****************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/raf.js ***!
   \*****************************************************/
-/*! exports provided: raf */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "raf", function() { return raf; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "raf": function() { return /* binding */ raf; }
+/* harmony export */ });
 var win = window;
 var raf = win.requestAnimationFrame || win.webkitRequestAnimationFrame || win.mozRequestAnimationFrame || win.msRequestAnimationFrame || function (cb) {
   return setTimeout(cb, 16);
@@ -6562,16 +6503,17 @@ var raf = win.requestAnimationFrame || win.webkitRequestAnimationFrame || win.mo
 /*!*************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/removeAttrs.js ***!
   \*************************************************************/
-/*! exports provided: removeAttrs */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeAttrs", function() { return removeAttrs; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "removeAttrs": function() { return /* binding */ removeAttrs; }
+/* harmony export */ });
 /* harmony import */ var _isNodeList_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isNodeList.js */ "./node_modules/tiny-slider/src/helpers/isNodeList.js");
 
 function removeAttrs(els, attrs) {
-  els = Object(_isNodeList_js__WEBPACK_IMPORTED_MODULE_0__["isNodeList"])(els) || els instanceof Array ? els : [els];
+  els = (0,_isNodeList_js__WEBPACK_IMPORTED_MODULE_0__.isNodeList)(els) || els instanceof Array ? els : [els];
   attrs = attrs instanceof Array ? attrs : [attrs];
   var attrLength = attrs.length;
 
@@ -6588,12 +6530,13 @@ function removeAttrs(els, attrs) {
 /*!***************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/removeCSSRule.js ***!
   \***************************************************************/
-/*! exports provided: removeCSSRule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeCSSRule", function() { return removeCSSRule; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "removeCSSRule": function() { return /* binding */ removeCSSRule; }
+/* harmony export */ });
 /* harmony import */ var _raf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./raf.js */ "./node_modules/tiny-slider/src/helpers/raf.js");
 // cross browsers addRule method
 
@@ -6608,20 +6551,21 @@ function removeCSSRule(sheet, index) {
 /*!*************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/removeClass.js ***!
   \*************************************************************/
-/*! exports provided: removeClass */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeClass", function() { return removeClass; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "removeClass": function() { return /* binding */ removeClass; }
+/* harmony export */ });
 /* harmony import */ var _hasClass_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./hasClass.js */ "./node_modules/tiny-slider/src/helpers/hasClass.js");
 
-var removeClass = _hasClass_js__WEBPACK_IMPORTED_MODULE_0__["classListSupport"] ? function (el, str) {
-  if (Object(_hasClass_js__WEBPACK_IMPORTED_MODULE_0__["hasClass"])(el, str)) {
+var removeClass = _hasClass_js__WEBPACK_IMPORTED_MODULE_0__.classListSupport ? function (el, str) {
+  if ((0,_hasClass_js__WEBPACK_IMPORTED_MODULE_0__.hasClass)(el, str)) {
     el.classList.remove(str);
   }
 } : function (el, str) {
-  if (Object(_hasClass_js__WEBPACK_IMPORTED_MODULE_0__["hasClass"])(el, str)) {
+  if ((0,_hasClass_js__WEBPACK_IMPORTED_MODULE_0__.hasClass)(el, str)) {
     el.className = el.className.replace(str, '');
   }
 };
@@ -6633,17 +6577,18 @@ var removeClass = _hasClass_js__WEBPACK_IMPORTED_MODULE_0__["classListSupport"] 
 /*!**************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/removeEvents.js ***!
   \**************************************************************/
-/*! exports provided: removeEvents */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeEvents", function() { return removeEvents; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "removeEvents": function() { return /* binding */ removeEvents; }
+/* harmony export */ });
 /* harmony import */ var _passiveOption_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./passiveOption.js */ "./node_modules/tiny-slider/src/helpers/passiveOption.js");
 
 function removeEvents(el, obj) {
   for (var prop in obj) {
-    var option = ['touchstart', 'touchmove'].indexOf(prop) >= 0 ? _passiveOption_js__WEBPACK_IMPORTED_MODULE_0__["passiveOption"] : false;
+    var option = ['touchstart', 'touchmove'].indexOf(prop) >= 0 ? _passiveOption_js__WEBPACK_IMPORTED_MODULE_0__.passiveOption : false;
     el.removeEventListener(prop, obj[prop], option);
   }
 }
@@ -6654,21 +6599,22 @@ function removeEvents(el, obj) {
 /*!***************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/resetFakeBody.js ***!
   \***************************************************************/
-/*! exports provided: resetFakeBody */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetFakeBody", function() { return resetFakeBody; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "resetFakeBody": function() { return /* binding */ resetFakeBody; }
+/* harmony export */ });
 /* harmony import */ var _docElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./docElement.js */ "./node_modules/tiny-slider/src/helpers/docElement.js");
 
 function resetFakeBody(body, docOverflow) {
   if (body.fake) {
     body.remove();
-    _docElement_js__WEBPACK_IMPORTED_MODULE_0__["docElement"].style.overflow = docOverflow; // Trigger layout so kinetic scrolling isn't disabled in iOS6+
+    _docElement_js__WEBPACK_IMPORTED_MODULE_0__.docElement.style.overflow = docOverflow; // Trigger layout so kinetic scrolling isn't disabled in iOS6+
     // eslint-disable-next-line
 
-    _docElement_js__WEBPACK_IMPORTED_MODULE_0__["docElement"].offsetHeight;
+    _docElement_js__WEBPACK_IMPORTED_MODULE_0__.docElement.offsetHeight;
   }
 }
 
@@ -6678,16 +6624,17 @@ function resetFakeBody(body, docOverflow) {
 /*!**********************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/setAttrs.js ***!
   \**********************************************************/
-/*! exports provided: setAttrs */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setAttrs", function() { return setAttrs; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "setAttrs": function() { return /* binding */ setAttrs; }
+/* harmony export */ });
 /* harmony import */ var _isNodeList_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isNodeList.js */ "./node_modules/tiny-slider/src/helpers/isNodeList.js");
 
 function setAttrs(els, attrs) {
-  els = Object(_isNodeList_js__WEBPACK_IMPORTED_MODULE_0__["isNodeList"])(els) || els instanceof Array ? els : [els];
+  els = (0,_isNodeList_js__WEBPACK_IMPORTED_MODULE_0__.isNodeList)(els) || els instanceof Array ? els : [els];
 
   if (Object.prototype.toString.call(attrs) !== '[object Object]') {
     return;
@@ -6706,24 +6653,25 @@ function setAttrs(els, attrs) {
 /*!*************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/setFakeBody.js ***!
   \*************************************************************/
-/*! exports provided: setFakeBody */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setFakeBody", function() { return setFakeBody; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "setFakeBody": function() { return /* binding */ setFakeBody; }
+/* harmony export */ });
 /* harmony import */ var _docElement_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./docElement.js */ "./node_modules/tiny-slider/src/helpers/docElement.js");
 
 function setFakeBody(body) {
   var docOverflow = '';
 
   if (body.fake) {
-    docOverflow = _docElement_js__WEBPACK_IMPORTED_MODULE_0__["docElement"].style.overflow; //avoid crashing IE8, if background image is used
+    docOverflow = _docElement_js__WEBPACK_IMPORTED_MODULE_0__.docElement.style.overflow; //avoid crashing IE8, if background image is used
 
     body.style.background = ''; //Safari 5.13/5.1.4 OSX stops loading if ::-webkit-scrollbar is used and scrollbars are visible
 
-    body.style.overflow = _docElement_js__WEBPACK_IMPORTED_MODULE_0__["docElement"].style.overflow = 'hidden';
-    _docElement_js__WEBPACK_IMPORTED_MODULE_0__["docElement"].appendChild(body);
+    body.style.overflow = _docElement_js__WEBPACK_IMPORTED_MODULE_0__.docElement.style.overflow = 'hidden';
+    _docElement_js__WEBPACK_IMPORTED_MODULE_0__.docElement.appendChild(body);
   }
 
   return docOverflow;
@@ -6735,12 +6683,13 @@ function setFakeBody(body) {
 /*!*****************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/setLocalStorage.js ***!
   \*****************************************************************/
-/*! exports provided: setLocalStorage */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setLocalStorage", function() { return setLocalStorage; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "setLocalStorage": function() { return /* binding */ setLocalStorage; }
+/* harmony export */ });
 function setLocalStorage(storage, key, value, access) {
   if (access) {
     try {
@@ -6757,12 +6706,13 @@ function setLocalStorage(storage, key, value, access) {
 /*!*************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/showElement.js ***!
   \*************************************************************/
-/*! exports provided: showElement */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showElement", function() { return showElement; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "showElement": function() { return /* binding */ showElement; }
+/* harmony export */ });
 function showElement(el, forceHide) {
   if (el.style.display === 'none') {
     el.style.display = '';
@@ -6775,12 +6725,13 @@ function showElement(el, forceHide) {
 /*!**********************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/toDegree.js ***!
   \**********************************************************/
-/*! exports provided: toDegree */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toDegree", function() { return toDegree; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "toDegree": function() { return /* binding */ toDegree; }
+/* harmony export */ });
 function toDegree(y, x) {
   return Math.atan2(y, x) * (180 / Math.PI);
 }
@@ -6791,12 +6742,13 @@ function toDegree(y, x) {
 /*!***************************************************************!*\
   !*** ./node_modules/tiny-slider/src/helpers/whichProperty.js ***!
   \***************************************************************/
-/*! exports provided: whichProperty */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "whichProperty", function() { return whichProperty; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "whichProperty": function() { return /* binding */ whichProperty; }
+/* harmony export */ });
 function whichProperty(props) {
   if (typeof props === 'string') {
     var arr = [props],
@@ -6830,12 +6782,13 @@ function whichProperty(props) {
 /*!*****************************************************!*\
   !*** ./node_modules/tiny-slider/src/tiny-slider.js ***!
   \*****************************************************/
-/*! exports provided: tns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tns", function() { return tns; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "tns": function() { return /* binding */ tns; }
+/* harmony export */ });
 /* harmony import */ var _helpers_raf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers/raf.js */ "./node_modules/tiny-slider/src/helpers/raf.js");
 /* harmony import */ var _helpers_caf_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/caf.js */ "./node_modules/tiny-slider/src/helpers/caf.js");
 /* harmony import */ var _helpers_extend_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/extend.js */ "./node_modules/tiny-slider/src/helpers/extend.js");
@@ -6929,7 +6882,7 @@ if (!("remove" in Element.prototype)) {
 
 
 var tns = function (options) {
-  options = Object(_helpers_extend_js__WEBPACK_IMPORTED_MODULE_2__["extend"])({
+  options = (0,_helpers_extend_js__WEBPACK_IMPORTED_MODULE_2__.extend)({
     container: '.slider',
     mode: 'carousel',
     axis: 'horizontal',
@@ -7030,17 +6983,17 @@ var tns = function (options) {
     }
   }
 
-  var CALC = tnsStorage['tC'] ? Object(_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__["checkStorageValue"])(tnsStorage['tC']) : Object(_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__["setLocalStorage"])(tnsStorage, 'tC', Object(_helpers_calc_js__WEBPACK_IMPORTED_MODULE_6__["calc"])(), localStorageAccess),
-      PERCENTAGELAYOUT = tnsStorage['tPL'] ? Object(_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__["checkStorageValue"])(tnsStorage['tPL']) : Object(_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__["setLocalStorage"])(tnsStorage, 'tPL', Object(_helpers_percentageLayout_js__WEBPACK_IMPORTED_MODULE_7__["percentageLayout"])(), localStorageAccess),
-      CSSMQ = tnsStorage['tMQ'] ? Object(_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__["checkStorageValue"])(tnsStorage['tMQ']) : Object(_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__["setLocalStorage"])(tnsStorage, 'tMQ', Object(_helpers_mediaquerySupport_js__WEBPACK_IMPORTED_MODULE_8__["mediaquerySupport"])(), localStorageAccess),
-      TRANSFORM = tnsStorage['tTf'] ? Object(_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__["checkStorageValue"])(tnsStorage['tTf']) : Object(_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__["setLocalStorage"])(tnsStorage, 'tTf', Object(_helpers_whichProperty_js__WEBPACK_IMPORTED_MODULE_27__["whichProperty"])('transform'), localStorageAccess),
-      HAS3DTRANSFORMS = tnsStorage['t3D'] ? Object(_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__["checkStorageValue"])(tnsStorage['t3D']) : Object(_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__["setLocalStorage"])(tnsStorage, 't3D', Object(_helpers_has3DTransforms_js__WEBPACK_IMPORTED_MODULE_28__["has3DTransforms"])(TRANSFORM), localStorageAccess),
-      TRANSITIONDURATION = tnsStorage['tTDu'] ? Object(_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__["checkStorageValue"])(tnsStorage['tTDu']) : Object(_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__["setLocalStorage"])(tnsStorage, 'tTDu', Object(_helpers_whichProperty_js__WEBPACK_IMPORTED_MODULE_27__["whichProperty"])('transitionDuration'), localStorageAccess),
-      TRANSITIONDELAY = tnsStorage['tTDe'] ? Object(_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__["checkStorageValue"])(tnsStorage['tTDe']) : Object(_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__["setLocalStorage"])(tnsStorage, 'tTDe', Object(_helpers_whichProperty_js__WEBPACK_IMPORTED_MODULE_27__["whichProperty"])('transitionDelay'), localStorageAccess),
-      ANIMATIONDURATION = tnsStorage['tADu'] ? Object(_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__["checkStorageValue"])(tnsStorage['tADu']) : Object(_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__["setLocalStorage"])(tnsStorage, 'tADu', Object(_helpers_whichProperty_js__WEBPACK_IMPORTED_MODULE_27__["whichProperty"])('animationDuration'), localStorageAccess),
-      ANIMATIONDELAY = tnsStorage['tADe'] ? Object(_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__["checkStorageValue"])(tnsStorage['tADe']) : Object(_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__["setLocalStorage"])(tnsStorage, 'tADe', Object(_helpers_whichProperty_js__WEBPACK_IMPORTED_MODULE_27__["whichProperty"])('animationDelay'), localStorageAccess),
-      TRANSITIONEND = tnsStorage['tTE'] ? Object(_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__["checkStorageValue"])(tnsStorage['tTE']) : Object(_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__["setLocalStorage"])(tnsStorage, 'tTE', Object(_helpers_getEndProperty_js__WEBPACK_IMPORTED_MODULE_29__["getEndProperty"])(TRANSITIONDURATION, 'Transition'), localStorageAccess),
-      ANIMATIONEND = tnsStorage['tAE'] ? Object(_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__["checkStorageValue"])(tnsStorage['tAE']) : Object(_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__["setLocalStorage"])(tnsStorage, 'tAE', Object(_helpers_getEndProperty_js__WEBPACK_IMPORTED_MODULE_29__["getEndProperty"])(ANIMATIONDURATION, 'Animation'), localStorageAccess); // get element nodes from selectors
+  var CALC = tnsStorage['tC'] ? (0,_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__.checkStorageValue)(tnsStorage['tC']) : (0,_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__.setLocalStorage)(tnsStorage, 'tC', (0,_helpers_calc_js__WEBPACK_IMPORTED_MODULE_6__.calc)(), localStorageAccess),
+      PERCENTAGELAYOUT = tnsStorage['tPL'] ? (0,_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__.checkStorageValue)(tnsStorage['tPL']) : (0,_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__.setLocalStorage)(tnsStorage, 'tPL', (0,_helpers_percentageLayout_js__WEBPACK_IMPORTED_MODULE_7__.percentageLayout)(), localStorageAccess),
+      CSSMQ = tnsStorage['tMQ'] ? (0,_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__.checkStorageValue)(tnsStorage['tMQ']) : (0,_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__.setLocalStorage)(tnsStorage, 'tMQ', (0,_helpers_mediaquerySupport_js__WEBPACK_IMPORTED_MODULE_8__.mediaquerySupport)(), localStorageAccess),
+      TRANSFORM = tnsStorage['tTf'] ? (0,_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__.checkStorageValue)(tnsStorage['tTf']) : (0,_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__.setLocalStorage)(tnsStorage, 'tTf', (0,_helpers_whichProperty_js__WEBPACK_IMPORTED_MODULE_27__.whichProperty)('transform'), localStorageAccess),
+      HAS3DTRANSFORMS = tnsStorage['t3D'] ? (0,_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__.checkStorageValue)(tnsStorage['t3D']) : (0,_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__.setLocalStorage)(tnsStorage, 't3D', (0,_helpers_has3DTransforms_js__WEBPACK_IMPORTED_MODULE_28__.has3DTransforms)(TRANSFORM), localStorageAccess),
+      TRANSITIONDURATION = tnsStorage['tTDu'] ? (0,_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__.checkStorageValue)(tnsStorage['tTDu']) : (0,_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__.setLocalStorage)(tnsStorage, 'tTDu', (0,_helpers_whichProperty_js__WEBPACK_IMPORTED_MODULE_27__.whichProperty)('transitionDuration'), localStorageAccess),
+      TRANSITIONDELAY = tnsStorage['tTDe'] ? (0,_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__.checkStorageValue)(tnsStorage['tTDe']) : (0,_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__.setLocalStorage)(tnsStorage, 'tTDe', (0,_helpers_whichProperty_js__WEBPACK_IMPORTED_MODULE_27__.whichProperty)('transitionDelay'), localStorageAccess),
+      ANIMATIONDURATION = tnsStorage['tADu'] ? (0,_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__.checkStorageValue)(tnsStorage['tADu']) : (0,_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__.setLocalStorage)(tnsStorage, 'tADu', (0,_helpers_whichProperty_js__WEBPACK_IMPORTED_MODULE_27__.whichProperty)('animationDuration'), localStorageAccess),
+      ANIMATIONDELAY = tnsStorage['tADe'] ? (0,_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__.checkStorageValue)(tnsStorage['tADe']) : (0,_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__.setLocalStorage)(tnsStorage, 'tADe', (0,_helpers_whichProperty_js__WEBPACK_IMPORTED_MODULE_27__.whichProperty)('animationDelay'), localStorageAccess),
+      TRANSITIONEND = tnsStorage['tTE'] ? (0,_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__.checkStorageValue)(tnsStorage['tTE']) : (0,_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__.setLocalStorage)(tnsStorage, 'tTE', (0,_helpers_getEndProperty_js__WEBPACK_IMPORTED_MODULE_29__.getEndProperty)(TRANSITIONDURATION, 'Transition'), localStorageAccess),
+      ANIMATIONEND = tnsStorage['tAE'] ? (0,_helpers_checkStorageValue_js__WEBPACK_IMPORTED_MODULE_3__.checkStorageValue)(tnsStorage['tAE']) : (0,_helpers_setLocalStorage_js__WEBPACK_IMPORTED_MODULE_4__.setLocalStorage)(tnsStorage, 'tAE', (0,_helpers_getEndProperty_js__WEBPACK_IMPORTED_MODULE_29__.getEndProperty)(ANIMATIONDURATION, 'Animation'), localStorageAccess); // get element nodes from selectors
 
   var supportConsoleWarn = win.console && typeof win.console.warn === "function",
       tnsList = ['container', 'controlsContainer', 'prevButton', 'nextButton', 'navContainer', 'autoplayButton'],
@@ -7079,7 +7032,7 @@ var tns = function (options) {
   if (responsive) {
     // apply responsive[0] to options and remove it
     if (0 in responsive) {
-      options = Object(_helpers_extend_js__WEBPACK_IMPORTED_MODULE_2__["extend"])(options, responsive[0]);
+      options = (0,_helpers_extend_js__WEBPACK_IMPORTED_MODULE_2__.extend)(options, responsive[0]);
       delete responsive[0];
     }
 
@@ -7188,7 +7141,7 @@ var tns = function (options) {
       autoplayText = getOption('autoplayText'),
       autoplayHoverPause = getOption('autoplayHoverPause'),
       autoplayResetOnVisibility = getOption('autoplayResetOnVisibility'),
-      sheet = Object(_helpers_createStyleSheet_js__WEBPACK_IMPORTED_MODULE_9__["createStyleSheet"])(null, getOption('nonce')),
+      sheet = (0,_helpers_createStyleSheet_js__WEBPACK_IMPORTED_MODULE_9__.createStyleSheet)(null, getOption('nonce')),
       lazyload = options.lazyload,
       lazyloadSelector = options.lazyloadSelector,
       slidePositions,
@@ -7239,10 +7192,10 @@ var tns = function (options) {
       moveDirectionExpected = swipeAngle ? '?' : true,
       running = false,
       onInit = options.onInit,
-      events = new _helpers_events_js__WEBPACK_IMPORTED_MODULE_32__["Events"](),
+      events = new _helpers_events_js__WEBPACK_IMPORTED_MODULE_32__.Events(),
       // id, class
   newContainerClasses = ' tns-slider tns-' + options.mode,
-      slideId = container.id || Object(_helpers_getSlideId_js__WEBPACK_IMPORTED_MODULE_5__["getSlideId"])(),
+      slideId = container.id || (0,_helpers_getSlideId_js__WEBPACK_IMPORTED_MODULE_5__.getSlideId)(),
       disable = getOption('disable'),
       disabled = false,
       freezable = options.freezable,
@@ -7671,18 +7624,18 @@ var tns = function (options) {
     innerWrapper.appendChild(container); // add id, class, aria attributes
     // before clone slides
 
-    Object(_helpers_forEach_js__WEBPACK_IMPORTED_MODULE_15__["forEach"])(slideItems, function (item, i) {
-      Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(item, 'tns-item');
+    (0,_helpers_forEach_js__WEBPACK_IMPORTED_MODULE_15__.forEach)(slideItems, function (item, i) {
+      (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(item, 'tns-item');
 
       if (!item.id) {
         item.id = slideId + '-item' + i;
       }
 
       if (!carousel && animateNormal) {
-        Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(item, animateNormal);
+        (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(item, animateNormal);
       }
 
-      Object(_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__["setAttrs"])(item, {
+      (0,_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__.setAttrs)(item, {
         'aria-hidden': 'true',
         'tabindex': '-1'
       });
@@ -7697,14 +7650,14 @@ var tns = function (options) {
       for (var j = cloneCount; j--;) {
         var num = j % slideCount,
             cloneFirst = slideItems[num].cloneNode(true);
-        Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(cloneFirst, slideClonedClass);
-        Object(_helpers_removeAttrs_js__WEBPACK_IMPORTED_MODULE_22__["removeAttrs"])(cloneFirst, 'id');
+        (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(cloneFirst, slideClonedClass);
+        (0,_helpers_removeAttrs_js__WEBPACK_IMPORTED_MODULE_22__.removeAttrs)(cloneFirst, 'id');
         fragmentAfter.insertBefore(cloneFirst, fragmentAfter.firstChild);
 
         if (carousel) {
           var cloneLast = slideItems[slideCount - 1 - num].cloneNode(true);
-          Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(cloneLast, slideClonedClass);
-          Object(_helpers_removeAttrs_js__WEBPACK_IMPORTED_MODULE_22__["removeAttrs"])(cloneLast, 'id');
+          (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(cloneLast, slideClonedClass);
+          (0,_helpers_removeAttrs_js__WEBPACK_IMPORTED_MODULE_22__.removeAttrs)(cloneLast, 'id');
           fragmentBefore.appendChild(cloneLast);
         }
       }
@@ -7720,15 +7673,15 @@ var tns = function (options) {
     if (hasOption('autoHeight') || autoWidth || !horizontal) {
       var imgs = container.querySelectorAll('img'); // add img load event listener
 
-      Object(_helpers_forEach_js__WEBPACK_IMPORTED_MODULE_15__["forEach"])(imgs, function (img) {
+      (0,_helpers_forEach_js__WEBPACK_IMPORTED_MODULE_15__.forEach)(imgs, function (img) {
         var src = img.src;
 
         if (!lazyload) {
           // not data img
           if (src && src.indexOf('data:image') < 0) {
             img.src = '';
-            Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(img, imgEvents);
-            Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(img, 'loading');
+            (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(img, imgEvents);
+            (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(img, 'loading');
             img.src = src; // data img
           } else {
             imgLoaded(img);
@@ -7736,8 +7689,8 @@ var tns = function (options) {
         }
       }); // set imgsComplete
 
-      Object(_helpers_raf_js__WEBPACK_IMPORTED_MODULE_0__["raf"])(function () {
-        imgsLoadedCheck(Object(_helpers_arrayFromNodeList_js__WEBPACK_IMPORTED_MODULE_23__["arrayFromNodeList"])(imgs), function () {
+      (0,_helpers_raf_js__WEBPACK_IMPORTED_MODULE_0__.raf)(function () {
+        imgsLoadedCheck((0,_helpers_arrayFromNodeList_js__WEBPACK_IMPORTED_MODULE_23__.arrayFromNodeList)(imgs), function () {
           imgsComplete = true;
         });
       }); // reset imgs for auto height: check visible imgs only
@@ -7746,8 +7699,8 @@ var tns = function (options) {
         imgs = getImageArray(index, Math.min(index + items - 1, slideCountNew - 1));
       }
 
-      lazyload ? initSliderTransformStyleCheck() : Object(_helpers_raf_js__WEBPACK_IMPORTED_MODULE_0__["raf"])(function () {
-        imgsLoadedCheck(Object(_helpers_arrayFromNodeList_js__WEBPACK_IMPORTED_MODULE_23__["arrayFromNodeList"])(imgs), initSliderTransformStyleCheck);
+      lazyload ? initSliderTransformStyleCheck() : (0,_helpers_raf_js__WEBPACK_IMPORTED_MODULE_0__.raf)(function () {
+        imgsLoadedCheck((0,_helpers_arrayFromNodeList_js__WEBPACK_IMPORTED_MODULE_23__.arrayFromNodeList)(imgs), initSliderTransformStyleCheck);
       });
     } else {
       // set container transform property
@@ -7815,8 +7768,8 @@ var tns = function (options) {
       for (var i = index, l = index + Math.min(slideCount, items); i < l; i++) {
         var item = slideItems[i];
         item.style.left = (i - index) * 100 / items + '%';
-        Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(item, animateIn);
-        Object(_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__["removeClass"])(item, animateNormal);
+        (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(item, animateIn);
+        (0,_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__.removeClass)(item, animateNormal);
       }
     } // #### LAYOUT
     // ## INLINE-BLOCK VS FLOAT
@@ -7832,10 +7785,10 @@ var tns = function (options) {
 
     if (horizontal) {
       if (PERCENTAGELAYOUT || autoWidth) {
-        Object(_helpers_addCSSRule_js__WEBPACK_IMPORTED_MODULE_10__["addCSSRule"])(sheet, '#' + slideId + ' > .tns-item', 'font-size:' + win.getComputedStyle(slideItems[0]).fontSize + ';', Object(_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__["getCssRulesLength"])(sheet));
-        Object(_helpers_addCSSRule_js__WEBPACK_IMPORTED_MODULE_10__["addCSSRule"])(sheet, '#' + slideId, 'font-size:0;', Object(_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__["getCssRulesLength"])(sheet));
+        (0,_helpers_addCSSRule_js__WEBPACK_IMPORTED_MODULE_10__.addCSSRule)(sheet, '#' + slideId + ' > .tns-item', 'font-size:' + win.getComputedStyle(slideItems[0]).fontSize + ';', (0,_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__.getCssRulesLength)(sheet));
+        (0,_helpers_addCSSRule_js__WEBPACK_IMPORTED_MODULE_10__.addCSSRule)(sheet, '#' + slideId, 'font-size:0;', (0,_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__.getCssRulesLength)(sheet));
       } else if (carousel) {
-        Object(_helpers_forEach_js__WEBPACK_IMPORTED_MODULE_15__["forEach"])(slideItems, function (slide, i) {
+        (0,_helpers_forEach_js__WEBPACK_IMPORTED_MODULE_15__.forEach)(slideItems, function (slide, i) {
           slide.style.marginLeft = getSlideMarginLeft(i);
         });
       }
@@ -7846,12 +7799,12 @@ var tns = function (options) {
       // middle wrapper style
       if (TRANSITIONDURATION) {
         var str = middleWrapper && options.autoHeight ? getTransitionDurationStyle(options.speed) : '';
-        Object(_helpers_addCSSRule_js__WEBPACK_IMPORTED_MODULE_10__["addCSSRule"])(sheet, '#' + slideId + '-mw', str, Object(_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__["getCssRulesLength"])(sheet));
+        (0,_helpers_addCSSRule_js__WEBPACK_IMPORTED_MODULE_10__.addCSSRule)(sheet, '#' + slideId + '-mw', str, (0,_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__.getCssRulesLength)(sheet));
       } // inner wrapper styles
 
 
       str = getInnerWrapperStyles(options.edgePadding, options.gutter, options.fixedWidth, options.speed, options.autoHeight);
-      Object(_helpers_addCSSRule_js__WEBPACK_IMPORTED_MODULE_10__["addCSSRule"])(sheet, '#' + slideId + '-iw', str, Object(_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__["getCssRulesLength"])(sheet)); // container styles
+      (0,_helpers_addCSSRule_js__WEBPACK_IMPORTED_MODULE_10__.addCSSRule)(sheet, '#' + slideId + '-iw', str, (0,_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__.getCssRulesLength)(sheet)); // container styles
 
       if (carousel) {
         str = horizontal && !autoWidth ? 'width:' + getContainerWidth(options.fixedWidth, options.gutter, options.items) + ';' : '';
@@ -7860,7 +7813,7 @@ var tns = function (options) {
           str += getTransitionDurationStyle(speed);
         }
 
-        Object(_helpers_addCSSRule_js__WEBPACK_IMPORTED_MODULE_10__["addCSSRule"])(sheet, '#' + slideId, str, Object(_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__["getCssRulesLength"])(sheet));
+        (0,_helpers_addCSSRule_js__WEBPACK_IMPORTED_MODULE_10__.addCSSRule)(sheet, '#' + slideId, str, (0,_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__.getCssRulesLength)(sheet));
       } // slide styles
 
 
@@ -7882,7 +7835,7 @@ var tns = function (options) {
       }
 
       if (str) {
-        Object(_helpers_addCSSRule_js__WEBPACK_IMPORTED_MODULE_10__["addCSSRule"])(sheet, '#' + slideId + ' > .tns-item', str, Object(_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__["getCssRulesLength"])(sheet));
+        (0,_helpers_addCSSRule_js__WEBPACK_IMPORTED_MODULE_10__.addCSSRule)(sheet, '#' + slideId + ' > .tns-item', str, (0,_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__.getCssRulesLength)(sheet));
       } // non CSS mediaqueries: IE8
       // ## update inner wrapper, container, slides if needed
       // set inline styles for inner wrapper & container
@@ -7907,7 +7860,7 @@ var tns = function (options) {
 
 
       if (str) {
-        Object(_helpers_addCSSRule_js__WEBPACK_IMPORTED_MODULE_10__["addCSSRule"])(sheet, '#' + slideId + ' > .tns-item', str, Object(_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__["getCssRulesLength"])(sheet));
+        (0,_helpers_addCSSRule_js__WEBPACK_IMPORTED_MODULE_10__.addCSSRule)(sheet, '#' + slideId + ' > .tns-item', str, (0,_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__.getCssRulesLength)(sheet));
       }
     } // ## MEDIAQUERIES
 
@@ -7996,7 +7949,7 @@ var tns = function (options) {
       var txt = autoplay ? 'stop' : 'start';
 
       if (autoplayButton) {
-        Object(_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__["setAttrs"])(autoplayButton, {
+        (0,_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__.setAttrs)(autoplayButton, {
           'data-action': txt
         });
       } else if (options.autoplayButtonOutput) {
@@ -8006,7 +7959,7 @@ var tns = function (options) {
 
 
       if (autoplayButton) {
-        Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(autoplayButton, {
+        (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(autoplayButton, {
           'click': toggleAutoplay
         });
       }
@@ -8015,11 +7968,11 @@ var tns = function (options) {
         startAutoplay();
 
         if (autoplayHoverPause) {
-          Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(container, hoverEvents);
+          (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(container, hoverEvents);
         }
 
         if (autoplayResetOnVisibility) {
-          Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(container, visibilityEvent);
+          (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(container, visibilityEvent);
         }
       }
     } // == navInit ==
@@ -8030,12 +7983,12 @@ var tns = function (options) {
       // will not hide the navs in case they're thumbnails
 
       if (navContainer) {
-        Object(_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__["setAttrs"])(navContainer, {
+        (0,_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__.setAttrs)(navContainer, {
           'aria-label': 'Carousel Pagination'
         });
         navItems = navContainer.children;
-        Object(_helpers_forEach_js__WEBPACK_IMPORTED_MODULE_15__["forEach"])(navItems, function (item, i) {
-          Object(_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__["setAttrs"])(item, {
+        (0,_helpers_forEach_js__WEBPACK_IMPORTED_MODULE_15__.forEach)(navItems, function (item, i) {
+          (0,_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__.setAttrs)(item, {
             'data-nav': i,
             'tabindex': '-1',
             'aria-label': navStr + (i + 1),
@@ -8067,16 +8020,16 @@ var tns = function (options) {
           str = '-' + prefix + '-' + str;
         }
 
-        Object(_helpers_addCSSRule_js__WEBPACK_IMPORTED_MODULE_10__["addCSSRule"])(sheet, '[aria-controls^=' + slideId + '-item]', str, Object(_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__["getCssRulesLength"])(sheet));
+        (0,_helpers_addCSSRule_js__WEBPACK_IMPORTED_MODULE_10__.addCSSRule)(sheet, '[aria-controls^=' + slideId + '-item]', str, (0,_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__.getCssRulesLength)(sheet));
       }
 
-      Object(_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__["setAttrs"])(navItems[navCurrentIndex], {
+      (0,_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__.setAttrs)(navItems[navCurrentIndex], {
         'aria-label': navStr + (navCurrentIndex + 1) + navStrCurrent
       });
-      Object(_helpers_removeAttrs_js__WEBPACK_IMPORTED_MODULE_22__["removeAttrs"])(navItems[navCurrentIndex], 'tabindex');
-      Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(navItems[navCurrentIndex], navActiveClass); // add events
+      (0,_helpers_removeAttrs_js__WEBPACK_IMPORTED_MODULE_22__.removeAttrs)(navItems[navCurrentIndex], 'tabindex');
+      (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(navItems[navCurrentIndex], navActiveClass); // add events
 
-      Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(navContainer, navEvents);
+      (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(navContainer, navEvents);
     } // == controlsInit ==
 
 
@@ -8092,24 +8045,24 @@ var tns = function (options) {
       }
 
       if (options.controlsContainer) {
-        Object(_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__["setAttrs"])(controlsContainer, {
+        (0,_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__.setAttrs)(controlsContainer, {
           'aria-label': 'Carousel Navigation',
           'tabindex': '0'
         });
       }
 
       if (options.controlsContainer || options.prevButton && options.nextButton) {
-        Object(_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__["setAttrs"])([prevButton, nextButton], {
+        (0,_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__.setAttrs)([prevButton, nextButton], {
           'aria-controls': slideId,
           'tabindex': '-1'
         });
       }
 
       if (options.controlsContainer || options.prevButton && options.nextButton) {
-        Object(_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__["setAttrs"])(prevButton, {
+        (0,_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__.setAttrs)(prevButton, {
           'data-controls': 'prev'
         });
-        Object(_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__["setAttrs"])(nextButton, {
+        (0,_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__.setAttrs)(nextButton, {
           'data-controls': 'next'
         });
       }
@@ -8119,10 +8072,10 @@ var tns = function (options) {
       updateControlsStatus(); // add events
 
       if (controlsContainer) {
-        Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(controlsContainer, controlsEvents);
+        (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(controlsContainer, controlsEvents);
       } else {
-        Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(prevButton, controlsEvents);
-        Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(nextButton, controlsEvents);
+        (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(prevButton, controlsEvents);
+        (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(nextButton, controlsEvents);
       }
     } // hide tools if needed
 
@@ -8135,19 +8088,19 @@ var tns = function (options) {
     if (carousel && TRANSITIONEND) {
       var eve = {};
       eve[TRANSITIONEND] = onTransitionEnd;
-      Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(container, eve);
+      (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(container, eve);
     }
 
     if (touch) {
-      Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(container, touchEvents, options.preventScrollOnTouch);
+      (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(container, touchEvents, options.preventScrollOnTouch);
     }
 
     if (mouseDrag) {
-      Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(container, dragEvents);
+      (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(container, dragEvents);
     }
 
     if (arrowKeys) {
-      Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(doc, docmentKeydownEvent);
+      (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(doc, docmentKeydownEvent);
     }
 
     if (nested === 'inner') {
@@ -8156,7 +8109,7 @@ var tns = function (options) {
         events.emit('innerLoaded', info());
       });
     } else if (responsive || fixedWidth || autoWidth || autoHeight || !horizontal) {
-      Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(win, {
+      (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(win, {
         'resize': onResize
       });
     }
@@ -8199,28 +8152,28 @@ var tns = function (options) {
     } // remove win event listeners
 
 
-    Object(_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__["removeEvents"])(win, {
+    (0,_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__.removeEvents)(win, {
       'resize': onResize
     }); // arrowKeys, controls, nav
 
     if (arrowKeys) {
-      Object(_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__["removeEvents"])(doc, docmentKeydownEvent);
+      (0,_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__.removeEvents)(doc, docmentKeydownEvent);
     }
 
     if (controlsContainer) {
-      Object(_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__["removeEvents"])(controlsContainer, controlsEvents);
+      (0,_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__.removeEvents)(controlsContainer, controlsEvents);
     }
 
     if (navContainer) {
-      Object(_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__["removeEvents"])(navContainer, navEvents);
+      (0,_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__.removeEvents)(navContainer, navEvents);
     } // autoplay
 
 
-    Object(_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__["removeEvents"])(container, hoverEvents);
-    Object(_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__["removeEvents"])(container, visibilityEvent);
+    (0,_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__.removeEvents)(container, hoverEvents);
+    (0,_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__.removeEvents)(container, visibilityEvent);
 
     if (autoplayButton) {
-      Object(_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__["removeEvents"])(autoplayButton, {
+      (0,_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__.removeEvents)(autoplayButton, {
         'click': toggleAutoplay
       });
     }
@@ -8233,15 +8186,15 @@ var tns = function (options) {
     if (carousel && TRANSITIONEND) {
       var eve = {};
       eve[TRANSITIONEND] = onTransitionEnd;
-      Object(_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__["removeEvents"])(container, eve);
+      (0,_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__.removeEvents)(container, eve);
     }
 
     if (touch) {
-      Object(_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__["removeEvents"])(container, touchEvents);
+      (0,_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__.removeEvents)(container, touchEvents);
     }
 
     if (mouseDrag) {
-      Object(_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__["removeEvents"])(container, dragEvents);
+      (0,_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__.removeEvents)(container, dragEvents);
     } // cache Object values in options && reset HTML
 
 
@@ -8272,7 +8225,7 @@ var tns = function (options) {
 
 
   function onResize(e) {
-    Object(_helpers_raf_js__WEBPACK_IMPORTED_MODULE_0__["raf"])(function () {
+    (0,_helpers_raf_js__WEBPACK_IMPORTED_MODULE_0__.raf)(function () {
       resizeTasks(getEvent(e));
     });
   }
@@ -8429,32 +8382,32 @@ var tns = function (options) {
     }
 
     if (arrowKeys !== arrowKeysTem) {
-      arrowKeys ? Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(doc, docmentKeydownEvent) : Object(_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__["removeEvents"])(doc, docmentKeydownEvent);
+      arrowKeys ? (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(doc, docmentKeydownEvent) : (0,_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__.removeEvents)(doc, docmentKeydownEvent);
     }
 
     if (controls !== controlsTem) {
       if (controls) {
         if (controlsContainer) {
-          Object(_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__["showElement"])(controlsContainer);
+          (0,_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__.showElement)(controlsContainer);
         } else {
           if (prevButton) {
-            Object(_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__["showElement"])(prevButton);
+            (0,_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__.showElement)(prevButton);
           }
 
           if (nextButton) {
-            Object(_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__["showElement"])(nextButton);
+            (0,_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__.showElement)(nextButton);
           }
         }
       } else {
         if (controlsContainer) {
-          Object(_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__["hideElement"])(controlsContainer);
+          (0,_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__.hideElement)(controlsContainer);
         } else {
           if (prevButton) {
-            Object(_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__["hideElement"])(prevButton);
+            (0,_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__.hideElement)(prevButton);
           }
 
           if (nextButton) {
-            Object(_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__["hideElement"])(nextButton);
+            (0,_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__.hideElement)(nextButton);
           }
         }
       }
@@ -8462,25 +8415,25 @@ var tns = function (options) {
 
     if (nav !== navTem) {
       if (nav) {
-        Object(_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__["showElement"])(navContainer);
+        (0,_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__.showElement)(navContainer);
         updateNavVisibility();
       } else {
-        Object(_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__["hideElement"])(navContainer);
+        (0,_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__.hideElement)(navContainer);
       }
     }
 
     if (touch !== touchTem) {
-      touch ? Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(container, touchEvents, options.preventScrollOnTouch) : Object(_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__["removeEvents"])(container, touchEvents);
+      touch ? (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(container, touchEvents, options.preventScrollOnTouch) : (0,_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__.removeEvents)(container, touchEvents);
     }
 
     if (mouseDrag !== mouseDragTem) {
-      mouseDrag ? Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(container, dragEvents) : Object(_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__["removeEvents"])(container, dragEvents);
+      mouseDrag ? (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(container, dragEvents) : (0,_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__.removeEvents)(container, dragEvents);
     }
 
     if (autoplay !== autoplayTem) {
       if (autoplay) {
         if (autoplayButton) {
-          Object(_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__["showElement"])(autoplayButton);
+          (0,_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__.showElement)(autoplayButton);
         }
 
         if (!animating && !autoplayUserPaused) {
@@ -8488,7 +8441,7 @@ var tns = function (options) {
         }
       } else {
         if (autoplayButton) {
-          Object(_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__["hideElement"])(autoplayButton);
+          (0,_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__.hideElement)(autoplayButton);
         }
 
         if (animating) {
@@ -8498,11 +8451,11 @@ var tns = function (options) {
     }
 
     if (autoplayHoverPause !== autoplayHoverPauseTem) {
-      autoplayHoverPause ? Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(container, hoverEvents) : Object(_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__["removeEvents"])(container, hoverEvents);
+      autoplayHoverPause ? (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(container, hoverEvents) : (0,_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__.removeEvents)(container, hoverEvents);
     }
 
     if (autoplayResetOnVisibility !== autoplayResetOnVisibilityTem) {
-      autoplayResetOnVisibility ? Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(doc, visibilityEvent) : Object(_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__["removeEvents"])(doc, visibilityEvent);
+      autoplayResetOnVisibility ? (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(doc, visibilityEvent) : (0,_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__.removeEvents)(doc, visibilityEvent);
     }
 
     if (bpChanged) {
@@ -8579,8 +8532,8 @@ var tns = function (options) {
           var str = getSlideWidthStyle(fixedWidth, gutter, items) + getSlideGutterStyle(gutter); // remove the last line and
           // add new styles
 
-          Object(_helpers_removeCSSRule_js__WEBPACK_IMPORTED_MODULE_11__["removeCSSRule"])(sheet, Object(_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__["getCssRulesLength"])(sheet) - 1);
-          Object(_helpers_addCSSRule_js__WEBPACK_IMPORTED_MODULE_10__["addCSSRule"])(sheet, '#' + slideId + ' > .tns-item', str, Object(_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__["getCssRulesLength"])(sheet));
+          (0,_helpers_removeCSSRule_js__WEBPACK_IMPORTED_MODULE_11__.removeCSSRule)(sheet, (0,_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__.getCssRulesLength)(sheet) - 1);
+          (0,_helpers_addCSSRule_js__WEBPACK_IMPORTED_MODULE_10__.addCSSRule)(sheet, '#' + slideId + ' > .tns-item', str, (0,_helpers_getCssRulesLength_js__WEBPACK_IMPORTED_MODULE_12__.getCssRulesLength)(sheet));
         }
       } // auto height
 
@@ -8674,23 +8627,23 @@ var tns = function (options) {
 
   function disableUI() {
     if (!autoplay && autoplayButton) {
-      Object(_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__["hideElement"])(autoplayButton);
+      (0,_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__.hideElement)(autoplayButton);
     }
 
     if (!nav && navContainer) {
-      Object(_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__["hideElement"])(navContainer);
+      (0,_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__.hideElement)(navContainer);
     }
 
     if (!controls) {
       if (controlsContainer) {
-        Object(_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__["hideElement"])(controlsContainer);
+        (0,_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__.hideElement)(controlsContainer);
       } else {
         if (prevButton) {
-          Object(_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__["hideElement"])(prevButton);
+          (0,_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__.hideElement)(prevButton);
         }
 
         if (nextButton) {
-          Object(_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__["hideElement"])(nextButton);
+          (0,_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__.hideElement)(nextButton);
         }
       }
     }
@@ -8698,23 +8651,23 @@ var tns = function (options) {
 
   function enableUI() {
     if (autoplay && autoplayButton) {
-      Object(_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__["showElement"])(autoplayButton);
+      (0,_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__.showElement)(autoplayButton);
     }
 
     if (nav && navContainer) {
-      Object(_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__["showElement"])(navContainer);
+      (0,_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__.showElement)(navContainer);
     }
 
     if (controls) {
       if (controlsContainer) {
-        Object(_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__["showElement"])(controlsContainer);
+        (0,_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__.showElement)(controlsContainer);
       } else {
         if (prevButton) {
-          Object(_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__["showElement"])(prevButton);
+          (0,_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__.showElement)(prevButton);
         }
 
         if (nextButton) {
-          Object(_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__["showElement"])(nextButton);
+          (0,_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__.showElement)(nextButton);
         }
       }
     }
@@ -8736,10 +8689,10 @@ var tns = function (options) {
 
       for (var i = cloneCount; i--;) {
         if (carousel) {
-          Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(slideItems[i], str);
+          (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(slideItems[i], str);
         }
 
-        Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(slideItems[slideCountNew - i - 1], str);
+        (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(slideItems[slideCountNew - i - 1], str);
       }
     } // update tools
 
@@ -8765,10 +8718,10 @@ var tns = function (options) {
 
       for (var i = cloneCount; i--;) {
         if (carousel) {
-          Object(_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__["removeClass"])(slideItems[i], str);
+          (0,_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__.removeClass)(slideItems[i], str);
         }
 
-        Object(_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__["removeClass"])(slideItems[slideCountNew - i - 1], str);
+        (0,_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__.removeClass)(slideItems[slideCountNew - i - 1], str);
       }
     } // update tools
 
@@ -8784,30 +8737,30 @@ var tns = function (options) {
 
     sheet.disabled = true;
     container.className = container.className.replace(newContainerClasses.substring(1), '');
-    Object(_helpers_removeAttrs_js__WEBPACK_IMPORTED_MODULE_22__["removeAttrs"])(container, ['style']);
+    (0,_helpers_removeAttrs_js__WEBPACK_IMPORTED_MODULE_22__.removeAttrs)(container, ['style']);
 
     if (loop) {
       for (var j = cloneCount; j--;) {
         if (carousel) {
-          Object(_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__["hideElement"])(slideItems[j]);
+          (0,_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__.hideElement)(slideItems[j]);
         }
 
-        Object(_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__["hideElement"])(slideItems[slideCountNew - j - 1]);
+        (0,_helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__.hideElement)(slideItems[slideCountNew - j - 1]);
       }
     } // vertical slider
 
 
     if (!horizontal || !carousel) {
-      Object(_helpers_removeAttrs_js__WEBPACK_IMPORTED_MODULE_22__["removeAttrs"])(innerWrapper, ['style']);
+      (0,_helpers_removeAttrs_js__WEBPACK_IMPORTED_MODULE_22__.removeAttrs)(innerWrapper, ['style']);
     } // gallery
 
 
     if (!carousel) {
       for (var i = index, l = index + slideCount; i < l; i++) {
         var item = slideItems[i];
-        Object(_helpers_removeAttrs_js__WEBPACK_IMPORTED_MODULE_22__["removeAttrs"])(item, ['style']);
-        Object(_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__["removeClass"])(item, animateIn);
-        Object(_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__["removeClass"])(item, animateNormal);
+        (0,_helpers_removeAttrs_js__WEBPACK_IMPORTED_MODULE_22__.removeAttrs)(item, ['style']);
+        (0,_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__.removeClass)(item, animateIn);
+        (0,_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__.removeClass)(item, animateNormal);
       }
     } // update tools
 
@@ -8828,10 +8781,10 @@ var tns = function (options) {
     if (loop) {
       for (var j = cloneCount; j--;) {
         if (carousel) {
-          Object(_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__["showElement"])(slideItems[j]);
+          (0,_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__.showElement)(slideItems[j]);
         }
 
-        Object(_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__["showElement"])(slideItems[slideCountNew - j - 1]);
+        (0,_helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__.showElement)(slideItems[slideCountNew - j - 1]);
       }
     } // gallery
 
@@ -8841,7 +8794,7 @@ var tns = function (options) {
         var item = slideItems[i],
             classN = i < index + items ? animateIn : animateNormal;
         item.style.left = (i - index) * 100 / items + '%';
-        Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(item, classN);
+        (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(item, classN);
       }
     } // update tools
 
@@ -8947,7 +8900,7 @@ var tns = function (options) {
       var arg = getVisibleSlideRange();
       arg.push(lazyloadSelector);
       getImageArray.apply(null, arg).forEach(function (img) {
-        if (!Object(_helpers_hasClass_js__WEBPACK_IMPORTED_MODULE_16__["hasClass"])(img, imgCompleteClass)) {
+        if (!(0,_helpers_hasClass_js__WEBPACK_IMPORTED_MODULE_16__.hasClass)(img, imgCompleteClass)) {
           // stop propagation transitionend event to container
           var eve = {};
 
@@ -8955,18 +8908,18 @@ var tns = function (options) {
             e.stopPropagation();
           };
 
-          Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(img, eve);
-          Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(img, imgEvents); // update src
+          (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(img, eve);
+          (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(img, imgEvents); // update src
 
-          img.src = Object(_helpers_getAttr_js__WEBPACK_IMPORTED_MODULE_20__["getAttr"])(img, 'data-src'); // update srcset
+          img.src = (0,_helpers_getAttr_js__WEBPACK_IMPORTED_MODULE_20__.getAttr)(img, 'data-src'); // update srcset
 
-          var srcset = Object(_helpers_getAttr_js__WEBPACK_IMPORTED_MODULE_20__["getAttr"])(img, 'data-srcset');
+          var srcset = (0,_helpers_getAttr_js__WEBPACK_IMPORTED_MODULE_20__.getAttr)(img, 'data-srcset');
 
           if (srcset) {
             img.srcset = srcset;
           }
 
-          Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(img, 'loading');
+          (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(img, 'loading');
         }
       });
     }
@@ -8981,19 +8934,19 @@ var tns = function (options) {
   }
 
   function imgLoaded(img) {
-    Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(img, 'loaded');
+    (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(img, 'loaded');
     imgCompleted(img);
   }
 
   function imgFailed(img) {
-    Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(img, 'failed');
+    (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(img, 'failed');
     imgCompleted(img);
   }
 
   function imgCompleted(img) {
-    Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(img, imgCompleteClass);
-    Object(_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__["removeClass"])(img, 'loading');
-    Object(_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__["removeEvents"])(img, imgEvents);
+    (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(img, imgCompleteClass);
+    (0,_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__.removeClass)(img, 'loading');
+    (0,_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__.removeEvents)(img, imgEvents);
   }
 
   function getImageArray(start, end, imgSelector) {
@@ -9004,7 +8957,7 @@ var tns = function (options) {
     }
 
     while (start <= end) {
-      Object(_helpers_forEach_js__WEBPACK_IMPORTED_MODULE_15__["forEach"])(slideItems[start].querySelectorAll(imgSelector), function (img) {
+      (0,_helpers_forEach_js__WEBPACK_IMPORTED_MODULE_15__.forEach)(slideItems[start].querySelectorAll(imgSelector), function (img) {
         imgs.push(img);
       });
       start++;
@@ -9017,7 +8970,7 @@ var tns = function (options) {
 
   function doAutoHeight() {
     var imgs = getImageArray.apply(null, getVisibleSlideRange());
-    Object(_helpers_raf_js__WEBPACK_IMPORTED_MODULE_0__["raf"])(function () {
+    (0,_helpers_raf_js__WEBPACK_IMPORTED_MODULE_0__.raf)(function () {
       imgsLoadedCheck(imgs, updateInnerWrapperHeight);
     });
   }
@@ -9035,7 +8988,7 @@ var tns = function (options) {
       } // Check image.complete
 
 
-      if (Object(_helpers_hasClass_js__WEBPACK_IMPORTED_MODULE_16__["hasClass"])(img, imgCompleteClass)) {
+      if ((0,_helpers_hasClass_js__WEBPACK_IMPORTED_MODULE_16__.hasClass)(img, imgCompleteClass)) {
         imgs.splice(index, 1);
       }
     }); // execute callback function if selected images are all complete
@@ -9045,7 +8998,7 @@ var tns = function (options) {
     } // otherwise execute this functiona again
 
 
-    Object(_helpers_raf_js__WEBPACK_IMPORTED_MODULE_0__["raf"])(function () {
+    (0,_helpers_raf_js__WEBPACK_IMPORTED_MODULE_0__.raf)(function () {
       imgsLoadedCheck(imgs, cb);
     });
   }
@@ -9095,7 +9048,7 @@ var tns = function (options) {
     var attr = horizontal ? 'left' : 'top',
         attr2 = horizontal ? 'right' : 'bottom',
         base = slideItems[0].getBoundingClientRect()[attr];
-    Object(_helpers_forEach_js__WEBPACK_IMPORTED_MODULE_15__["forEach"])(slideItems, function (item, i) {
+    (0,_helpers_forEach_js__WEBPACK_IMPORTED_MODULE_15__.forEach)(slideItems, function (item, i) {
       // skip the first slide
       if (i) {
         slidePositions.push(item.getBoundingClientRect()[attr] - base);
@@ -9113,21 +9066,21 @@ var tns = function (options) {
     var range = getVisibleSlideRange(),
         start = range[0],
         end = range[1];
-    Object(_helpers_forEach_js__WEBPACK_IMPORTED_MODULE_15__["forEach"])(slideItems, function (item, i) {
+    (0,_helpers_forEach_js__WEBPACK_IMPORTED_MODULE_15__.forEach)(slideItems, function (item, i) {
       // show slides
       if (i >= start && i <= end) {
-        if (Object(_helpers_hasAttr_js__WEBPACK_IMPORTED_MODULE_19__["hasAttr"])(item, 'aria-hidden')) {
-          Object(_helpers_removeAttrs_js__WEBPACK_IMPORTED_MODULE_22__["removeAttrs"])(item, ['aria-hidden', 'tabindex']);
-          Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(item, slideActiveClass);
+        if ((0,_helpers_hasAttr_js__WEBPACK_IMPORTED_MODULE_19__.hasAttr)(item, 'aria-hidden')) {
+          (0,_helpers_removeAttrs_js__WEBPACK_IMPORTED_MODULE_22__.removeAttrs)(item, ['aria-hidden', 'tabindex']);
+          (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(item, slideActiveClass);
         } // hide slides
 
       } else {
-        if (!Object(_helpers_hasAttr_js__WEBPACK_IMPORTED_MODULE_19__["hasAttr"])(item, 'aria-hidden')) {
-          Object(_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__["setAttrs"])(item, {
+        if (!(0,_helpers_hasAttr_js__WEBPACK_IMPORTED_MODULE_19__.hasAttr)(item, 'aria-hidden')) {
+          (0,_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__.setAttrs)(item, {
             'aria-hidden': 'true',
             'tabindex': '-1'
           });
-          Object(_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__["removeClass"])(item, slideActiveClass);
+          (0,_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__.removeClass)(item, slideActiveClass);
         }
       }
     });
@@ -9142,24 +9095,24 @@ var tns = function (options) {
 
       if (i >= index && i < l) {
         // add transitions to visible slides when adjusting their positions
-        Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(item, 'tns-moving');
+        (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(item, 'tns-moving');
         item.style.left = (i - index) * 100 / items + '%';
-        Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(item, animateIn);
-        Object(_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__["removeClass"])(item, animateNormal);
+        (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(item, animateIn);
+        (0,_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__.removeClass)(item, animateNormal);
       } else if (item.style.left) {
         item.style.left = '';
-        Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(item, animateNormal);
-        Object(_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__["removeClass"])(item, animateIn);
+        (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(item, animateNormal);
+        (0,_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__.removeClass)(item, animateIn);
       } // remove outlet animation
 
 
-      Object(_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__["removeClass"])(item, animateOut);
+      (0,_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__.removeClass)(item, animateOut);
     } // removing '.tns-moving'
 
 
     setTimeout(function () {
-      Object(_helpers_forEach_js__WEBPACK_IMPORTED_MODULE_15__["forEach"])(slideItems, function (el) {
-        Object(_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__["removeClass"])(el, 'tns-moving');
+      (0,_helpers_forEach_js__WEBPACK_IMPORTED_MODULE_15__.forEach)(slideItems, function (el) {
+        (0,_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__.removeClass)(el, 'tns-moving');
       });
     }, 300);
   } // set tabindex on Nav
@@ -9174,16 +9127,16 @@ var tns = function (options) {
       if (navCurrentIndex !== navCurrentIndexCached) {
         var navPrev = navItems[navCurrentIndexCached],
             navCurrent = navItems[navCurrentIndex];
-        Object(_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__["setAttrs"])(navPrev, {
+        (0,_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__.setAttrs)(navPrev, {
           'tabindex': '-1',
           'aria-label': navStr + (navCurrentIndexCached + 1)
         });
-        Object(_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__["removeClass"])(navPrev, navActiveClass);
-        Object(_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__["setAttrs"])(navCurrent, {
+        (0,_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__.removeClass)(navPrev, navActiveClass);
+        (0,_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__.setAttrs)(navCurrent, {
           'aria-label': navStr + (navCurrentIndex + 1) + navStrCurrent
         });
-        Object(_helpers_removeAttrs_js__WEBPACK_IMPORTED_MODULE_22__["removeAttrs"])(navCurrent, 'tabindex');
-        Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(navCurrent, navActiveClass);
+        (0,_helpers_removeAttrs_js__WEBPACK_IMPORTED_MODULE_22__.removeAttrs)(navCurrent, 'tabindex');
+        (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(navCurrent, navActiveClass);
         navCurrentIndexCached = navCurrentIndex;
       }
     }
@@ -9342,8 +9295,8 @@ var tns = function (options) {
         item.style[TRANSITIONDELAY] = item.style[ANIMATIONDELAY] = animateDelay * (i - number) / 1000 + 's';
       }
 
-      Object(_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__["removeClass"])(item, classOut);
-      Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(item, classIn);
+      (0,_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__.removeClass)(item, classOut);
+      (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(item, classIn);
 
       if (isOut) {
         slideItemsOut.push(item);
@@ -9364,12 +9317,12 @@ var tns = function (options) {
         doContainerTransform(); // run fallback function manually
         // when duration is 0 / container is hidden
 
-        if (!speed || !Object(_helpers_isVisible_js__WEBPACK_IMPORTED_MODULE_26__["isVisible"])(container)) {
+        if (!speed || !(0,_helpers_isVisible_js__WEBPACK_IMPORTED_MODULE_26__.isVisible)(container)) {
           onTransitionEnd();
         }
       } else {
         // for old browser with non-zero duration
-        Object(_helpers_jsTransform_js__WEBPACK_IMPORTED_MODULE_33__["jsTransform"])(container, transformAttr, transformPrefix, transformPostfix, getContainerTransformValue(), speed, onTransitionEnd);
+        (0,_helpers_jsTransform_js__WEBPACK_IMPORTED_MODULE_33__.jsTransform)(container, transformAttr, transformPrefix, transformPostfix, getContainerTransformValue(), speed, onTransitionEnd);
       }
 
       if (!horizontal) {
@@ -9379,13 +9332,13 @@ var tns = function (options) {
       slideItemsOut = [];
       var eve = {};
       eve[TRANSITIONEND] = eve[ANIMATIONEND] = onTransitionEnd;
-      Object(_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__["removeEvents"])(slideItems[indexCached], eve);
-      Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(slideItems[index], eve);
+      (0,_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__.removeEvents)(slideItems[indexCached], eve);
+      (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(slideItems[index], eve);
       animateSlide(indexCached, animateIn, animateOut, true);
       animateSlide(index, animateNormal, animateIn); // run fallback function manually
       // when transition or animation not supported / duration is 0
 
-      if (!TRANSITIONEND || !ANIMATIONEND || !speed || !Object(_helpers_isVisible_js__WEBPACK_IMPORTED_MODULE_26__["isVisible"])(container)) {
+      if (!TRANSITIONEND || !ANIMATIONEND || !speed || !(0,_helpers_isVisible_js__WEBPACK_IMPORTED_MODULE_26__.isVisible)(container)) {
         onTransitionEnd();
       }
     };
@@ -9453,8 +9406,8 @@ var tns = function (options) {
             item.style[TRANSITIONDELAY] = '';
           }
 
-          Object(_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__["removeClass"])(item, animateOut);
-          Object(_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__["addClass"])(item, animateNormal);
+          (0,_helpers_removeClass_js__WEBPACK_IMPORTED_MODULE_18__.removeClass)(item, animateOut);
+          (0,_helpers_addClass_js__WEBPACK_IMPORTED_MODULE_17__.addClass)(item, animateNormal);
         }
       }
       /* update slides, nav, controls after checking ...
@@ -9620,12 +9573,12 @@ var tns = function (options) {
     var target = getTarget(e),
         navIndex; // find the clicked nav item
 
-    while (target !== navContainer && !Object(_helpers_hasAttr_js__WEBPACK_IMPORTED_MODULE_19__["hasAttr"])(target, 'data-nav')) {
+    while (target !== navContainer && !(0,_helpers_hasAttr_js__WEBPACK_IMPORTED_MODULE_19__.hasAttr)(target, 'data-nav')) {
       target = target.parentNode;
     }
 
-    if (Object(_helpers_hasAttr_js__WEBPACK_IMPORTED_MODULE_19__["hasAttr"])(target, 'data-nav')) {
-      var navIndex = navClicked = Number(Object(_helpers_getAttr_js__WEBPACK_IMPORTED_MODULE_20__["getAttr"])(target, 'data-nav')),
+    if ((0,_helpers_hasAttr_js__WEBPACK_IMPORTED_MODULE_19__.hasAttr)(target, 'data-nav')) {
+      var navIndex = navClicked = Number((0,_helpers_getAttr_js__WEBPACK_IMPORTED_MODULE_20__.getAttr)(target, 'data-nav')),
           targetIndexBase = fixedWidth || autoWidth ? navIndex * slideCount / pages : navIndex * items,
           targetIndex = navAsThumbnails ? navIndex : Math.min(Math.ceil(targetIndexBase), slideCount - 1);
       goTo(targetIndex, e);
@@ -9654,7 +9607,7 @@ var tns = function (options) {
   }
 
   function updateAutoplayButton(action, txt) {
-    Object(_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__["setAttrs"])(autoplayButton, {
+    (0,_helpers_setAttrs_js__WEBPACK_IMPORTED_MODULE_21__.setAttrs)(autoplayButton, {
       'data-action': action
     });
     autoplayButton.innerHTML = autoplayHtmlStrings[0] + action + autoplayHtmlStrings[1] + txt;
@@ -9763,13 +9716,13 @@ var tns = function (options) {
     e = getEvent(e);
     var curElement = doc.activeElement;
 
-    if (!Object(_helpers_hasAttr_js__WEBPACK_IMPORTED_MODULE_19__["hasAttr"])(curElement, 'data-nav')) {
+    if (!(0,_helpers_hasAttr_js__WEBPACK_IMPORTED_MODULE_19__.hasAttr)(curElement, 'data-nav')) {
       return;
     } // var code = e.keyCode,
 
 
     var keyIndex = [KEYS.LEFT, KEYS.RIGHT, KEYS.ENTER, KEYS.SPACE].indexOf(e.keyCode),
-        navIndex = Number(Object(_helpers_getAttr_js__WEBPACK_IMPORTED_MODULE_20__["getAttr"])(curElement, 'data-nav'));
+        navIndex = Number((0,_helpers_getAttr_js__WEBPACK_IMPORTED_MODULE_20__.getAttr)(curElement, 'data-nav'));
 
     if (keyIndex >= 0) {
       if (keyIndex === 0) {
@@ -9805,7 +9758,7 @@ var tns = function (options) {
   }
 
   function getMoveDirectionExpected() {
-    return Object(_helpers_getTouchDirection_js__WEBPACK_IMPORTED_MODULE_14__["getTouchDirection"])(Object(_helpers_toDegree_js__WEBPACK_IMPORTED_MODULE_13__["toDegree"])(lastPosition.y - initPosition.y, lastPosition.x - initPosition.x), swipeAngle) === options.axis;
+    return (0,_helpers_getTouchDirection_js__WEBPACK_IMPORTED_MODULE_14__.getTouchDirection)((0,_helpers_toDegree_js__WEBPACK_IMPORTED_MODULE_13__.toDegree)(lastPosition.y - initPosition.y, lastPosition.x - initPosition.x), swipeAngle) === options.axis;
   }
 
   function onPanStart(e) {
@@ -9824,7 +9777,7 @@ var tns = function (options) {
     panStart = true;
 
     if (rafIndex) {
-      Object(_helpers_caf_js__WEBPACK_IMPORTED_MODULE_1__["caf"])(rafIndex);
+      (0,_helpers_caf_js__WEBPACK_IMPORTED_MODULE_1__.caf)(rafIndex);
       rafIndex = null;
     }
 
@@ -9852,7 +9805,7 @@ var tns = function (options) {
 
       if (carousel) {
         if (!rafIndex) {
-          rafIndex = Object(_helpers_raf_js__WEBPACK_IMPORTED_MODULE_0__["raf"])(function () {
+          rafIndex = (0,_helpers_raf_js__WEBPACK_IMPORTED_MODULE_0__.raf)(function () {
             panUpdate(e);
           });
         }
@@ -9878,10 +9831,10 @@ var tns = function (options) {
       return;
     }
 
-    Object(_helpers_caf_js__WEBPACK_IMPORTED_MODULE_1__["caf"])(rafIndex);
+    (0,_helpers_caf_js__WEBPACK_IMPORTED_MODULE_1__.caf)(rafIndex);
 
     if (panStart) {
-      rafIndex = Object(_helpers_raf_js__WEBPACK_IMPORTED_MODULE_0__["raf"])(function () {
+      rafIndex = (0,_helpers_raf_js__WEBPACK_IMPORTED_MODULE_0__.raf)(function () {
         panUpdate(e);
       });
     }
@@ -9920,7 +9873,7 @@ var tns = function (options) {
   function onPanEnd(e) {
     if (panStart) {
       if (rafIndex) {
-        Object(_helpers_caf_js__WEBPACK_IMPORTED_MODULE_1__["caf"])(rafIndex);
+        (0,_helpers_caf_js__WEBPACK_IMPORTED_MODULE_1__.caf)(rafIndex);
         rafIndex = null;
       }
 
@@ -9939,10 +9892,10 @@ var tns = function (options) {
         if (!isTouchEvent(e)) {
           // prevent "click"
           var target = getTarget(e);
-          Object(_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__["addEvents"])(target, {
+          (0,_helpers_addEvents_js__WEBPACK_IMPORTED_MODULE_30__.addEvents)(target, {
             'click': function preventClick(e) {
               preventDefaultBehavior(e);
-              Object(_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__["removeEvents"])(target, {
+              (0,_helpers_removeEvents_js__WEBPACK_IMPORTED_MODULE_31__.removeEvents)(target, {
                 'click': preventClick
               });
             }
@@ -9950,7 +9903,7 @@ var tns = function (options) {
         }
 
         if (carousel) {
-          rafIndex = Object(_helpers_raf_js__WEBPACK_IMPORTED_MODULE_0__["raf"])(function () {
+          rafIndex = (0,_helpers_raf_js__WEBPACK_IMPORTED_MODULE_0__.raf)(function () {
             if (horizontal && !autoWidth) {
               var indexMoved = -dist * items / (viewport + gutter);
               indexMoved = dist > 0 ? Math.floor(indexMoved) : Math.ceil(indexMoved);
@@ -10028,12 +9981,12 @@ var tns = function (options) {
     if (pages !== pagesCached) {
       var min = pagesCached,
           max = pages,
-          fn = _helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__["showElement"];
+          fn = _helpers_showElement_js__WEBPACK_IMPORTED_MODULE_25__.showElement;
 
       if (pagesCached > pages) {
         min = pages;
         max = pagesCached;
-        fn = _helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__["hideElement"];
+        fn = _helpers_hideElement_js__WEBPACK_IMPORTED_MODULE_24__.hideElement;
       }
 
       while (min < max) {
@@ -10086,7 +10039,7 @@ var tns = function (options) {
     refresh: initSliderTransform,
     destroy: destroy,
     rebuild: function () {
-      return tns(Object(_helpers_extend_js__WEBPACK_IMPORTED_MODULE_2__["extend"])(options, optionsElements));
+      return tns((0,_helpers_extend_js__WEBPACK_IMPORTED_MODULE_2__.extend)(options, optionsElements));
     }
   };
 };
@@ -10097,8 +10050,7 @@ var tns = function (options) {
 /*!*******************************************************!*\
   !*** ./resources/blocks/account-menu/account-menu.js ***!
   \*******************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -10127,7 +10079,7 @@ if (accountInputs.length > 0) {
   try {
     for (_iterator.s(); !(_step = _iterator.n()).done;) {
       var $accountInput = _step.value;
-      Object(_upload_upload__WEBPACK_IMPORTED_MODULE_0__["upload"])({
+      (0,_upload_upload__WEBPACK_IMPORTED_MODULE_0__.upload)({
         $wrapper: $accountInput.closest('.account-menu__header'),
         $input: $accountInput,
         $previewWrapper: $accountInput.closest('.account-menu__header').querySelector('.account-menu__header-img'),
@@ -10147,124 +10099,13 @@ if (accountInputs.length > 0) {
 
 /***/ }),
 
-/***/ "./resources/blocks/account-menu/account-menu.scss":
-/*!*********************************************************!*\
-  !*** ./resources/blocks/account-menu/account-menu.scss ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/account/account.js":
 /*!*********************************************!*\
   !*** ./resources/blocks/account/account.js ***!
   \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function() {
 
 
-
-/***/ }),
-
-/***/ "./resources/blocks/account/account.scss":
-/*!***********************************************!*\
-  !*** ./resources/blocks/account/account.scss ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/advantages/advantages.scss":
-/*!*****************************************************!*\
-  !*** ./resources/blocks/advantages/advantages.scss ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/assessment/assessment.scss":
-/*!*****************************************************!*\
-  !*** ./resources/blocks/assessment/assessment.scss ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/balance/balance.scss":
-/*!***********************************************!*\
-  !*** ./resources/blocks/balance/balance.scss ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/banner/banner.scss":
-/*!*********************************************!*\
-  !*** ./resources/blocks/banner/banner.scss ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/base/main.scss":
-/*!*****************************************!*\
-  !*** ./resources/blocks/base/main.scss ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/base/media-queries.scss":
-/*!**************************************************!*\
-  !*** ./resources/blocks/base/media-queries.scss ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/base/mixins.scss":
-/*!*******************************************!*\
-  !*** ./resources/blocks/base/mixins.scss ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/base/variables.scss":
-/*!**********************************************!*\
-  !*** ./resources/blocks/base/variables.scss ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10272,76 +10113,9 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!*******************************************!*\
   !*** ./resources/blocks/basket/basket.js ***!
   \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function() {
 
 
-
-/***/ }),
-
-/***/ "./resources/blocks/basket/basket.scss":
-/*!*********************************************!*\
-  !*** ./resources/blocks/basket/basket.scss ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/border-block/border-block.scss":
-/*!*********************************************************!*\
-  !*** ./resources/blocks/border-block/border-block.scss ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/breadcrumbs/breadcrumbs.scss":
-/*!*******************************************************!*\
-  !*** ./resources/blocks/breadcrumbs/breadcrumbs.scss ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/button/button.scss":
-/*!*********************************************!*\
-  !*** ./resources/blocks/button/button.scss ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/buyer/buyer.scss":
-/*!*******************************************!*\
-  !*** ./resources/blocks/buyer/buyer.scss ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/captcha/captcha.scss":
-/*!***********************************************!*\
-  !*** ./resources/blocks/captcha/captcha.scss ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10349,8 +10123,7 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!*********************************************!*\
   !*** ./resources/blocks/catalog/catalog.js ***!
   \*********************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -10362,7 +10135,7 @@ var selectsArray = [];
 
 if (selects.length > 0) {
   for (var index = 0; index < selects.length; index++) {
-    selectsArray.push(new simple_custom_select__WEBPACK_IMPORTED_MODULE_0___default.a({
+    selectsArray.push(new (simple_custom_select__WEBPACK_IMPORTED_MODULE_0___default())({
       $select: selects[index],
       customSelectClass: 'catalog__sort-select-custom'
     }));
@@ -10371,45 +10144,11 @@ if (selects.length > 0) {
 
 /***/ }),
 
-/***/ "./resources/blocks/catalog/catalog.scss":
-/*!***********************************************!*\
-  !*** ./resources/blocks/catalog/catalog.scss ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/categories-labels/categories-labels.scss":
-/*!*******************************************************************!*\
-  !*** ./resources/blocks/categories-labels/categories-labels.scss ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/categories-preview/categories-preview.scss":
-/*!*********************************************************************!*\
-  !*** ./resources/blocks/categories-preview/categories-preview.scss ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/chat/chat.js":
 /*!***************************************!*\
   !*** ./resources/blocks/chat/chat.js ***!
   \***************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -10445,7 +10184,7 @@ if (chatInputs.length > 0) {
   try {
     for (_iterator.s(); !(_step = _iterator.n()).done;) {
       var $chatInput = _step.value;
-      Object(_upload_upload__WEBPACK_IMPORTED_MODULE_0__["upload"])({
+      (0,_upload_upload__WEBPACK_IMPORTED_MODULE_0__.upload)({
         $wrapper: $chatInput.closest('.chat__form'),
         $input: $chatInput,
         $previewWrapper: $chatInput.closest('.chat__form').querySelector('.chat__form-file-preview'),
@@ -10465,23 +10204,11 @@ if (chatInputs.length > 0) {
 
 /***/ }),
 
-/***/ "./resources/blocks/chat/chat.scss":
-/*!*****************************************!*\
-  !*** ./resources/blocks/chat/chat.scss ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/check-progress/check-progress.js":
 /*!***********************************************************!*\
   !*** ./resources/blocks/check-progress/check-progress.js ***!
   \***********************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -10649,7 +10376,7 @@ function checkProgressHandler($wrapper) {
     }
   }
 
-  var chartFunc = new progressbar_js_dist_progressbar__WEBPACK_IMPORTED_MODULE_0___default.a.Circle($chart, {
+  var chartFunc = new (progressbar_js_dist_progressbar__WEBPACK_IMPORTED_MODULE_0___default().Circle)($chart, {
     strokeWidth: 8,
     easing: 'linear',
     duration: 1400,
@@ -10662,36 +10389,13 @@ function checkProgressHandler($wrapper) {
 
 /***/ }),
 
-/***/ "./resources/blocks/check-progress/check-progress.scss":
-/*!*************************************************************!*\
-  !*** ./resources/blocks/check-progress/check-progress.scss ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/checkbox/checkbox.js":
 /*!***********************************************!*\
   !*** ./resources/blocks/checkbox/checkbox.js ***!
   \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function() {
 
 
-
-/***/ }),
-
-/***/ "./resources/blocks/checkbox/checkbox.scss":
-/*!*************************************************!*\
-  !*** ./resources/blocks/checkbox/checkbox.scss ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -10699,12 +10403,13 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!*********************************************!*\
   !*** ./resources/blocks/counter/counter.js ***!
   \*********************************************/
-/*! exports provided: counter */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "counter", function() { return counter; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "counter": function() { return /* binding */ counter; }
+/* harmony export */ });
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -10768,30 +10473,16 @@ function counter($counter) {
 
 /***/ }),
 
-/***/ "./resources/blocks/counter/counter.scss":
-/*!***********************************************!*\
-  !*** ./resources/blocks/counter/counter.scss ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/custom-select/custom-select.js":
 /*!*********************************************************!*\
   !*** ./resources/blocks/custom-select/custom-select.js ***!
   \*********************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
 
 
 
@@ -10823,7 +10514,7 @@ var CustomSelect = /*#__PURE__*/function () {
   }
    */
   function CustomSelect(options) {
-    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, CustomSelect);
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__.default)(this, CustomSelect);
 
     _setSelectHtml.add(this);
 
@@ -10849,7 +10540,7 @@ var CustomSelect = /*#__PURE__*/function () {
     this.init();
   }
 
-  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(CustomSelect, [{
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__.default)(CustomSelect, [{
     key: "init",
     value: function init() {
       this.$select.parentElement.appendChild(this.$customSelect);
@@ -11057,23 +10748,11 @@ if (selects.length > 0) {
 
 /***/ }),
 
-/***/ "./resources/blocks/custom-select/custom-select.scss":
-/*!***********************************************************!*\
-  !*** ./resources/blocks/custom-select/custom-select.scss ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/filter/filter.js":
 /*!*******************************************!*\
   !*** ./resources/blocks/filter/filter.js ***!
   \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function() {
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
@@ -11210,36 +10889,13 @@ function toggleFilter($wrapper) {
 
 /***/ }),
 
-/***/ "./resources/blocks/filter/filter.scss":
-/*!*********************************************!*\
-  !*** ./resources/blocks/filter/filter.scss ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/footer/footer.js":
 /*!*******************************************!*\
   !*** ./resources/blocks/footer/footer.js ***!
   \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function() {
 
 
-
-/***/ }),
-
-/***/ "./resources/blocks/footer/footer.scss":
-/*!*********************************************!*\
-  !*** ./resources/blocks/footer/footer.scss ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11247,8 +10903,7 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!***************************************************!*\
   !*** ./resources/blocks/form-check/form-check.js ***!
   \***************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -11261,12 +10916,12 @@ window.formsArray = new Map();
 if (forms.length > 0) {
   for (var index = 0; index < forms.length; index++) {
     if (forms[index].id !== '') {
-      window.formsArray.set(forms[index].id, new form_validation_expandable__WEBPACK_IMPORTED_MODULE_0___default.a({
+      window.formsArray.set(forms[index].id, new (form_validation_expandable__WEBPACK_IMPORTED_MODULE_0___default())({
         $form: forms[index]
       }));
       window.formsArray.get(forms[index].id).init();
     } else {
-      window.formsArray.set('i' + index, new form_validation_expandable__WEBPACK_IMPORTED_MODULE_0___default.a({
+      window.formsArray.set('i' + index, new (form_validation_expandable__WEBPACK_IMPORTED_MODULE_0___default())({
         $form: forms[index]
       }));
       window.formsArray.get('i' + index).init();
@@ -11276,23 +10931,11 @@ if (forms.length > 0) {
 
 /***/ }),
 
-/***/ "./resources/blocks/form-check/form-check.scss":
-/*!*****************************************************!*\
-  !*** ./resources/blocks/form-check/form-check.scss ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/form/form.js":
 /*!***************************************!*\
   !*** ./resources/blocks/form/form.js ***!
   \***************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -11341,7 +10984,7 @@ function copyForm($wrapper) {
       $input.value = '';
     });
     $newItem.querySelectorAll('.placeholder').forEach(function ($placeholder) {
-      Object(_placeholder_placeholder__WEBPACK_IMPORTED_MODULE_0__["checkEmptyInput"])($placeholder);
+      (0,_placeholder_placeholder__WEBPACK_IMPORTED_MODULE_0__.checkEmptyInput)($placeholder);
     });
     $itemsWrapper.appendChild($newItem);
   }
@@ -11349,36 +10992,13 @@ function copyForm($wrapper) {
 
 /***/ }),
 
-/***/ "./resources/blocks/form/form.scss":
-/*!*****************************************!*\
-  !*** ./resources/blocks/form/form.scss ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/header-buttons/header-buttons.js":
 /*!***********************************************************!*\
   !*** ./resources/blocks/header-buttons/header-buttons.js ***!
   \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function() {
 
 
-
-/***/ }),
-
-/***/ "./resources/blocks/header-buttons/header-buttons.scss":
-/*!*************************************************************!*\
-  !*** ./resources/blocks/header-buttons/header-buttons.scss ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11386,21 +11006,9 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!*************************************************************!*\
   !*** ./resources/blocks/header-checkbox/header-checkbox.js ***!
   \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function() {
 
 
-
-/***/ }),
-
-/***/ "./resources/blocks/header-checkbox/header-checkbox.scss":
-/*!***************************************************************!*\
-  !*** ./resources/blocks/header-checkbox/header-checkbox.scss ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11408,8 +11016,7 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!*******************************************!*\
   !*** ./resources/blocks/header/header.js ***!
   \*******************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -11423,7 +11030,7 @@ if (window.viewportOptions.viewportWidth < mobileWidth) {
   placeholder = 'Поиск';
 }
 
-window.searchBox = new search_row_hints__WEBPACK_IMPORTED_MODULE_0___default.a({
+window.searchBox = new (search_row_hints__WEBPACK_IMPORTED_MODULE_0___default())({
   $wrapper: $searchBox,
   mainClass: 'search-box',
   placeholderText: placeholder,
@@ -11450,91 +11057,13 @@ window.addEventListener('scroll', function () {
 
 /***/ }),
 
-/***/ "./resources/blocks/header/header.scss":
-/*!*********************************************!*\
-  !*** ./resources/blocks/header/header.scss ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/hint/hint.scss":
-/*!*****************************************!*\
-  !*** ./resources/blocks/hint/hint.scss ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/input/input.js":
 /*!*****************************************!*\
   !*** ./resources/blocks/input/input.js ***!
   \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function() {
 
 
-
-/***/ }),
-
-/***/ "./resources/blocks/input/input.scss":
-/*!*******************************************!*\
-  !*** ./resources/blocks/input/input.scss ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/layout/layout.scss":
-/*!*********************************************!*\
-  !*** ./resources/blocks/layout/layout.scss ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/lead-search/lead-search.scss":
-/*!*******************************************************!*\
-  !*** ./resources/blocks/lead-search/lead-search.scss ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/lead/lead.scss":
-/*!*****************************************!*\
-  !*** ./resources/blocks/lead/lead.scss ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/logo/logo.scss":
-/*!*****************************************!*\
-  !*** ./resources/blocks/logo/logo.scss ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11542,54 +11071,9 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!*****************************************************!*\
   !*** ./resources/blocks/main-banner/main-banner.js ***!
   \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function() {
 
 
-
-/***/ }),
-
-/***/ "./resources/blocks/main-banner/main-banner.scss":
-/*!*******************************************************!*\
-  !*** ./resources/blocks/main-banner/main-banner.scss ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/main-navigation/main-navigation.scss":
-/*!***************************************************************!*\
-  !*** ./resources/blocks/main-navigation/main-navigation.scss ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/manufacturer-preview/manufacturer-preview.scss":
-/*!*************************************************************************!*\
-  !*** ./resources/blocks/manufacturer-preview/manufacturer-preview.scss ***!
-  \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/manufacturer/manufacturer.scss":
-/*!*********************************************************!*\
-  !*** ./resources/blocks/manufacturer/manufacturer.scss ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11597,8 +11081,7 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!***********************************************************!*\
   !*** ./resources/blocks/min-max-slider/min-max-slider.js ***!
   \***********************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -11639,7 +11122,7 @@ function minMaxSlider($wrapper) {
   var width = $wrapper.getBoundingClientRect().width;
   var step = parseInt((maxValue - minValue) / width);
   var changeEvent = new Event('change');
-  nouislider__WEBPACK_IMPORTED_MODULE_0___default.a.create($minMaxRange, {
+  nouislider__WEBPACK_IMPORTED_MODULE_0___default().create($minMaxRange, {
     start: [minValue, maxValue],
     connect: true,
     step: step,
@@ -11681,32 +11164,17 @@ function minMaxSlider($wrapper) {
 
 /***/ }),
 
-/***/ "./resources/blocks/min-max-slider/min-max-slider.scss":
-/*!*************************************************************!*\
-  !*** ./resources/blocks/min-max-slider/min-max-slider.scss ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/modal/modal.js":
 /*!*****************************************!*\
   !*** ./resources/blocks/modal/modal.js ***!
   \*****************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 
 
 
@@ -11717,14 +11185,14 @@ var _setup = /*#__PURE__*/new WeakSet();
 
 var Modals = /*#__PURE__*/function () {
   function Modals(options) {
-    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, Modals);
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__.default)(this, Modals);
 
     _setup.add(this);
 
     this.init();
   }
 
-  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Modals, [{
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__.default)(Modals, [{
     key: "init",
     value: function init() {
       _classPrivateMethodGet(this, _setup, _setup2).call(this);
@@ -11793,24 +11261,13 @@ function _setup2() {
   });
 }
 
-_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2___default()(Modals, "modalClass", 'modal');
+(0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2__.default)(Modals, "modalClass", 'modal');
 
-_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2___default()(Modals, "modalOpenClass", 'modal--open');
+(0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2__.default)(Modals, "modalOpenClass", 'modal--open');
 
-_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2___default()(Modals, "modalShowClass", 'modal--show');
+(0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_2__.default)(Modals, "modalShowClass", 'modal--show');
 
 window.modals = new Modals();
-
-/***/ }),
-
-/***/ "./resources/blocks/modal/modal.scss":
-/*!*******************************************!*\
-  !*** ./resources/blocks/modal/modal.scss ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11818,43 +11275,9 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!***************************************************!*\
   !*** ./resources/blocks/offer-form/offer-form.js ***!
   \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function() {
 
 
-
-/***/ }),
-
-/***/ "./resources/blocks/offer-form/offer-form.scss":
-/*!*****************************************************!*\
-  !*** ./resources/blocks/offer-form/offer-form.scss ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/offer/offer.scss":
-/*!*******************************************!*\
-  !*** ./resources/blocks/offer/offer.scss ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/options/options.scss":
-/*!***********************************************!*\
-  !*** ./resources/blocks/options/options.scss ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11862,13 +11285,14 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!*******************************************************!*\
   !*** ./resources/blocks/photo-upload/photo-upload.js ***!
   \*******************************************************/
-/*! exports provided: setPreviewImg, setPreviewImgStar */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setPreviewImg", function() { return setPreviewImg; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setPreviewImgStar", function() { return setPreviewImgStar; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "setPreviewImg": function() { return /* binding */ setPreviewImg; },
+/* harmony export */   "setPreviewImgStar": function() { return /* binding */ setPreviewImgStar; }
+/* harmony export */ });
 /* harmony import */ var _upload_upload__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../upload/upload */ "./resources/blocks/upload/upload.js");
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
@@ -11906,7 +11330,7 @@ if (photoUploads.length > 0) {
         func = setPreviewImg;
       }
 
-      Object(_upload_upload__WEBPACK_IMPORTED_MODULE_0__["upload"])({
+      (0,_upload_upload__WEBPACK_IMPORTED_MODULE_0__.upload)({
         $wrapper: $photoUpload,
         $input: $photoUpload.querySelector('.photo-upload__input'),
         $previewWrapper: $photoUpload.querySelector('.photo-upload__items'),
@@ -11945,36 +11369,13 @@ document.addEventListener('click', function (event) {
 
 /***/ }),
 
-/***/ "./resources/blocks/photo-upload/photo-upload.scss":
-/*!*********************************************************!*\
-  !*** ./resources/blocks/photo-upload/photo-upload.scss ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/photo/photo.js":
 /*!*****************************************!*\
   !*** ./resources/blocks/photo/photo.js ***!
   \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function() {
 
 
-
-/***/ }),
-
-/***/ "./resources/blocks/photo/photo.scss":
-/*!*******************************************!*\
-  !*** ./resources/blocks/photo/photo.scss ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -11982,12 +11383,13 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!*****************************************************!*\
   !*** ./resources/blocks/placeholder/placeholder.js ***!
   \*****************************************************/
-/*! exports provided: checkEmptyInput */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkEmptyInput", function() { return checkEmptyInput; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "checkEmptyInput": function() { return /* binding */ checkEmptyInput; }
+/* harmony export */ });
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -12059,23 +11461,11 @@ function checkEmptyInput($wrapper) {
 
 /***/ }),
 
-/***/ "./resources/blocks/placeholder/placeholder.scss":
-/*!*******************************************************!*\
-  !*** ./resources/blocks/placeholder/placeholder.scss ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/product-cart/product-cart.js":
 /*!*******************************************************!*\
   !*** ./resources/blocks/product-cart/product-cart.js ***!
   \*******************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -12085,7 +11475,7 @@ __webpack_require__.r(__webpack_exports__);
 function slidePreview() {
   var prevSlide = document.querySelector('.product-cart__slider-navigation-button--prev');
   var nextSlide = document.querySelector('.product-cart__slider-navigation-button--next');
-  var slider = Object(tiny_slider_src_tiny_slider__WEBPACK_IMPORTED_MODULE_0__["tns"])({
+  var slider = (0,tiny_slider_src_tiny_slider__WEBPACK_IMPORTED_MODULE_0__.tns)({
     container: '.product-cart__slider',
     loop: true,
     axis: 'vertical',
@@ -12142,23 +11532,11 @@ if (document.getElementsByClassName('product-cart__slide-img').length > 0) {
 
 /***/ }),
 
-/***/ "./resources/blocks/product-cart/product-cart.scss":
-/*!*********************************************************!*\
-  !*** ./resources/blocks/product-cart/product-cart.scss ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/product-img-slider/product-img-slider.js":
 /*!*******************************************************************!*\
   !*** ./resources/blocks/product-img-slider/product-img-slider.js ***!
   \*******************************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -12247,7 +11625,7 @@ function productImgSlider() {
     }
   }
 
-  var slider = Object(tiny_slider_src_tiny_slider__WEBPACK_IMPORTED_MODULE_0__["tns"])({
+  var slider = (0,tiny_slider_src_tiny_slider__WEBPACK_IMPORTED_MODULE_0__.tns)({
     container: '.product-img-slider__items',
     loop: true,
     items: 1,
@@ -12280,23 +11658,11 @@ function productImgSlider() {
 
 /***/ }),
 
-/***/ "./resources/blocks/product-img-slider/product-img-slider.scss":
-/*!*********************************************************************!*\
-  !*** ./resources/blocks/product-img-slider/product-img-slider.scss ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/product-in-tender/product-in-tender.js":
 /*!*****************************************************************!*\
   !*** ./resources/blocks/product-in-tender/product-in-tender.js ***!
   \*****************************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -12367,15 +11733,15 @@ function productInTenderHandler(options) {
       for (_iterator.s(); !(_step = _iterator.n()).done;) {
         var $offer = _step.value;
         var $photoUpload = $offer.querySelector('.photo-upload');
-        Object(_upload_upload__WEBPACK_IMPORTED_MODULE_3__["upload"])({
+        (0,_upload_upload__WEBPACK_IMPORTED_MODULE_3__.upload)({
           $wrapper: $photoUpload,
           $input: $photoUpload.querySelector('.photo-upload__input'),
           $previewWrapper: $photoUpload.querySelector('.photo-upload__items'),
           previewWrapperEmptyClass: 'chat__form-file-preview--empty',
           $filePreviewWrapper: $photoUpload.querySelector('.photo-upload__items'),
           $imgPreviewWrapper: $photoUpload.querySelector('.photo-upload__items'),
-          filePreviewCreateFunction: _photo_upload_photo_upload__WEBPACK_IMPORTED_MODULE_4__["setPreviewImg"],
-          imgPreviewCreateFunction: _photo_upload_photo_upload__WEBPACK_IMPORTED_MODULE_4__["setPreviewImg"]
+          filePreviewCreateFunction: _photo_upload_photo_upload__WEBPACK_IMPORTED_MODULE_4__.setPreviewImg,
+          imgPreviewCreateFunction: _photo_upload_photo_upload__WEBPACK_IMPORTED_MODULE_4__.setPreviewImg
         });
       }
     } catch (err) {
@@ -12420,12 +11786,12 @@ function productInTenderHandler(options) {
     $newProduct.querySelector('textarea').value = '';
     $newProduct.querySelector('.counter__input').value = 100;
     $newProduct.querySelectorAll('.placeholder').forEach(function ($placeholder) {
-      Object(_placeholder_placeholder__WEBPACK_IMPORTED_MODULE_0__["checkEmptyInput"])($placeholder);
+      (0,_placeholder_placeholder__WEBPACK_IMPORTED_MODULE_0__.checkEmptyInput)($placeholder);
     });
     var $removeButton = $newProduct.querySelector('.product-in-tender__item-header-delete');
     $removeButton.addEventListener('click', deleteProduct);
-    Object(_tooltip_tooltip__WEBPACK_IMPORTED_MODULE_1__["toggleTooltip"])($newProduct.querySelector('.tooltip'));
-    Object(_counter_counter__WEBPACK_IMPORTED_MODULE_2__["counter"])($newProduct.querySelector('.counter'));
+    (0,_tooltip_tooltip__WEBPACK_IMPORTED_MODULE_1__.toggleTooltip)($newProduct.querySelector('.tooltip'));
+    (0,_counter_counter__WEBPACK_IMPORTED_MODULE_2__.counter)($newProduct.querySelector('.counter'));
     var $photoUpload = $newProduct.querySelector('.photo-upload');
 
     for (var _i = 0, _Array$from = Array.from($newProduct.querySelectorAll('[data-upload-preview]')); _i < _Array$from.length; _i++) {
@@ -12433,15 +11799,15 @@ function productInTenderHandler(options) {
       $preview.remove();
     }
 
-    Object(_upload_upload__WEBPACK_IMPORTED_MODULE_3__["upload"])({
+    (0,_upload_upload__WEBPACK_IMPORTED_MODULE_3__.upload)({
       $wrapper: $photoUpload,
       $input: $photoUpload.querySelector('.photo-upload__input'),
       $previewWrapper: $photoUpload.querySelector('.photo-upload__items'),
       previewWrapperEmptyClass: 'chat__form-file-preview--empty',
       $filePreviewWrapper: $photoUpload.querySelector('.photo-upload__items'),
       $imgPreviewWrapper: $photoUpload.querySelector('.photo-upload__items'),
-      filePreviewCreateFunction: _photo_upload_photo_upload__WEBPACK_IMPORTED_MODULE_4__["setPreviewImg"],
-      imgPreviewCreateFunction: _photo_upload_photo_upload__WEBPACK_IMPORTED_MODULE_4__["setPreviewImg"]
+      filePreviewCreateFunction: _photo_upload_photo_upload__WEBPACK_IMPORTED_MODULE_4__.setPreviewImg,
+      imgPreviewCreateFunction: _photo_upload_photo_upload__WEBPACK_IMPORTED_MODULE_4__.setPreviewImg
     });
     $itemsWrapper.appendChild($newProduct);
     refreshFormCheck();
@@ -12462,58 +11828,13 @@ function productInTenderHandler(options) {
 
 /***/ }),
 
-/***/ "./resources/blocks/product-in-tender/product-in-tender.scss":
-/*!*******************************************************************!*\
-  !*** ./resources/blocks/product-in-tender/product-in-tender.scss ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/product-preview/product-preview.js":
 /*!*************************************************************!*\
   !*** ./resources/blocks/product-preview/product-preview.js ***!
   \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function() {
 
 
-
-/***/ }),
-
-/***/ "./resources/blocks/product-preview/product-preview.scss":
-/*!***************************************************************!*\
-  !*** ./resources/blocks/product-preview/product-preview.scss ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/products-grid/products-grid.scss":
-/*!***********************************************************!*\
-  !*** ./resources/blocks/products-grid/products-grid.scss ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/reviews/reviews.scss":
-/*!***********************************************!*\
-  !*** ./resources/blocks/reviews/reviews.scss ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12521,21 +11842,9 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!***************************************************!*\
   !*** ./resources/blocks/search-box/search-box.js ***!
   \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function() {
 
 
-
-/***/ }),
-
-/***/ "./resources/blocks/search-box/search-box.scss":
-/*!*****************************************************!*\
-  !*** ./resources/blocks/search-box/search-box.scss ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12543,8 +11852,7 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!*********************************************************!*\
   !*** ./resources/blocks/search-select/search-select.js ***!
   \*********************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -12552,65 +11860,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var simple_custom_select__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(simple_custom_select__WEBPACK_IMPORTED_MODULE_0__);
 
 var $select = document.getElementsByClassName('search-select')[0];
-window.select = new simple_custom_select__WEBPACK_IMPORTED_MODULE_0___default.a({
+window.select = new (simple_custom_select__WEBPACK_IMPORTED_MODULE_0___default())({
   $select: $select,
   customSelectClass: 'search-select'
 });
-
-/***/ }),
-
-/***/ "./resources/blocks/search-select/search-select.scss":
-/*!***********************************************************!*\
-  !*** ./resources/blocks/search-select/search-select.scss ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/section/section.scss":
-/*!***********************************************!*\
-  !*** ./resources/blocks/section/section.scss ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/selected-products/selected-products.scss":
-/*!*******************************************************************!*\
-  !*** ./resources/blocks/selected-products/selected-products.scss ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/social/social.scss":
-/*!*********************************************!*\
-  !*** ./resources/blocks/social/social.scss ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/status-line/status-line.scss":
-/*!*******************************************************!*\
-  !*** ./resources/blocks/status-line/status-line.scss ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12618,8 +11871,7 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!***************************************!*\
   !*** ./resources/blocks/tabs/tabs.js ***!
   \***************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -12702,7 +11954,6 @@ function toggleTabs(options) {
 }
 
 if (Array.from(document.getElementsByClassName('tabs')).length > 0) {
-  console.log(document.getElementsByClassName('tabs'));
   window.tabs = new toggleTabs();
   var $slider = document.getElementsByClassName('tabs__toggle-buttons')[0];
   setTabsSlider($slider);
@@ -12710,7 +11961,7 @@ if (Array.from(document.getElementsByClassName('tabs')).length > 0) {
 
 function setTabsSlider($slider) {
   var sliderNav = $slider.closest('.tabs').getElementsByClassName('tabs__toggle-nav')[0];
-  var slider = Object(tiny_slider_src_tiny_slider__WEBPACK_IMPORTED_MODULE_0__["tns"])({
+  var slider = (0,tiny_slider_src_tiny_slider__WEBPACK_IMPORTED_MODULE_0__.tns)({
     container: $slider,
     items: 1,
     slideBy: 1,
@@ -12738,47 +11989,13 @@ function setTabsSlider($slider) {
 
 /***/ }),
 
-/***/ "./resources/blocks/tabs/tabs.scss":
-/*!*****************************************!*\
-  !*** ./resources/blocks/tabs/tabs.scss ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/tender-header/tender-header.js":
 /*!*********************************************************!*\
   !*** ./resources/blocks/tender-header/tender-header.js ***!
   \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function() {
 
 
-
-/***/ }),
-
-/***/ "./resources/blocks/tender-header/tender-header.scss":
-/*!***********************************************************!*\
-  !*** ./resources/blocks/tender-header/tender-header.scss ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/tender-row/tender-row.scss":
-/*!*****************************************************!*\
-  !*** ./resources/blocks/tender-row/tender-row.scss ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12786,8 +12003,7 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!*******************************************************!*\
   !*** ./resources/blocks/tenders-chat/tenders-chat.js ***!
   \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function() {
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
@@ -12895,69 +12111,13 @@ function tendersChat($wrapper) {
 
 /***/ }),
 
-/***/ "./resources/blocks/tenders-chat/tenders-chat.scss":
-/*!*********************************************************!*\
-  !*** ./resources/blocks/tenders-chat/tenders-chat.scss ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/title-count/title-count.scss":
-/*!*******************************************************!*\
-  !*** ./resources/blocks/title-count/title-count.scss ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/title-input-wrapper/title-input-wrapper.js":
 /*!*********************************************************************!*\
   !*** ./resources/blocks/title-input-wrapper/title-input-wrapper.js ***!
   \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function() {
 
 
-
-/***/ }),
-
-/***/ "./resources/blocks/title-input-wrapper/title-input-wrapper.scss":
-/*!***********************************************************************!*\
-  !*** ./resources/blocks/title-input-wrapper/title-input-wrapper.scss ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/title-separator/title-separator.scss":
-/*!***************************************************************!*\
-  !*** ./resources/blocks/title-separator/title-separator.scss ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/title/title.scss":
-/*!*******************************************!*\
-  !*** ./resources/blocks/title/title.scss ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
 
 /***/ }),
 
@@ -12965,8 +12125,7 @@ throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugi
 /*!*****************************************************************!*\
   !*** ./resources/blocks/toggle-show-block/toggle-show-block.js ***!
   \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function() {
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
@@ -13005,27 +12164,17 @@ function toggleShowBlockHandler($wrapper) {
 
 /***/ }),
 
-/***/ "./resources/blocks/toggle-show-block/toggle-show-block.scss":
-/*!*******************************************************************!*\
-  !*** ./resources/blocks/toggle-show-block/toggle-show-block.scss ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/tooltip/tooltip.js":
 /*!*********************************************!*\
   !*** ./resources/blocks/tooltip/tooltip.js ***!
   \*********************************************/
-/*! exports provided: toggleTooltip */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toggleTooltip", function() { return toggleTooltip; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "toggleTooltip": function() { return /* binding */ toggleTooltip; }
+/* harmony export */ });
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -13131,27 +12280,17 @@ function toggleTooltip($tooltip) {
 
 /***/ }),
 
-/***/ "./resources/blocks/tooltip/tooltip.scss":
-/*!***********************************************!*\
-  !*** ./resources/blocks/tooltip/tooltip.scss ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/blocks/upload/upload.js":
 /*!*******************************************!*\
   !*** ./resources/blocks/upload/upload.js ***!
   \*******************************************/
-/*! exports provided: upload */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "upload", function() { return upload; });
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "upload": function() { return /* binding */ upload; }
+/* harmony export */ });
 function upload(options) {
   var $wrapper = options.$wrapper;
   var $input = options.$input;
@@ -13210,34 +12349,11 @@ function upload(options) {
 
 /***/ }),
 
-/***/ "./resources/blocks/upload/upload.scss":
-/*!*********************************************!*\
-  !*** ./resources/blocks/upload/upload.scss ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
-/***/ "./resources/blocks/wrapper/wrapper.scss":
-/*!***********************************************!*\
-  !*** ./resources/blocks/wrapper/wrapper.scss ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nTypeError: this.getOptions is not a function\n    at Object.loader (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\sass-loader\\dist\\index.js:25:24)\n    at runLoaders (E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\webpack\\lib\\NormalModule.js:316:20)\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\proof-webpack\\projects\\vooy-laravel\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18");
-
-/***/ }),
-
 /***/ "./resources/index.js":
 /*!****************************!*\
   !*** ./resources/index.js ***!
   \****************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
@@ -13246,7 +12362,7 @@ __webpack_require__.r(__webpack_exports__);
 
 window.mobileWidth = 1279;
 window.mobileWidthSmall = 768;
-window.viewportOptions = new get_viewport_options__WEBPACK_IMPORTED_MODULE_0___default.a(); // Подключение эмулятора бэкенда
+window.viewportOptions = new (get_viewport_options__WEBPACK_IMPORTED_MODULE_0___default())(); // Подключение эмулятора бэкенда
 
 __webpack_require__(/*! ./js-backend/backend.js */ "./resources/js-backend/backend.js");
 
@@ -13256,8 +12372,7 @@ __webpack_require__(/*! ./js-backend/backend.js */ "./resources/js-backend/backe
 /*!*****************************************!*\
   !*** ./resources/js-backend/backend.js ***!
   \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function() {
 
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
 
@@ -13371,128 +12486,1140 @@ function setChatMessage($button) {
 
 /***/ }),
 
-/***/ 0:
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/index.js ./resources/blocks/account/account.js ./resources/blocks/account-menu/account-menu.js ./resources/blocks/basket/basket.js ./resources/blocks/catalog/catalog.js ./resources/blocks/chat/chat.js ./resources/blocks/check-progress/check-progress.js ./resources/blocks/checkbox/checkbox.js ./resources/blocks/counter/counter.js ./resources/blocks/custom-select/custom-select.js ./resources/blocks/filter/filter.js ./resources/blocks/footer/footer.js ./resources/blocks/form/form.js ./resources/blocks/form-check/form-check.js ./resources/blocks/header/header.js ./resources/blocks/header-buttons/header-buttons.js ./resources/blocks/header-checkbox/header-checkbox.js ./resources/blocks/input/input.js ./resources/blocks/main-banner/main-banner.js ./resources/blocks/min-max-slider/min-max-slider.js ./resources/blocks/modal/modal.js ./resources/blocks/offer-form/offer-form.js ./resources/blocks/photo/photo.js ./resources/blocks/photo-upload/photo-upload.js ./resources/blocks/placeholder/placeholder.js ./resources/blocks/product-cart/product-cart.js ./resources/blocks/product-img-slider/product-img-slider.js ./resources/blocks/product-in-tender/product-in-tender.js ./resources/blocks/product-preview/product-preview.js ./resources/blocks/search-box/search-box.js ./resources/blocks/search-select/search-select.js ./resources/blocks/tabs/tabs.js ./resources/blocks/tender-header/tender-header.js ./resources/blocks/tenders-chat/tenders-chat.js ./resources/blocks/title-input-wrapper/title-input-wrapper.js ./resources/blocks/toggle-show-block/toggle-show-block.js ./resources/blocks/tooltip/tooltip.js ./resources/blocks/upload/upload.js ./resources/js-backend/backend.js ./resources/blocks/account/account.scss ./resources/blocks/account-menu/account-menu.scss ./resources/blocks/advantages/advantages.scss ./resources/blocks/assessment/assessment.scss ./resources/blocks/balance/balance.scss ./resources/blocks/banner/banner.scss ./resources/blocks/base/main.scss ./resources/blocks/base/media-queries.scss ./resources/blocks/base/mixins.scss ./resources/blocks/base/variables.scss ./resources/blocks/basket/basket.scss ./resources/blocks/border-block/border-block.scss ./resources/blocks/breadcrumbs/breadcrumbs.scss ./resources/blocks/button/button.scss ./resources/blocks/buyer/buyer.scss ./resources/blocks/captcha/captcha.scss ./resources/blocks/catalog/catalog.scss ./resources/blocks/categories-labels/categories-labels.scss ./resources/blocks/categories-preview/categories-preview.scss ./resources/blocks/chat/chat.scss ./resources/blocks/check-progress/check-progress.scss ./resources/blocks/checkbox/checkbox.scss ./resources/blocks/counter/counter.scss ./resources/blocks/custom-select/custom-select.scss ./resources/blocks/filter/filter.scss ./resources/blocks/footer/footer.scss ./resources/blocks/form/form.scss ./resources/blocks/form-check/form-check.scss ./resources/blocks/header/header.scss ./resources/blocks/header-buttons/header-buttons.scss ./resources/blocks/header-checkbox/header-checkbox.scss ./resources/blocks/hint/hint.scss ./resources/blocks/input/input.scss ./resources/blocks/layout/layout.scss ./resources/blocks/lead/lead.scss ./resources/blocks/lead-search/lead-search.scss ./resources/blocks/logo/logo.scss ./resources/blocks/main-banner/main-banner.scss ./resources/blocks/main-navigation/main-navigation.scss ./resources/blocks/manufacturer/manufacturer.scss ./resources/blocks/manufacturer-preview/manufacturer-preview.scss ./resources/blocks/min-max-slider/min-max-slider.scss ./resources/blocks/modal/modal.scss ./resources/blocks/offer/offer.scss ./resources/blocks/offer-form/offer-form.scss ./resources/blocks/options/options.scss ./resources/blocks/photo/photo.scss ./resources/blocks/photo-upload/photo-upload.scss ./resources/blocks/placeholder/placeholder.scss ./resources/blocks/product-cart/product-cart.scss ./resources/blocks/product-img-slider/product-img-slider.scss ./resources/blocks/product-in-tender/product-in-tender.scss ./resources/blocks/product-preview/product-preview.scss ./resources/blocks/products-grid/products-grid.scss ./resources/blocks/reviews/reviews.scss ./resources/blocks/search-box/search-box.scss ./resources/blocks/search-select/search-select.scss ./resources/blocks/section/section.scss ./resources/blocks/selected-products/selected-products.scss ./resources/blocks/social/social.scss ./resources/blocks/status-line/status-line.scss ./resources/blocks/tabs/tabs.scss ./resources/blocks/tender-header/tender-header.scss ./resources/blocks/tender-row/tender-row.scss ./resources/blocks/tenders-chat/tenders-chat.scss ./resources/blocks/title/title.scss ./resources/blocks/title-count/title-count.scss ./resources/blocks/title-input-wrapper/title-input-wrapper.scss ./resources/blocks/title-separator/title-separator.scss ./resources/blocks/toggle-show-block/toggle-show-block.scss ./resources/blocks/tooltip/tooltip.scss ./resources/blocks/upload/upload.scss ./resources/blocks/wrapper/wrapper.scss ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./resources/blocks/account-menu/account-menu.scss":
+/*!*********************************************************!*\
+  !*** ./resources/blocks/account-menu/account-menu.scss ***!
+  \*********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\index.js */"./resources/index.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/account/account.js */"./resources/blocks/account/account.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/account-menu/account-menu.js */"./resources/blocks/account-menu/account-menu.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/basket/basket.js */"./resources/blocks/basket/basket.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/catalog/catalog.js */"./resources/blocks/catalog/catalog.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/chat/chat.js */"./resources/blocks/chat/chat.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/check-progress/check-progress.js */"./resources/blocks/check-progress/check-progress.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/checkbox/checkbox.js */"./resources/blocks/checkbox/checkbox.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/counter/counter.js */"./resources/blocks/counter/counter.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/custom-select/custom-select.js */"./resources/blocks/custom-select/custom-select.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/filter/filter.js */"./resources/blocks/filter/filter.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/footer/footer.js */"./resources/blocks/footer/footer.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/form/form.js */"./resources/blocks/form/form.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/form-check/form-check.js */"./resources/blocks/form-check/form-check.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/header/header.js */"./resources/blocks/header/header.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/header-buttons/header-buttons.js */"./resources/blocks/header-buttons/header-buttons.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/header-checkbox/header-checkbox.js */"./resources/blocks/header-checkbox/header-checkbox.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/input/input.js */"./resources/blocks/input/input.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/main-banner/main-banner.js */"./resources/blocks/main-banner/main-banner.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/min-max-slider/min-max-slider.js */"./resources/blocks/min-max-slider/min-max-slider.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/modal/modal.js */"./resources/blocks/modal/modal.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/offer-form/offer-form.js */"./resources/blocks/offer-form/offer-form.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/photo/photo.js */"./resources/blocks/photo/photo.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/photo-upload/photo-upload.js */"./resources/blocks/photo-upload/photo-upload.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/placeholder/placeholder.js */"./resources/blocks/placeholder/placeholder.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/product-cart/product-cart.js */"./resources/blocks/product-cart/product-cart.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/product-img-slider/product-img-slider.js */"./resources/blocks/product-img-slider/product-img-slider.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/product-in-tender/product-in-tender.js */"./resources/blocks/product-in-tender/product-in-tender.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/product-preview/product-preview.js */"./resources/blocks/product-preview/product-preview.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/search-box/search-box.js */"./resources/blocks/search-box/search-box.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/search-select/search-select.js */"./resources/blocks/search-select/search-select.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/tabs/tabs.js */"./resources/blocks/tabs/tabs.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/tender-header/tender-header.js */"./resources/blocks/tender-header/tender-header.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/tenders-chat/tenders-chat.js */"./resources/blocks/tenders-chat/tenders-chat.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/title-input-wrapper/title-input-wrapper.js */"./resources/blocks/title-input-wrapper/title-input-wrapper.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/toggle-show-block/toggle-show-block.js */"./resources/blocks/toggle-show-block/toggle-show-block.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/tooltip/tooltip.js */"./resources/blocks/tooltip/tooltip.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/upload/upload.js */"./resources/blocks/upload/upload.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\js-backend/backend.js */"./resources/js-backend/backend.js");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/account/account.scss */"./resources/blocks/account/account.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/account-menu/account-menu.scss */"./resources/blocks/account-menu/account-menu.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/advantages/advantages.scss */"./resources/blocks/advantages/advantages.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/assessment/assessment.scss */"./resources/blocks/assessment/assessment.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/balance/balance.scss */"./resources/blocks/balance/balance.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/banner/banner.scss */"./resources/blocks/banner/banner.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/base/main.scss */"./resources/blocks/base/main.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/base/media-queries.scss */"./resources/blocks/base/media-queries.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/base/mixins.scss */"./resources/blocks/base/mixins.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/base/variables.scss */"./resources/blocks/base/variables.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/basket/basket.scss */"./resources/blocks/basket/basket.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/border-block/border-block.scss */"./resources/blocks/border-block/border-block.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/breadcrumbs/breadcrumbs.scss */"./resources/blocks/breadcrumbs/breadcrumbs.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/button/button.scss */"./resources/blocks/button/button.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/buyer/buyer.scss */"./resources/blocks/buyer/buyer.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/captcha/captcha.scss */"./resources/blocks/captcha/captcha.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/catalog/catalog.scss */"./resources/blocks/catalog/catalog.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/categories-labels/categories-labels.scss */"./resources/blocks/categories-labels/categories-labels.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/categories-preview/categories-preview.scss */"./resources/blocks/categories-preview/categories-preview.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/chat/chat.scss */"./resources/blocks/chat/chat.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/check-progress/check-progress.scss */"./resources/blocks/check-progress/check-progress.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/checkbox/checkbox.scss */"./resources/blocks/checkbox/checkbox.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/counter/counter.scss */"./resources/blocks/counter/counter.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/custom-select/custom-select.scss */"./resources/blocks/custom-select/custom-select.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/filter/filter.scss */"./resources/blocks/filter/filter.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/footer/footer.scss */"./resources/blocks/footer/footer.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/form/form.scss */"./resources/blocks/form/form.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/form-check/form-check.scss */"./resources/blocks/form-check/form-check.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/header/header.scss */"./resources/blocks/header/header.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/header-buttons/header-buttons.scss */"./resources/blocks/header-buttons/header-buttons.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/header-checkbox/header-checkbox.scss */"./resources/blocks/header-checkbox/header-checkbox.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/hint/hint.scss */"./resources/blocks/hint/hint.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/input/input.scss */"./resources/blocks/input/input.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/layout/layout.scss */"./resources/blocks/layout/layout.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/lead/lead.scss */"./resources/blocks/lead/lead.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/lead-search/lead-search.scss */"./resources/blocks/lead-search/lead-search.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/logo/logo.scss */"./resources/blocks/logo/logo.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/main-banner/main-banner.scss */"./resources/blocks/main-banner/main-banner.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/main-navigation/main-navigation.scss */"./resources/blocks/main-navigation/main-navigation.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/manufacturer/manufacturer.scss */"./resources/blocks/manufacturer/manufacturer.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/manufacturer-preview/manufacturer-preview.scss */"./resources/blocks/manufacturer-preview/manufacturer-preview.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/min-max-slider/min-max-slider.scss */"./resources/blocks/min-max-slider/min-max-slider.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/modal/modal.scss */"./resources/blocks/modal/modal.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/offer/offer.scss */"./resources/blocks/offer/offer.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/offer-form/offer-form.scss */"./resources/blocks/offer-form/offer-form.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/options/options.scss */"./resources/blocks/options/options.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/photo/photo.scss */"./resources/blocks/photo/photo.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/photo-upload/photo-upload.scss */"./resources/blocks/photo-upload/photo-upload.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/placeholder/placeholder.scss */"./resources/blocks/placeholder/placeholder.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/product-cart/product-cart.scss */"./resources/blocks/product-cart/product-cart.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/product-img-slider/product-img-slider.scss */"./resources/blocks/product-img-slider/product-img-slider.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/product-in-tender/product-in-tender.scss */"./resources/blocks/product-in-tender/product-in-tender.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/product-preview/product-preview.scss */"./resources/blocks/product-preview/product-preview.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/products-grid/products-grid.scss */"./resources/blocks/products-grid/products-grid.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/reviews/reviews.scss */"./resources/blocks/reviews/reviews.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/search-box/search-box.scss */"./resources/blocks/search-box/search-box.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/search-select/search-select.scss */"./resources/blocks/search-select/search-select.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/section/section.scss */"./resources/blocks/section/section.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/selected-products/selected-products.scss */"./resources/blocks/selected-products/selected-products.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/social/social.scss */"./resources/blocks/social/social.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/status-line/status-line.scss */"./resources/blocks/status-line/status-line.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/tabs/tabs.scss */"./resources/blocks/tabs/tabs.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/tender-header/tender-header.scss */"./resources/blocks/tender-header/tender-header.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/tender-row/tender-row.scss */"./resources/blocks/tender-row/tender-row.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/tenders-chat/tenders-chat.scss */"./resources/blocks/tenders-chat/tenders-chat.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/title/title.scss */"./resources/blocks/title/title.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/title-count/title-count.scss */"./resources/blocks/title-count/title-count.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/title-input-wrapper/title-input-wrapper.scss */"./resources/blocks/title-input-wrapper/title-input-wrapper.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/title-separator/title-separator.scss */"./resources/blocks/title-separator/title-separator.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/toggle-show-block/toggle-show-block.scss */"./resources/blocks/toggle-show-block/toggle-show-block.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/tooltip/tooltip.scss */"./resources/blocks/tooltip/tooltip.scss");
-__webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/upload/upload.scss */"./resources/blocks/upload/upload.scss");
-module.exports = __webpack_require__(/*! E:\proof-webpack\projects\vooy-laravel\resources\blocks/wrapper/wrapper.scss */"./resources/blocks/wrapper/wrapper.scss");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/account/account.scss":
+/*!***********************************************!*\
+  !*** ./resources/blocks/account/account.scss ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/advantages/advantages.scss":
+/*!*****************************************************!*\
+  !*** ./resources/blocks/advantages/advantages.scss ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/assessment/assessment.scss":
+/*!*****************************************************!*\
+  !*** ./resources/blocks/assessment/assessment.scss ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/balance/balance.scss":
+/*!***********************************************!*\
+  !*** ./resources/blocks/balance/balance.scss ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/banner/banner.scss":
+/*!*********************************************!*\
+  !*** ./resources/blocks/banner/banner.scss ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/base/main.scss":
+/*!*****************************************!*\
+  !*** ./resources/blocks/base/main.scss ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/base/media-queries.scss":
+/*!**************************************************!*\
+  !*** ./resources/blocks/base/media-queries.scss ***!
+  \**************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/base/mixins.scss":
+/*!*******************************************!*\
+  !*** ./resources/blocks/base/mixins.scss ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/base/variables.scss":
+/*!**********************************************!*\
+  !*** ./resources/blocks/base/variables.scss ***!
+  \**********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/basket/basket.scss":
+/*!*********************************************!*\
+  !*** ./resources/blocks/basket/basket.scss ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/border-block/border-block.scss":
+/*!*********************************************************!*\
+  !*** ./resources/blocks/border-block/border-block.scss ***!
+  \*********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/breadcrumbs/breadcrumbs.scss":
+/*!*******************************************************!*\
+  !*** ./resources/blocks/breadcrumbs/breadcrumbs.scss ***!
+  \*******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/button/button.scss":
+/*!*********************************************!*\
+  !*** ./resources/blocks/button/button.scss ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/buyer/buyer.scss":
+/*!*******************************************!*\
+  !*** ./resources/blocks/buyer/buyer.scss ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/captcha/captcha.scss":
+/*!***********************************************!*\
+  !*** ./resources/blocks/captcha/captcha.scss ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/catalog/catalog.scss":
+/*!***********************************************!*\
+  !*** ./resources/blocks/catalog/catalog.scss ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/categories-labels/categories-labels.scss":
+/*!*******************************************************************!*\
+  !*** ./resources/blocks/categories-labels/categories-labels.scss ***!
+  \*******************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/categories-preview/categories-preview.scss":
+/*!*********************************************************************!*\
+  !*** ./resources/blocks/categories-preview/categories-preview.scss ***!
+  \*********************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/chat/chat.scss":
+/*!*****************************************!*\
+  !*** ./resources/blocks/chat/chat.scss ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/check-progress/check-progress.scss":
+/*!*************************************************************!*\
+  !*** ./resources/blocks/check-progress/check-progress.scss ***!
+  \*************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/checkbox/checkbox.scss":
+/*!*************************************************!*\
+  !*** ./resources/blocks/checkbox/checkbox.scss ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/counter/counter.scss":
+/*!***********************************************!*\
+  !*** ./resources/blocks/counter/counter.scss ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/custom-select/custom-select.scss":
+/*!***********************************************************!*\
+  !*** ./resources/blocks/custom-select/custom-select.scss ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/filter/filter.scss":
+/*!*********************************************!*\
+  !*** ./resources/blocks/filter/filter.scss ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/footer/footer.scss":
+/*!*********************************************!*\
+  !*** ./resources/blocks/footer/footer.scss ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/form-check/form-check.scss":
+/*!*****************************************************!*\
+  !*** ./resources/blocks/form-check/form-check.scss ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/form/form.scss":
+/*!*****************************************!*\
+  !*** ./resources/blocks/form/form.scss ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/header-buttons/header-buttons.scss":
+/*!*************************************************************!*\
+  !*** ./resources/blocks/header-buttons/header-buttons.scss ***!
+  \*************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/header-checkbox/header-checkbox.scss":
+/*!***************************************************************!*\
+  !*** ./resources/blocks/header-checkbox/header-checkbox.scss ***!
+  \***************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/header/header.scss":
+/*!*********************************************!*\
+  !*** ./resources/blocks/header/header.scss ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/hint/hint.scss":
+/*!*****************************************!*\
+  !*** ./resources/blocks/hint/hint.scss ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/input/input.scss":
+/*!*******************************************!*\
+  !*** ./resources/blocks/input/input.scss ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/layout/layout.scss":
+/*!*********************************************!*\
+  !*** ./resources/blocks/layout/layout.scss ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/lead-search/lead-search.scss":
+/*!*******************************************************!*\
+  !*** ./resources/blocks/lead-search/lead-search.scss ***!
+  \*******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/lead/lead.scss":
+/*!*****************************************!*\
+  !*** ./resources/blocks/lead/lead.scss ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/logo/logo.scss":
+/*!*****************************************!*\
+  !*** ./resources/blocks/logo/logo.scss ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/main-banner/main-banner.scss":
+/*!*******************************************************!*\
+  !*** ./resources/blocks/main-banner/main-banner.scss ***!
+  \*******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/main-navigation/main-navigation.scss":
+/*!***************************************************************!*\
+  !*** ./resources/blocks/main-navigation/main-navigation.scss ***!
+  \***************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/manufacturer-preview/manufacturer-preview.scss":
+/*!*************************************************************************!*\
+  !*** ./resources/blocks/manufacturer-preview/manufacturer-preview.scss ***!
+  \*************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/manufacturer/manufacturer.scss":
+/*!*********************************************************!*\
+  !*** ./resources/blocks/manufacturer/manufacturer.scss ***!
+  \*********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/min-max-slider/min-max-slider.scss":
+/*!*************************************************************!*\
+  !*** ./resources/blocks/min-max-slider/min-max-slider.scss ***!
+  \*************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/modal/modal.scss":
+/*!*******************************************!*\
+  !*** ./resources/blocks/modal/modal.scss ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/offer-form/offer-form.scss":
+/*!*****************************************************!*\
+  !*** ./resources/blocks/offer-form/offer-form.scss ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/offer/offer.scss":
+/*!*******************************************!*\
+  !*** ./resources/blocks/offer/offer.scss ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/options/options.scss":
+/*!***********************************************!*\
+  !*** ./resources/blocks/options/options.scss ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/photo-upload/photo-upload.scss":
+/*!*********************************************************!*\
+  !*** ./resources/blocks/photo-upload/photo-upload.scss ***!
+  \*********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/photo/photo.scss":
+/*!*******************************************!*\
+  !*** ./resources/blocks/photo/photo.scss ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/placeholder/placeholder.scss":
+/*!*******************************************************!*\
+  !*** ./resources/blocks/placeholder/placeholder.scss ***!
+  \*******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/product-cart/product-cart.scss":
+/*!*********************************************************!*\
+  !*** ./resources/blocks/product-cart/product-cart.scss ***!
+  \*********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/product-img-slider/product-img-slider.scss":
+/*!*********************************************************************!*\
+  !*** ./resources/blocks/product-img-slider/product-img-slider.scss ***!
+  \*********************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/product-in-tender/product-in-tender.scss":
+/*!*******************************************************************!*\
+  !*** ./resources/blocks/product-in-tender/product-in-tender.scss ***!
+  \*******************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/product-preview/product-preview.scss":
+/*!***************************************************************!*\
+  !*** ./resources/blocks/product-preview/product-preview.scss ***!
+  \***************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/products-grid/products-grid.scss":
+/*!***********************************************************!*\
+  !*** ./resources/blocks/products-grid/products-grid.scss ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/reviews/reviews.scss":
+/*!***********************************************!*\
+  !*** ./resources/blocks/reviews/reviews.scss ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/search-box/search-box.scss":
+/*!*****************************************************!*\
+  !*** ./resources/blocks/search-box/search-box.scss ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/search-select/search-select.scss":
+/*!***********************************************************!*\
+  !*** ./resources/blocks/search-select/search-select.scss ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/section/section.scss":
+/*!***********************************************!*\
+  !*** ./resources/blocks/section/section.scss ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/selected-products/selected-products.scss":
+/*!*******************************************************************!*\
+  !*** ./resources/blocks/selected-products/selected-products.scss ***!
+  \*******************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/social/social.scss":
+/*!*********************************************!*\
+  !*** ./resources/blocks/social/social.scss ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/status-line/status-line.scss":
+/*!*******************************************************!*\
+  !*** ./resources/blocks/status-line/status-line.scss ***!
+  \*******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/tabs/tabs.scss":
+/*!*****************************************!*\
+  !*** ./resources/blocks/tabs/tabs.scss ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/tender-header/tender-header.scss":
+/*!***********************************************************!*\
+  !*** ./resources/blocks/tender-header/tender-header.scss ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/tender-row/tender-row.scss":
+/*!*****************************************************!*\
+  !*** ./resources/blocks/tender-row/tender-row.scss ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/tenders-chat/tenders-chat.scss":
+/*!*********************************************************!*\
+  !*** ./resources/blocks/tenders-chat/tenders-chat.scss ***!
+  \*********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/title-count/title-count.scss":
+/*!*******************************************************!*\
+  !*** ./resources/blocks/title-count/title-count.scss ***!
+  \*******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/title-input-wrapper/title-input-wrapper.scss":
+/*!***********************************************************************!*\
+  !*** ./resources/blocks/title-input-wrapper/title-input-wrapper.scss ***!
+  \***********************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/title-separator/title-separator.scss":
+/*!***************************************************************!*\
+  !*** ./resources/blocks/title-separator/title-separator.scss ***!
+  \***************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/title/title.scss":
+/*!*******************************************!*\
+  !*** ./resources/blocks/title/title.scss ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/toggle-show-block/toggle-show-block.scss":
+/*!*******************************************************************!*\
+  !*** ./resources/blocks/toggle-show-block/toggle-show-block.scss ***!
+  \*******************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/tooltip/tooltip.scss":
+/*!***********************************************!*\
+  !*** ./resources/blocks/tooltip/tooltip.scss ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/upload/upload.scss":
+/*!*********************************************!*\
+  !*** ./resources/blocks/upload/upload.scss ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/blocks/wrapper/wrapper.scss":
+/*!***********************************************!*\
+  !*** ./resources/blocks/wrapper/wrapper.scss ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
 
 
 /***/ })
 
-/******/ });
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	!function() {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = function(module) {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				function() { return module['default']; } :
+/******/ 				function() { return module; };
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	!function() {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	!function() {
+/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	!function() {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = function(exports) {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	__webpack_require__("./resources/index.js");
+/******/ 	__webpack_require__("./resources/blocks/account/account.js");
+/******/ 	__webpack_require__("./resources/blocks/account-menu/account-menu.js");
+/******/ 	__webpack_require__("./resources/blocks/basket/basket.js");
+/******/ 	__webpack_require__("./resources/blocks/catalog/catalog.js");
+/******/ 	__webpack_require__("./resources/blocks/chat/chat.js");
+/******/ 	__webpack_require__("./resources/blocks/check-progress/check-progress.js");
+/******/ 	__webpack_require__("./resources/blocks/checkbox/checkbox.js");
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	__webpack_require__("./resources/blocks/counter/counter.js");
+/******/ 	__webpack_require__("./resources/blocks/custom-select/custom-select.js");
+/******/ 	__webpack_require__("./resources/blocks/filter/filter.js");
+/******/ 	__webpack_require__("./resources/blocks/footer/footer.js");
+/******/ 	__webpack_require__("./resources/blocks/form/form.js");
+/******/ 	__webpack_require__("./resources/blocks/form-check/form-check.js");
+/******/ 	__webpack_require__("./resources/blocks/header/header.js");
+/******/ 	__webpack_require__("./resources/blocks/header-buttons/header-buttons.js");
+/******/ 	__webpack_require__("./resources/blocks/header-checkbox/header-checkbox.js");
+/******/ 	__webpack_require__("./resources/blocks/input/input.js");
+/******/ 	__webpack_require__("./resources/blocks/main-banner/main-banner.js");
+/******/ 	__webpack_require__("./resources/blocks/min-max-slider/min-max-slider.js");
+/******/ 	__webpack_require__("./resources/blocks/modal/modal.js");
+/******/ 	__webpack_require__("./resources/blocks/offer-form/offer-form.js");
+/******/ 	__webpack_require__("./resources/blocks/photo/photo.js");
+/******/ 	__webpack_require__("./resources/blocks/photo-upload/photo-upload.js");
+/******/ 	__webpack_require__("./resources/blocks/placeholder/placeholder.js");
+/******/ 	__webpack_require__("./resources/blocks/product-cart/product-cart.js");
+/******/ 	__webpack_require__("./resources/blocks/product-img-slider/product-img-slider.js");
+/******/ 	__webpack_require__("./resources/blocks/product-in-tender/product-in-tender.js");
+/******/ 	__webpack_require__("./resources/blocks/product-preview/product-preview.js");
+/******/ 	__webpack_require__("./resources/blocks/search-box/search-box.js");
+/******/ 	__webpack_require__("./resources/blocks/search-select/search-select.js");
+/******/ 	__webpack_require__("./resources/blocks/tabs/tabs.js");
+/******/ 	__webpack_require__("./resources/blocks/tender-header/tender-header.js");
+/******/ 	__webpack_require__("./resources/blocks/tenders-chat/tenders-chat.js");
+/******/ 	__webpack_require__("./resources/blocks/title-input-wrapper/title-input-wrapper.js");
+/******/ 	__webpack_require__("./resources/blocks/toggle-show-block/toggle-show-block.js");
+/******/ 	__webpack_require__("./resources/blocks/tooltip/tooltip.js");
+/******/ 	__webpack_require__("./resources/blocks/upload/upload.js");
+/******/ 	__webpack_require__("./resources/js-backend/backend.js");
+/******/ 	__webpack_require__("./resources/blocks/account/account.scss");
+/******/ 	__webpack_require__("./resources/blocks/account-menu/account-menu.scss");
+/******/ 	__webpack_require__("./resources/blocks/advantages/advantages.scss");
+/******/ 	__webpack_require__("./resources/blocks/assessment/assessment.scss");
+/******/ 	__webpack_require__("./resources/blocks/balance/balance.scss");
+/******/ 	__webpack_require__("./resources/blocks/banner/banner.scss");
+/******/ 	__webpack_require__("./resources/blocks/base/main.scss");
+/******/ 	__webpack_require__("./resources/blocks/base/media-queries.scss");
+/******/ 	__webpack_require__("./resources/blocks/base/mixins.scss");
+/******/ 	__webpack_require__("./resources/blocks/base/variables.scss");
+/******/ 	__webpack_require__("./resources/blocks/basket/basket.scss");
+/******/ 	__webpack_require__("./resources/blocks/border-block/border-block.scss");
+/******/ 	__webpack_require__("./resources/blocks/breadcrumbs/breadcrumbs.scss");
+/******/ 	__webpack_require__("./resources/blocks/button/button.scss");
+/******/ 	__webpack_require__("./resources/blocks/buyer/buyer.scss");
+/******/ 	__webpack_require__("./resources/blocks/captcha/captcha.scss");
+/******/ 	__webpack_require__("./resources/blocks/catalog/catalog.scss");
+/******/ 	__webpack_require__("./resources/blocks/categories-labels/categories-labels.scss");
+/******/ 	__webpack_require__("./resources/blocks/categories-preview/categories-preview.scss");
+/******/ 	__webpack_require__("./resources/blocks/chat/chat.scss");
+/******/ 	__webpack_require__("./resources/blocks/check-progress/check-progress.scss");
+/******/ 	__webpack_require__("./resources/blocks/checkbox/checkbox.scss");
+/******/ 	__webpack_require__("./resources/blocks/counter/counter.scss");
+/******/ 	__webpack_require__("./resources/blocks/custom-select/custom-select.scss");
+/******/ 	__webpack_require__("./resources/blocks/filter/filter.scss");
+/******/ 	__webpack_require__("./resources/blocks/footer/footer.scss");
+/******/ 	__webpack_require__("./resources/blocks/form/form.scss");
+/******/ 	__webpack_require__("./resources/blocks/form-check/form-check.scss");
+/******/ 	__webpack_require__("./resources/blocks/header/header.scss");
+/******/ 	__webpack_require__("./resources/blocks/header-buttons/header-buttons.scss");
+/******/ 	__webpack_require__("./resources/blocks/header-checkbox/header-checkbox.scss");
+/******/ 	__webpack_require__("./resources/blocks/hint/hint.scss");
+/******/ 	__webpack_require__("./resources/blocks/input/input.scss");
+/******/ 	__webpack_require__("./resources/blocks/layout/layout.scss");
+/******/ 	__webpack_require__("./resources/blocks/lead/lead.scss");
+/******/ 	__webpack_require__("./resources/blocks/lead-search/lead-search.scss");
+/******/ 	__webpack_require__("./resources/blocks/logo/logo.scss");
+/******/ 	__webpack_require__("./resources/blocks/main-banner/main-banner.scss");
+/******/ 	__webpack_require__("./resources/blocks/main-navigation/main-navigation.scss");
+/******/ 	__webpack_require__("./resources/blocks/manufacturer/manufacturer.scss");
+/******/ 	__webpack_require__("./resources/blocks/manufacturer-preview/manufacturer-preview.scss");
+/******/ 	__webpack_require__("./resources/blocks/min-max-slider/min-max-slider.scss");
+/******/ 	__webpack_require__("./resources/blocks/modal/modal.scss");
+/******/ 	__webpack_require__("./resources/blocks/offer/offer.scss");
+/******/ 	__webpack_require__("./resources/blocks/offer-form/offer-form.scss");
+/******/ 	__webpack_require__("./resources/blocks/options/options.scss");
+/******/ 	__webpack_require__("./resources/blocks/photo/photo.scss");
+/******/ 	__webpack_require__("./resources/blocks/photo-upload/photo-upload.scss");
+/******/ 	__webpack_require__("./resources/blocks/placeholder/placeholder.scss");
+/******/ 	__webpack_require__("./resources/blocks/product-cart/product-cart.scss");
+/******/ 	__webpack_require__("./resources/blocks/product-img-slider/product-img-slider.scss");
+/******/ 	__webpack_require__("./resources/blocks/product-in-tender/product-in-tender.scss");
+/******/ 	__webpack_require__("./resources/blocks/product-preview/product-preview.scss");
+/******/ 	__webpack_require__("./resources/blocks/products-grid/products-grid.scss");
+/******/ 	__webpack_require__("./resources/blocks/reviews/reviews.scss");
+/******/ 	__webpack_require__("./resources/blocks/search-box/search-box.scss");
+/******/ 	__webpack_require__("./resources/blocks/search-select/search-select.scss");
+/******/ 	__webpack_require__("./resources/blocks/section/section.scss");
+/******/ 	__webpack_require__("./resources/blocks/selected-products/selected-products.scss");
+/******/ 	__webpack_require__("./resources/blocks/social/social.scss");
+/******/ 	__webpack_require__("./resources/blocks/status-line/status-line.scss");
+/******/ 	__webpack_require__("./resources/blocks/tabs/tabs.scss");
+/******/ 	__webpack_require__("./resources/blocks/tender-header/tender-header.scss");
+/******/ 	__webpack_require__("./resources/blocks/tender-row/tender-row.scss");
+/******/ 	__webpack_require__("./resources/blocks/tenders-chat/tenders-chat.scss");
+/******/ 	__webpack_require__("./resources/blocks/title/title.scss");
+/******/ 	__webpack_require__("./resources/blocks/title-count/title-count.scss");
+/******/ 	__webpack_require__("./resources/blocks/title-input-wrapper/title-input-wrapper.scss");
+/******/ 	__webpack_require__("./resources/blocks/title-separator/title-separator.scss");
+/******/ 	__webpack_require__("./resources/blocks/toggle-show-block/toggle-show-block.scss");
+/******/ 	__webpack_require__("./resources/blocks/tooltip/tooltip.scss");
+/******/ 	__webpack_require__("./resources/blocks/upload/upload.scss");
+/******/ 	var __webpack_exports__ = __webpack_require__("./resources/blocks/wrapper/wrapper.scss");
+/******/ 	
+/******/ })()
+;
 //# sourceMappingURL=main.js.map
