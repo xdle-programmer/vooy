@@ -27,12 +27,30 @@
                                 <div class="tender-header__main-title-number">№{{$tender->id}}</div>
                                 <div class="tender-header__main-title-status">
                                     <div
-                                        class="tender-header__main-title-status-title tender-header__main-title-status-title--gold">{{$tender->status->name}}</div>
+                                        class="tender-header__main-title-status-title tender-header__main-title-status-title--gold">{{$tender->status->name}}
+                                        @if ($tender->substatus != null)
+                                            ({{$tender->substatus->name}})
+                                        @endif
+                                    </div>
                                     <div class="tender-header__main-title-status-line">
                                         <div class="status-line status-line--{{$tender->status_id}}"></div>
                                     </div>
                                 </div>
                             </div>
+
+                            @if ($tender->substatus != null)
+                                @if ($tender->buyer_id == $user->id)
+                                    @if ($tender->substatus->id == 4)
+                                        <form method="POST" action="{{ route('tender-status-next') }}">
+                                            @csrf
+                                            <input type="hidden" name="tender_id" value="{{$tender->id}}">
+                                            <x-button class="modal__button button button--invert form-check__button">
+                                                Завершить
+                                            </x-button>
+                                        </form>
+                                    @endif
+                                @endif
+                            @endif
 
                             @if (Auth::check())
                                 <div class="tender-header__main-buttons">
@@ -48,7 +66,7 @@
                                     @endif
                                     @if($role->slug == 'provider')
 
-                                        @if(!$tender->reviews->where('provider_id', $user->id ?? 0 )->first())
+                                        @if(!$tender->reviews->where('provider_id', $user->id ?? 0 )->first() && $tender->status_id == 3)
 
                                             <div onclick="openReview()"
                                                  class="tender-header__main-button button button--small">Ответить на
@@ -92,7 +110,7 @@
                     @php
                         $hasTabs = false;
                         if ($user != null) {
-                            if ($tender->buyer_id == $user->id) {
+                            if ($tender->buyer_id == $user->id && $tender->status_id == 3) {
                             $hasTabs = true;
                             }
                         }

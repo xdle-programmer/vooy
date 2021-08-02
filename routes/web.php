@@ -29,6 +29,8 @@ Route::get('/dashboard', function () {
 Route::post('/tender/create', [TenderController::class, 'createTender'])->name("tender-create");
 Route::post('/tender/review/create', [TenderController::class, 'createReview'])->name("tender-review-create");
 Route::post('/tender/setWinner', [TenderController::class, 'setWinner'])->name("tender-setWinner");
+Route::post('/tender/nextSubStatus', [TenderController::class, 'nextSubstatus'])->name("tender-substatus-next");
+Route::post('/tender/nextStatus', [TenderController::class, 'nextStatus'])->name("tender-status-next");
 
 Route::get('/tenders', [TenderController::class, 'showTenders'])->name("tenders-list");
 

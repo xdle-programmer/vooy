@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\TenderSubstatus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -221,7 +222,7 @@ class TenderController extends Controller
                 }
                 if ($onlyMyProvider == 'on') {
                     $tenders = $tenders->whereHas('reviews', function ($q) use($user){
-                        $q->where('provider_id', $user->id);
+                        $q->where('provider_id', $user->id)->orWhere('deliveryman_id', $user->id);
                     });
                 }
             }
@@ -239,6 +240,7 @@ class TenderController extends Controller
                     ->where('status_id', 5)
                     ->orWhere('status_id', 3)
                     ->orWhere('provider_id', $user->id)
+                    ->orWhere('deliveryman_id', $user->id)
                     ->orWhere('buyer_id', $user->id)->get();
             } else {
                 $tenders = Tender::with("products", "buyer", "provider", "status", "substatus")
@@ -269,10 +271,10 @@ class TenderController extends Controller
 
         if ($tender != null && $user != null){
             $hasTender = Tender::whereHas('reviews', function ($q) use($user){
-                $q->where('provider_id', $user->id);
+                $q->where('provider_id', $user->id)->orWhere('deliveryman_id', $user->id);
             })->where('id', $id)->first();
             $review = $tender->reviews->where('tender_id',$id)->where('provider_id',$user->id)->first();
-            if ($hasTender != null)
+            if ($hasTender != null )
             {
                 return view('tender-info-provider', ['tender' => $tender, 'review'=>$review, 'user' => $user, 'role' => $role]);
             }
@@ -364,6 +366,28 @@ class TenderController extends Controller
         $buyer = User::find($tender->buyer_id);
 
         return response()->json(['provider' => $provider, 'buyer' => $buyer, 'tender' => $tender], 200);
+    }
+
+    public function nextSubstatus(Request $request){
+        $substatus_id = $request->substatus_id + 1;
+        $tender = Tender::find($request->tender_id);
+        $substatus = TenderSubstatus::find($substatus_id);
+
+        if ($substatus != null){
+            $tender->substatus_id = $substatus_id;
+            $tender->save();
+            return back();
+        }
+        dd($substatus);
+        return back();
+    }
+
+    public function nextStatus(Request $request){
+        $tender = Tender::find($request->tender_id);
+        $tender->status_id = $tender->status_id + 1;
+        $tender->substatus_id = null;
+        $tender->save();
+        return back();
     }
 
 
