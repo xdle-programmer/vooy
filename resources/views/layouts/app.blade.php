@@ -858,14 +858,15 @@
                 </div>
             </div>
             <div class="product-in-tender__footer">
-                <div id="review-upload-btn" onclick="()=>{
-                    if (!this.target.classList.contains('form-check__button--disabled')) {
-                        console.log('send')
-                        uploadReview()
-                    } else {
-                        console.log('not send')
+                <script>
+                    function checkDisabledSendOfferButton(button){
+                        if (!button.classList.contains('form-check__button--disabled')) {
+                            uploadReview()
+                        }
                     }
-                }" class="button form-check__button">Сделать
+                </script>
+
+                <div id="review-upload-btn" onclick="checkDisabledSendOfferButton(this)" class="button form-check__button">Сделать
                     предложение
                 </div>
             </div>
@@ -1066,8 +1067,8 @@
     let fromCountry = '0';
 
     function changeRadioFromCountry(e) {
-        console.log('a')
-        console.log(e.value)
+        console.log('a');
+        console.log(e.value);
         fromCountry = e.value;
     }
 
@@ -1076,9 +1077,9 @@
         if (e.id == 'service-2') {
             if (e.checked == true) {
                 document.getElementById('service-1').checked = true;
-                document.getElementById('service-1').setAttribute('onclick', 'return false;')
+                document.getElementById('service-1').setAttribute('onclick', 'return false;');
                 document.getElementById('service-ru').checked = true;
-                document.getElementById('service-ru').setAttribute('onclick', 'return false;')
+                document.getElementById('service-ru').setAttribute('onclick', 'return false;');
 
             } else {
                 document.getElementById('service-1').removeAttribute('onclick');
@@ -1088,7 +1089,7 @@
         if (e.id == 'service-3') {
             if (e.checked == true) {
                 document.getElementById('service-ru').checked = true;
-                document.getElementById('service-ru').setAttribute('onclick', 'return false;')
+                document.getElementById('service-ru').setAttribute('onclick', 'return false;');
 
             } else {
                 document.getElementById('service-ru').removeAttribute('onclick');

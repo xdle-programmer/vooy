@@ -11723,15 +11723,35 @@ function productInTenderHandler(options) {
     refreshFormCheck();
   };
 
-  function refreshOffersPhotoUpload() {
-    var $offers = $wrapper.querySelectorAll('.product-in-tender__item');
+  this.refreshCounter = function () {
+    refreshCounter();
+  };
 
-    var _iterator = _createForOfIteratorHelper($offers),
+  function refreshCounter() {
+    var _iterator = _createForOfIteratorHelper($wrapper.querySelectorAll('.counter')),
         _step;
 
     try {
       for (_iterator.s(); !(_step = _iterator.n()).done;) {
-        var $offer = _step.value;
+        var $counter = _step.value;
+        (0,_counter_counter__WEBPACK_IMPORTED_MODULE_2__.counter)($counter);
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+  }
+
+  function refreshOffersPhotoUpload() {
+    var $offers = $wrapper.querySelectorAll('.product-in-tender__item');
+
+    var _iterator2 = _createForOfIteratorHelper($offers),
+        _step2;
+
+    try {
+      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+        var $offer = _step2.value;
         var $photoUpload = $offer.querySelector('.photo-upload');
         (0,_upload_upload__WEBPACK_IMPORTED_MODULE_3__.upload)({
           $wrapper: $photoUpload,
@@ -11745,9 +11765,9 @@ function productInTenderHandler(options) {
         });
       }
     } catch (err) {
-      _iterator.e(err);
+      _iterator2.e(err);
     } finally {
-      _iterator.f();
+      _iterator2.f();
     }
   }
 
@@ -11758,18 +11778,18 @@ function productInTenderHandler(options) {
   if (editable) {
     $addButton.addEventListener('click', createNewProduct);
 
-    var _iterator2 = _createForOfIteratorHelper(removeButtons),
-        _step2;
+    var _iterator3 = _createForOfIteratorHelper(removeButtons),
+        _step3;
 
     try {
-      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-        var $removeButton = _step2.value;
+      for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+        var $removeButton = _step3.value;
         $removeButton.addEventListener('click', deleteProduct);
       }
     } catch (err) {
-      _iterator2.e(err);
+      _iterator3.e(err);
     } finally {
-      _iterator2.f();
+      _iterator3.f();
     }
   }
 

@@ -2081,10 +2081,12 @@
                 newProduct.prepend(newProductHeader);
                 newProduct.setAttribute('data-product', product.id)
                 modalItems.appendChild(newProduct);
+
             });
             template.remove();
             productsInTenderFunc.get('new-offer-tender-products-form').refreshOffersPhotoUpload();
             productsInTenderFunc.get('new-offer-tender-products-form').refreshFormCheck();
+            productsInTenderFunc.get('new-offer-tender-products-form').refreshCounter();
         }
 
         function uploadReview() {

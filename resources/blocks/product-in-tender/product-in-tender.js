@@ -47,6 +47,16 @@ function productInTenderHandler(options) {
         refreshFormCheck();
     };
 
+    this.refreshCounter = () => {
+        refreshCounter();
+    };
+
+    function refreshCounter() {
+        for (let $counter of $wrapper.querySelectorAll('.counter')) {
+            counter($counter);
+        }
+    }
+
     function refreshOffersPhotoUpload() {
         let $offers = $wrapper.querySelectorAll('.product-in-tender__item');
 
@@ -123,7 +133,7 @@ function productInTenderHandler(options) {
 
         $itemsWrapper.appendChild($newProduct);
 
-        refreshFormCheck()
+        refreshFormCheck();
         window.modals.setCenter($wrapper.closest('.modal').id);
 
         setProductNumber();
