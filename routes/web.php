@@ -29,6 +29,8 @@ Route::get('/dashboard', function () {
 Route::post('/tender/create', [TenderController::class, 'createTender'])->name("tender-create");
 Route::post('/tender/review/create', [TenderController::class, 'createReview'])->name("tender-review-create");
 Route::post('/tender/setWinner', [TenderController::class, 'setWinner'])->name("tender-setWinner");
+Route::post('/tender/nextSubStatus', [TenderController::class, 'nextSubstatus'])->name("tender-substatus-next");
+Route::post('/tender/nextStatus', [TenderController::class, 'nextStatus'])->name("tender-status-next");
 
 Route::get('/tenders', [TenderController::class, 'showTenders'])->name("tenders-list");
 
@@ -44,6 +46,9 @@ Route::get('/chat', [TenderController::class, 'showChat'])->name("chat");
 Route::post('/chat/{id}/message', [TenderController::class, 'sendMessage'])->name("chat-message-send");
 Route::get('/chat/{id}/messages', [TenderController::class, 'getMessages'])->name("chat-messages-get");
 Route::post('/chat/newRoom', [TenderController::class, 'createRoom'])->name("chat-new");
+
+Route::post('/chat/message/{id}/accept', [TenderController::class, 'messageAccept'])->name("msg-accept");
+Route::post('/chat/message/{id}/decline', [TenderController::class, 'messageDecline'])->name("msg-decline");
 
 //CURRENCY
 Route::post('/currency/update', [CurrencyController::class, 'update'])->name("currency-update");

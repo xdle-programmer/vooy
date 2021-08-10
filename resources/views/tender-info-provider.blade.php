@@ -5,7 +5,7 @@
         <section class="section section--small">
             <div class="layout">
                 <div class="breadcrumbs"><a class="breadcrumbs__item" href="/">Главная</a><a
-                        class="breadcrumbs__item"  href="/tenders">Список тендеров</a>
+                        class="breadcrumbs__item" href="/tenders">Список тендеров</a>
                     <div class="breadcrumbs__item breadcrumbs__item--active">Тендер {{$tender->id}}</div>
                 </div>
             </div>
@@ -21,6 +21,9 @@
                                 <div
                                     class="tender-header__main-title-status-title tender-header__main-title-status-title--green">
                                     {{$tender->status->name}}
+                                    @if ($tender->substatus != null)
+                                        ({{$tender->substatus->name}})
+                                    @endif
                                 </div>
                                 <div class="tender-header__main-title-status-line">
                                     <div class="status-line status-line--{{$tender->status_id}}"></div>
@@ -46,15 +49,41 @@
         <section class="section section--small">
             <div class="layout">
                 <div class="tender-header__main-buttons">
-                            @php
-                                $hasReview = App\Models\TenderProductReview::where('provider_id', $user->id)->where('tender_id', $tender->id)->first();
-                            @endphp
-                            @if($hasReview != null)
-                                <div class="tender-header__desc-item-name">Предложение сделано:</div>
-                                <div
-                                    class="tender-header__desc-item-value"> {{$hasReview->created_at->format('d.m.Y')}}</div>
-                            @endif
+                    @php
+                        $hasReview = App\Models\TenderProductReview::where('provider_id', $user->id)->where('tender_id', $tender->id)->first();
+                    @endphp
+                    @if($hasReview != null)
+                        <div class="tender-header__desc-item-name">Предложение сделано:</div>
+                        <div
+                            class="tender-header__desc-item-value"> {{$hasReview->created_at->format('d.m.Y')}}</div>
+                    @endif
                 </div>
+
+                @if ($tender->substatus != null)
+                    @if (($tender->deliveryman_id == null && $tender->negotiator_id == $user->id) || ($tender->deliveryman_id == $user->id))
+                        @if ($tender->substatus->id == 2)
+                            <form method="POST" action="{{ route('tender-substatus-next') }}">
+                                @csrf
+                                <input type="hidden" name="substatus_id" value="{{$tender->substatus->id}}">
+                                <input type="hidden" name="tender_id" value="{{$tender->id}}">
+                                <x-button class="modal__button button button--invert form-check__button">Счёт
+                                    выставлен
+                                </x-button>
+                            </form>
+                        @endif
+                            @if ($tender->substatus->id == 3)
+                                <form method="POST" action="{{ route('tender-substatus-next') }}">
+                                    @csrf
+                                    <input type="hidden" name="substatus_id" value="{{$tender->substatus->id}}">
+                                    <input type="hidden" name="tender_id" value="{{$tender->id}}">
+                                    <x-button class="modal__button button button--invert form-check__button">Счёт
+                                        оплачен
+                                    </x-button>
+                                </form>
+                            @endif
+                    @endif
+                @endif
+
                 <div class="buyer">
                     <div class="buyer__logo" data-name="П"></div>
                     <div class="buyer__title">{{$tender->buyer->name}}</div>
@@ -229,7 +258,7 @@
                                     <div class="tender-row__item">Упаковка</div>
                                     <div class="tender-row__item tender-row__item--center">Комментарий</div>
                                 </div>
-
+                                @if($review != null)
                                 @if($review->items != null)
                                     @foreach($review->items as $itemKey => $item)
                                         <div class="tender-row tender-row--offer">
@@ -346,6 +375,7 @@
                                         </div>
                                     @endforeach
                                 @endif
+                                @endif
                             </div>
                             <div class="border-block">
                                 <div class="chat">
@@ -354,21 +384,39 @@
                                         <div class="chat__date">08.05.2021</div>
                                         <div class="chat__message">
                                             <div class="chat__message-content">
-                                                <div class="chat__message-content-text">Уверены, что уложитесь в сроки? Куртка будет выглядеть точно так?</div>
-                                                <div class="chat__message-content-images"><img class="chat__message-content-image" src="images/examples/products-preview/products-preview-3.jpg"></div>
+                                                <div class="chat__message-content-text">Уверены, что уложитесь в сроки?
+                                                    Куртка будет выглядеть точно так?
+                                                </div>
+                                                <div class="chat__message-content-images"><img
+                                                        class="chat__message-content-image"
+                                                        src="images/examples/products-preview/products-preview-3.jpg">
+                                                </div>
                                             </div>
                                             <div class="chat__message-time">13:15</div>
                                         </div>
                                         <div class="chat__message chat__message--invert">
                                             <div class="chat__message-content">
-                                                <div class="chat__message-content-text">Да, у нас производство налажено. Вот фотографии производства, посмотрите</div>
-                                                <div class="chat__message-content-images"><img class="chat__message-content-image" src="images/examples/manufacturer/production/production-1.jpg"><img class="chat__message-content-image" src="images/examples/manufacturer/production/production-2.jpg"><img class="chat__message-content-image" src="images/examples/manufacturer/production/production-3.jpg"><img class="chat__message-content-image" src="images/examples/manufacturer/production/production-4.jpg"></div>
+                                                <div class="chat__message-content-text">Да, у нас производство налажено.
+                                                    Вот фотографии производства, посмотрите
+                                                </div>
+                                                <div class="chat__message-content-images"><img
+                                                        class="chat__message-content-image"
+                                                        src="images/examples/manufacturer/production/production-1.jpg"><img
+                                                        class="chat__message-content-image"
+                                                        src="images/examples/manufacturer/production/production-2.jpg"><img
+                                                        class="chat__message-content-image"
+                                                        src="images/examples/manufacturer/production/production-3.jpg"><img
+                                                        class="chat__message-content-image"
+                                                        src="images/examples/manufacturer/production/production-4.jpg">
+                                                </div>
                                             </div>
                                             <div class="chat__message-time">13:15</div>
                                         </div>
                                         <div class="chat__message">
                                             <div class="chat__message-content">
-                                                <div class="chat__message-content-text">Отлично, выбираю вас победителем. Пришлите договор</div>
+                                                <div class="chat__message-content-text">Отлично, выбираю вас
+                                                    победителем. Пришлите договор
+                                                </div>
                                             </div>
                                             <div class="chat__message-time">13:15</div>
                                         </div>
@@ -382,15 +430,21 @@
                                         <div class="chat__message chat__message--invert">
                                             <div class="chat__message-content">
                                                 <div class="chat__message-content-text">Высылаю договор</div>
-                                                <div class="chat__message-content-files"><a class="chat__message-content-file" href="#">
+                                                <div class="chat__message-content-files"><a
+                                                        class="chat__message-content-file" href="#">
                                                         <svg class="chat__message-content-file-icon">
-                                                            <use xlink:href="../images/icons/icons-sprite.svg#file"></use>
+                                                            <use
+                                                                xlink:href="../images/icons/icons-sprite.svg#file"></use>
                                                         </svg>
-                                                        <div class="chat__message-content-file-text">Договор.docx</div></a><a class="chat__message-content-file" href="#">
+                                                        <div class="chat__message-content-file-text">Договор.docx</div>
+                                                    </a><a class="chat__message-content-file" href="#">
                                                         <svg class="chat__message-content-file-icon">
-                                                            <use xlink:href="../images/icons/icons-sprite.svg#file"></use>
+                                                            <use
+                                                                xlink:href="../images/icons/icons-sprite.svg#file"></use>
                                                         </svg>
-                                                        <div class="chat__message-content-file-text">Приложение.docx</div></a></div>
+                                                        <div class="chat__message-content-file-text">Приложение.docx
+                                                        </div>
+                                                    </a></div>
                                             </div>
                                             <div class="chat__message-time">13:15</div>
                                         </div>
@@ -403,7 +457,8 @@
                                     </div>
                                     <div class="chat__form">
                                         <div class="chat__form-wrapper">
-                                            <textarea class="chat__form-wrapper-input" placeholder="Введите сообщение"></textarea>
+                                            <textarea class="chat__form-wrapper-input"
+                                                      placeholder="Введите сообщение"></textarea>
                                         </div>
                                         <div class="chat__form-file-preview chat__form-file-preview--empty">
                                             <div class="chat__message-content-images"></div>

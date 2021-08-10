@@ -26,31 +26,36 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerMainMenu(): array
     {
         return [
-          Menu::make('Тендеры')
-          ->icon('folder')
-          ->turbo(false)
-          ->route('platform.tender'),
 
-          Menu::make('Статусы')
-          ->icon('layers')
-          ->route('platform.status'),
+            Menu::make('Чаты')
+                ->icon('folder')
+                ->route('platform.chats'),
 
-          Menu::make('Статусы реализации')
-          ->icon('layers')
-          ->route('platform.substatus'),
+            Menu::make('Тендеры')
+                ->icon('folder')
+                ->turbo(false)
+                ->route('platform.tender'),
 
-          Menu::make("Пользователи")
-            ->icon('user')
-            ->route('platform.systems.users')
-            ->permission('platform.systems.users'),
+            Menu::make('Статусы')
+                ->icon('layers')
+                ->route('platform.status'),
+
+            Menu::make('Статусы реализации')
+                ->icon('layers')
+                ->route('platform.substatus'),
+
+            Menu::make("Пользователи")
+                ->icon('user')
+                ->route('platform.systems.users')
+                ->permission('platform.systems.users'),
 
             Menu::make("Формы собственности")
-              ->icon('layers')
-              ->route('platform.ownership'),
+                ->icon('layers')
+                ->route('platform.ownership'),
 
             Menu::make("Сертификаты")
-              ->icon('layers')
-              ->route('platform.sertificat'),
+                ->icon('layers')
+                ->route('platform.sertificat'),
 
             Menu::make('Поставщики')
                 ->icon('code')
@@ -139,7 +144,6 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('lock')
                 ->route('platform.systems.roles')
                 ->permission('platform.systems.roles'),
-
 
 
         ];

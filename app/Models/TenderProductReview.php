@@ -23,4 +23,9 @@ class TenderProductReview extends Model
         return $this->belongsTo(User::class, 'provider_id');
     }
 
+    public function chats()
+    {
+        return $this->hasMany(Chat::class, 'review_id');
+    }
+
 }

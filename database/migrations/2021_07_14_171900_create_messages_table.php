@@ -32,6 +32,7 @@ class CreateMessagesTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
+            $table->tinyInteger('status')->default('0');
             $table->timestamps();
         });
     }
