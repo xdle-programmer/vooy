@@ -63,7 +63,7 @@ let chatSendButtons = Array.from(document.querySelectorAll('.chat__form-send'));
 if (chatSendButtons.length > 0) {
     for (let $chatSendButton of chatSendButtons) {
         $chatSendButton.addEventListener('click', event => {
-            setChatMessage(event.target);
+            // setChatMessage(event.target);
         });
     }
 }
