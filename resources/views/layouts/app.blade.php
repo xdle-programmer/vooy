@@ -561,7 +561,7 @@
             </svg>
             <div class="modal__content-message-text">Ваш тендер успешно опубликован!</div>
             <div class="modal__content-message-two-buttons">
-                <div data-modal-close class="button button--small button--invert">ЗАКРЫТЬ</div>
+                <div data-modal-close onclick="window.location = window.location" class="button button--small button--invert">ЗАКРЫТЬ</div>
                 <a class="button button--small" href="{{route('tenders-list')}}">В ТЕНДЕРЫ</a>
             </div>
         </div>

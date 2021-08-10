@@ -39,6 +39,9 @@ use App\Orchid\Screens\ProviderConnector;
 
 use App\Orchid\Screens\Currencies;
 
+use App\Orchid\Screens\TenderChatListScreen;
+use App\Orchid\Screens\TenderChatScreen;
+
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -70,6 +73,9 @@ Route::screen('tender/moderation/{tender?}', TenderModerationScreen::class)->nam
 Route::screen('tender/review/{tender?}', TenderReviewCreationScreen::class)->name('platform.tender.review');
 Route::screen('tender/parthner/{tender?}', TenderParthnerScreen::class)->name('platform.tender.parthner');
 
+//CHATS
+Route::screen('chats', TenderChatListScreen::class)->name('platform.chats');
+Route::screen('chat/{chat?}', TenderChatScreen::class)->name('platform.chat');
 
 //TENDER OWNERSHIP
 Route::screen('ownerships', TenderOwnershipScreen::class)->name('platform.ownership');

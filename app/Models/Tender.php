@@ -77,6 +77,11 @@ class Tender extends Model
         return $this->hasMany(TenderProductReview::class, 'tender_id');
     }
 
+    public function chats()
+    {
+        return $this->hasMany(Chat::class, 'tender_id');
+    }
+
     public function products()
     {
         return $this->hasMany(TenderProduct::class, 'tender_id');

@@ -266,7 +266,7 @@ class TenderController extends Controller
         }
 
         $tender = Tender::with("products", "products.reviews", "products.sertificats", "buyer", "provider", "status",
-            "substatus", "reviews", "reviews.items", "reviews.items.attachments", "reviews.provider", "reviews.provider.subroles")
+            "substatus", "chats", "reviews", "reviews.items", "reviews.chats", "reviews.items.attachments", "reviews.provider", "reviews.provider.subroles")
             ->where('id', $id)->first();
 
         if ($tender != null && $user != null){
@@ -390,7 +390,6 @@ class TenderController extends Controller
         return back();
     }
 
-
     public function showChat()
     {
         $user = auth()->user();
@@ -473,4 +472,20 @@ class TenderController extends Controller
         return response()->json($chat);
     }
 
+    public function messageAccept(int $id)
+    {
+        $msg = Message::find($id);
+        $msg->status = 1;
+        $msg->save();
+
+        return response()->json($msg,200);
+    }
+    public function messageDecline(int $id)
+    {
+        $msg = Message::find($id);
+        $msg->status = -1;
+        $msg->save();
+
+        return response()->json($msg,200);
+    }
 }

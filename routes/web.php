@@ -47,6 +47,9 @@ Route::post('/chat/{id}/message', [TenderController::class, 'sendMessage'])->nam
 Route::get('/chat/{id}/messages', [TenderController::class, 'getMessages'])->name("chat-messages-get");
 Route::post('/chat/newRoom', [TenderController::class, 'createRoom'])->name("chat-new");
 
+Route::post('/chat/message/{id}/accept', [TenderController::class, 'messageAccept'])->name("msg-accept");
+Route::post('/chat/message/{id}/decline', [TenderController::class, 'messageDecline'])->name("msg-decline");
+
 //CURRENCY
 Route::post('/currency/update', [CurrencyController::class, 'update'])->name("currency-update");
 
