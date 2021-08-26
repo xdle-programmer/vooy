@@ -10728,6 +10728,21 @@ function _setSelectHtml2(index) {
   });
 }
 
+window.addEventListener('newCustomSelect', function () {
+  var selects = Array.from(document.querySelectorAll('select.custom-select'));
+
+  for (var _i = 0, _selects = selects; _i < _selects.length; _i++) {
+    var $select = _selects[_i];
+
+    if (window.getComputedStyle($select).display !== 'none') {
+      new CustomSelect({
+        $select: $select,
+        customSelectClass: 'custom-select'
+      });
+    }
+  }
+});
+
 if (selects.length > 0) {
   for (var index = 0; index < selects.length; index++) {
     var $select = selects[index];
@@ -12458,8 +12473,7 @@ if (chatSendButtons.length > 0) {
   try {
     for (_iterator.s(); !(_step = _iterator.n()).done;) {
       var $chatSendButton = _step.value;
-      $chatSendButton.addEventListener('click', function (event) {
-        setChatMessage(event.target);
+      $chatSendButton.addEventListener('click', function (event) {// setChatMessage(event.target);
       });
     }
   } catch (err) {

@@ -194,7 +194,22 @@ class CustomSelect {
     }
 
     // TODO: Сделать рефреш
+
 }
+
+window.addEventListener('newCustomSelect', () => {
+    let selects = Array.from(document.querySelectorAll('select.custom-select'));
+
+    for (let $select of selects) {
+        if (window.getComputedStyle($select).display !== 'none') {
+            new CustomSelect({
+                $select: $select,
+                customSelectClass: 'custom-select'
+            });
+        }
+    }
+
+});
 
 if (selects.length > 0) {
     for (let index = 0; index < selects.length; index++) {
