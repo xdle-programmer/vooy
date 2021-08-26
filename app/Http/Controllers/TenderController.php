@@ -43,6 +43,15 @@ class TenderController extends Controller
         $review_db->from_country = $review['from_country'];
         $review_db->save();
 
+        $curTender = Tender::find($review['tender_id']);
+        $chat_db = new Chat;
+        $chat_db->tender_id = $curTender->id;
+        $chat_db->review_id = $review_db->id;
+        $chat_db->save();
+
+        $chat_db->users()->attach($user->id);
+        $chat_db->users()->attach($curTender->buyer_id);
+
         foreach ($review['item'] as $key => $item) {
             $review_item_db = new TenderProductReviewItem();
 
@@ -206,7 +215,7 @@ class TenderController extends Controller
         $tenders;
         $buyer_id = 0;
 
-        $isFiltered =  $request->input('filtered');
+        $isFiltered = $request->input('filtered');
         $onlyMy = $request->input('onlyMy');
         $onlyMyProvider = $request->input('onlyMyProvider');
         $onlyActive = $request->input('onlyActive');
@@ -221,7 +230,7 @@ class TenderController extends Controller
                     $tenders = $tenders->where('buyer_id', $user->id);
                 }
                 if ($onlyMyProvider == 'on') {
-                    $tenders = $tenders->whereHas('reviews', function ($q) use($user){
+                    $tenders = $tenders->whereHas('reviews', function ($q) use ($user) {
                         $q->where('provider_id', $user->id)->orWhere('deliveryman_id', $user->id);
                     });
                 }
@@ -252,7 +261,7 @@ class TenderController extends Controller
         //$tenders = Tender::with("products", "buyer", "provider", "status", "substatus")->where('buyer_id', $user->id)->filters()->paginate();
 
         return view('tenders-list', ['tenders' => $tenders, 'role' => $role, 'buyer_id' => $buyer_id,
-            'onlyMy' => $onlyMy,'onlyMyProvider' => $onlyMyProvider, 'onlyActive' => $onlyActive, 'onlyArchive' => $onlyArchive]);
+            'onlyMy' => $onlyMy, 'onlyMyProvider' => $onlyMyProvider, 'onlyActive' => $onlyActive, 'onlyArchive' => $onlyArchive]);
     }
 
     public function showTender(Request $request, int $id)
@@ -266,23 +275,26 @@ class TenderController extends Controller
         }
 
         $tender = Tender::with("products", "products.reviews", "products.sertificats", "buyer", "provider", "status",
-            "substatus", "chats", "reviews", "reviews.items", "reviews.chats", "reviews.items.attachments", "reviews.provider", "reviews.provider.subroles")
+            "substatus", "chats", "chats.users", "reviews", "reviews.items", "reviews.chats", "reviews.items.attachments", "reviews.provider", "reviews.provider.subroles")
             ->where('id', $id)->first();
 
-        if ($tender != null && $user != null){
-            $hasTender = Tender::whereHas('reviews', function ($q) use($user){
+        if ($tender != null && $user != null) {
+            $hasTender = Tender::whereHas('reviews', function ($q) use ($user) {
                 $q->where('provider_id', $user->id)->orWhere('deliveryman_id', $user->id);
             })->where('id', $id)->first();
-            $review = $tender->reviews->where('tender_id',$id)->where('provider_id',$user->id)->first();
-            if ($hasTender != null )
-            {
-                return view('tender-info-provider', ['tender' => $tender, 'review'=>$review, 'user' => $user, 'role' => $role]);
-            }
+            $review = $tender->reviews->where('tender_id', $id)->where('provider_id', $user->id)->first();
 
-            if ($tender->provider_id == $user->id ){
-                return view('tender-info-provider', ['tender' => $tender, 'review'=>$review, 'user' => $user, 'role' => $role]);
-            }
 
+            $hasChat = Chat::whereHas('users', function ($q) use ($user, $tender) {
+                return $q->where('users.id', $user->id)->where('users.id', '!=', $tender->buyer_id);
+            })->where('tender_id', $tender->id)->first();
+
+            if ($hasTender != null || $tender->provider_id == $user->id) {
+                return view('tender-info-provider', ['tender' => $tender, 'chat' => null, 'review' => $review, 'user' => $user, 'role' => $role]);
+            }
+            elseif ($hasChat != null){
+                return view('tender-info-provider', ['tender' => $tender, 'chat' => $hasChat, 'review' => null, 'user' => $user, 'role' => $role]);
+            }
         }
         //dd($tender);
         return view('tender-info', ['tender' => $tender, 'user' => $user, 'role' => $role]);
@@ -343,24 +355,24 @@ class TenderController extends Controller
         if ($tenderReview == null)
             response()->json('Ответ на тендер не найден', 204);
 
-                $tender->provider_id = $tenderReview->provider_id;
-                $tender->to_country = $country;
-                $tender->need_delivery = $delivery;
-                $tender->status_id = 4;
-                if ($deal_type == 1) {
-                    $tender->negotiator_id = $tenderReview->provider_id;
-                    if ($delivery == 0)
-                        $tender->substatus_id = 2;
-                    else
-                        $tender->substatus_id = 1;
+        $tender->provider_id = $tenderReview->provider_id;
+        $tender->to_country = $country;
+        $tender->need_delivery = $delivery;
+        $tender->status_id = 4;
+        if ($deal_type == 1) {
+            $tender->negotiator_id = $tenderReview->provider_id;
+            if ($delivery == 0)
+                $tender->substatus_id = 2;
+            else
+                $tender->substatus_id = 1;
 
-                } elseif ($deal_type == 2) {
-                    $tender->negotiator_id = $tenderReview->provider_id;
-                    if ($delivery == 1)
-                        $tender->deliveryman_id = $tenderReview->provider_id;
-                    $tender->substatus_id = 2;
-                }
-                $tender->save();
+        } elseif ($deal_type == 2) {
+            $tender->negotiator_id = $tenderReview->provider_id;
+            if ($delivery == 1)
+                $tender->deliveryman_id = $tenderReview->provider_id;
+            $tender->substatus_id = 2;
+        }
+        $tender->save();
 
         $provider = User::with('provider_infos')->where('id', $tenderReview->provider_id)->first();
         $buyer = User::find($tender->buyer_id);
@@ -368,12 +380,13 @@ class TenderController extends Controller
         return response()->json(['provider' => $provider, 'buyer' => $buyer, 'tender' => $tender], 200);
     }
 
-    public function nextSubstatus(Request $request){
+    public function nextSubstatus(Request $request)
+    {
         $substatus_id = $request->substatus_id + 1;
         $tender = Tender::find($request->tender_id);
         $substatus = TenderSubstatus::find($substatus_id);
 
-        if ($substatus != null){
+        if ($substatus != null) {
             $tender->substatus_id = $substatus_id;
             $tender->save();
             return back();
@@ -382,7 +395,8 @@ class TenderController extends Controller
         return back();
     }
 
-    public function nextStatus(Request $request){
+    public function nextStatus(Request $request)
+    {
         $tender = Tender::find($request->tender_id);
         $tender->status_id = $tender->status_id + 1;
         $tender->substatus_id = null;
@@ -422,9 +436,11 @@ class TenderController extends Controller
         $msgAtt = null;
         /* ADD ATTACHMEMNT */
         if ($request->file('attachments') != null) {
-            $message->update(['has_attachment' => 1]);
-            $path = Chat::getStoragePath() . $request->chat_id . '/';
+            $message->has_attachment = 1;
+            $message->save();
 
+            $path = Chat::getStoragePath() . $request->chat_id . '/';
+            $msgAtt;
             foreach ($request->file('attachments') as $i => $attachments) {
                 $file = $attachments['file'];
                 $ext = $file->guessExtension();
@@ -437,7 +453,7 @@ class TenderController extends Controller
                     'path' => 'chatRoom',
                 ]));
 
-                $msgAtt = [
+                $msgAtt[] = [
                     'msg_id' => $request->user_id,
                     'name' => $fileName,
                     'type' => $ext,
@@ -445,14 +461,25 @@ class TenderController extends Controller
             }
         }
 
-
         return response()->json(['message' => $message, 'file' => $msgAtt]);
     }
 
     public function getMessages(Request $request, int $id)
     {
+        if ($request->status != null) {
+            if ($request->mod == 1) {
+                $user = auth()->user();
+                $messages = Message::with('attachments')->where(function ($q) use ($id, $request) {
+                    return $q->where('chat_id', $id)->where('status', $request->status);
+                })->orWhere(function ($q) use ($id, $user) {
+                    return $q->where('chat_id', $id)->where('user_id', $user->id);
+                })->get();
+                return response()->json($messages);
+            }
+            $messages = Message::with('attachments')->where('chat_id', $id)->where('status', $request->status)->get();
+            return response()->json($messages);
+        }
         $messages = Message::with('attachments')->where('chat_id', $id)->get();
-
         return response()->json($messages);
     }
 
@@ -474,18 +501,24 @@ class TenderController extends Controller
 
     public function messageAccept(int $id)
     {
-        $msg = Message::find($id);
+        $msg = Message::with('attachments')->where('id', $id)->first();
         $msg->status = 1;
         $msg->save();
 
-        return response()->json($msg,200);
+        return response()->json(['message' => $msg], 200);
     }
-    public function messageDecline(int $id)
+
+    public function messageDecline(Request $request, int $id)
     {
-        $msg = Message::find($id);
+        if ($request->decline_text != null) {
+
+        }
+        $msg = Message::with('attachments')->where('id', $id)->first();
         $msg->status = -1;
+        if ($request->decline_text != null)
+            $msg->decline_text = $request->decline_text;
         $msg->save();
 
-        return response()->json($msg,200);
+        return response()->json(['message' => $msg], 200);
     }
 }

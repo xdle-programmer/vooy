@@ -2,6 +2,22 @@
 
 @section('h_script')
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        .chat__message--banned {
+            background: #ffd7e1 !important;
+        }
+        .chat__message--accepted{
+            background-color: #e6e6e6 !important;
+        }
+
+        .chat__messages {
+            max-height: 600px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+
+    </style>
 @stop
 
 @section('content')
@@ -328,6 +344,192 @@
                                         </div>
                                         @if($tender->status_id == 3)
                                             <div id="reviews" class="tabs__toggle-item">
+
+                                                @if($tender->chats != null)
+                                                    @foreach($tender->chats->where('review_id', null) as $key => $chat)
+                                                        <div id="chat-{{$chat->id}}"
+                                                             class="border-block offer tenders-chat">
+                                                            <div class="offer__manufacturer-buttons">
+                                                                <div
+                                                                    class="offer__manufacturer-button offer__manufacturer-button--gray">
+                                                                    <div onclick="hideReview(this)"
+                                                                         data-chat="{{$chat->id}}"
+                                                                         class="offer__manufacturer-button-text">
+                                                                        Скрыть из списка
+                                                                    </div>
+                                                                    <svg
+                                                                        class="offer__manufacturer-button-icon offer__manufacturer-button-icon--small">
+                                                                        <use
+                                                                            xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                                                                    </svg>
+                                                                </div>
+                                                                <div
+                                                                    class="offer__manufacturer-button offer__manufacturer-button--message tenders-chat__button"
+                                                                    data-chat="1"
+                                                                    data-chatid="{{$chat->id}}"
+                                                                    data-open="0">
+                                                                    <div
+                                                                        class="offer__manufacturer-button-text tenders-chat__button-text tenders-chat__button-text--default">
+                                                                        Написать поставщику
+                                                                    </div>
+                                                                    <div
+                                                                        class="offer__manufacturer-button-text tenders-chat__button-text tenders-chat__button-text--active">
+                                                                        Скрыть переписку
+                                                                    </div>
+                                                                    <div
+                                                                        class="offer__manufacturer-button-message">
+                                                                        <svg
+                                                                            class="offer__manufacturer-button-message-icon">
+                                                                            <use
+                                                                                xlink:href="../images/icons/icons-sprite.svg#message"></use>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="offer__manufacturer-button-message-count">
+                                                                            <div
+                                                                                class="offer__manufacturer-button-message-count-inner">
+                                                                                <div
+                                                                                    class="offer__manufacturer-button-message-count-inner-number">
+                                                                                    {{$chat->messages->count()}}
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="offer__header">
+                                                                <div class="manufacturer">
+                                                                    <div class="manufacturer__logo"
+                                                                         data-name="{{substr($chat->users->first()->name,0,2)}}"></div>
+                                                                    <div
+                                                                        class="manufacturer__title">{{$chat->users->first()->name}}
+                                                                        @if($chat->users->first()->subroles->first() != null)
+                                                                            (
+                                                                            @foreach($chat->users->first()->subroles as $subrole)
+                                                                                @if($loop->last)
+                                                                                    {{@$subrole->name}}
+                                                                                @else
+                                                                                    {{@$subrole->name}},
+                                                                                @endif
+                                                                            @endforeach
+                                                                             )
+                                                                        @endif
+                                                                    </div>
+                                                                    <div class="manufacturer__options">
+                                                                        <div class="manufacturer__option">
+                                                                            <div
+                                                                                class="manufacturer__option-name">
+                                                                                Город:
+                                                                            </div>
+                                                                            <div
+                                                                                class="manufacturer__option-value">{{$chat->users->first()->city}}</div>
+                                                                        </div>
+                                                                        <div class="manufacturer__option">
+                                                                            <div
+                                                                                class="manufacturer__option-name">
+                                                                                Категория:
+                                                                            </div>
+                                                                            <div
+                                                                                class="manufacturer__option-value">
+                                                                                Мужская одежда
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="manufacturer__option">
+                                                                            <div
+                                                                                class="manufacturer__option-name">
+                                                                                Побед в тендерах:
+                                                                            </div>
+                                                                            <div
+                                                                                class="manufacturer__option-value">
+                                                                                120
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="manufacturer__reviews">
+                                                                        <div class="reviews">
+                                                                            <div class="reviews__desc">
+                                                                                <div class="reviews__item">
+                                                                                    <div
+                                                                                        class="reviews__item-value">
+                                                                                        4.93
+                                                                                    </div>
+                                                                                    <svg
+                                                                                        class="reviews__item-star">
+                                                                                        <use
+                                                                                            xlink:href="../images/icons/icons-sprite.svg#star"></use>
+                                                                                    </svg>
+                                                                                </div>
+                                                                                <div class="reviews__count">
+                                                                                    34 отзыва
+                                                                                </div>
+                                                                            </div>
+                                                                            <div
+                                                                                class="reviews__button button">
+                                                                                Посмотреть отзывы
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tenders-chat__wrapper">
+                                                                <div
+                                                                    id="chat-content-{{$chat->id}}"
+                                                                    class="tenders-chat__content"
+                                                                    data-chat-name="1"
+                                                                    data-chatid="{{$chat->id}}">
+                                                                    <div class="chat">
+                                                                        <div class="chat__title">Переговоры
+                                                                            с "Первый поставщик"
+                                                                        </div>
+                                                                        <div class="chat__messages">
+                                                                            <div class="chat__date">
+                                                                                08.05.2021
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="chat__form">
+                                                                            <div class="chat__form-wrapper">
+                                                            <textarea class="chat__form-wrapper-input"
+                                                                      placeholder="Введите сообщение"></textarea>
+                                                                            </div>
+                                                                            <div
+                                                                                class="chat__form-file-preview chat__form-file-preview--empty">
+                                                                                <div
+                                                                                    class="chat__message-content-images"></div>
+                                                                                <div
+                                                                                    class="chat__message-content-files"></div>
+                                                                            </div>
+                                                                            <div class="chat__form-buttons">
+                                                                                <label
+                                                                                    class="chat__form-file-input-label">
+                                                                                    <div
+                                                                                        class="chat__form-file-input-text">
+                                                                                        Прикрепить
+                                                                                        файл
+                                                                                    </div>
+                                                                                    <svg
+                                                                                        class="chat__form-file-input-icon">
+                                                                                        <use
+                                                                                            xlink:href="../images/icons/icons-sprite.svg#upload"></use>
+                                                                                    </svg>
+                                                                                    <input
+                                                                                        class="chat__form-file-input"
+                                                                                        type="file"
+                                                                                        multiple="">
+                                                                                </label>
+                                                                                <div
+                                                                                    class="chat__form-send button button--small">
+                                                                                    Отправить
+                                                                                    сообщение
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    @endforeach
+                                                @endif
+
                                                 @if($tender->reviews != null)
                                                     @foreach($tender->reviews->where('hidden', 0) as $key => $review)
                                                         <div id="review-{{$review->id}}"
@@ -495,7 +697,7 @@
                                                                                     class="offer__manufacturer-button-message-count-inner">
                                                                                     <div
                                                                                         class="offer__manufacturer-button-message-count-inner-number">
-                                                                                        3
+                                                                                        {{$review->chats->first()->messages->count()}}
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -767,6 +969,7 @@
                                                                                 <div class="chat__date">
                                                                                     08.05.2021
                                                                                 </div>
+                                                                                {{--
                                                                                 <div class="chat__message">
                                                                                     <div
                                                                                         class="chat__message-content">
@@ -820,6 +1023,7 @@
                                                                                         13:15
                                                                                     </div>
                                                                                 </div>
+                                                                                 --}}
                                                                             </div>
                                                                             <div class="chat__form">
                                                                                 <div class="chat__form-wrapper">
@@ -1051,7 +1255,7 @@
                                                                                         class="offer__manufacturer-button-message-count-inner">
                                                                                         <div
                                                                                             class="offer__manufacturer-button-message-count-inner-number">
-                                                                                            3
+
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -1724,7 +1928,7 @@
                                                                                             class="offer__manufacturer-button-message-count-inner">
                                                                                             <div
                                                                                                 class="offer__manufacturer-button-message-count-inner-number">
-                                                                                                3
+
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
@@ -1881,6 +2085,7 @@
                 </div>
             </section>
         </div>
+
     @endif
 @stop
 
@@ -1909,7 +2114,6 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.socket.io/socket.io-2.3.0.js"></script>
 
-
     <script>
         console.log("CHAT")
         let USER = {!! json_encode($user) !!};
@@ -1937,24 +2141,28 @@
                 storageFiles: [],
 
                 chatContentNode: null,
+                chatMessages: null,
                 chatMessage: null,
                 chatFiles: null,
+                chatFilesContent: null,
+                chatImagesContent: null,
                 chatButton: null,
 
-                sendMessage: function (){
+                sendMessage: function () {
                     if (this.chatMessage == null)
                         return;
 
                     this.message = this.chatMessage.value;
-                    this.message = "Тестовое сообщение";
+                    //this.message = "Тестовое сообщение";
                     console.log(this.chatMessage)
                     console.log(this.chatMessage.value)
 
                     let formData = new FormData();
 
-                    for (let i = 0; i < this.chatFiles.length; ++i) {
-                        formData.append("attachments[" + i + "][file]", this.files[i]);
+                    for (let i = 0; i < this.chatFiles.files.length; ++i) {
+                        formData.append("attachments[" + i + "][file]", this.chatFiles.files[i]);
                     }
+
                     formData.append("user_id", this.user.id);
                     formData.append("text", this.message);
                     formData.append("chat_id", this.user.room);
@@ -1969,36 +2177,49 @@
                             'Content-Type': 'multipart/form-data'
                         },
                     }).then((response) => {
-                            console.log(response.data);
-                            let file = null;
-                            if (response.data.file){
+                        console.log(response.data);
+                        let file = null;
+                        let files = [];
+                        if (response.data.file) {
+                            response.data.file.forEach(f => {
                                 file = {
-                                    messageId: response.data.file.msg_id,
-                                    name: response.data.file.name,
-                                    type: response.data.file.type,
+                                    messageId: f.msg_id,
+                                    name: f.name,
+                                    type: f.type,
                                 }
-                            }
+                                files.push(file)
+                            })
+                        }
 
-                            let message = {
-                                id: this.user.id,
-                                text: this.message,
-                                name: this.user.name,
-                                time: Date.now(),
-                                m_id: response.data.message.id,
-                                image: this.user.image
-                            }
-                            console.log(file)
-                            if (file == null)
-                                var data = {message: message, userSocket: this.user.socket}
-                            else
-                                var data = {message: message, userSocket: this.user.socket, files: file}
+                        let message = {
+                            id: this.user.id,
+                            text: this.message,
+                            name: this.user.name,
+                            time: response.data.message.created_at,
+                            m_id: response.data.message.id,
+                            image: this.user.image
+                        }
+                        console.log(files)
+                        if (files.length == 0)
+                            var data = {message: message, userSocket: this.user.socket}
+                        else
+                            var data = {message: message, userSocket: this.user.socket, files: files}
 
-                            socket.emit('message-create', data, data => {
-                                console.log(data);
-                            });
+                        socket.emit('message-create', data, data => {
+                            console.log(data);
+                        });
 
-                            this.files = null;
-                            this.message = '';
+                        message.status = 0;
+                        message.files = files;
+                        this.putMessage(message);
+
+                        this.files = null;
+                        this.message = '';
+                        this.chatFiles.files = null;
+                        this.chatMessage.value = '';
+
+                        this.chatFilesContent.innerHTML = '';
+                        this.chatImagesContent.innerHTML = '';
                     })
 
                 },
@@ -2013,8 +2234,14 @@
 
                     this.user.room = room;
                     this.chatContentNode = document.getElementById('chat-content-' + this.user.room)
+                    this.chatMessages = this.chatContentNode.querySelector('.chat__messages')
                     this.chatMessage = this.chatContentNode.querySelector('.chat__form-wrapper-input')
                     this.chatFiles = this.chatContentNode.querySelector('.chat__form-file-input')
+                    this.chatFilesContent = this.chatContentNode.querySelector('.chat__message-content-files')
+                    this.chatImagesContent = this.chatContentNode.querySelector('.chat__message-content-images')
+
+                    console.log(this.chatMessages)
+                    this.chatMessages.innerHTML = ''
                     //console.log(this.chatContentNode);
                     //console.log(this.chatMessage)
 
@@ -2040,6 +2267,13 @@
                     socket.on('message-moderated', data => {
                         console.log('MODERATED')
                         console.log(data);
+                        if (data.status == -1 && this.user.id != data.id)
+                            return;
+                        if (this.user.id == data.id)
+                            this.putMessage(data, 1);
+                        else
+                            this.putMessage(data, 0);
+
                     })
 
                     socket.on('message-new', message => {
@@ -2057,45 +2291,114 @@
                 getMessages: function () {
                     axios({
                         method: 'GET',
-                        url: `${window.location.origin}/chat/${this.user.room}/messages`,
-                        processData: false,
-                        contentType: false,
+                        url: `${window.location.origin}/chat/${this.user.room}/messages/?status=1&mod=1`,
                     }).then((response) => {
                         console.log(response.data);
                         this.messages = [];
 
                         response.data.forEach(message => {
-                            if (message.attachments[0]) {
-                                this.messages.push({
-                                    files: {
-                                        'messageId': message.attachments[0].id,
-                                        'name': message.attachments[0].name,
-                                        'type': message.attachments[0].type
-                                    },
-                                    id: message.user_id,
-                                    image: 'none',
-                                    m_id: message.id,
-                                    name: 'user',
-                                    text: message.text,
-                                    status: message.status,
-                                    time: message.created_at,
-                                });
-                            } else {
-                                this.messages.push({
-                                    files: null,
-                                    id: message.user_id,
-                                    image: 'none',
-                                    m_id: message.id,
-                                    name: 'user',
-                                    text: message.text,
-                                    status: message.status,
-                                    time: message.created_at,
-                                });
-                            }
+                            this.messages.push({
+                                files: message.attachments,
+                                id: message.user_id,
+                                image: 'none',
+                                m_id: message.id,
+                                name: 'user',
+                                text: message.text,
+                                status: message.status,
+                                time: message.created_at,
+                                decline_text: message.decline_text,
+                            });
                         })
+
+                        this.messages.forEach(msg => {
+                            this.putMessage(msg);
+                        });
                         console.log("Messages")
                         console.log(this.messages)
                     });
+                },
+                putMessage(msg, is_new = 0) {
+                    console.log("PUT MSG")
+                    console.log(msg);
+
+                    let subClasses = ''
+                    let declineText = '';
+                    if (msg.status == -1) {
+                        subClasses = 'chat__message--banned';
+                        if (msg.decline_text != null) {
+                            declineText = 'Причина отклонения: ' + msg.decline_text + '</br>';
+                        }
+                    }
+                    else if(msg.status == 1){
+                        subClasses = 'chat__message--accepted';
+                    }
+
+                    if (is_new == 1) {
+                        let curMsg = document.getElementById('msg-' + msg.m_id)
+
+                        if (subClasses != '')
+                            curMsg.classList.add(subClasses);
+
+                        if (msg.status == -1) {
+                            curMsg.querySelector('.chat__message-content-text').innerHTML = `
+                                        ${declineText}
+                                        ${msg.text}
+                        `
+                        }
+                        return;
+                    }
+
+
+                    let chat__message = document.createElement("div")
+                    chat__message.classList.add('chat__message')
+
+                    if (this.user.id == msg.id)
+                        chat__message.classList.add('chat__message--invert')
+                    let files = ''
+                    if (msg.files != null) {
+                        let images = '';
+                        let docs = '';
+                        msg.files.forEach(f => {
+                            if (f.type == 'jpg' || f.type == 'jpeg' || f.type == 'gif' || f.type == 'png') {
+                                images += `<img
+                                class="chat__message-content-image"
+                                src="${window.location.origin}/storage/chatRoom/${this.user.room}/${f.name}">`
+                            } else {
+                                docs +=
+                                    `
+                                    <a class="chat__message-content-file" href="${window.location.origin}/storage/chatRoom/${this.user.room}/${f.name}">
+                                        <svg class="chat__message-content-file-icon">
+                                            <use
+                                                xlink:href="${window.location.origin}/storage/chatRoom/${this.user.room}/${f.name}"></use>
+                                        </svg>
+                                        <div class="chat__message-content-file-text">${f.name}</div>
+                                    </a>
+                                    `;
+                            }
+                            files = `
+                             <div
+                                class="chat__message-content-images">
+                                ${images}
+                             </div>
+                             <div class="chat__message-content-files">
+                                ${docs}
+                             </div>`;
+                        })
+                    }
+
+                    chat__message.innerHTML = `
+                                <div id="msg-${msg.m_id}" class="chat__message-content ${subClasses}">
+                                    <div class="chat__message-content-text">
+                                        ${declineText}
+                                        ${msg.text}
+                                    </div>
+                                ${files}
+                                </div>
+                                <div class="chat__message-time">
+                                     ${formateDate(msg.time)}
+                                </div>
+                            `;
+                    this.chatMessages.appendChild(chat__message)
                 },
                 init: function () {
                     console.log("chat Created");
@@ -2109,21 +2412,11 @@
 
                     document.querySelectorAll('.tenders-chat__button').forEach(btn => {
                         btn.addEventListener('click', async (e) => {
-                            console.log(e.currentTarget.dataset.open)
-                            if (e.currentTarget.dataset.open == '1') {
-                                e.currentTarget.dataset.open = '0';
-                                console.log("CLOSE")
-                                //this.user.room = 0;
-                            } else if (e.currentTarget.dataset.open == '0') {
-                                e.currentTarget.dataset.open = '1';
-                                console.log('OPEN')
-                                //this.user.room = e.currentTarget.dataset.chat;
-                                await this.openChat(e.currentTarget.dataset.chatid);
-                            }
-
+                            console.log('OPEN')
+                            await this.openChat(e.currentTarget.dataset.chatid);
                         })
                     });
-                    document.querySelectorAll('.chat__form-send').forEach(btn =>{
+                    document.querySelectorAll('.chat__form-send').forEach(btn => {
                         btn.addEventListener('click', (e) => {
                             console.log(e.currentTarget);
                             this.sendMessage();
@@ -2136,6 +2429,11 @@
             Chat.init();
         }
 
+        function formateDate(date) {
+            if (date == null)
+                return 0;
+            return date.split('T')[1].split('.')[0]
+        }
     </script>
 
 

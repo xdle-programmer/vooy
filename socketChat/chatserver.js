@@ -8,7 +8,7 @@ let test = 111;
 
 var app = express();
 var httpServer = http.createServer().listen(3000);
-let message = (name, text, id, files, time, m_id, image, status) => ({
+let message = (name, text, id, files, time, m_id, image, status, decline_text = '') => ({
     name,
     text,
     id,
@@ -16,7 +16,8 @@ let message = (name, text, id, files, time, m_id, image, status) => ({
     time,
     m_id,
     image,
-    status
+    status,
+    decline_text,
 });
 
 console.log('start');
@@ -109,6 +110,11 @@ function init(server) {
                 console.log(users.getAll());
                 const user = users.getBySocket(data.userSocket)
                 //console.log('send to room: ' + user.room)
+                if (user == undefined)
+                {
+                    console.log('cant find user');
+                    return ;
+                }
                 if (data.files) {
                     console.log('data.files');
                     io.to(user.room).emit('message-new', message(data.message.name, data.message.text, Number(data.message.id), data.files, data.message.time, data.message.m_id, data.message.image, 0));
@@ -122,10 +128,26 @@ function init(server) {
         })
         socket.on('message-moderate', (data,callback)=>{
             //console.log(data)
-            let user = users.getByRoomAndId(data.user_id, data.chat_id)
+            console.log(data.message.user_id)
+            console.log(data.message.chat_id)
+            let user = users.getByRoomAndId(data.message.user_id, data.message.chat_id)
             console.log('MODERATE')
             console.log(user)
-            io.to(user.socketId).emit('message-moderated', data)
+            console.log(data)
+            if (user == undefined)
+            {
+                console.log('cant find user')
+                return;
+            }
+            if (data.files) {
+                console.log('data.files');
+                io.to(user.room).emit('message-moderated', message('имя', data.message.text, Number(data.message.user_id), data.files, data.message.created_at, data.message.id, '', Number(data.message.status), data.message.decline_text));
+            } else {
+                console.log('NO data.files');
+                io.to(user.room).emit('message-moderated', message('имя', data.message.text, Number(data.message.user_id), null, data.message.created_at, data.message.id, '', Number(data.message.status), data.message.decline_text));
+            }
+
+            //io.to(user.socketId).emit('message-moderated', data)
             //console.log(io.clients)
         })
 

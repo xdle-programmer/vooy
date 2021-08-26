@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMessagesTable extends Migration
+class CreateProductCharacteristicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,27 +13,23 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
+        Schema::create('product_characteristics', function (Blueprint $table) {
             $table->id();
-            $table->text('text');
-            $table->text('decline_text')->nullable();
-            $table->boolean('has_attachment')->default(0);
+            $table->string('value');
 
-            $table->bigInteger('chat_id')->unsigned();
-            $table->foreign('chat_id')
+            $table->bigInteger('product_id')->unsigned();
+            $table->foreign('product_id')
                 ->references('id')
-                ->on('chats')
+                ->on('products')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')
+            $table->bigInteger('characteristic_id')->unsigned();
+            $table->foreign('characteristic_id')
                 ->references('id')
-                ->on('users')
+                ->on('characteristics')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-
-            $table->tinyInteger('status')->default('0');
             $table->timestamps();
         });
     }
@@ -45,6 +41,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        Schema::dropIfExists('product_characteristics');
     }
 }

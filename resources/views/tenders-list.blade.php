@@ -162,11 +162,10 @@
             </section>
         </div>
     </div>
+
+
 @stop
 
 @section('f_script')
-    <script>
 
-
-    </script>
 @stop

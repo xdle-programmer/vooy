@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TenderController;
 use App\Http\Controllers\CurrencyController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EmailController;
 
 
@@ -40,6 +41,12 @@ Route::get('/tender/get/{id}', [TenderController::class, 'getTender'])->name("te
 
 Route::post('/review/hide', [TenderController::class, 'hideReview'])->name("review-hide");
 Route::post('/review/unhide', [TenderController::class, 'unhideReview'])->name("review-unhide");
+
+//PRODUCT
+Route::get('/products', [ProductController::class, 'productList'])->name("product-list");
+Route::get('/product/card/{id}', [ProductController::class, 'productCart'])->name("product-cart");
+Route::get('/product/new', [ProductController::class, 'productNew'])->name("product-new");
+Route::post('/product/create', [ProductController::class, 'createProduct'])->name("product-create");
 
 //CHAT
 Route::get('/chat', [TenderController::class, 'showChat'])->name("chat");

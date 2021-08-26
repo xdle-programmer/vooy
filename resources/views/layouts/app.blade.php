@@ -29,12 +29,12 @@
                 </div>
             </a>
             <div class="header__catalog">
-                <div class="header__catalog-button">
+                <a href="/products" class="header__catalog-button">
                     <div class="header__catalog-button-text">Каталог</div>
                     <svg class="header__catalog-button-icon">
                         <use xlink:href="../images/icons/icons-sprite.svg#menu"></use>
                     </svg>
-                </div>
+                </a>
             </div>
             <div class="header__search-box-wrapper">
                 <div class="header__search-box"></div>

@@ -91,7 +91,6 @@ class SubstatusEditScreen extends Screen
               ->title('Название')
               ->placeholder($this->data->name),
           ])
-
         ];
     }
 

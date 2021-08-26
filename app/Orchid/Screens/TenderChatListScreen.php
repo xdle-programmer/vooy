@@ -37,7 +37,7 @@ class TenderChatListScreen extends Screen
     public function query(): array
     {
 
-        $chats = Chat::with('tender', 'review', 'users', 'messages')->filters()->paginate(20);
+        $chats = Chat::with('tender', 'tender.products', 'review', 'users', 'messages')->filters()->paginate(20);
         return [
             'chats' => $chats
         ];
@@ -63,7 +63,12 @@ class TenderChatListScreen extends Screen
         return [
             Layout::table('chats', [
                 TD::make('id')->sort(),
-                TD::make('tender.id', 'тендер')->sort(),
+                TD::make('tender.id', 'id тендера')->sort(),
+                TD::make('tender.id', 'тендер')
+                    ->render(function (Chat $chat) {
+                    return $chat->tender->products->first()->title;
+                }),
+
                 TD::make('review.id', 'Предложение')->sort(),
                 TD::make('users', 'Участники')
                     ->sort()
@@ -75,6 +80,22 @@ class TenderChatListScreen extends Screen
                     ->sort()
                     ->render(function (Chat $chat) {
                         return $chat->messages->count();
+                    }),
+
+                TD::make('messages', 'Необработанно')
+                    ->sort()
+                    ->render(function (Chat $chat) {
+                        return $chat->messages->where('status', '0')->count();
+                    }),
+
+                TD::make(__('Actions'))
+                    ->align(TD::ALIGN_CENTER)
+                    ->width('100px')
+                    ->render(function (Chat $сhat) {
+                        return Link::make("Войти")
+                                    ->turbo(false)
+                                    ->route('platform.chat', $сhat->id)
+                                    ->icon('eye');
                     }),
 
             ])

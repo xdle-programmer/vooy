@@ -49,7 +49,7 @@ class SubstatusScreen extends Screen
     public function commandBar(): array
     {
         return [
-          Link::make('Create new')
+          Link::make('Добавить')
             ->icon('pencil')
             ->route('platform.substatus.edit'),
         ];

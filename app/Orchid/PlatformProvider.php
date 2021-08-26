@@ -8,6 +8,8 @@ use Orchid\Platform\OrchidServiceProvider;
 use Orchid\Screen\Actions\Menu;
 use Orchid\Support\Color;
 
+use App\Models\Message;
+
 class PlatformProvider extends OrchidServiceProvider
 {
     /**
@@ -29,6 +31,13 @@ class PlatformProvider extends OrchidServiceProvider
 
             Menu::make('Чаты')
                 ->icon('folder')
+                ->turbo(false)
+                ->badge(function () {
+                    if (Message::where('status', '0')->count() != 0) {
+                        return Message::where('status', '0')->count();
+                    }
+                    return null;
+                })
                 ->route('platform.chats'),
 
             Menu::make('Тендеры')
@@ -73,6 +82,19 @@ class PlatformProvider extends OrchidServiceProvider
                         ->icon('layers')
                         ->route('platform.sellerRus'),
                 ]),
+
+            Menu::make('Продукты')
+                ->icon('code')
+                ->list([
+                    Menu::make("Категории")
+                        ->icon('layers')
+                        ->route('platform.categories'),
+                    Menu::make("Характеристики")
+                        ->icon('layers')
+                        ->route('platform.characteristics'),
+                ]),
+
+
 
             Menu::make("Валюты")
                 ->icon('layers')

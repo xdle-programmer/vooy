@@ -42,6 +42,13 @@ use App\Orchid\Screens\Currencies;
 use App\Orchid\Screens\TenderChatListScreen;
 use App\Orchid\Screens\TenderChatScreen;
 
+use App\Orchid\Screens\ProductCategoryScreen;
+use App\Orchid\Screens\ProductCategoryEditScreen;
+use App\Orchid\Screens\ProductCharacteristicScreen;
+use App\Orchid\Screens\ProductCharacteristicEditScreen;
+use App\Orchid\Screens\ProductCategoryCharacteristicScreen;
+use App\Orchid\Screens\ProductCharacteristicValuesScreen;
+
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -93,6 +100,19 @@ Route::screen('connectors', ProviderConnector::class)->name('platform.connectors
 
 //Currency
 Route::screen('currencies', Currencies::class)->name('platform.currencies');
+
+//PRODUCT
+
+//CATEGORY
+Route::screen('categories', ProductCategoryScreen::class)->name('platform.categories');
+Route::screen('category/{category?}', ProductCategoryEditScreen::class)->name('platform.category.edit');
+Route::screen('category/characteristics/{category?}', ProductCategoryCharacteristicScreen::class)->name('platform.category.characteristics');
+
+//CHARACTERISTIC
+Route::screen('characteristics', ProductCharacteristicScreen::class)->name('platform.characteristics');
+Route::screen('characteristic/{characteristic?}', ProductCharacteristicEditScreen::class)->name('platform.characteristic.edit');
+Route::screen('characteristic/selects/{characteristic?}', ProductCharacteristicValuesScreen::class)->name('platform.characteristic.selects');
+
 
 
 

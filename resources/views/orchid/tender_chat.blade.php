@@ -11,7 +11,7 @@
 
     .chat {
         display: flex;
-        height: 55vh;
+        height: 75vh;
         width: 100%;
     }
 
@@ -26,13 +26,13 @@
         text-align: center;
         align-items: center;
     }
-    .actions > .btn{
+
+    .actions > .btn {
         margin: 5px;
         height: 40px;
     }
 
     .chat-messages {
-        border: 1px solid #e0e0e0;
         width: 100%;
         padding: 15px;
         overflow-y: auto;
@@ -43,14 +43,16 @@
         justify-content: space-between;
         margin-bottom: 10px;
     }
-    .message:hover{
+
+    .message:hover {
         background-color: #ebebeb;
     }
 
-    .declined{
+    .declined {
         background-color: #ffd7e1;
     }
-    .accepted{
+
+    .accepted {
         background-color: #d7ffe1;
     }
 
@@ -208,17 +210,48 @@
 </style>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-
 <a class="btn  btn-secondary" href="{{url("admin/chats")}}">Назад</a>
 <div class="bg-white rounded shadow-sm mb-3" data-controller="layouts--table">
     <div id="adminPanel">
+        <div class=" d-none d-md-block  layout v-md-center">
+            <header class="d-none d-md-block col-xs-12 col-md p-0">
+                <h1 class="m-0 fw-light h3 text-black"> Необработанно сообщений: @{{unmod_msg}}
+                </h1>
+            </header>
+        </div>
+
         <div class="chat">
             <div class="chat-messages" ref="messages">
-                <chat-message v-for="(m, i) in messages" :msgdecline = "msgDecline" :msgaccept = "msgAccept" :message="m" :user="user" :key="i" :path="path"></chat-message>
+                <chat-message v-for="(m, i) in messages" :msgtarget="msgTarget" :msgdecline="msgDecline"
+                              :msgaccept="msgAccept" :message="m" :user="user" :key="i" :path="path"></chat-message>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Отклонить сообщение?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <textarea style="width: 100%" placeholder="Причина отклонения" v-model.trim="declineMessage">
+
+                        </textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                        <button type="button" v-on:click="msgDecline" data-bs-dismiss="modal" class="btn btn-primary">
+                            Ок
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -228,6 +261,7 @@
 
     const USER = {!!json_encode($user) !!};
     const CHAT = {!!json_encode($chat) !!};
+    const UNMOD = {!!json_encode($unmoderated) !!};
 
     let port = 3000;
     let socket = io(`//${location.hostname}:${port}`);
@@ -235,7 +269,7 @@
     socket.on('connect_error', (err) => console.dir(err));
 
     Vue.component('chat-message', {
-        props: ['message', 'user', 'path','msgaccept','msgdecline'],
+        props: ['message', 'user', 'path', 'msgaccept', 'msgdecline', 'msgtarget'],
         template: `
           <div :id="'msg_' + message.m_id"  class="message" :class="{'accepted' : message.status == 1, 'declined' : message.status == -1 }">
               <div class="message-content z-depth-1" :id="'m_' + message.m_id">
@@ -244,10 +278,10 @@
                   <div v-if="message.files">
                     <div v-for="(mf, y) in message.files">
                       <div v-if="(mf.type == 'jpg') || (mf.type == 'gif') || (mf.type == 'png') || (mf.type == 'jpeg') ">
-                        <img class="chat-img" v-bind:src="path + '/public/storage/chats/'+ user.room +'/'+ mf.name" />
+                        <img class="chat-img" v-bind:src="path + '/storage/chatRoom/'+ user.room +'/'+ mf.name" />
                       </div>
                       <div v-else>
-                      <a download v-bind:href="path + '/public/storage/chats/'+ user.room +'/'+ mf.name" >@{{mf.name}}</a>
+                      <a download v-bind:href="path + '/storage/chatRoom/'+ user.room +'/'+ mf.name" >@{{mf.name}}</a>
                       </div>
                     </div>
                   </div>
@@ -259,7 +293,7 @@
               </div>
               <div v-if="message.status == 0" class="actions">
                  <div v-on:click="msgaccept" :data-id="message.m_id" class="btn btn-success">Принять</div>
-                 <div v-on:click="msgdecline" :data-id="message.m_id" class="btn btn-danger">Отклонить</div>
+                 <div v-on:click="msgtarget" data-bs-toggle="modal" data-bs-target="#exampleModal" :data-id="message.m_id" class="btn btn-danger">Отклонить</div>
               </div>
           </div>
           `
@@ -276,7 +310,7 @@
                 text: msg.text,
                 name: msg.user.name,
                 time: msg.created_at,
-                files: null
+                files: msg.attachments
             });
         })
 
@@ -295,6 +329,7 @@
             foundMessagesIndex: 0,
             foundMessagesLastId: null,
             message: '',
+            declineMessage: null,
             messages: startMessages,
             users: [],
             user: {
@@ -303,7 +338,9 @@
                 room: '',
                 role: 0,
                 socket: ''
-            }
+            },
+            target_msg: null,
+            unmod_msg: UNMOD,
         },
 
         methods: {
@@ -311,9 +348,10 @@
                 this.files = null;
                 document.getElementById('files-text').innerHTML = '';
             },
-            msgAccept(e){
+            msgAccept(e) {
                 console.log(e.currentTarget.dataset.id);
                 let msg_id = e.currentTarget.dataset.id;
+                this.declineMessage = null
                 axios({
                     method: 'POST',
                     url: `${window.location.origin}/chat/message/${msg_id}/accept`,
@@ -323,22 +361,72 @@
                     document.getElementById('msg_' + msg_id).classList.add('accepted')
                 });
             },
-            msgDecline(e){
-                console.log(e.currentTarget.dataset.id);
-                let msg_id = e.currentTarget.dataset.id;
+            msgTarget(e) {
+                this.target_msg = e.currentTarget.dataset.id;
+            },
+            msgDecline() {
+                if (this.target_msg == null)
+                    return;
+                if (this.declineMessage == '')
+                    this.declineMessage = 'Причина не указана'
+
+                console.log(this.declineMessage)
+
                 axios({
                     method: 'POST',
-                    url: `${window.location.origin}/chat/message/${msg_id}/decline`,
+                    url: `${window.location.origin}/chat/message/${this.target_msg}/decline`,
+                    data: {
+                        decline_text: this.declineMessage
+                    },
                 }).then((response) => {
                     console.log(response)
                     this.sendModeratedMessage(response.data)
-                    document.getElementById('msg_' + msg_id).classList.add('declined')
+                    document.getElementById('msg_' + this.target_msg).classList.add('declined')
                 });
             },
 
-            sendModeratedMessage(msg){
+            sendModeratedMessage(msg) {
+                console.log('msg')
+                console.log(msg)
+                this.unmod_msg--;
 
-                socket.emit('message-moderate', msg, data => {
+                document.getElementById('msg_' + msg.message.id).querySelector('.actions').innerHTML = ''
+
+                let message = {
+                    id: msg.message.id,
+                    chat_id: msg.message.chat_id,
+                    user_id: msg.message.user_id,
+                    text: msg.message.text,
+                    created_at: msg.message.created_at,
+                    has_attachment: msg.message.has_attachment,
+                    status: msg.message.status,
+                    decline_text: this.declineMessage
+                }
+
+                let file = null;
+                let files = [];
+                console.log('att')
+                console.log(msg.message.attachments)
+                if (msg.message.attachments) {
+                    msg.message.attachments.forEach(f => {
+                        console.log('f')
+                        console.log(f)
+                        file = {
+                            messageId: f.msg_id,
+                            name: f.name,
+                            type: f.type,
+                        }
+                        files.push(file)
+                    })
+                }
+                let data;
+                if (files.length == 0)
+                    data = {message: message}
+                else
+                    data = {message: message, files: files}
+
+
+                socket.emit('message-moderate', data, data => {
                     console.log('startRoom');
                     if (typeof data === 'string') {
                         console.error(data)
@@ -361,6 +449,7 @@
                     this.messages.push(message)
                     //console.log( this.messages);
                     scrollToBottom(this.$refs.messages)
+                    this.unmod_msg++;
                 })
 
                 scrollToBottom(this.$refs.messages)

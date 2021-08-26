@@ -7,6 +7,7 @@ use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Screen;
 
 use App\Models\Chat;
+use  App\Models\Message;
 
 class TenderChatScreen extends Screen
 {
@@ -31,11 +32,13 @@ class TenderChatScreen extends Screen
      */
     public function query(Chat $chat): array
     {
-        $chat = Chat::with('tender', 'review', 'users', 'messages', 'messages.user')->where('id',$chat->id)->first();
+        $chat = Chat::with('tender', 'review', 'users', 'messages', 'messages.user', 'messages.attachments')->where('id',$chat->id)->first();
         $user = auth()->user();
+        $unmoderated = Message::where('chat_id', $chat->id)->where('status','0')->count();
         return [
             'chat' => $chat,
-            'user' => $user
+            'user' => $user,
+            'unmoderated' => $unmoderated
         ];
     }
 
