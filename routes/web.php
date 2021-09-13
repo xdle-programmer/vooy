@@ -5,7 +5,7 @@ use App\Http\Controllers\TenderController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EmailController;
-
+use App\Http\Controllers\AccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +47,7 @@ Route::get('/products', [ProductController::class, 'productList'])->name("produc
 Route::get('/product/card/{id}', [ProductController::class, 'productCart'])->name("product-cart");
 Route::get('/product/new', [ProductController::class, 'productNew'])->name("product-new");
 Route::post('/product/create', [ProductController::class, 'createProduct'])->name("product-create");
+Route::get('/product/edit/{id}', [ProductController::class, 'editProduct'])->name("product-edit");
 
 //CHAT
 Route::get('/chat', [TenderController::class, 'showChat'])->name("chat");
@@ -56,6 +57,9 @@ Route::post('/chat/newRoom', [TenderController::class, 'createRoom'])->name("cha
 
 Route::post('/chat/message/{id}/accept', [TenderController::class, 'messageAccept'])->name("msg-accept");
 Route::post('/chat/message/{id}/decline', [TenderController::class, 'messageDecline'])->name("msg-decline");
+
+//ACCOUNT
+Route::get('/account/{id?}', [AccountController::class, 'showAccount'])->name("account");
 
 //CURRENCY
 Route::post('/currency/update', [CurrencyController::class, 'update'])->name("currency-update");

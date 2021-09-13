@@ -31,6 +31,16 @@ class Product extends Model
         return $this->belongsToMany(Category::class, "product_categories", "product_id", "category_id");
     }
 
+    public function characteristics()
+    {
+        return $this->hasMany(ProductCharacteristic::class, "product_id");
+    }
+
+    public function selects()
+    {
+        return $this->hasMany(ProductCharcteristicSelect::class, "product_id");
+    }
+
     public function attachments()
     {
         return $this->hasMany(ProductAttachment::class, 'product_id');

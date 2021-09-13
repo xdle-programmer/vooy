@@ -146,29 +146,47 @@
                             <div class="catalog__filters-group">
                                 @if ($characteristics != null)
                                     @foreach($characteristics->characteristics as $characteristic)
+                                        @php
+                                            $savedSelect = null;
+                                            if (array_key_exists('characteristic', $saveFilter)){
+                                               if (array_key_exists($characteristic->id, $saveFilter['characteristic'])) {
+                                                      $savedSelect = $saveFilter['characteristic'][$characteristic->id];
+                                               }
+                                            }
+                                        @endphp
                                         <div class="catalog__filters-title">{{$characteristic->name}} </div>
                                         @if ($characteristic->type == 1)
                                             <input
+                                                value="{{$savedSelect}}"
                                                 name="filter[characteristic][{{$characteristic->id}}]"
                                                 class="input">
                                         @elseif ($characteristic->type == 2)
                                             <input type="number"
+                                                   value="{{$savedSelect}}"
                                                    name="filter[characteristic][{{$characteristic->id}}]"
                                                    class="input">
                                         @elseif ($characteristic->type == 3)
                                             <div class="catalog__filters-group-item">
                                                 @foreach($characteristic->selects as $select)
-                                                <div class="catalog__filters-item">
-                                                    <label class="checkbox">
-                                                        <input name="filter[characteristic][{{$characteristic->id}}][{{$select->id}}]" class="checkbox__input" type="checkbox">
-                                                        <span class="checkbox__item">
+                                                    <div class="catalog__filters-item">
+                                                        <label class="checkbox">
+                                                            <input
+                                                                @if($savedSelect != null)
+                                                                @if (array_key_exists($select->id, $savedSelect))
+                                                                checked
+                                                                @endif
+                                                                @endif
+                                                                name="filter[characteristic][{{$characteristic->id}}][{{$select->id}}]"
+                                                                class="checkbox__input" type="checkbox">
+                                                            <span class="checkbox__item">
                                                             <svg class="checkbox__icon">
-                                                                <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
+                                                                <use
+                                                                    xlink:href="../images/icons/icons-sprite.svg#check"></use>
                                                             </svg>
                                                             <span class="checkbox__text">{{$select->name}}</span>
                                                         </span>
-                                                    </label>
-                                                </div>
+                                                        </label>
+                                                    </div>
                                                 @endforeach
                                             </div>
                                         @endif
@@ -250,5 +268,10 @@
             </div>
         </section>
     </div>
+
+    <script>
+        $FILTER = {!! json_encode($saveFilter) !!};
+        console.log($FILTER)
+    </script>
 @stop
 

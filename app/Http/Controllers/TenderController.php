@@ -218,6 +218,7 @@ class TenderController extends Controller
         $isFiltered = $request->input('filtered');
         $onlyMy = $request->input('onlyMy');
         $onlyMyProvider = $request->input('onlyMyProvider');
+        $onlyMyRelease = $request->input('onlyMyRelease');
         $onlyActive = $request->input('onlyActive');
         $onlyArchive = $request->input('onlyArchive');
 
@@ -233,6 +234,11 @@ class TenderController extends Controller
                     $tenders = $tenders->whereHas('reviews', function ($q) use ($user) {
                         $q->where('provider_id', $user->id)->orWhere('deliveryman_id', $user->id);
                     });
+                }
+                if ($onlyMyRelease == 'on') {
+                    $tenders = $tenders->whereHas('reviews', function ($q) use ($user) {
+                        $q->where('provider_id', $user->id)->orWhere('deliveryman_id', $user->id);
+                    })->where('provider_id', $user->id);
                 }
             }
             if ($onlyActive == 'on') {
