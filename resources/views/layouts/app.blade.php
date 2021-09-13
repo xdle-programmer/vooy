@@ -65,6 +65,10 @@
                 </a></div>
             @if (Route::has('login'))
                 @auth
+                    <div class="header__control" data-modal-open="login">
+                        <div class="header__control-text">{{ Auth::user()->email}}</div>
+                    </div>
+
                     <div class="header__control">
 
                         <form method="POST" action="{{ route('logout') }}">
@@ -77,6 +81,8 @@
                         </form>
                     </div>
                 @else
+
+
                     <div class="header__control" data-modal-open="login">
                         <div class="header__control-text">Войти</div>
                     </div>
