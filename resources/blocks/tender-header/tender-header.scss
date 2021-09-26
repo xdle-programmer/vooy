@@ -4,85 +4,106 @@
 @import "../base/media-queries";
 
 .tender-header {
-  @include flex-row-center;
-  justify-content: space-between;
+    @include flex-row-center;
+    justify-content: space-between;
 
-  &__main {
+    &__main {
 
-  }
-
-  &__main-title {
-    font-size: 24px;
-    @include flex-row;
-  }
-
-  &__main-title-name {
-    color: var(--black-color);
-    margin-right: 10px;
-  }
-
-  &__main-title-number {
-    color: var(--gray-color);
-    margin-right: 10px;
-  }
-
-  &__main-title-status {
-    margin-right: 10px;
-    margin-left: 20px;
-  }
-
-  &__main-title-status-title {
-    font-size: 13px;
-    margin-bottom: 4px;
-    text-align: center;
-    padding-right: 4px;
-
-    &--green {
-      color: var(--middle-green-color);
     }
 
-    &--gold {
-      color: var(--gold-color);
+    &__main-title {
+        font-size: 24px;
+        @include flex-row;
     }
 
-    &--gray {
-      color: var(--gray-color);
+    &__main-title-name {
+        color: var(--black-color);
+        margin-right: 10px;
     }
-  }
 
-  &__main-title-status-line {
-    width: 120px;
-    height: 4px;
-  }
+    &__main-title-number {
+        color: var(--gray-color);
+        margin-right: 10px;
+    }
 
-  &__main-assessment {
-    margin-right: 10px;
-  }
+    &__main-title-status {
+        margin-right: 10px;
+        margin-left: 20px;
+    }
 
-  &__main-buttons {
-    @include flex-row;
-    margin-top: 20px;
-  }
+    &__main-title-status-title {
+        font-size: 13px;
+        margin-bottom: 4px;
+        text-align: center;
+        padding-right: 4px;
 
-  &__main-button {
-    margin-right: 20px;
-  }
+        &--green {
+            color: var(--middle-green-color);
+        }
 
-  &__desc {
-  }
+        &--gold {
+            color: var(--gold-color);
+        }
 
-  &__desc-item {
-    display: grid;
-    grid-template-columns: 1fr max-content;
-    grid-gap: 5px;
-  }
+        &--gray {
+            color: var(--gray-color);
+        }
+    }
 
-  &__desc-item-name {
-    text-align: right;
-    color: var(--gray-color);
-  }
+    &__main-title-status-line {
+        width: 120px;
+        height: 4px;
+    }
 
-  &__desc-item-value {
-    color: var(--black-color);
-  }
+    &__main-assessment {
+        margin-right: 10px;
+    }
+
+    &__main-buttons {
+        @include flex-row;
+        margin-top: 20px;
+    }
+
+    &__main-button {
+        margin-right: 20px;
+    }
+
+    &__desc {
+    }
+
+    &__desc-item {
+        display: grid;
+        grid-template-columns: 1fr max-content;
+        grid-gap: 5px;
+    }
+
+    &__desc-item-name {
+        text-align: right;
+        color: var(--gray-color);
+    }
+
+    &__desc-item-value {
+        color: var(--black-color);
+    }
+}
+
+@media (max-width: 700px) {
+
+    .tender-header {
+        @include flex-column;
+        justify-content: space-between;
+
+        &__main {
+            padding: 10px;
+            width: 100%;
+        }
+        &__desc {
+            margin-left: auto;
+            margin-right: 10px;
+        }
+        &__main-button {
+            width: 100%;
+            margin: 0;
+        }
+    }
 }

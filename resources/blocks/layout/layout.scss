@@ -6,4 +6,25 @@
 .layout {
   width: 1230px;
   @include margin-auto;
+
+    &__overflow-x{
+        overflow-x: auto;
+    }
+}
+
+.layout-m {
+    width: 1230px;
+    @include margin-auto;
+}
+
+
+@media (max-width: 700px) {
+    .layout-m {
+        width: 100%;
+        @include margin-auto;
+    }
+    .layout{
+        width: 100%;
+        @include margin-auto;
+    }
 }

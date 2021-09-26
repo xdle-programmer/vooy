@@ -4,212 +4,479 @@
 @import "../base/media-queries";
 
 .header {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 10000;
-
-  $scroll: '.header--scroll';
-
-  &__main-wrapper {
-    background: var(--white-color);
+    position: fixed;
+    left: 0;
+    top: 0;
     width: 100%;
-    position: relative;
-    z-index: 2;
+    z-index: 10000;
 
-    #{$scroll} & {
-      box-shadow: 0 -2px 5px 0 var(--blue-color)
-    }
-  }
+    $scroll: '.header--scroll';
 
-  &__main-block {
-    @include flex-row;
-    align-items: center;
-    padding: 17px 0 24px;
+    &__main-wrapper {
+        background: var(--white-color);
+        width: 100%;
+        position: relative;
+        z-index: 2;
 
-    #{$scroll} & {
-      padding: 12px 0;
-    }
-  }
-
-  &__logo {
-    width: 90px;
-    display: block;
-    margin-right: 65px;
-  }
-
-  &__catalog {
-    margin-right: 20px;
-  }
-
-  &__catalog-button {
-    background: var(--blue-color);
-    @include flex-row-center;
-    height: 40px;
-    padding: 10px 10px;
-    border-radius: 4px;
-    position: relative;
-    cursor: pointer;
-
-    &:hover {
-      background: var(--middle-blue-color);
+        #{$scroll} & {
+            box-shadow: 0 -2px 5px 0 var(--blue-color)
+        }
     }
 
-    @include active-button-effect;
-    @include unselectable;
-  }
+    &__main-block {
+        @include flex-row;
+        align-items: center;
+        padding: 17px 0 24px;
 
-  &__catalog-button-text {
-    font-weight: 500;
-    font-size: 16px;
-    margin-right: 9px;
-    position: relative;
-    color: var(--white-color);
-  }
-
-  &__catalog-button-icon {
-    width: 18px;
-    height: 14px;
-    fill: var(--white-color);
-    position: relative;
-  }
-
-  &__search-box-wrapper {
-    height: 40px;
-    width: 552px;
-    position: relative;
-  }
-
-  &__search-box {
-    width: 100%;
-    height: 100%;
-  }
-
-  &__search-select {
-    position: absolute;
-    right: 56px;
-    top: 1px;
-    height: calc(100% - 2px);
-    width: 160px;
-  }
-
-  &__search-row-button-icon {
-    width: 20px;
-    height: 20px;
-    fill: var(--white-color);
-  }
-
-  &__controls {
-    @include flex-row;
-    flex-grow: 1;
-  }
-
-  &__control {
-    @include flex-row;
-    align-items: center;
-    margin-left: 25px;
-    cursor: pointer;
-  }
-
-  $control-hover: '.header__control:hover';
-
-  &__control-icon {
-    width: 18px;
-    height: 18px;
-    fill: var(--gray-color);
-    margin-right: 10px;
-
-    #{$control-hover} & {
-      fill: var(--blue-color);
-    }
-  }
-
-  &__control-text {
-    color: var(--black-color);
-    font-weight: 500;
-    font-size: 16px;
-    white-space: nowrap;
-
-    #{$control-hover} & {
-      color: var(--blue-color);
-    }
-  }
-
-  &__natural-wrapper {
-    background: var(--light-gray-color);
-    position: relative;
-    z-index: 1;
-
-    #{$scroll} & {
-      transform: translateY(-100%);
-    }
-  }
-
-  &__natural-block {
-    @include flex-row-center;
-    justify-content: space-between;
-    padding: 12px 0;
-  }
-
-  &__natural-links {
-    @include flex-row;
-  }
-
-  &__natural-link {
-    color: var(--black-color);
-    margin-right: 25px;
-    font-size: 16px;
-    position: relative;
-
-    &:after {
-      @include pseudo-absolute;
-      width: 100%;
-      height: 1px;
-      background: var(--blue-color);
-      left: 0;
-      top: calc(100% + 2px);
-      opacity: 0;
-      transform: scaleX(0);
-      transform-origin: left;
+        #{$scroll} & {
+            padding: 12px 0;
+        }
     }
 
-    &:hover:after {
-      opacity: 1;
-      transform: scaleX(1);
+    &__logo {
+        width: 90px;
+        display: block;
+        margin-right: 65px;
     }
 
-    &:hover,
-    &--blue {
-      color: var(--blue-color);
+    &__catalog {
+        margin-right: 20px;
     }
-  }
 
-  &__natural-phone {
-    @include flex-row-center;
-    cursor: pointer;
-  }
-
-  $phone-hover: '.header__natural-phone:hover';
-
-  &__natural-phone-icon {
-    width: 18px;
-    height: 18px;
-    display: block;
-    fill: var(--black-color);
-    margin-right: 7px;
-
-    #{$phone-hover} & {
-      fill: var(--blue-color);
+    &__menu {
+        display: none;
     }
-  }
 
-  &__natural-phone-text {
-    font-size: 16px;
-    color: var(--black-color);
+    &__catalog-button {
+        background: var(--blue-color);
+        @include flex-row-center;
+        height: 40px;
+        padding: 10px 10px;
+        border-radius: 4px;
+        position: relative;
+        cursor: pointer;
 
-    #{$phone-hover} & {
-      color: var(--blue-color);
+        &:hover {
+            background: var(--middle-blue-color);
+        }
+
+        @include active-button-effect;
+        @include unselectable;
     }
-  }
+
+    &__catalog-button-text {
+        font-weight: 500;
+        font-size: 16px;
+        margin-right: 9px;
+        position: relative;
+        color: var(--white-color);
+    }
+
+    &__catalog-button-icon {
+        width: 18px;
+        height: 14px;
+        fill: var(--white-color);
+        position: relative;
+    }
+
+    &__search-box-wrapper {
+        height: 40px;
+        width: 552px;
+        position: relative;
+    }
+
+    &__search-box {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__search-select {
+        display: none;
+    }
+
+    &__search-row-button-icon {
+        width: 20px;
+        height: 20px;
+        fill: var(--white-color);
+    }
+
+    &__controls {
+        @include flex-row;
+        flex-grow: 1;
+    }
+
+    &__control {
+        @include flex-row;
+        align-items: center;
+        margin-left: 25px;
+        cursor: pointer;
+    }
+
+    $control-hover: '.header__control:hover';
+
+    &__control-icon {
+        width: 18px;
+        height: 18px;
+        fill: var(--gray-color);
+        margin-right: 10px;
+
+        #{$control-hover} & {
+            fill: var(--blue-color);
+        }
+    }
+
+    &__control-text {
+        color: var(--black-color);
+        font-weight: 500;
+        font-size: 16px;
+        white-space: nowrap;
+
+        #{$control-hover} & {
+            color: var(--blue-color);
+        }
+    }
+
+    &__natural-wrapper {
+        background: var(--light-gray-color);
+        position: relative;
+        z-index: 1;
+
+        #{$scroll} & {
+            transform: translateY(-100%);
+        }
+    }
+
+    &__natural-block {
+        @include flex-row-center;
+        justify-content: space-between;
+        padding: 12px 0;
+    }
+
+    &__natural-controls-mini{
+        display: none;
+    }
+
+    &__natural-links {
+        @include flex-row;
+    }
+
+    &__natural-link {
+        color: var(--black-color);
+        margin-right: 25px;
+        font-size: 16px;
+        position: relative;
+
+        &:after {
+            @include pseudo-absolute;
+            width: 100%;
+            height: 1px;
+            background: var(--blue-color);
+            left: 0;
+            top: calc(100% + 2px);
+            opacity: 0;
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+
+        &:hover:after {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+
+        &:hover,
+        &--blue {
+            color: var(--blue-color);
+        }
+    }
+
+    &__natural-phone {
+        @include flex-row-center;
+        cursor: pointer;
+    }
+
+    $phone-hover: '.header__natural-phone:hover';
+
+    &__natural-phone-icon {
+        width: 18px;
+        height: 18px;
+        display: block;
+        fill: var(--black-color);
+        margin-right: 7px;
+
+        #{$phone-hover} & {
+            fill: var(--blue-color);
+        }
+    }
+
+    &__natural-phone-text {
+        font-size: 16px;
+        color: var(--black-color);
+
+        #{$phone-hover} & {
+            color: var(--blue-color);
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .header {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 10000;
+
+        $scroll: '.header--scroll';
+
+        &__main-wrapper {
+            background: var(--white-color);
+            width: 100%;
+            position: relative;
+            z-index: 2;
+
+            #{$scroll} & {
+                box-shadow: 0 -2px 5px 0 var(--blue-color)
+            }
+        }
+
+        &__main-block {
+            width: 100% !important;
+            @include flex-row;
+            align-items: center;
+            padding: 17px 0 24px;
+            justify-content: space-evenly;
+            #{$scroll} & {
+                padding: 12px 0;
+            }
+        }
+
+        &__logo {
+            width: 60px;
+            display: block;
+            margin-right: 25px;
+            margin-left: 10px;
+        }
+
+        &__menu {
+            margin-left: 10px;
+            margin-right: 10px;
+            display: block;
+        }
+
+        &__menu-button {
+            background: var(--blue-color);
+            @include flex-row-center;
+            height: 40px;
+            padding: 10px 10px;
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+
+            &:hover {
+                background: var(--middle-blue-color);
+            }
+
+            @include active-button-effect;
+            @include unselectable;
+        }
+
+        &__catalog {
+            display: none;
+        }
+
+        &__catalog-button {
+            background: var(--blue-color);
+            @include flex-row-center;
+            height: 40px;
+            padding: 10px 10px;
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+
+            &:hover {
+                background: var(--middle-blue-color);
+            }
+
+            @include active-button-effect;
+            @include unselectable;
+        }
+
+        &__catalog-button-text {
+            font-weight: 500;
+            font-size: 16px;
+            margin-right: 9px;
+            position: relative;
+            color: var(--white-color);
+        }
+
+        &__catalog-button-icon {
+            width: 18px;
+            height: 14px;
+            fill: var(--white-color);
+            position: relative;
+        }
+
+        &__search-box-wrapper {
+            height: 40px;
+            width:  55%;
+            position: relative;
+        }
+
+        &__search-box {
+            width: 100%;
+            height: 100%;
+        }
+
+        &__search-select {
+            position: absolute;
+            right: 10px;
+            top: 1px;
+            height: calc(100% - 2px);
+            width: 100px;
+            display: none;
+        }
+
+        &__search-row-button-icon {
+            width: 20px;
+            height: 20px;
+            fill: var(--white-color);
+        }
+
+        &__controls {
+            @include flex-row;
+            flex-grow: 1;
+            display: none;
+        }
+
+        &__control {
+            @include flex-row;
+            align-items: center;
+            margin-left: 25px;
+            cursor: pointer;
+        }
+
+        $control-hover: '.header__control:hover';
+
+        &__control-icon {
+            width: 18px;
+            height: 18px;
+            fill: var(--gray-color);
+            margin-right: 10px;
+
+            #{$control-hover} & {
+                fill: var(--blue-color);
+            }
+        }
+
+        &__control-text {
+            color: var(--black-color);
+            font-weight: 500;
+            font-size: 16px;
+            white-space: nowrap;
+
+            #{$control-hover} & {
+                color: var(--blue-color);
+            }
+        }
+
+        &__natural-wrapper {
+            transform: translateY(-100%);
+        }
+
+        &__natural-wrapper-open {
+            transform: translateY(0);
+
+        }
+
+        &__natural-block {
+            @include flex-row-center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            flex-wrap: nowrap;
+        }
+
+        &__natural-controls-mini{
+            @include flex-column;
+            align-items: center;
+        }
+        &__natural-control-mini{
+            @include flex-row-center;
+            cursor: pointer;
+            color: var(--black-color);
+            margin: 5px 0px;
+            font-size: 18px;
+        }
+
+
+
+        &__natural-links {
+            @include flex-column;
+            align-items: center;
+
+        }
+
+        &__natural-link a {
+            color: var(--black-color)!important;
+        }
+
+        &__natural-link {
+            color: var(--black-color);
+            margin: 5px 0px;
+            font-size: 18px;
+            position: relative;
+
+            &:after {
+                @include pseudo-absolute;
+                width: 100%;
+                height: 1px;
+                background: var(--blue-color);
+                left: 0;
+                top: calc(100% + 2px);
+                opacity: 0;
+                transform: scaleX(0);
+                transform-origin: left;
+            }
+
+            &:hover:after {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+
+            &:hover,
+            &--blue {
+                color: var(--blue-color);
+            }
+        }
+
+        &__natural-phone {
+            @include flex-row-center;
+            cursor: pointer;
+        }
+
+        $phone-hover: '.header__natural-phone:hover';
+
+        &__natural-phone-icon {
+            width: 18px;
+            height: 18px;
+            display: block;
+            fill: var(--black-color);
+            margin-right: 7px;
+
+            #{$phone-hover} & {
+                fill: var(--blue-color);
+            }
+        }
+
+        &__natural-phone-text {
+            font-size: 16px;
+            color: var(--black-color);
+
+            #{$phone-hover} & {
+                color: var(--blue-color);
+            }
+        }
+    }
 }

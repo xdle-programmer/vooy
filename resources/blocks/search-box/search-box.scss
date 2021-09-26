@@ -45,8 +45,8 @@
 
     @include mobile-breakpoint() {
       #{$on-focus} & {
-        margin: 0 -30px;
-        width: calc(100% + 60px);
+        //margin: 0 -30px;
+        //width: calc(100% + 60px);
         border-radius: 0;
         border-right-color: transparent;
         border-left-color: transparent;
@@ -89,7 +89,7 @@
       }
 
       #{$on-focus} & {
-        padding-left: 30px;
+        //padding-left: 30px;
       }
 
     }

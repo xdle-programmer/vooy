@@ -11,6 +11,7 @@
   grid-gap: 0 15px;
   grid-template-areas: 'logo title reviews' 'logo options reviews';
   align-items: center;
+    margin: 40px 0px;
 
   &:after {
     @include pseudo-absolute;

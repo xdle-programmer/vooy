@@ -4,7 +4,7 @@
 
     <div class="wrapper">
         <section class="section section--small">
-            <div class="layout">
+            <div class="layout-m">
                 <div class="breadcrumbs"><a class="breadcrumbs__item" href="/">Главная</a>
                     <div class="breadcrumbs__item breadcrumbs__item--active">Тендеры</div>
                 </div>
@@ -16,7 +16,7 @@
         </section>
         <div class="filter">
             <section class="section section--small">
-                <div class="layout">
+                <div class="layout-m">
                     <form id="filterForm" class="" action="tenders" method="get">
                        <input type="hidden" name="filtered" value="true">
 
@@ -86,7 +86,7 @@
                 </div>
             </section>
             <section class="section section--small">
-                <div class="layout">
+                <div class="layout layout__overflow-x">
                     <div class="tender-row tender-row--header tender-row--without-assessment">
                         <div class="tender-row__item">Фото</div>
                         <div class="tender-row__item">Наименование</div>

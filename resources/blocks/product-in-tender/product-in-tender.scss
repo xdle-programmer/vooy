@@ -11,7 +11,23 @@
         border-top: 1px solid var(--light-gray-color);
         border-bottom: 1px solid var(--light-gray-color);
         overflow-y: auto;
+        overflow-x: hidden;
         padding: 10px;
+
+        @include vertical-scroll(
+                4,
+                var(--light-gray-color),
+                var(--blue-color),
+                var(--dark-blue-color)
+        )
+    }
+
+    &__wrapper-min {
+        max-height: calc(100vh - 300px);
+        border-top: 1px solid var(--light-gray-color);
+        border-bottom: 1px solid var(--light-gray-color);
+        overflow-y: auto;
+        overflow-x: hidden!important;
 
         @include vertical-scroll(
                 4,
@@ -95,6 +111,7 @@
         grid-area: name;
 
         &--price {
+            display: flex;
             grid-area: price;
         }
     }
@@ -158,5 +175,7 @@
 
     &__footer {
         padding-top: 20px;
+        display: flex;
+        justify-content: space-between;
     }
 }

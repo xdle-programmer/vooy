@@ -79,10 +79,25 @@
             flex-wrap: wrap;
         }
 
+        div.btn-danger{
+            width: fit-content;
+            display: block;
+            margin-left: auto;
+        }
+
     </style>
 @endpush
-
 <div class="bg-white layout rounded shadow-sm mb-3 " data-controller="layouts--table">
+    <h1 class="m-0 fw-light h3 text-black">Сообщение</h1>
+    <div class="form-group">
+        <textarea id="review-message" class="form-control" name="textarea" title="Example textarea"></textarea>
+    </div>
+</div>
+
+<div id="products-container" class="bg-white layout rounded shadow-sm mb-3 " data-controller="layouts--table">
+    <div onclick="removeProducts()" class="btn  btn-danger">
+        Убрать товары
+    </div>
     @foreach ($tender->products as $index => $product)
         <h1 class="m-0 fw-light h3 text-black">Товар {{$index + 1}}</h1>
         <div class="table-responsive">
@@ -458,13 +473,15 @@
         </label>
 
         <div class="form-check px-4">
-            <input onchange="countryChange(this)" checked id="radio-country-from-ru" type="radio" class="form-check-input" value="1" name="radio"
+            <input onchange="countryChange(this)" checked id="radio-country-from-ru" type="radio"
+                   class="form-check-input" value="1" name="radio"
                    placeholder="Yes" title="Radio">
             <label class="form-check-label" for="radio-country-from-ru">России</label>
         </div>
 
         <div class="form-check">
-            <input onchange="countryChange(this)" id="radio-country-from-ch" type="radio" class="form-check-input" value="2" name="radio"
+            <input onchange="countryChange(this)" id="radio-country-from-ch" type="radio" class="form-check-input"
+                   value="2" name="radio"
                    placeholder="No">
             <label class="form-check-label" for="radio-country-from-ch">Китая</label>
         </div>
@@ -527,11 +544,11 @@
                 <tr onclick="selectProvider(this)" class="hoverable" id="provider-{{$provider->id}}"
                     data-provider='{{$provider->id}}'
                     @if($bothProvider)
-                        data-ct='both'
+                    data-ct='both'
                     @elseIf($userChRole != null)
-                        data-ct='2'
+                    data-ct='2'
                     @elseIf($userRuRole != null)
-                        data-ct='1'
+                    data-ct='1'
                     @endif>
                     <td class="text-left" data-column="title" colspan="1">
                         <div>
@@ -645,8 +662,14 @@
         let TENDER = {!! json_encode($tender) !!};
         let curProvider = null;
         let countryProvider = null
+        let reviewType = 1;
 
-        function countryChange(e){
+        function removeProducts(){
+            document.getElementById('products-container').remove();
+            reviewType = 2;
+        }
+
+        function countryChange(e) {
             console.log(e.value);
             countryProvider = e.value;
         }
@@ -659,20 +682,17 @@
             e.classList.add('hoverable--selected');
             curProvider = e;
 
-            if (e.dataset.ct)
-            {
-                if (e.dataset.ct === 'both'){
+            if (e.dataset.ct) {
+                if (e.dataset.ct === 'both') {
                     countryProvider = '1';
                     document.getElementById('radio-country').classList.remove('d-none')
                     document.getElementById('radio-country').classList.add('d-flex')
-                }
-                else {
+                } else {
                     document.getElementById('radio-country').classList.remove('d-flex')
                     document.getElementById('radio-country').classList.add('d-none')
                     countryProvider = e.dataset.ct
                 }
-            }
-            else {
+            } else {
                 countryProvider = null;
                 document.getElementById('radio-country').classList.remove('d-flex')
                 document.getElementById('radio-country').classList.add('d-none')
@@ -723,48 +743,59 @@
             formData.append("review[tender_id]", TENDER.id);
             formData.append("review[from_country]", countryProvider);
 
-            TENDER.products.forEach((item, i) => {
-                formData.append("review[item][" + i + "][product_id]",
-                    item.id);
 
-                formData.append("review[item][" + i + "][name]",
-                    document.getElementById("product-" + item.id + "-title").textContent);
+            formData.append("review[message]",
+                document.getElementById("review-message").value);
 
-                formData.append("review[item][" + i + "][sample]",
-                    document.getElementById("product-" + item.id + "-sample").checked);
+            if (reviewType == 1){
+                formData.append("review[type]", 1);
 
-                formData.append("review[item][" + i + "][count]",
-                    document.getElementById("product-" + item.id + "-count").value);
+                TENDER.products.forEach((item, i) => {
+                    formData.append("review[item][" + i + "][product_id]",
+                        item.id);
 
-                formData.append("review[item][" + i + "][release_time]",
-                    document.getElementById("product-" + item.id + "-release_time").value);
+                    formData.append("review[item][" + i + "][name]",
+                        document.getElementById("product-" + item.id + "-title").textContent);
 
-                formData.append("review[item][" + i + "][branding]",
-                    document.getElementById("product-" + item.id + "-branding").checked);
+                    formData.append("review[item][" + i + "][sample]",
+                        document.getElementById("product-" + item.id + "-sample").checked);
 
-                formData.append("review[item][" + i + "][packing]",
-                    document.getElementById("product-" + item.id + "-packing").checked);
+                    formData.append("review[item][" + i + "][count]",
+                        document.getElementById("product-" + item.id + "-count").value);
 
-                formData.append("review[item][" + i + "][description]",
-                    document.getElementById("product-" + item.id + "-description").textContent);
+                    formData.append("review[item][" + i + "][release_time]",
+                        document.getElementById("product-" + item.id + "-release_time").value);
 
-                formData.append("review[item][" + i + "][price]",
-                    document.getElementById("product-" + item.id + "-price").value);
+                    formData.append("review[item][" + i + "][branding]",
+                        document.getElementById("product-" + item.id + "-branding").checked);
 
-                formData.append("review[item][" + i + "][currency]",
-                    document.getElementById("product-" + item.id + "-currency").value);
+                    formData.append("review[item][" + i + "][packing]",
+                        document.getElementById("product-" + item.id + "-packing").checked);
 
-                let reviewImages = document.getElementById('product-' + item.id + '-files')
+                    formData.append("review[item][" + i + "][description]",
+                        document.getElementById("product-" + item.id + "-description").textContent);
 
-                if (reviewImages.files && reviewImages.files[0]) {
-                    for (let revIndex = 0; revIndex < reviewImages.files.length; revIndex++) {
-                        console.log(reviewImages.files[revIndex])
-                        formData.append("review[item][" + i + "][attachments][" + revIndex + "][file]",
-                            reviewImages.files[revIndex]);
+                    formData.append("review[item][" + i + "][price]",
+                        document.getElementById("product-" + item.id + "-price").value);
+
+                    formData.append("review[item][" + i + "][currency]",
+                        document.getElementById("product-" + item.id + "-currency").value);
+
+                    let reviewImages = document.getElementById('product-' + item.id + '-files')
+
+                    if (reviewImages.files && reviewImages.files[0]) {
+                        for (let revIndex = 0; revIndex < reviewImages.files.length; revIndex++) {
+                            console.log(reviewImages.files[revIndex])
+                            formData.append("review[item][" + i + "][attachments][" + revIndex + "][file]",
+                                reviewImages.files[revIndex]);
+                        }
                     }
-                }
 
-            });
+                });
+            }
+            if (reviewType == 2) {
+                formData.append("review[type]", 2);
+            }
 
             axios({
                 method: 'POST',
@@ -779,7 +810,7 @@
                 .then((response) => {
                     console.log("AX");
                     console.log(response.data);
-                    //window.location = window.location;
+                    window.location = window.location;
                 })
         }
 

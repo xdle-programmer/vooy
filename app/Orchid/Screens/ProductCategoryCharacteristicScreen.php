@@ -54,7 +54,7 @@ class ProductCategoryCharacteristicScreen extends Screen
         })->get();
 
         if ($this->exists) {
-            $this->name = 'Редактировать категорию';
+            $this->name = 'Редактировать характеристики категории';
         }
 
         return [

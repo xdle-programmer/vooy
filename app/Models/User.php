@@ -13,6 +13,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'photo',
         'email',
         'password',
         'permissions',
@@ -81,6 +82,17 @@ class User extends Authenticatable
     public function tender_product_reviews()
     {
         return $this->hasMany(TenderProductReview::class, 'provider_id');
+    }
+
+    public function user_reviews()
+    {
+        return $this->hasMany(UserReview::class, 'user_id');
+    }
+
+
+    public static function getStoragePath($s = true)
+    {
+        return storage_path() . '/app/public/users' . ($s ? '/' : '');
     }
 
 }

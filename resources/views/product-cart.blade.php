@@ -156,30 +156,27 @@
                                         <div
                                             class="tabs__toggle-item tabs__toggle-item--active tabs__toggle-item--active-effect">
                                             <div class="options">
-                                                <div class="options__item">
-                                                    <div class="options__item-name">Состав:</div>
-                                                    <div class="options__item-value">100% хлопок</div>
-                                                </div>
-                                                <div class="options__item">
-                                                    <div class="options__item-name">Цвет:</div>
-                                                    <div class="options__item-value">Синий</div>
-                                                </div>
-                                                <div class="options__item">
-                                                    <div class="options__item-name">Сезон:</div>
-                                                    <div class="options__item-value">Круглогодичный</div>
-                                                </div>
-                                                <div class="options__item">
-                                                    <div class="options__item-name">Пол:</div>
-                                                    <div class="options__item-value">Мужские</div>
-                                                </div>
-                                                <div class="options__item">
-                                                    <div class="options__item-name">Особенность:</div>
-                                                    <div class="options__item-value">Антистатический</div>
-                                                </div>
-                                                <div class="options__item">
-                                                    <div class="options__item-name">Назначение:</div>
-                                                    <div class="options__item-value">Повседневные</div>
-                                                </div>
+                                                @foreach($product->characteristics as $characteristic)
+                                                    <div class="options__item">
+                                                        <div class="options__item-name">{{$characteristic->characteristic->name}}:</div>
+                                                        @if ($characteristic->characteristic->type == 3)
+                                                            @foreach($characteristic->characteristic->selects as $select)
+                                                                @php
+                                                                    $curCb = $select->productselects->where('product_id', $product->id)->first();
+                                                                @endphp
+                                                                @if($curCb != null)
+                                                                    @if($curCb->value == 'true')
+                                                                        {{$select->name}}@if(!$loop->last),@endif
+                                                                    @endif
+                                                                @endif
+                                                            @endforeach
+                                                        @else
+                                                            <div class="options__item-value">{{$characteristic->value}}</div>
+                                                        @endif
+
+                                                    </div>
+                                                @endforeach
+
                                             </div>
                                         </div>
                                         <div class="tabs__toggle-item">
@@ -342,4 +339,12 @@
             </div>
         </section>
     </div>
+
+    <script>
+        let PRODUCT
+             = {!! json_encode($product) !!};
+
+
+        console.log(PRODUCT)
+    </script>
 @stop

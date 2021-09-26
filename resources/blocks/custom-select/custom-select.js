@@ -109,6 +109,7 @@ class CustomSelect {
     }
 
     clickHandler(event) {
+
         const isSelectClick = (click) => {
             if (click === this.$customSelect) {
                 return true;

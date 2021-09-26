@@ -82,6 +82,11 @@ class ProductController extends Controller
     public function productCart(Request $request, int $id)
     {
         $product = Product::find($id);
+        $product = Product::with('prices','categories',
+            'characteristics','characteristics.characteristic',
+            'characteristics.characteristic.selects',
+            'characteristics.characteristic.selects.productselects',
+            'selects', 'selects.info','attachments')->where('id', $id)->first();
         return view('product-cart', ['product' => $product]);
     }
 
@@ -105,7 +110,7 @@ class ProductController extends Controller
         if ($user == null)
             return back();
 
-        $product = Product::with('prices','categories','characteristics','selects','attachments')->where('id', $id)->first();
+        $product = Product::with('prices','categories','characteristics','selects', 'selects.info','attachments')->where('id', $id)->first();
         if ($product == null || $product->owner_id != $user->id) {
             return back();
         }

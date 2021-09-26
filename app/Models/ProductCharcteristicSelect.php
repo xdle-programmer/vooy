@@ -15,4 +15,11 @@ class ProductCharcteristicSelect extends Model
         'product_id',
         'select_id',
     ];
+
+    public function info()
+    {
+        return $this->belongsTo(CharcteristicSelect::class, 'select_id');
+    }
+
+
 }

@@ -222,8 +222,8 @@
                         <div class="catalog__items-list catalog__items-list--products">
                             @if ($products != null)
                                 @foreach($products as $product)
-                                    <a class="product-preview product-preview--big"
-                                       href="/product/card/{{$product->id}}">
+                                    <div class="product-preview product-preview--big"
+                                       href="/product-card/{{$product->id}}">
                                         @if ($product->attachments->first())
                                             <img class="product-preview__img"
                                                  src="../storage/products/{{$product->attachments->first()->path}}">
@@ -243,7 +243,8 @@
                                                 <div class="product-preview__minimal-desc">Минимальный заказ</div>
                                             </div>
                                             <a class="product-preview__text"
-                                               href="/product/card/{{$product->id}}">{{$product->title}}</a>
+                                               href="/product-card/{{$product->id}}">{{$product->title}}
+                                            </a>
                                         </div>
                                         <div class="product-preview__buttons">
                                             <div class="product-preview__button">
@@ -258,7 +259,7 @@
                                                 </svg>
                                             </div>
                                         </div>
-                                    </a>
+                                    </div>
                                 @endforeach
                             @endif
 

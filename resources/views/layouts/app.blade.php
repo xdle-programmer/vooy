@@ -22,7 +22,9 @@
 <!-- HEADER -->
 <header class="header">
     <div class="header__main-wrapper">
-        <div class="header__main-block layout"><a class="header__logo" href="{{route('home')}}">
+        {{--
+        <div class="header__main-block layout">
+            <a class="header__logo" href="{{route('home')}}">
                 <div class="logo"><img class="logo__img" src="../images/icons/logo.svg" alt="Логотип Vooy">
                     <div class="logo__line"></div>
                     <div class="logo__text">Товары оптом</div>
@@ -52,22 +54,25 @@
                     </select>
                 </div>
             </div>
-            <div class="header__controls"><a class="header__control" href="/_favorites-products.html">
+            <div class="header__controls">
+                <a class="header__control" href="/_favorites-products.html">
                     <svg class="header__control-icon">
                         <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
                     </svg>
                     <div class="header__control-text">Избранное</div>
-                </a><a class="header__control" href="/_basket.html">
+                </a>
+                <a class="header__control" href="/_basket.html">
                     <svg class="header__control-icon">
                         <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
                     </svg>
                     <div class="header__control-text">Мой тендер</div>
-                </a></div>
+                </a>
+            </div>
             @if (Route::has('login'))
                 @auth
-                    <div class="header__control" data-modal-open="login">
+                    <a class="header__control" href="/account">
                         <div class="header__control-text">{{ Auth::user()->email}}</div>
-                    </div>
+                    </a>
 
                     <div class="header__control">
 
@@ -81,8 +86,6 @@
                         </form>
                     </div>
                 @else
-
-
                     <div class="header__control" data-modal-open="login">
                         <div class="header__control-text">Войти</div>
                     </div>
@@ -91,17 +94,143 @@
                             <div class="header__control-text">Регистрация</div>
                         </div>
                     @endif
+                @endauth
+            @endif
+        </div>--}}
 
+        <div class="header__main-block layout-m">
+            <a class="header__logo" href="{{route('home')}}">
+                <div class="logo"><img class="logo__img" src="../images/icons/logo.svg" alt="Логотип Vooy">
+                    <div class="logo__line"></div>
+                    <div class="logo__text">Товары оптом</div>
+                </div>
+            </a>
+
+            <div class="header__catalog">
+                <a href="/products" class="header__catalog-button">
+                    <div class="header__catalog-button-text">Каталог</div>
+                    <svg class="header__catalog-button-icon">
+                        <use xlink:href="../images/icons/icons-sprite.svg#menu"></use>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="header__search-box-wrapper">
+                <div class="header__search-box"></div>
+                <div class="header__search-select">
+                    <select class="search-select">
+                        <option value="0" selected="">Все категории</option>
+                        <option value="1">Мужская одежда</option>
+                        <option value="2">Женская одежда</option>
+                        <option value="3">Детская одежда</option>
+                        <option value="4">Аксессуары</option>
+                        <option value="5">Мониторы</option>
+                        <option value="6">Компы</option>
+                        <option value="7">Ноуты</option>
+                        <option value="8">Телефоны</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="header__menu">
+                <a id="mobile-navbar-btn" class="header__menu-button">
+                    <svg class="header__catalog-button-icon">
+                        <use xlink:href="../images/icons/icons-sprite.svg#menu"></use>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="header__controls">
+                <a class="header__control" href="/_favorites-products.html">
+                    <svg class="header__control-icon">
+                        <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
+                    </svg>
+                    <div class="header__control-text">Избранное</div>
+                </a>
+                <a class="header__control" href="/_basket.html">
+                    <svg class="header__control-icon">
+                        <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                    </svg>
+                    <div class="header__control-text">Мой тендер</div>
+                </a>
+
+                @if (Route::has('login'))
+                    @auth
+                        <a class="header__control" href="/account">
+                            <div class="header__control-text">{{ Auth::user()->email}}</div>
+                        </a>
+
+                        <div class="header__control">
+
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <x-dropdown-link :href="route('logout')"
+                                                 onclick="event.preventDefault();
+                              this.closest('form').submit();">
+                                    <div class="header__control-text">Выйти</div>
+                                </x-dropdown-link>
+                            </form>
+                        </div>
+                    @else
+                        <div class="header__control" data-modal-open="login">
+                            <div class="header__control-text">Войти</div>
+                        </div>
+                        @if (Route::has('register'))
+                            <div class="header__control" data-modal-open="register">
+                                <div class="header__control-text">Регистрация</div>
+                            </div>
+                        @endif
+                    @endauth
+                @endif
+            </div>
         </div>
-        @endauth
-        @endif
     </div>
 
     <div class="header__natural-wrapper">
-        <div class="header__natural-block layout">
-            <div class="header__natural-links"><a class="header__natural-link" href="#">Как заказать?</a><a
-                    class="header__natural-link" href="{{route('tenders-list')}}">Тендеры</a><a
-                    class="header__natural-link" href="/_manufacturer-list.html">Поставщики</a>
+        <div class="header__natural-block layout-m">
+            <div class="header__natural-controls-mini">
+                @if (Route::has('login'))
+                    @auth
+                        <a class="header__natural-link" href="/account">
+                            {{ Auth::user()->email}}
+                        </a>
+
+                        <div class="header__natural-link">
+
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <x-dropdown-link :href="route('logout')"
+                                                 onclick="event.preventDefault();
+                              this.closest('form').submit();">
+                                    Выйти
+                                </x-dropdown-link>
+                            </form>
+                        </div>
+                    @else
+                        <div class="header__natural-link" data-modal-open="login">
+                            Войти
+                        </div>
+                        @if (Route::has('register'))
+                            <div class="header__natural-link" data-modal-open="register">
+                                Регистрация
+                            </div>
+                        @endif
+                    @endauth
+                @endif
+                <a class="header__natural-link" href="/_favorites-products.html">
+                    Избранное
+                </a>
+                <a class="header__natural-link" href="/_basket.html">
+                    Мой тендер
+                </a>
+                <a href="/products" class="header__natural-link">
+                    Каталог товаров
+                </a>
+            </div>
+            <div class="header__natural-links">
+                <a class="header__natural-link" href="#">Как заказать?</a>
+                <a class="header__natural-link" href="{{route('tenders-list')}}">Тендеры</a>
+                <a class="header__natural-link" href="/_manufacturer-list.html">Поставщики</a>
                 <div class="header__natural-link header__natural-link--blue" data-modal-open="new-tender">Тендер на свой
                     товар
                 </div>
@@ -114,10 +243,20 @@
             </div>
         </div>
     </div>
+
 </header>
 
 <!-- Page Content -->
+{{--
+<div style="display: none">--}}
 @yield('content')
+{{--
+</div>--}}
+{{--
+<div style="width: 100%; height: 2000px; background: #3FB8AF">
+
+</div>--}}
+
 
 <!-- MODAL -->
 <div class="modal" id="login">
@@ -254,9 +393,9 @@
                 <div class="modal__content-item">
                     <label class="checkbox">
                         <input class="checkbox__input" type="checkbox"><span class="checkbox__item">
-                            <svg class="checkbox__icon">
-                              <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
-                            </svg><span class="checkbox__text">Я согласен на обработку Персональных данных</span></span>
+                        <svg class="checkbox__icon">
+                          <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
+                        </svg><span class="checkbox__text">Я согласен на обработку Персональных данных</span></span>
                     </label>
                 </div>
                 <div style="display: none;" class="modal__content-item">
@@ -336,9 +475,9 @@
                                         <input id="service-{{$service->id}}" onchange="providerServiceCheck(this)"
                                                name="service[{{$service->id}}]" class="checkbox__input" type="checkbox"><span
                                             class="checkbox__item">
-                                  <svg class="checkbox__icon">
-                                    <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
-                                  </svg><span class="checkbox__text">{{$service->name}}</span></span>
+                              <svg class="checkbox__icon">
+                                <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
+                              </svg><span class="checkbox__text">{{$service->name}}</span></span>
                                     </label>
                                 </div>
                             @endforeach
@@ -353,9 +492,9 @@
                                     <input onchange="providerServiceCheck(this)" id="service-ru" name="can_RLE"
                                            class="checkbox__input" type="checkbox"><span
                                         class="checkbox__item">
-                                <svg class="checkbox__icon">
-                                  <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
-                                </svg><span class="checkbox__text">Есть российское юр. лицо</span></span>
+                            <svg class="checkbox__icon">
+                              <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
+                            </svg><span class="checkbox__text">Есть российское юр. лицо</span></span>
                                 </label>
                             </div>
                         </div>
@@ -370,9 +509,9 @@
                 <div class="modal__content-item">
                     <label class="checkbox">
                         <input class="checkbox__input" type="checkbox"><span class="checkbox__item">
-                          <svg class="checkbox__icon">
-                            <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
-                          </svg><span class="checkbox__text">Я согласен на обработку Персональных данных</span></span>
+                      <svg class="checkbox__icon">
+                        <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
+                      </svg><span class="checkbox__text">Я согласен на обработку Персональных данных</span></span>
                     </label>
                 </div>
                 <div style="display: none;" class="modal__content-item">
@@ -567,7 +706,9 @@
             </svg>
             <div class="modal__content-message-text">Ваш тендер успешно опубликован!</div>
             <div class="modal__content-message-two-buttons">
-                <div data-modal-close onclick="window.location = window.location" class="button button--small button--invert">ЗАКРЫТЬ</div>
+                <div data-modal-close onclick="window.location = window.location"
+                     class="button button--small button--invert">ЗАКРЫТЬ
+                </div>
                 <a class="button button--small" href="{{route('tenders-list')}}">В ТЕНДЕРЫ</a>
             </div>
         </div>
@@ -586,6 +727,7 @@
         </div>
     </div>
 </div>
+
 <div class="modal" id="tender-copied">
     <div class="modal__content">
         <div class="modal__close" data-modal-close>
@@ -663,7 +805,7 @@
 <div class="modal modal--wide" id="new-offer-tender-products">
     <div class="modal__content form-check">
         <div class="modal__header">
-            <div class="modal__header-title">Новый тендер</div>
+            <div class="modal__header-title">Предложение на тендер</div>
             <div class="modal__header-close" data-modal-close>
                 <svg class="modal__header-close-icon">
                     <use xlink:href="../images/icons/icons-sprite.svg#close"></use>
@@ -672,7 +814,7 @@
         </div>
 
         <div class="product-in-tender form-check" id="new-offer-tender-products-form">
-            <div class="tender-row tender-row--product tender-row--header">
+            <div class="tender-row tender-row--product tender-row--header tender-row--product tender-row--product-min">
                 <div class="tender-row__item">Фото</div>
                 <div class="tender-row__item">Наименование</div>
                 <div class="tender-row__item">Количество</div>
@@ -683,8 +825,17 @@
                 <div class="tender-row__item tender-row__item--center">Комментарий</div>
             </div>
 
-            <div class="product-in-tender__wrapper">
+            <template id="custom-select-review-currency-template">
+                <select class="custom-select placeholder__select">
+                    @foreach(App\Models\Currency::where('is_active', 1)->get() as $currency)
+                        <option value="{{$currency->id}}">{{$currency->name}}</option>
+                    @endforeach
+                </select>
+            </template>
+
+            <div class="product-in-tender__wrapper product-in-tender__wrapper-min">
                 <div id="tender-offer-items" class="product-in-tender__items">
+
                     <div id="tender-offer-item-template" class="product-in-tender__item">
                         <div class="product-in-tender__item-inputs product-in-tender__item-inputs--offer">
                             <div class="product-in-tender__item-input-name">
@@ -745,6 +896,7 @@
                           <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
                         </svg><span class="checkbox__text">Предоставим образец</span></span>
                                 </label>
+                                {{--
                                 <div class="product-in-tender__item-input-example-tooltip"></div>
                                 <div class="tooltip">
                                     <svg class="tooltip__button">
@@ -758,7 +910,7 @@
                                             предоставить тестовый образец
                                         </div>
                                     </div>
-                                </div>
+                                </div>--}}
                             </div>
                             <div class="product-in-tender__item-input-branding">
                                 <div class="product-in-tender__item-input-example-checkbox"></div>
@@ -768,6 +920,7 @@
                           <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
                         </svg><span class="checkbox__text">Брэндинг</span></span>
                                 </label>
+                                {{--
                                 <div class="product-in-tender__item-input-example-tooltip"></div>
                                 <div class="tooltip">
                                     <svg class="tooltip__button">
@@ -780,7 +933,7 @@
                                         <div class="tooltip__content">
                                         </div>
                                     </div>
-                                </div>
+                                </div>--}}
                             </div>
                             <div class="product-in-tender__item-input-packing">
                                 <div class="product-in-tender__item-input-example-checkbox"></div>
@@ -790,6 +943,7 @@
                           <use xlink:href="../images/icons/icons-sprite.svg#check"></use>
                         </svg><span class="checkbox__text">Упаковка</span></span>
                                 </label>
+                                {{--
                                 <div class="product-in-tender__item-input-example-tooltip"></div>
                                 <div class="tooltip">
                                     <svg class="tooltip__button">
@@ -803,7 +957,7 @@
                                             предоставить упаковку
                                         </div>
                                     </div>
-                                </div>
+                                </div>--}}
                             </div>
 
                             <div class="product-in-tender__item-input-images">
@@ -828,12 +982,14 @@
                                 <div class="placeholder form-check__field" data-elem="input" data-rule="input-empty">
                                     <input class="input placeholder__input" placeholder="Стоимость">
                                     <div class="placeholder__item">Стоимость</div>
-                                    <select class="select">
-                                        @foreach(App\Models\Currency::where('is_active', 1)->get() as $currency)
-                                            <option value="{{$currency->id}}">{{$currency->name}}</option>
-                                        @endforeach
-                                    </select>
                                 </div>
+
+                                {{--
+                                <select class="select">
+                                    @foreach(App\Models\Currency::where('is_active', 1)->get() as $currency)
+                                        <option value="{{$currency->id}}">{{$currency->name}}</option>
+                                    @endforeach
+                                </select>--}}
                             </div>
 
                             @if(Auth::user())
@@ -861,18 +1017,21 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
+
             <div class="product-in-tender__footer">
                 <script>
-                    function checkDisabledSendOfferButton(button){
+                    function checkDisabledSendOfferButton(button) {
                         if (!button.classList.contains('form-check__button--disabled')) {
                             uploadReview()
                         }
                     }
                 </script>
 
-                <div id="review-upload-btn" onclick="checkDisabledSendOfferButton(this)" class="button form-check__button">Сделать
+                <div id="review-upload-btn" onclick="checkDisabledSendOfferButton(this)"
+                     class="button form-check__button">Сделать
                     предложение
                 </div>
             </div>
@@ -1005,7 +1164,7 @@
 
 <!-- FOOTER -->
 <footer class="footer">
-    <div class="layout footer__block">
+    <div class="layout-m footer__block">
         <div class="footer__top">
             <div class="footer__logo-wrapper">
                 <div class="footer__logo">

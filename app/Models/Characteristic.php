@@ -20,7 +20,7 @@ class Characteristic extends Model
     ];
     public function category()
     {
-        return $this->belongsToMany(ProviderInfo::class, "characteristic_categories", "characteristic_id", "category_id");
+        return $this->belongsToMany(Category::class, "characteristic_categories", "characteristic_id", "category_id");
     }
 
     public function selects()

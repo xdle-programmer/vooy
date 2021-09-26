@@ -394,14 +394,16 @@
                             <div class="border-block">
                                 <div id="chat"
                                      @if($review != null)
+                                         data-type="review"
                                         @if($review->chats->first() != null)
                                         data-chatid="{{$review->chats->first()->id}}"
                                         @endif
                                      @elseif ($chat != null)
+                                        data-type="chat"
                                         data-chatid="{{$chat->id}}"
                                      @endif
                                      class="chat">
-                                    <div class="chat__title">Переговоры с &quot;Петр Иванов&quot;</div>
+                                    <div class="chat__title"></div>
                                     <div class="chat__messages">
                                     </div>
                                     <div class="chat__form">

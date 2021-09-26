@@ -38,3 +38,17 @@ setScrollClass();
 window.addEventListener('scroll', () => {
     setScrollClass();
 });
+
+function openNawbar(){
+    let $nawbar = document.getElementsByClassName('header__natural-wrapper')[0];
+
+    if ($nawbar.classList.contains('header__natural-wrapper-open'))
+        $nawbar.classList.remove('header__natural-wrapper-open')
+    else
+        $nawbar.classList.add('header__natural-wrapper-open')
+
+}
+
+document.getElementById('mobile-navbar-btn').addEventListener('click',()=>{
+    openNawbar()
+})

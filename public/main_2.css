@@ -1246,6 +1246,7 @@ button:focus, input:focus, textarea:focus {
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./resources/blocks/buyer/buyer.scss ***!
   \****************************************************************************************************************************/
 .buyer {
+    margin: 40px 0px;
   position: relative;
   display: grid;
   grid-template-columns: 114px 1fr 250px;
@@ -1494,7 +1495,7 @@ button:focus, input:focus, textarea:focus {
     grid-gap: 25px;
     grid-template-columns: 1fr 1fr; }
     .catalog__items-list--products {
-      grid-template-columns: 1fr 1fr 1fr 1fr; }
+      grid-template-columns: 1fr 1fr 1fr; }
 
 /*!****************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./resources/blocks/categories-labels/categories-labels.scss ***!
@@ -2217,7 +2218,6 @@ button:focus, input:focus, textarea:focus {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-start;
   align-items: center; }
   .header-checkbox__item {
     margin-right: 15px; }
@@ -3624,6 +3624,7 @@ button:focus, input:focus, textarea:focus {
   .product-in-tender__item-input-name {
     grid-area: name; }
     .product-in-tender__item-input-name--price {
+        display: flex;
       grid-area: price; }
   .product-in-tender__item-input-price {
     grid-area: price; }
@@ -4453,11 +4454,11 @@ button:focus, input:focus, textarea:focus {
   padding-right: 10px;
   align-items: center; }
   .tender-row--without-assessment {
-    grid-template-columns: 80px 6fr 1fr 1fr 1fr 1fr 1fr; }
+    grid-template-columns: 80px 6fr 1fr 1fr 1fr 1fr; }
   .tender-row--product {
-    grid-template-columns: 80px 5fr 1fr 1fr 2fr; }
+    grid-template-columns: 80px 5fr 1fr 1fr 1fr 1fr 1fr 2fr }
   .tender-row--offer {
-    grid-template-columns: 80px 3fr 1fr 1fr 1fr 1fr 2fr; }
+    grid-template-columns: 80px 3fr 1fr 1fr 1fr 1fr 1fr 1fr 2fr; }
   .tender-row--offer-with-manufacturer {
     grid-template-columns: 80px 4fr 2fr 2fr 2fr 2fr 2fr 1fr; }
   .tender-row--selected {

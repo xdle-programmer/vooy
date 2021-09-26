@@ -19,4 +19,8 @@ class CharcteristicSelect extends Model
         'charcteristic_id'
     ];
 
+    public function productselects()
+    {
+        return $this->hasMany(ProductCharcteristicSelect::class, 'select_id');
+    }
 }

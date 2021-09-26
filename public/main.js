@@ -11921,7 +11921,7 @@ function toggleTabs(options) {
       toggleButtonClass:'className',
       $toggleButtons:HTMLCollections,
       toggleButtonActiveClass:'className',
-       toggleItemsWrapperClass:'className',
+        toggleItemsWrapperClass:'className',
       $toggleItemsWrapper:node,
       toggleItemsClass:'className',
       $toggleItems:HTMLCollections,

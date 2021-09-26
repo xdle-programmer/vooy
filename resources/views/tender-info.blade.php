@@ -6,7 +6,8 @@
         .chat__message--banned {
             background: #ffd7e1 !important;
         }
-        .chat__message--accepted{
+
+        .chat__message--accepted {
             background-color: #e6e6e6 !important;
         }
 
@@ -23,6 +24,100 @@
 @section('content')
 
     @if ($tender != null)
+
+        <div class="modal" id="tender-end">
+            <div class="modal__content">
+                <div class="modal__close" data-modal-close>
+                    <svg class="modal__close-icon">
+                        <use xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                    </svg>
+                </div>
+                <form method="POST" action="{{ route('tender-status-next') }}">
+                    @csrf
+                    <div class="modal__content-message">
+                        <input type="hidden" name="tender_id" value="{{$tender->id}}">
+                        <svg class="modal__content-message-icon">
+                            <use xlink:href="../images/icons/icons-sprite.svg#check-circle"></use>
+                        </svg>
+                        <div class="modal__content-message-text">Оцените работу поставщика</div>
+                        <div class="modal__content-wrapper">
+                            <div class="rate">
+                                <input type="radio" id="user-review-star5" name="review[grade]" value="5"/>
+                                <label for="user-review-star5" title="text">5 stars</label>
+                                <input type="radio" id="user-review-star4" name="review[grade]" value="4"/>
+                                <label for="user-review-star4" title="text">4 stars</label>
+                                <input type="radio" id="user-review-star3" name="review[grade]" value="3"/>
+                                <label for="user-review-star3" title="text">3 stars</label>
+                                <input type="radio" id="user-review-star2" name="review[grade]" value="2"/>
+                                <label for="user-review-star2" title="text">2 stars</label>
+                                <input type="radio" id="user-review-star1" name="review[grade]" value="1"/>
+                                <label for="user-review-star1" title="text">1 star</label>
+                            </div>
+                            <textarea name="review[comment]" id="user-review-comment"
+                                      class="input input--textarea placeholder__input"
+                                      placeholder="Ваш коментарий"></textarea>
+
+                        </div>
+                        <div class="modal__content-message-two-buttons">
+                            <div data-modal-close onclick="window.location = window.location"
+                                 class="button button--small button--invert">ОТМЕНА
+                            </div>
+                            <x-button class="button button--small">ЗАВЕРШИТЬ</x-button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal" id="user-reviews-list">
+            <div class="modal__content">
+                <div class="modal__header">
+                    <div class="modal__header-title">Отзывы</div>
+                    <div class="modal__header-close" data-modal-close="user-reviews-list">
+                        <svg class="modal__header-close-icon">
+                            <use xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                        </svg>
+                    </div>
+                </div>
+                <template id="user-review-template">
+                    <div class="offer__header">
+                        <div class="modal__user-review ">
+                            <div class="modal__user-review__logo" data-name="Т"></div>
+                            <div class="modal__user-review__title">
+                                <div class="modal__user-review__title-name">Тестовый пользователь</div>
+                                <div class="rate rate-unclicked">
+                                    <label title="text">5 stars</label>
+                                    <label title="text">4 stars</label>
+                                    <label title="text">3 stars</label>
+                                    <label title="text">2 stars</label>
+                                    <label title="text">1 star</label>
+                                </div>
+                            </div>
+                            <div class="modal__user-review__options">
+                                <div class="modal__user-review__option">
+                                    <div class="modal__user-review__option-name">
+                                        Сообщение:
+                                    </div>
+                                    <div class="modal__user-review__option-value"> Сообщение Сообщен иеСо
+                                        общениеС ообщениеСообщен иеСообщениеС ообщениеСообщениеСообщ
+                                        ениеСообщениеСообще ниеСообщениеСо общениеСообщен иеСообщениеСообще
+                                        ниеСообщениеСооб щениеСооб щениеСообщениеСоо бщениеСообщениеСообщени
+                                        еСообщениеСообще
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <div class="modal__content-rating">
+                    <div class="modal__content-message">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="wrapper">
             <section class="section section--small">
                 <div class="layout">
@@ -43,7 +138,7 @@
                                 <div class="tender-header__main-title-number">№{{$tender->id}}</div>
                                 <div class="tender-header__main-title-status">
                                     <div
-                                        class="tender-header__main-title-status-title tender-header__main-title-status-title--gold">{{$tender->status->name}}
+                                        class="tender-header__main-title-status-title">{{$tender->status->name}}
                                         @if ($tender->substatus != null)
                                             ({{$tender->substatus->name}})
                                         @endif
@@ -57,13 +152,18 @@
                             @if ($tender->substatus != null)
                                 @if ($tender->buyer_id == $user->id)
                                     @if ($tender->substatus->id == 4)
+                                        {{--
                                         <form method="POST" action="{{ route('tender-status-next') }}">
                                             @csrf
                                             <input type="hidden" name="tender_id" value="{{$tender->id}}">
                                             <x-button class="modal__button button button--invert form-check__button">
                                                 Завершить
                                             </x-button>
-                                        </form>
+                                        </form>--}}
+                                        <div onclick="modals.open('tender-end')"
+                                             class="modal__button button button--invert form-check__button">
+                                            Завершить
+                                        </div>
                                     @endif
                                 @endif
                             @endif
@@ -444,30 +544,33 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="manufacturer__reviews">
-                                                                        <div class="reviews">
-                                                                            <div class="reviews__desc">
-                                                                                <div class="reviews__item">
-                                                                                    <div
-                                                                                        class="reviews__item-value">
-                                                                                        4.93
+                                                                    @if ($chat->users->first()->user_reviews->count() != null)
+                                                                        <div class="manufacturer__reviews">
+                                                                            <div class="reviews">
+                                                                                <div class="reviews__desc">
+                                                                                    <div class="reviews__item">
+                                                                                        <div
+                                                                                            class="reviews__item-value">
+                                                                                            {{$chat->users->first()->user_reviews->avg('grade')}}
+                                                                                        </div>
+                                                                                        <svg
+                                                                                            class="reviews__item-star">
+                                                                                            <use
+                                                                                                xlink:href="../images/icons/icons-sprite.svg#star"></use>
+                                                                                        </svg>
                                                                                     </div>
-                                                                                    <svg
-                                                                                        class="reviews__item-star">
-                                                                                        <use
-                                                                                            xlink:href="../images/icons/icons-sprite.svg#star"></use>
-                                                                                    </svg>
+                                                                                    <div class="reviews__count">
+                                                                                        {{$chat->users->first()->user_reviews->count()}}
+                                                                                        отзыва
+                                                                                    </div>
                                                                                 </div>
-                                                                                <div class="reviews__count">
-                                                                                    34 отзыва
+                                                                                <div data-id="{{$chat->users->first()->id}}"
+                                                                                    class="reviews__button button">
+                                                                                    Посмотреть отзывы
                                                                                 </div>
-                                                                            </div>
-                                                                            <div
-                                                                                class="reviews__button button">
-                                                                                Посмотреть отзывы
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    @endif
                                                                 </div>
                                                             </div>
                                                             <div class="tenders-chat__wrapper">
@@ -783,30 +886,33 @@
                                                                         </div>
 
                                                                     </div>
-                                                                    <div class="manufacturer__reviews">
-                                                                        <div class="reviews">
-                                                                            <div class="reviews__desc">
-                                                                                <div class="reviews__item">
-                                                                                    <div
-                                                                                        class="reviews__item-value">
-                                                                                        4.93
+                                                                    @if ($review->provider->user_reviews->count() != null)
+                                                                        <div class="manufacturer__reviews">
+                                                                            <div class="reviews">
+                                                                                <div class="reviews__desc">
+                                                                                    <div class="reviews__item">
+                                                                                        <div
+                                                                                            class="reviews__item-value">
+                                                                                            {{$review->provider->user_reviews->avg('grade')}}
+                                                                                        </div>
+                                                                                        <svg
+                                                                                            class="reviews__item-star">
+                                                                                            <use
+                                                                                                xlink:href="../images/icons/icons-sprite.svg#star"></use>
+                                                                                        </svg>
                                                                                     </div>
-                                                                                    <svg
-                                                                                        class="reviews__item-star">
-                                                                                        <use
-                                                                                            xlink:href="../images/icons/icons-sprite.svg#star"></use>
-                                                                                    </svg>
+                                                                                    <div class="reviews__count">
+                                                                                        {{$review->provider->user_reviews->count()}}
+                                                                                        отзыва
+                                                                                    </div>
                                                                                 </div>
-                                                                                <div class="reviews__count">
-                                                                                    34 отзыва
+                                                                                <div data-id="{{$review->provider->id}}"
+                                                                                     class="reviews__button button">
+                                                                                    Посмотреть отзывы
                                                                                 </div>
-                                                                            </div>
-                                                                            <div
-                                                                                class="reviews__button button">
-                                                                                Посмотреть отзывы
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    @endif
                                                                 </div>
                                                             </div>
                                                             <div
@@ -969,61 +1075,6 @@
                                                                                 <div class="chat__date">
                                                                                     08.05.2021
                                                                                 </div>
-                                                                                {{--
-                                                                                <div class="chat__message">
-                                                                                    <div
-                                                                                        class="chat__message-content">
-                                                                                        <div
-                                                                                            class="chat__message-content-text">
-                                                                                            Уверены,
-                                                                                            что
-                                                                                            уложитесь в
-                                                                                            сроки? Куртка будет
-                                                                                            выглядеть точно так?
-                                                                                        </div>
-                                                                                        <div
-                                                                                            class="chat__message-content-images">
-                                                                                            <img
-                                                                                                class="chat__message-content-image"
-                                                                                                src="images/examples/products-preview/products-preview-3.jpg">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div
-                                                                                        class="chat__message-time">
-                                                                                        13:15
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div
-                                                                                    class="chat__message chat__message--invert">
-                                                                                    <div
-                                                                                        class="chat__message-content">
-                                                                                        <div
-                                                                                            class="chat__message-content-text">
-                                                                                            Нет,
-                                                                                            такой
-                                                                                            ткани
-                                                                                            нет
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div
-                                                                                        class="chat__message-time">
-                                                                                        13:15
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="chat__message">
-                                                                                    <div
-                                                                                        class="chat__message-content">
-                                                                                        <div
-                                                                                            class="chat__message-content-text">
-                                                                                            Понял
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div
-                                                                                        class="chat__message-time">
-                                                                                        13:15
-                                                                                    </div>
-                                                                                </div>
-                                                                                 --}}
                                                                             </div>
                                                                             <div class="chat__form">
                                                                                 <div class="chat__form-wrapper">
@@ -1351,35 +1402,33 @@
                                                                                     @endif
                                                                                 </div>
                                                                             </div>
-                                                                            <div
-                                                                                class="manufacturer__reviews">
-                                                                                <div class="reviews">
-                                                                                    <div
-                                                                                        class="reviews__desc">
-                                                                                        <div
-                                                                                            class="reviews__item">
-                                                                                            <div
-                                                                                                class="reviews__item-value">
-                                                                                                4.93
+                                                                            @if ($review->provider->user_reviews->count() != null)
+                                                                                <div class="manufacturer__reviews">
+                                                                                    <div class="reviews">
+                                                                                        <div class="reviews__desc">
+                                                                                            <div class="reviews__item">
+                                                                                                <div
+                                                                                                    class="reviews__item-value">
+                                                                                                    {{$review->provider->user_reviews->avg('grade')}}
+                                                                                                </div>
+                                                                                                <svg
+                                                                                                    class="reviews__item-star">
+                                                                                                    <use
+                                                                                                        xlink:href="../images/icons/icons-sprite.svg#star"></use>
+                                                                                                </svg>
                                                                                             </div>
-                                                                                            <svg
-                                                                                                class="reviews__item-star">
-                                                                                                <use
-                                                                                                    xlink:href="../images/icons/icons-sprite.svg#star"></use>
-                                                                                            </svg>
+                                                                                            <div class="reviews__count">
+                                                                                                {{$review->provider->user_reviews->count()}}
+                                                                                                отзыва
+                                                                                            </div>
                                                                                         </div>
                                                                                         <div
-                                                                                            class="reviews__count">
-                                                                                            34 отзыва
+                                                                                            class="reviews__button button">
+                                                                                            Посмотреть отзывы
                                                                                         </div>
-                                                                                    </div>
-                                                                                    <div
-                                                                                        class="reviews__button button">
-                                                                                        Посмотреть
-                                                                                        отзывы
                                                                                     </div>
                                                                                 </div>
-                                                                            </div>
+                                                                            @endif
                                                                         </div>
                                                                     </div>
                                                                     <div
@@ -2087,6 +2136,8 @@
         </div>
 
     @endif
+
+
 @stop
 
 @section('f_script')
@@ -2328,8 +2379,7 @@
                         if (msg.decline_text != null) {
                             declineText = 'Причина отклонения: ' + msg.decline_text + '</br>';
                         }
-                    }
-                    else if(msg.status == 1){
+                    } else if (msg.status == 1) {
                         subClasses = 'chat__message--accepted';
                     }
 
@@ -2444,10 +2494,48 @@
         let captchaState = false;
         let tender = {!! json_encode($tender) !!};
         let COUNTRY = {!! json_encode($countryFrom) !!};
-
-
+        let reviewModal = document.getElementById('user-reviews-list');
+        let reviewModalTemplate = document.getElementById('user-review-template');
         console.log(tender)
         fromCountry = COUNTRY
+
+
+        document.querySelectorAll('.reviews__button').forEach(btn => {
+            btn.addEventListener('click', e => {
+                axios({
+                    method: 'GET',
+                    url: location.origin + '/user-review/get-rating/' + e.target.dataset.id,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                }).then((response) => {
+                    console.log(response.data)
+
+                    let curTemplate = reviewModalTemplate.content;
+                    let curContainer = reviewModal.querySelector('.modal__content-message')
+
+                    response.data.forEach(data=>{
+                        curTemplate.querySelector('.modal__user-review__logo').dataset.name = data.from_user.name.substr(0,1);
+                        curTemplate.querySelector('.modal__user-review__title > .modal__user-review__title-name').innerHTML = data.from_user.name;
+                        curTemplate.querySelector('.modal__user-review__options > .modal__user-review__option > .modal__user-review__option-value').innerHTML = data.comment
+
+                        let stars = curTemplate.querySelectorAll('.modal__user-review__title > .rate > label');
+                        stars.forEach(star=>{
+                            star.classList.remove('rate__star-checked')
+                        })
+                        for (i = 0; i < parseInt(data.grade); i++){
+
+                            stars[4 - i].classList.add('rate__star-checked')
+                        }
+
+                        let remplateClone = document.importNode(reviewModalTemplate.content, true);
+                        curContainer.appendChild(remplateClone);
+                    })
+                    modals.open('user-reviews-list')
+                })
+            })
+
+        })
 
         document.querySelectorAll('.offer__manufacturer-button--accept').forEach(btn => {
             btn.addEventListener('click', e => {
@@ -2632,13 +2720,21 @@
 
             console.log(tender)
 
+            //product.querySelector('.product-in-tender__item-inputs')
+            //reviewForm.querySelector('.product-in-tender__item-input-name--price > div > input').value)
+
             tender.products.forEach((product) => {
                 let newProduct = template.cloneNode(true);
                 let newProductHeader = document.getElementById('tender-table-product-' + product.id).cloneNode(true);
+                newProductHeader.classList.add('tender-row--product-min')
+                let currencySelectTemplate = document.getElementById('custom-select-review-currency-template')
+                let currencySelectClone = document.importNode(currencySelectTemplate.content, true);
+
+                newProduct.querySelector('.product-in-tender__item-inputs .product-in-tender__item-input-name--price').appendChild(currencySelectClone);
                 newProduct.prepend(newProductHeader);
                 newProduct.setAttribute('data-product', product.id)
                 modalItems.appendChild(newProduct);
-
+                window.dispatchEvent(new Event('newCustomSelect'));
             });
             template.remove();
             productsInTenderFunc.get('new-offer-tender-products-form').refreshOffersPhotoUpload();
@@ -2672,9 +2768,9 @@
                     formData.append("review[item][" + itemId + "][price]",
                         reviewForm.querySelector('.product-in-tender__item-input-name--price > div > input').value);
 
-                    console.log('currency', reviewForm.querySelector('.product-in-tender__item-input-name--price > div > select').value);
+                    console.log('currency', reviewForm.querySelector('.product-in-tender__item-input-name--price select').value);
                     formData.append("review[item][" + itemId + "][currency]",
-                        reviewForm.querySelector('.product-in-tender__item-input-name--price > div > select').value);
+                        reviewForm.querySelector('.product-in-tender__item-input-name--price select').value);
 
 
                     console.log('description', reviewForm.querySelector('.product-in-tender__item-input-comment > div > textarea').value);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\TenderSubstatus;
+use App\Models\UserReview;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +34,7 @@ class TenderController extends Controller
         if ($user == null) {
             return response()->json('user not found');
         }
-        //dd($request->input('review'));
+
         //dd($request->input('review'));
         $review = $request->input('review');
 
@@ -403,10 +404,39 @@ class TenderController extends Controller
 
     public function nextStatus(Request $request)
     {
+        $user = auth()->user();
+        if ($user == null) {
+            return response()->json('user not found');
+        }
+
         $tender = Tender::find($request->tender_id);
         $tender->status_id = $tender->status_id + 1;
         $tender->substatus_id = null;
         $tender->save();
+
+        if ($request->input('review') != null) {
+
+            $review = $request->input('review');
+            if (!isset($review['grade']) && $review['comment'] == null) {
+                return back();
+            }
+
+            $user_review_db = new UserReview();
+
+            if (isset($review['grade']))
+                $user_review_db->grade = $review['grade'];
+            else
+                $user_review_db->grade = 0;
+
+            if (isset($review['comment']))
+                $user_review_db->comment = $review['comment'];
+
+            $user_review_db->from_user_id = $user->id;
+            $user_review_db->user_id = $tender->provider_id;
+            $user_review_db->tender_id = $tender->id;
+            $user_review_db->save();
+        }
+
         return back();
     }
 
@@ -526,5 +556,12 @@ class TenderController extends Controller
         $msg->save();
 
         return response()->json(['message' => $msg], 200);
+    }
+
+
+    public function getUserRating(Request $request, int $id)
+    {
+        $userReview = UserReview::with('from_user')->where('user_id', $id)->get();
+        return response()->json($userReview);
     }
 }

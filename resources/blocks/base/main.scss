@@ -75,3 +75,9 @@ button:active, input:active, textarea:active,
 button:focus, input:focus, textarea:focus {
   outline: none;
 }
+
+@media (max-width: 700px) {
+    body{
+        padding-top: 81px;
+    }
+}

@@ -304,8 +304,6 @@
                     item.querySelectorAll('input').forEach((cb, i) => {
                         formData.append("product[characteristic][" + item.dataset.characteristic + "][cb][" + cb.dataset.select + "]", cb.checked);
                     })
-
-
                 }
             })
 
@@ -327,50 +325,57 @@
 
         let currentCategoryLevel = 0;
 
-        function setProduct(product){
-            if (product.prices){
-                product.prices.forEach((price, i)=> {
+        function setProduct(product) {
+            if (product.prices) {
+                product.prices.forEach((price, i) => {
                     if (i > 0)
                         document.getElementById('price-add-btn').click();
                     let fgItem = document.querySelectorAll('#new-product-prices > .form__copy-item')
                     fgItem[fgItem.length - 1].querySelectorAll('.form__item-group-items > .form__item-group-item input').forEach((inputItem, t) => {
                         if (inputItem.name == 'min')
                             inputItem.value = price.min
-                        else if(inputItem.name == 'max')
+                        else if (inputItem.name == 'max')
                             inputItem.value = price.max
-                        else if(inputItem.name == 'price')
+                        else if (inputItem.name == 'price')
                             inputItem.value = price.price
-                       // console.log(inputItem.name, inputItem.value);
+                        // console.log(inputItem.name, inputItem.value);
                     });
 
 
-                    });
+                });
 
-                }
+            }
         }
 
-
-
-        function newCategory(category = null) {
+        function newCategory(category = null, categoryOpt = null) {
             let template_select = category_template.content.querySelector('.custom-select');
             template_select.innerHTML = '';
             template_select.dataset.categoryLevel = currentCategoryLevel;
+            console.log('categiries', category)
+
 
             if (category == null) {
                 let options = CATEGORIES.filter((i) => {
                     return i.parrent_id == null;
                 });
 
-                let opt = document.createElement("option");
-                opt.setAttribute("disabled", "disabled");
-                opt.setAttribute("hidden", "true");
-                opt.setAttribute("selected", "true");
-                opt.value = 0;
-                opt.innerHTML = 'Категория';
-                template_select.appendChild(opt);
+                if (categoryOpt == null) {
+                    let opt = document.createElement("option");
+                    opt.setAttribute("disabled", "disabled");
+                    opt.setAttribute("hidden", "true");
+                    opt.setAttribute("selected", "true");
+                    opt.value = 0;
+                    opt.innerHTML = 'Категория';
+                    template_select.appendChild(opt);
+                }
 
                 options.forEach(option => {
                     let opt = document.createElement("option");
+                    if (categoryOpt != null) {
+                        if (categoryOpt.id == option.id) {
+                            opt.setAttribute("selected", "true");
+                        }
+                    }
                     opt.value = option.id;
                     opt.innerHTML = option.name;
                     template_select.appendChild(opt);
@@ -378,6 +383,11 @@
             } else {
                 category.forEach(option => {
                     let opt = document.createElement("option");
+                    if (categoryOpt != null) {
+                        if (categoryOpt.id == option.id) {
+                            opt.setAttribute("selected", "true");
+                        }
+                    }
                     opt.value = option.id;
                     opt.innerHTML = option.name;
                     template_select.appendChild(opt);
@@ -464,7 +474,69 @@
 
         }
 
-        newCategory();
+        if (PRODUCT != null) {
+
+            //newCategory(null,PRODUCT.categories[0])
+            let prodCats = PRODUCT.categories;
+            let prodPhotos = PRODUCT.attachments;
+            for (let i = 0; i < prodCats.length; i++) {
+                console.log(i, prodCats[i]);
+
+                if (i > 0) {
+                    let categories = CATEGORIES.filter(item => {
+                        return parseInt(item.parrent_id) === parseInt(prodCats[i - 1].id);
+                    });
+                    newCategory(categories, prodCats[i])
+                    if (prodCats.length == parseInt(i + 1)) {
+                        setCharacteristics(prodCats[i].id)
+
+                        if (PRODUCT.characteristics != null) {
+                            let prodChars = PRODUCT.characteristics
+                            prodChars.forEach(prodChar => {
+                                let $characteristic = document.querySelector('[data-characteristic="' + prodChar.characteristic_id + '"]');
+                                console.log($characteristic)
+                                if ($characteristic.dataset.type == 1 || $characteristic.dataset.type == 2) {
+                                    $characteristic.querySelector('input').value = prodChar.value;
+                                } else if ($characteristic.dataset.type == 3) {
+
+                                    $characteristic.querySelectorAll('input').forEach((cb, i) => {
+
+                                        let select = PRODUCT.selects.filter((i) => {
+                                            return i.select_id == cb.dataset.select;
+                                        })[0];
+                                        if (select.value == 'true')
+                                            cb.checked = true;
+                                    })
+                                }
+                            })
+                        }
+                    }
+                } else {
+                    newCategory(null, prodCats[i])
+                }
+
+            }
+
+            let $photoContainer = document.querySelector('.photo-upload__items')
+            prodPhotos.forEach(photo => {
+                let photoNode = document.createElement('div');
+                photoNode.classList.add('photo-upload__preview-wrapper')
+                photoNode.innerHTML = `<div class="photo-upload__preview-star">
+                    <svg class="photo-upload__preview-star-img">
+                        <use xlink:href="../images/icons/icons-sprite.svg#star"></use>
+                    </svg>
+                </div>
+                <div class="photo-upload__preview-item">
+                    <img class="photo-upload__preview" src="../storage/products/${photo.path}">
+                </div>`
+
+                $photoContainer.prepend(photoNode);
+            })
+
+        } else {
+            newCategory();
+        }
+
     </script>
 
 @stop

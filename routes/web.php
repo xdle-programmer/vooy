@@ -42,12 +42,14 @@ Route::get('/tender/get/{id}', [TenderController::class, 'getTender'])->name("te
 Route::post('/review/hide', [TenderController::class, 'hideReview'])->name("review-hide");
 Route::post('/review/unhide', [TenderController::class, 'unhideReview'])->name("review-unhide");
 
+Route::get('/user-review/get-rating/{id}',[TenderController::class, 'getUserRating'])->name("user-review-rating-get");
+
 //PRODUCT
 Route::get('/products', [ProductController::class, 'productList'])->name("product-list");
-Route::get('/product/card/{id}', [ProductController::class, 'productCart'])->name("product-cart");
+Route::get('/product-card/{id}', [ProductController::class, 'productCart'])->name("product-cart");
 Route::get('/product/new', [ProductController::class, 'productNew'])->name("product-new");
 Route::post('/product/create', [ProductController::class, 'createProduct'])->name("product-create");
-Route::get('/product/edit/{id}', [ProductController::class, 'editProduct'])->name("product-edit");
+Route::get('/product-edit/{id}', [ProductController::class, 'editProduct'])->name("product-edit");
 
 //CHAT
 Route::get('/chat', [TenderController::class, 'showChat'])->name("chat");
@@ -60,6 +62,9 @@ Route::post('/chat/message/{id}/decline', [TenderController::class, 'messageDecl
 
 //ACCOUNT
 Route::get('/account/{id?}', [AccountController::class, 'showAccount'])->name("account");
+Route::get('/account-settings/{id?}', [AccountController::class, 'showAccountSettings'])->name("account-settings");
+Route::post('/account-settings/save', [AccountController::class, 'saveAccountSettings'])->name("account-settings-save");
+Route::post('/account/photo-upload', [AccountController::class, 'uploadPhoto'])->name("account-photo-upload");
 
 //CURRENCY
 Route::post('/currency/update', [CurrencyController::class, 'update'])->name("currency-update");

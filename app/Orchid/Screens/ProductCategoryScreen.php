@@ -19,14 +19,14 @@ class ProductCategoryScreen extends Screen
      *
      * @var string
      */
-    public $name = 'ProductCategoryScreen';
+    public $name = 'Категории';
 
     /**
      * Display header description.
      *
      * @var string|null
      */
-    public $description = 'ProductCategoryScreen';
+    public $description = '';
 
     /**
      * Query data.
