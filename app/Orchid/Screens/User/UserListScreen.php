@@ -21,14 +21,14 @@ class UserListScreen extends Screen
      *
      * @var string
      */
-    public $name = 'User';
+    public $name = 'Пользователи';
 
     /**
      * Display header description.
      *
      * @var string
      */
-    public $description = 'All registered users';
+    public $description = '';
 
     /**
      * @var string
@@ -59,7 +59,7 @@ class UserListScreen extends Screen
     public function commandBar(): array
     {
         return [
-            Link::make(__('Add'))
+            Link::make("Создать")
                 ->icon('plus')
                 ->route('platform.systems.users.create'),
         ];

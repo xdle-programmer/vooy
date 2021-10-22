@@ -52,3 +52,20 @@ function openNawbar(){
 document.getElementById('mobile-navbar-btn').addEventListener('click',()=>{
     openNawbar()
 })
+
+function openProfile(){
+    let $accountMenu = document.getElementsByClassName('account-menu')[0];
+
+    if ($accountMenu.classList.contains('account-menu-open'))
+        $accountMenu.classList.remove('account-menu-open')
+    else
+        $accountMenu.classList.add('account-menu-open')
+
+}
+
+document.querySelectorAll('.account-menu--btn').forEach(item=>{
+    item.addEventListener('click',()=>{
+        openProfile();
+    })
+})
+

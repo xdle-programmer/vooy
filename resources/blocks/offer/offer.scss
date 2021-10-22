@@ -280,3 +280,21 @@
     margin-left: 5px;
   }
 }
+
+@media (max-width: 700px) {
+    .offer {
+        &__manufacturer-buttons{
+            flex-direction: column-reverse;
+            margin-bottom: 15px;
+        }
+        &__manufacturer-button {
+
+            margin:  10px auto!important;
+        }
+
+        &__table{
+            overflow-x: scroll;
+            @include horizontal-scroll()
+        }
+    }
+}

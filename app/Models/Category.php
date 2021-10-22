@@ -19,6 +19,11 @@ class Category extends Model
         'parrent_id'
     ];
 
+    public function displays()
+    {
+        return $this->hasMany(CategoryDisplay::class, 'category_id');
+    }
+
     public function characteristics()
     {
         return $this->belongsToMany(Characteristic::class, "characteristic_categories", "category_id", "characteristic_id");

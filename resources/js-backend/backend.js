@@ -1,17 +1,87 @@
 let $searchBox = document.getElementsByClassName('header__search-box')[0];
 
+function getProducts(text) {
+    axios({
+        method: 'GET',
+        url: location.origin + '/product/search/' + text
+    }).then((result) => {
+        productList = [];
+
+        result.data.forEach(product => {
+            newProduct = {};
+            newProduct.id = product.id
+            newProduct.title = product.title
+            if (product.prices.length > 0) {
+                /*
+                newProduct.price = null;
+                product.prices.forEach(price => {
+                    if (price.price < newProduct.price || newProduct.price == null) ;
+                         newProduct.price = price.price
+                })*/
+                newProduct.price = product.prices[product.prices.length - 1].price
+            }
+            if (product.attachments.length > 0) {
+                newProduct.photo = 'products/' + product.attachments[0].path
+            }
+            else {
+                newProduct.photo = 'tenderProducts/empty.jpg'
+            }
+            if (product.categories.length > 0) {
+                newProduct.category = product.categories[product.categories.length - 1].name
+            }
+
+            productList.push(newProduct)
+        });
+
+        console.log(productList)
+
+        let nest = d3.nest().key(function (d) {
+            return d.category;
+        }).entries(productList);
+
+        console.log(nest)
+        let resultRow = '';
+        nest.forEach(category => {
+            let hint = '';
+            if (category.key != 'undefined') {
+                hint = `<div class="search-box__search-result-subname">${category.key}</div>`;
+            }
+            category.values.forEach((product,i) => {
+               if (i > 0)
+                   hint = '';
+                resultRow += `
+                    ${hint}
+                    <a class="search-box__search-result" href="/product-card/${product.id}">
+                    <img alt="" src="../storage/${product.photo}" />
+                    ${product.title}, цена ${product.price} рублей</a>`;
+            })
+        })
+        let nodeResult = `<div class="search-box__search-result-wrapper">${resultRow}</div>`;
+        window.searchBox.showHints(nodeResult);
+
+    }).catch((err) => {
+        console.log(err);
+    });
+}
+
 // Обработчик поиска
 $searchBox.addEventListener('search', (event) => {
-    console.log('Нужно выполнить поиск по запросу: ' + event.target.value);
+    console.log('Нужно выполнить поиск по запросу: ' + event.detail.value);
+    console.log(window.location)
+    window.location.href = window.location.origin + '/products?filter[title]=' + event.detail.value ;
 });
 
 // Обработчик ввода и вывода подсказок
 $searchBox.addEventListener('completeHint', (event) => {
+
     let text = event.detail.value;
+
+    getProducts(text);
+
 
     let length = event.detail.value.length;
     let resultRow = '';
-
+/*
     if (length < 10) {
         for (let index = 10 - length; index > 0; index--) {
             let hint = '';
@@ -33,7 +103,7 @@ ${text}, цена 5000 рублей, размер XXL</div>`;
     } else {
         window.searchBox.hideHints();
         window.searchBox.clearHints();
-    }
+    }*/
 });
 
 // Обработчик чекбокса "Только активные тендеры"

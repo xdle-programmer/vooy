@@ -86,6 +86,10 @@ class Tender extends Model
     {
         return $this->hasMany(TenderProduct::class, 'tender_id');
     }
+    public function rating()
+    {
+        return $this->hasMany(UserReview::class, 'tender_id');
+    }
 
     protected $allowedFilters = [
         'id',

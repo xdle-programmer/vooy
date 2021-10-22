@@ -189,6 +189,15 @@
         }
     }
 
+    &__natural-link-active {
+        color: var(--blue-color)!important;
+
+        &:after {
+            opacity: 1 !important;
+            transform: scaleX(1)!important;
+        }
+    }
+
     &__natural-phone {
         @include flex-row-center;
         cursor: pointer;
@@ -422,6 +431,7 @@
             color: var(--black-color)!important;
         }
 
+
         &__natural-link {
             color: var(--black-color);
             margin: 5px 0px;
@@ -449,6 +459,7 @@
             &--blue {
                 color: var(--blue-color);
             }
+
         }
 
         &__natural-phone {

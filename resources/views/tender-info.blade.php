@@ -7,16 +7,10 @@
             background: #ffd7e1 !important;
         }
 
+        {{--
         .chat__message--accepted {
             background-color: #e6e6e6 !important;
-        }
-
-        .chat__messages {
-            max-height: 600px;
-            overflow-y: auto;
-            overflow-x: hidden;
-        }
-
+        }--}}
 
     </style>
 @stop
@@ -69,54 +63,7 @@
             </div>
         </div>
 
-        <div class="modal" id="user-reviews-list">
-            <div class="modal__content">
-                <div class="modal__header">
-                    <div class="modal__header-title">Отзывы</div>
-                    <div class="modal__header-close" data-modal-close="user-reviews-list">
-                        <svg class="modal__header-close-icon">
-                            <use xlink:href="../images/icons/icons-sprite.svg#close"></use>
-                        </svg>
-                    </div>
-                </div>
-                <template id="user-review-template">
-                    <div class="offer__header">
-                        <div class="modal__user-review ">
-                            <div class="modal__user-review__logo" data-name="Т"></div>
-                            <div class="modal__user-review__title">
-                                <div class="modal__user-review__title-name">Тестовый пользователь</div>
-                                <div class="rate rate-unclicked">
-                                    <label title="text">5 stars</label>
-                                    <label title="text">4 stars</label>
-                                    <label title="text">3 stars</label>
-                                    <label title="text">2 stars</label>
-                                    <label title="text">1 star</label>
-                                </div>
-                            </div>
-                            <div class="modal__user-review__options">
-                                <div class="modal__user-review__option">
-                                    <div class="modal__user-review__option-name">
-                                        Сообщение:
-                                    </div>
-                                    <div class="modal__user-review__option-value"> Сообщение Сообщен иеСо
-                                        общениеС ообщениеСообщен иеСообщениеС ообщениеСообщениеСообщ
-                                        ениеСообщениеСообще ниеСообщениеСо общениеСообщен иеСообщениеСообще
-                                        ниеСообщениеСооб щениеСооб щениеСообщениеСоо бщениеСообщениеСообщени
-                                        еСообщениеСообще
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </template>
 
-                <div class="modal__content-rating">
-                    <div class="modal__content-message">
-
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="wrapper">
             <section class="section section--small">
@@ -171,13 +118,22 @@
                             @if (Auth::check())
                                 <div class="tender-header__main-buttons">
                                     @if($role->slug == 'buyer')
+                                        @if ($tender->status_id == 1)
+                                            <div data-tender="{{$tender->id}}" onclick="copyTender(this, false)"
+                                                 class="tender-header__main-button button">Пересоздать тендер
+                                                <svg class="button__icon">
+                                                    <use xlink:href="../images/icons/icons-sprite.svg#copy"></use>
+                                                </svg>
+                                            </div>
+                                        @else
+                                            <div data-tender="{{$tender->id}}" onclick="copyTender(this, true)"
+                                                 class="tender-header__main-button button">Скопировать тендер
+                                                <svg class="button__icon">
+                                                    <use xlink:href="../images/icons/icons-sprite.svg#copy"></use>
+                                                </svg>
+                                            </div>
+                                        @endif
 
-                                        <div data-tender="{{$tender->id}}" onclick="copyTender(this)"
-                                             class="tender-header__main-button button">Скопировать
-                                            <svg class="button__icon">
-                                                <use xlink:href="../images/icons/icons-sprite.svg#copy"></use>
-                                            </svg>
-                                        </div>
 
                                     @endif
                                     @if($role->slug == 'provider')
@@ -212,8 +168,8 @@
                                 <div class="tender-header__desc-item-name">Cоздан:</div>
                                 <div
                                     class="tender-header__desc-item-value">{{$tender->created_at->format('d.m.Y')}}</div>
-                                <div class="tender-header__desc-item-name">Осталось времени:</div>
-                                <div class="tender-header__desc-item-value">48ч</div>
+                                {{--<div class="tender-header__desc-item-name">Осталось времени:</div>
+                                <div class="tender-header__desc-item-value">48ч</div>--}}
                             </div>
                         </div>
 
@@ -425,7 +381,7 @@
                                                             @endif
                                                         </div>
                                                         <div
-                                                            class="tender-row__item tender-row__item--left">
+                                                            class="tender-row__item">
                                                             @foreach($product->sertificats as $sertificat)
                                                                 @if($loop->last)
                                                                     {{$sertificat->name}}
@@ -435,7 +391,7 @@
                                                             @endforeach
                                                         </div>
                                                         <div
-                                                            class="tender-row__item tender-row__item--left">{{$product->description}}</div>
+                                                            class="tender-row__item">{{$product->description}}</div>
                                                     </div>
                                                 @endforeach
                                             @else
@@ -915,6 +871,7 @@
                                                                     @endif
                                                                 </div>
                                                             </div>
+                                                            <div class="offer__table">
                                                             <div
                                                                 class="tender-row tender-row--offer tender-row--header">
                                                                 <div class="tender-row__item">Фото</div>
@@ -1055,7 +1012,7 @@
                                                                             @endif
                                                                         </div>
                                                                         <div
-                                                                            class="tender-row__item tender-row__item--left">{{$item->description}}
+                                                                            class="tender-row__item">{{$item->description}}
                                                                         </div>
                                                                     </div>
                                                                 @endforeach
@@ -1118,7 +1075,7 @@
                                                                 </div>
 
                                                             @endif
-
+                                                            </div>
                                                         </div>
                                                     @endforeach
                                                     <div class="toggle-show-block">
@@ -1431,6 +1388,7 @@
                                                                             @endif
                                                                         </div>
                                                                     </div>
+                                                                    <div class="offer__table">
                                                                     <div
                                                                         class="tender-row tender-row--offer tender-row--header">
                                                                         <div class="tender-row__item">Фото
@@ -1583,7 +1541,7 @@
                                                                                     @endif
                                                                                 </div>
                                                                                 <div
-                                                                                    class="tender-row__item tender-row__item--left">{{$item->description}}
+                                                                                    class="tender-row__item">{{$item->description}}
                                                                                 </div>
                                                                             </div>
                                                                         @endforeach
@@ -1700,7 +1658,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-
+                                                                    </div>
                                                                 </div>
                                                             @endforeach
                                                         </div>
@@ -2690,13 +2648,18 @@
             captchaState = true;
         }
 
-        function copyTender(e) {
+        function copyTender(e, isNew) {
             let tenderId = e.dataset.tender;
             axios({
                 method: 'GET',
                 url: location.origin + '/tender/get/' + tenderId
             }).then((result) => {
                 console.log(result.data);
+                if (isNew == true)
+                   document.getElementById('tender_upload_btn').setAttribute('onclick', 'uploadTender(this)')
+                else if(isNew == false)
+                    document.getElementById('tender_upload_btn').setAttribute('onclick', 'reuploadTender(this)')
+
                 showCopy(result.data);
             }).catch((err) => {
                 console.log(err);
@@ -2953,6 +2916,72 @@
 
         }
 
+        function reuploadTender(e) {
+            if (e.classList.contains('form-check__button--disabled') || captchaState == false) {
+                return
+            }
+
+            let formData = new FormData();
+            let productId = 0;
+            formData.append('tender[id]', tender.id)
+            let tenderProdList = document.getElementById('new-tender-products-list');
+            tenderProdList.childNodes.forEach((tenderProductListItem, tenderProductListItemIndex) => {
+                if (tenderProductListItem.nodeType == 1) {
+                    tenderProductListItem.childNodes[3].childNodes.forEach((productItem, productItemIndex) => {
+                        if (productItemIndex == 1) {
+                            formData.append("tender[products][" + productId + "][title]", productItem.childNodes[1].childNodes[1].value);
+                        } else if (productItemIndex == 3) {
+                            formData.append("tender[products][" + productId + "][description]", productItem.childNodes[1].childNodes[1].value);
+                        } else if (productItemIndex == 5) {
+                            formData.append("tender[products][" + productId + "][count]", productItem.childNodes[3].childNodes[1].childNodes[3].value);
+                        } else if (productItemIndex == 7) {
+                            formData.append("tender[products][" + productId + "][sample]", productItem.childNodes[3].childNodes[1].checked);
+                        } else if (productItemIndex == 9) {
+                            let copyIndex = 0;
+                            productItem.childNodes[1].childNodes[1].childNodes.forEach((productImage, productImageIndex) => {
+                                if (productImage.tagName == 'DIV') {
+                                    if (productImage.dataset.copied) {
+                                        console.log(productImage.dataset.path);
+                                        formData.append("tender[products][" + productId + "][copied_attachments][" + copyIndex + "]", productImage.dataset.path);
+                                        copyIndex++;
+                                    }
+                                } else if (productImage.tagName == 'LABEL') {
+                                    let files = productImage.childNodes[1].childNodes[5].files;
+                                    formData.append("tender[products][" + productId + "][attachments_count]", files.length);
+                                    for (var i = 0; i < files.length; i++) {
+                                        formData.append("tender[products][" + productId + "][attachments][" + i + "][file]", files[i]);
+                                    }
+                                }
+                            });
+                        }
+                    });
+                    productId++;
+                }
+            });
+            console.log('_________________');
+
+            axios({
+                method: 'POST',
+                url: `{{ route('tender-update') }}`,
+                data: formData,
+                processData: false,
+                contentType: false,
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+            })
+                .then((response) => {
+                    console.log("AX");
+                    console.log(response.data);
+                    modals.close('new-tender-products');
+                    modals.open('new-tender-success');
+                    //window.location = 'http://188.225.85.66?message=' + response.data;
+                })
+                .catch((err) => {
+                    console.log(err)
+                });
+
+        }
 
     </script>
 

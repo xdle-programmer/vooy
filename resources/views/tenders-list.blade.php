@@ -92,7 +92,7 @@
                         <div class="tender-row__item">Наименование</div>
                         <div class="tender-row__item">Дата создания</div>
                         <div class="tender-row__item">Номер</div>
-                        <div class="tender-row__item">Количество</div>
+                        <div class="tender-row__item">Количество товаров</div>
 
                         <div class="tender-row__item">Статус</div>
                     </div>
@@ -139,7 +139,7 @@
                                             <div class="tender-row__item tender-row__item--small">{{$tender->id}}</div>
                                             @if ($tender->products->first())
                                                 <div
-                                                    class="tender-row__item tender-row__item--big">{{$tender->products->first()->count}}</div>
+                                                    class="tender-row__item tender-row__item--big">{{$tender->products->sum('count')}}</div>
                                             @else
                                                 <div class="tender-row__item tender-row__item--big">нет</div>
                                             @endif

@@ -42,6 +42,7 @@
                         </div>
                     </div>
                 </div>
+                {{--
                 <div class="account__item-settings-item">
                     <div class="account__item-settings-item-title">Фото с производства</div>
                     <div class="photo-upload">
@@ -60,6 +61,7 @@
                         </div>
                     </div>
                 </div>
+                --}}
                 <div class="account__item-settings-item">
                     <div class="account__item-settings-item-title">Изменить пароль</div>
                     <div class="account__item-settings-block account__item-settings-block--three-col">
@@ -79,7 +81,7 @@
                     </div>
                 </div>
                 <div class="account__item-settings-item account__item-settings-item--no-border">
-                    <button class="button">Сохранить изменения</button>
+                    <button class="button account__button">Сохранить изменения</button>
                 </div>
             </div>
         </div>

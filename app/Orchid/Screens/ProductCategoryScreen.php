@@ -2,6 +2,7 @@
 
 namespace App\Orchid\Screens;
 
+use App\Models\CategoryDisplay;
 use Orchid\Screen\Screen;
 use App\Models\Category;
 use Orchid\Screen\TD;
@@ -35,7 +36,7 @@ class ProductCategoryScreen extends Screen
      */
     public function query(): array
     {
-        $categories = Category::all();
+        $categories = Category::with('displays')->paginate();
         return [
             'categories' => $categories
         ];
@@ -72,33 +73,81 @@ class ProductCategoryScreen extends Screen
                         $fullPath = getPath($category);
                         return $fullPath;
                     }),
+
+                TD::make('displays', 'Вывод')
+                    ->render(function (Category $category) {
+                        if (count($category->displays) != 0)
+                            return "Да";
+                        else
+                            return "Нет";
+                    }),
+
                 TD::make(__('Actions'))
                     ->align(TD::ALIGN_CENTER)
                     ->width('100px')
                     ->render(function (Category $category) {
+                        $actionList = [];
+                        $productDisplays = $category->displays;
+
+                        if (count($category->displays) == 0) {
+                            $actionList[] = Button::make("Добавить в предложения")
+                                ->method('displayAction')
+                                ->confirm("Вы уверены что хотите добавить эту категорию в предложения?")
+                                ->parameters([
+                                    'id' => $category->id,
+                                    'action' => "add"
+                                ])
+                                ->icon('magnifier');
+                        } else {
+                            $actionList[] = Button::make("Убрать из предложений")
+                                ->method('displayAction')
+                                ->confirm("Вы уверены что хотите убрать эту категорию из предложений?")
+                                ->parameters([
+                                    'id' => $category->id,
+                                    'action' => "remove"
+                                ])
+                                ->icon('magnifier');
+                        }
+
+
+                        $actionList[] = Link::make("Редактировать")
+                            ->route('platform.category.edit', $category->id)
+                            ->icon('pencil');
+
+                        $actionList[] = Link::make("Характеристики")
+                            ->route('platform.category.characteristics', $category->id)
+                            ->icon('pencil');
+
+
+                        $actionList[] = Button::make("Удалить")
+                            ->method('remove')
+                            ->confirm("Вы уверены что хотите удалить эту категорию?")
+                            ->parameters([
+                                'id' => $category->id,
+                            ])
+                            ->icon('trash');
+
                         return DropDown::make()
                             ->icon('options-vertical')
-                            ->list([
-
-                                Link::make("Редактировать")
-                                    ->route('platform.category.edit', $category->id)
-                                    ->icon('pencil'),
-
-                                Link::make("Характеристики")
-                                    ->route('platform.category.characteristics', $category->id)
-                                    ->icon('pencil'),
-
-                                Button::make("Удалить")
-                                    ->method('remove')
-                                    ->confirm("Вы уверены что хотите удалить эту категорию?")
-                                    ->parameters([
-                                        'id' => $category->id,
-                                    ])
-                                    ->icon('trash'),
-                            ]);
+                            ->list($actionList);
                     }),
             ])
         ];
+    }
+
+    public function displayAction(Category $category, $action)
+    {
+        if ($action == "remove") {
+            $category->displays->first()->delete();
+            Alert::info("Категория " . $category->title . " была убрана из главной страницы");
+        } elseif ($action == "add") {
+            $categoryDisplay = new CategoryDisplay();
+            $categoryDisplay->category_id = $category->id;
+            $categoryDisplay->save();
+            Alert::info("Категория " . $category->title . " была добавлена на главную страницу");
+        }
+
+        return redirect()->route('platform.categories');
     }
 
     public function remove(Category $category)
@@ -109,13 +158,13 @@ class ProductCategoryScreen extends Screen
     }
 }
 
-function getPath($category){
+function getPath($category)
+{
     if ($category->parrent_id != null) {
         $parentCategory = Category::find($category->parrent_id);
         $curPath = getPath($parentCategory);
         return $curPath . ' > ' . $category->name;
-    }
-    else{
+    } else {
         return $category->name;
     }
 }

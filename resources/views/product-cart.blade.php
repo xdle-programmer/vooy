@@ -131,6 +131,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="product-cart__tabs">
                                 <div class="tabs tabs--small">
                                     <div class="tabs__header">
@@ -186,6 +187,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="product-cart__footnote">Информация о технических характеристиках и внешнем виде
                                 товара носит справочный характер и основывается на последних доступных сведениях от
                                 производителя
@@ -197,7 +199,7 @@
         </section>
         <section class="section section--small">
             <div class="layout">
-                <div class="lead border-block"><img class="lead__icon" src="images/icons/illustrations/hands-box.png">
+                <div class="lead m-col border-block"><img class="lead__icon" src="images/icons/illustrations/hands-box.png">
                     <div class="lead__desc">
                         <div class="lead__desc-title">Не можете найти нужный вам товар?</div>
                         <div class="lead__desc-text">Оставьте заявку на свой товар, и мы поможем вам найти, заказать,
@@ -211,8 +213,9 @@
         <section class="section">
             <div class="layout">
                 <div class="title title--small">Похожие товары!</div>
-                <div class="products-grid"><a class="product-preview" href="/"><img class="product-preview__img"
-                                                                                    src="/images/examples/products-preview/products-preview-0.jpg">
+                <div class="products-grid">
+                    <div class="product-preview" href="/">
+                        <img class="product-preview__img" src="/images/examples/products-preview/products-preview-0.jpg">
                         <div class="product-preview__desc">
                             <div class="product-preview__price">3999 - 6000 ₽ шт.</div>
                             <div class="product-preview__minimal">
@@ -236,17 +239,18 @@
                                 </svg>
                             </div>
                         </div>
-                    </a><a class="product-preview" href="/"><img class="product-preview__img"
-                                                                 src="/images/examples/products-preview/products-preview-1.jpg">
+                    </div>
+                    <div class="product-preview" href="/">
+                        <img class="product-preview__img" src="/images/examples/products-preview/products-preview-0.jpg">
                         <div class="product-preview__desc">
                             <div class="product-preview__price">3999 - 6000 ₽ шт.</div>
                             <div class="product-preview__minimal">
                                 <div class="product-preview__minimal-count">500 шт.</div>
                                 <div class="product-preview__minimal-desc">Минимальный заказ</div>
                             </div>
-                            <a class="product-preview__text" href="/_product-cart.html">Заводская дешевая горячая
-                                Распродажа
-                                летняя повседневная одежда</a>
+                            <a class="product-preview__text" href="/_product-cart.html">Дешевая мода 2020, оптовая
+                                продажа,
+                                комплекты детской</a>
                         </div>
                         <div class="product-preview__buttons">
                             <div class="product-preview__button">
@@ -261,17 +265,18 @@
                                 </svg>
                             </div>
                         </div>
-                    </a><a class="product-preview" href="/"><img class="product-preview__img"
-                                                                 src="../images/examples/products-preview/products-preview-2.jpg">
+                    </div>
+                    <div class="product-preview" href="/">
+                        <img class="product-preview__img" src="/images/examples/products-preview/products-preview-0.jpg">
                         <div class="product-preview__desc">
                             <div class="product-preview__price">3999 - 6000 ₽ шт.</div>
                             <div class="product-preview__minimal">
                                 <div class="product-preview__minimal-count">500 шт.</div>
                                 <div class="product-preview__minimal-desc">Минимальный заказ</div>
                             </div>
-                            <a class="product-preview__text" href="/_product-cart.html">Коллекция 2020 года,
-                                дизайнерская
-                                мужская блестящая пузырьковая</a>
+                            <a class="product-preview__text" href="/_product-cart.html">Дешевая мода 2020, оптовая
+                                продажа,
+                                комплекты детской</a>
                         </div>
                         <div class="product-preview__buttons">
                             <div class="product-preview__button">
@@ -286,16 +291,18 @@
                                 </svg>
                             </div>
                         </div>
-                    </a><a class="product-preview" href="/"><img class="product-preview__img"
-                                                                 src="../images/examples/products-preview/products-preview-3.jpg">
+                    </div>
+                    <div class="product-preview" href="/">
+                        <img class="product-preview__img" src="/images/examples/products-preview/products-preview-0.jpg">
                         <div class="product-preview__desc">
                             <div class="product-preview__price">3999 - 6000 ₽ шт.</div>
                             <div class="product-preview__minimal">
                                 <div class="product-preview__minimal-count">500 шт.</div>
                                 <div class="product-preview__minimal-desc">Минимальный заказ</div>
                             </div>
-                            <a class="product-preview__text" href="/_product-cart.html">Мужская повседневная хлопковая
-                                куртка с воротником-стойкой</a>
+                            <a class="product-preview__text" href="/_product-cart.html">Дешевая мода 2020, оптовая
+                                продажа,
+                                комплекты детской</a>
                         </div>
                         <div class="product-preview__buttons">
                             <div class="product-preview__button">
@@ -310,16 +317,18 @@
                                 </svg>
                             </div>
                         </div>
-                    </a><a class="product-preview" href="/"><img class="product-preview__img"
-                                                                 src="../images/examples/products-preview/products-preview-4.jpg">
+                    </div>
+                    <div class="product-preview" href="/">
+                        <img class="product-preview__img" src="/images/examples/products-preview/products-preview-0.jpg">
                         <div class="product-preview__desc">
                             <div class="product-preview__price">3999 - 6000 ₽ шт.</div>
                             <div class="product-preview__minimal">
                                 <div class="product-preview__minimal-count">500 шт.</div>
                                 <div class="product-preview__minimal-desc">Минимальный заказ</div>
                             </div>
-                            <a class="product-preview__text" href="/_product-cart.html">Женская твидовая куртка большого
-                                размера, демисезонная</a>
+                            <a class="product-preview__text" href="/_product-cart.html">Дешевая мода 2020, оптовая
+                                продажа,
+                                комплекты детской</a>
                         </div>
                         <div class="product-preview__buttons">
                             <div class="product-preview__button">
@@ -334,7 +343,8 @@
                                 </svg>
                             </div>
                         </div>
-                    </a>
+                    </div>
+
                 </div>
             </div>
         </section>

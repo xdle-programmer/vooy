@@ -84,6 +84,21 @@ class User extends Authenticatable
         return $this->hasMany(TenderProductReview::class, 'provider_id');
     }
 
+    public function tenders_provider()
+    {
+        return $this->hasMany(Tender::class, 'provider_id');
+    }
+
+    public function provider_products()
+    {
+        return $this->hasMany(Product::class, 'owner_id');
+    }
+
+    public function provider_factories()
+    {
+        return $this->hasMany(Factory::class, 'provider_id');
+    }
+
     public function user_reviews()
     {
         return $this->hasMany(UserReview::class, 'user_id');

@@ -479,44 +479,48 @@
             //newCategory(null,PRODUCT.categories[0])
             let prodCats = PRODUCT.categories;
             let prodPhotos = PRODUCT.attachments;
-            for (let i = 0; i < prodCats.length; i++) {
-                console.log(i, prodCats[i]);
+            if (prodCats.length > 0) {
+                for (let i = 0; i < prodCats.length; i++) {
+                    console.log(i, prodCats[i]);
 
-                if (i > 0) {
-                    let categories = CATEGORIES.filter(item => {
-                        return parseInt(item.parrent_id) === parseInt(prodCats[i - 1].id);
-                    });
-                    newCategory(categories, prodCats[i])
-                    if (prodCats.length == parseInt(i + 1)) {
-                        setCharacteristics(prodCats[i].id)
+                    if (i > 0) {
+                        let categories = CATEGORIES.filter(item => {
+                            return parseInt(item.parrent_id) === parseInt(prodCats[i - 1].id);
+                        });
+                        newCategory(categories, prodCats[i])
+                        if (prodCats.length == parseInt(i + 1)) {
+                            setCharacteristics(prodCats[i].id)
 
-                        if (PRODUCT.characteristics != null) {
-                            let prodChars = PRODUCT.characteristics
-                            prodChars.forEach(prodChar => {
-                                let $characteristic = document.querySelector('[data-characteristic="' + prodChar.characteristic_id + '"]');
-                                console.log($characteristic)
-                                if ($characteristic.dataset.type == 1 || $characteristic.dataset.type == 2) {
-                                    $characteristic.querySelector('input').value = prodChar.value;
-                                } else if ($characteristic.dataset.type == 3) {
+                            if (PRODUCT.characteristics != null) {
+                                let prodChars = PRODUCT.characteristics
+                                prodChars.forEach(prodChar => {
+                                    let $characteristic = document.querySelector('[data-characteristic="' + prodChar.characteristic_id + '"]');
+                                    console.log($characteristic)
+                                    if ($characteristic.dataset.type == 1 || $characteristic.dataset.type == 2) {
+                                        $characteristic.querySelector('input').value = prodChar.value;
+                                    } else if ($characteristic.dataset.type == 3) {
 
-                                    $characteristic.querySelectorAll('input').forEach((cb, i) => {
+                                        $characteristic.querySelectorAll('input').forEach((cb, i) => {
 
-                                        let select = PRODUCT.selects.filter((i) => {
-                                            return i.select_id == cb.dataset.select;
-                                        })[0];
-                                        if (select.value == 'true')
-                                            cb.checked = true;
-                                    })
-                                }
-                            })
+                                            let select = PRODUCT.selects.filter((i) => {
+                                                return i.select_id == cb.dataset.select;
+                                            })[0];
+                                            if (select.value == 'true')
+                                                cb.checked = true;
+                                        })
+                                    }
+                                })
+                            }
                         }
+                    } else {
+                        newCategory(null, prodCats[i])
                     }
-                } else {
-                    newCategory(null, prodCats[i])
                 }
-
             }
-
+            else
+            {
+                newCategory();
+            }
             let $photoContainer = document.querySelector('.photo-upload__items')
             prodPhotos.forEach(photo => {
                 let photoNode = document.createElement('div');

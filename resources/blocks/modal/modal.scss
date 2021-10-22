@@ -36,6 +36,7 @@
     &__content-rating {
         max-height: 500px;
         overflow-x: auto;
+        @include vertical-scroll;
     }
 
     &__user-review {
@@ -379,4 +380,14 @@
 .rate > input:checked ~ label:hover ~ label,
 .rate > label:hover ~ input:checked ~ label {
     color: #c59b08;
+}
+@media (max-width: 700px) {
+    .modal{
+        margin: auto;
+        width: 100%;
+        left: 0;
+        &__two-buttons{
+            grid-template-columns: 1fr;
+        }
+    }
 }

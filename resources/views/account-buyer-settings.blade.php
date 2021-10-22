@@ -2,10 +2,6 @@
 
 
 @section('main_item')
-    @extends('account-manufacturer')
-
-
-@section('main_item')
     <form method="POST" action="{{ route('account-settings-save') }}">
         @csrf
         <input name="role" type="hidden" value="provider">
@@ -55,11 +51,10 @@
                     </div>
                 </div>
                 <div class="account__item-settings-item account__item-settings-item--no-border">
-                    <button class="button">Сохранить изменения</button>
+                    <button class="button account__button">Сохранить изменения</button>
                 </div>
             </div>
         </div>
     </form>
 @stop
 
-@stop

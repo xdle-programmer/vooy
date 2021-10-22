@@ -27,14 +27,14 @@ class UserEditScreen extends Screen
      *
      * @var string
      */
-    public $name = 'Edit User';
+    public $name = 'Редактировать пользователя';
 
     /**
      * Display header description.
      *
      * @var string
      */
-    public $description = 'Details such as name, email and password';
+    public $description = '';
 
     /**
      * @var string
@@ -58,7 +58,7 @@ class UserEditScreen extends Screen
         $this->user = $user;
 
         if (! $user->exists) {
-            $this->name = 'Create User';
+            $this->name = 'Создать пользователя';
         }
 
         $user->load(['roles']);
@@ -77,19 +77,19 @@ class UserEditScreen extends Screen
     public function commandBar(): array
     {
         return [
-            Button::make(__('Impersonate user'))
+            Button::make("Выдача себя за пользователя")
                 ->icon('login')
-                ->confirm('You can revert to your original state by logging out.')
+                ->confirm('Вы можете вернуться в исходное состояние, выйдя из системы')
                 ->method('loginAs')
                 ->canSee($this->user->exists && \request()->user()->id !== $this->user->id),
 
-            Button::make(__('Remove'))
+            Button::make("Удалить")
                 ->icon('trash')
-                ->confirm(__('Once the account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.'))
+                ->confirm("Вы уверены что хотите удалить этого пользователя?")
                 ->method('remove')
                 ->canSee($this->user->exists),
 
-            Button::make(__('Save'))
+            Button::make("Сохранить")
                 ->icon('check')
                 ->method('save'),
         ];
@@ -103,10 +103,9 @@ class UserEditScreen extends Screen
         return [
 
             Layout::block(UserEditLayout::class)
-                ->title(__('Profile Information'))
-                ->description(__('Update your account\'s profile information and email address.'))
+                ->title("Информация профиля ")
                 ->commands(
-                    Button::make(__('Save'))
+                    Button::make("Сохранить")
                         ->type(Color::DEFAULT())
                         ->icon('check')
                         ->canSee($this->user->exists)
@@ -114,8 +113,8 @@ class UserEditScreen extends Screen
                 ),
 
             Layout::block(UserPasswordLayout::class)
-                ->title(__('Password'))
-                ->description(__('Ensure your account is using a long, random password to stay secure.'))
+                ->title("Пароль")
+                ->description("Убедитесь, что в вашей учетной записи используется длинный случайный пароль, чтобы оставаться в безопасности.")
                 ->commands(
                     Button::make(__('Save'))
                         ->type(Color::DEFAULT())
@@ -125,8 +124,8 @@ class UserEditScreen extends Screen
                 ),
 
             Layout::block(UserRoleLayout::class)
-                ->title(__('Roles'))
-                ->description(__('A Role defines a set of tasks a user assigned the role is allowed to perform.'))
+                ->title("Роль")
+                ->description("Роль определяет набор задач, которые разрешено выполнять пользователю, которому назначена роль.")
                 ->commands(
                     Button::make(__('Save'))
                         ->type(Color::DEFAULT())
@@ -136,8 +135,8 @@ class UserEditScreen extends Screen
                 ),
 
             Layout::block(RolePermissionLayout::class)
-                ->title(__('Permissions'))
-                ->description(__('Allow the user to perform some actions that are not provided for by his roles'))
+                ->title("Права")
+                ->description("Разрешить пользователю выполнять некоторые действия, не предусмотренные его ролями. ")
                 ->commands(
                     Button::make(__('Save'))
                         ->type(Color::DEFAULT())

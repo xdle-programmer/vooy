@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-
+use App\Orchid\Screens;
 use App\Orchid\Screens\Examples\ExampleCardsScreen;
 use App\Orchid\Screens\Examples\ExampleChartsScreen;
 use App\Orchid\Screens\Examples\ExampleFieldsAdvancedScreen;
@@ -102,6 +102,7 @@ Route::screen('connectors', ProviderConnector::class)->name('platform.connectors
 Route::screen('currencies', Currencies::class)->name('platform.currencies');
 
 //PRODUCT
+Route::screen('products', Screens\ProductListScreen::class)->name('platform.products');
 
 //CATEGORY
 Route::screen('categories', ProductCategoryScreen::class)->name('platform.categories');

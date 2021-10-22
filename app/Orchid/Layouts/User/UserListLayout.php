@@ -26,7 +26,7 @@ class UserListLayout extends Table
     public function columns(): array
     {
         return [
-            TD::make('name', __('Name'))
+            TD::make('name', "Имя")
                 ->sort()
                 ->cantHide()
                 ->filter(TD::FILTER_TEXT)
@@ -34,7 +34,7 @@ class UserListLayout extends Table
                     return new Persona($user->presenter());
                 }),
 
-            TD::make('email', "Phone")
+            TD::make('email', "Почта")
                 ->sort()
                 ->cantHide()
                 ->filter(TD::FILTER_TEXT)
@@ -48,7 +48,21 @@ class UserListLayout extends Table
                         ]);
                 }),
 
-            TD::make('updated_at', __('Last edit'))
+            TD::make('phone', "Телефон")
+                ->sort()
+                ->cantHide()
+                ->filter(TD::FILTER_TEXT)
+                ->render(function (User $user) {
+                    return ModalToggle::make($user->phone)
+                        ->modal('oneAsyncModal')
+                        ->modalTitle($user->presenter()->title())
+                        ->method('saveUser')
+                        ->asyncParameters([
+                            'user' => $user->id,
+                        ]);
+                }),
+
+            TD::make('updated_at', "Последние изменения")
                 ->sort()
                 ->render(function (User $user) {
                     return $user->updated_at->toDateTimeString();
@@ -62,11 +76,11 @@ class UserListLayout extends Table
                         ->icon('options-vertical')
                         ->list([
 
-                            Link::make(__('Edit'))
+                            Link::make("Редактировать")
                                 ->route('platform.systems.users.edit', $user->id)
                                 ->icon('pencil'),
 
-                            Button::make(__('Delete'))
+                            Button::make("Удалить")
                                 ->icon('trash')
                                 ->method('remove')
                                 ->confirm(__('Once the account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.'))

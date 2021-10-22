@@ -1,42 +1,3 @@
-<!--
-Миксины
-Строка тендера: Товар, название, дата, номер, количество, стоимость, статус, опционально оценка
-Строка товара в тендере: Товар, название, количество, образец, комментарий
-Строка предложения товара: Товар, название, количество, стоимость, срок, образец, комментарий поставщика
-Строка предложения поставщика: Лого, поставщик, количество, стоимость, срок, образец, комментарий поставщика, победитель, чат
-
--->
-<!--
-Роль: Посетитель
-Страница: Общий список, миксины: Строка тендера
-Страница: Страница тендера, миксины: Строка товара в тендере
-Страница: Страница поставщика, миксины: Строка тендера (с оценкой)
-
--->
-<!--
-Роль: Покупатель
-Страница: Общий список, миксины: Строка тендера
-Страница: Страница поиска поставщика, миксины: Строка товара в тендере, Строка предложения товара, Строка предложения поставщика
-Страница: Страница тендера в реализации, миксины: Строка предложения товара
-Страница: Страница архивного тендера, миксины: Строка предложения товара
-
--->
-<!--
-Роль: Производитель
-Страница: Общий список Строка тендера
-Страница: Страница тендера без ответа, миксины: Строка товара в тендере
-Страница: Страница тендера с ответом, миксины: Товар на странице тендера, Строка предложения товара
-Страница: Страница тендера в реализации, миксины: Строка предложения товара
-Страница: Страница архивного тендера, миксины: Строка предложения товара
-
-
--->
-<!--Строка тендера (заголовок)-->
-<!--Строка тендера-->
-<!--Строка товара в тендере (заголовок)-->
-<!--Строка товара в тендере-->
-<!--Строка предложения товара-->
-<!--Строка предложения поставщика-->
 @extends('layouts.app')
 @section('h_script')
 @stop
@@ -45,8 +6,19 @@
     <div class="wrapper">
         <section class="section section--small">
             <div class="layout">
-                <div class="breadcrumbs"><a class="breadcrumbs__item" href="/">Главная</a>
+                <div class="breadcrumbs">
+                    <a class="breadcrumbs__item" href="/">Главная</a>
+                    @if ($saveFilter != null)
+
+                        @if (isset($saveFilter['category']) && $saveFilter['category'] != "0")
+                            <a  class="breadcrumbs__item" href="/products">Список товаров</a>
+                            <div class="breadcrumbs__item breadcrumbs__item--active">{{\App\Models\Category::find($saveFilter['category'])->name}}</div>
+                        @else
+                            <div class="breadcrumbs__item breadcrumbs__item--active">Список товаров</div>
+                        @endif
+                    @else
                     <div class="breadcrumbs__item breadcrumbs__item--active">Список товаров</div>
+                    @endif
                 </div>
                 <div class="title-count">
                     <div class="title-count__item">Количество товаров</div>
@@ -61,18 +33,14 @@
                         <form method="GET" action="{{ route('product-list') }}">
                             <div class="catalog__filters-group">
                                 <div class="catalog__filters-title">Категория</div>
-                                <div class="catalog__filters-group-item">
-                                    @foreach($categories as $category)
-                                        <button name="filter[category]" value="{{$category->id}}"
-                                                class="catalog__filters-link-counter">
-                                            <div class="catalog__filters-link-counter-text">{{$category->name}}</div>
-                                            @if ($category->products->count() != 0)
-                                                <div class="catalog__filters-link-counter-count">
-                                                    ({{$category->products->count()}})
-                                                </div>
-                                            @endif
-                                        </button>
-                                    @endforeach
+                                <input type="hidden" name="filter[category]" id="category-hidden"
+                                       @if ($saveFilter != null)
+                                       value="{{$saveFilter['category'] ?? 0}}"
+                                       @else
+                                       value="0"
+                                       @endif>
+                                <div id="filter-categories" class="catalog__filters-group-item">
+
                                 </div>
                             </div>
                             <div class="catalog__filters-group">
@@ -84,7 +52,7 @@
                                                 <div class="min-max-slider__input-wrapper placeholder">
                                                     <input
                                                         @if ($saveFilter != null)
-                                                        value="{{$saveFilter['price']['min']}}"
+                                                        value="{{$saveFilter['price']['min'] ?? null}}"
                                                         @endif
                                                         name="filter[price][min]"
                                                         class="input placeholder__input min-max-slider__input min-max-slider__input--min"
@@ -94,7 +62,7 @@
                                                 <div class="min-max-slider__input-wrapper placeholder">
                                                     <input
                                                         @if ($saveFilter != null)
-                                                        value="{{$saveFilter['price']['max']}}"
+                                                        value="{{$saveFilter['price']['max'] ?? null}}"
                                                         @endif
                                                         name="filter[price][max]"
                                                         class="input placeholder__input min-max-slider__input min-max-slider__input--max"
@@ -118,7 +86,7 @@
                                                 <div class="min-max-slider__input-wrapper placeholder">
                                                     <input
                                                         @if ($saveFilter != null)
-                                                        value="{{$saveFilter['order']['min']}}"
+                                                        value="{{$saveFilter['order']['min'] ?? null}}"
                                                         @endif
                                                         name="filter[order][min]"
                                                         class="input placeholder__input min-max-slider__input min-max-slider__input--min"
@@ -128,7 +96,7 @@
                                                 <div class="min-max-slider__input-wrapper placeholder">
                                                     <input
                                                         @if ($saveFilter != null)
-                                                        value="{{$saveFilter['order']['max']}}"
+                                                        value="{{$saveFilter['order']['max'] ?? null}}"
                                                         @endif
                                                         name="filter[order][max]"
                                                         class="input placeholder__input min-max-slider__input min-max-slider__input--max"
@@ -194,6 +162,23 @@
                                     @endforeach
                                 @endif
                             </div>
+
+                            <div class="catalog__filters-group-buttons">
+                                <div  @if ($saveFilter != null)
+                                      onclick="clearFilter()"
+                                      @endif
+
+                                    class="catalog__filters-group-button catalog__filters-group-button-red">
+                                    <svg class="product-preview__button-icon">
+                                        <use xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                                    </svg>
+                                </div>
+                                <button class="catalog__filters-group-button">
+                                    <div class="product-preview__button-text">Применить</div>
+
+                                </button>
+                            </div>
+
                         </form>
                     </div>
 
@@ -223,7 +208,7 @@
                             @if ($products != null)
                                 @foreach($products as $product)
                                     <div class="product-preview product-preview--big"
-                                       href="/product-card/{{$product->id}}">
+                                         href="/product-card/{{$product->id}}">
                                         @if ($product->attachments->first())
                                             <img class="product-preview__img"
                                                  src="../storage/products/{{$product->attachments->first()->path}}">
@@ -271,8 +256,109 @@
     </div>
 
     <script>
-        $FILTER = {!! json_encode($saveFilter) !!};
-        console.log($FILTER)
+        let CATEGORIES = {!! json_encode($categories) !!};
+        let FILTER = {!! json_encode($saveFilter) !!};
+        console.log(FILTER)
+        console.log(CATEGORIES)
+        let $categories = document.getElementById('filter-categories');
+        let parrentCategories = CATEGORIES.filter((i) => {
+            return i.parrent_id == null;
+        });
+        let categoryHidden = document.getElementById('category-hidden');
+
+        parrentCategories.forEach(category => {
+            fillCategory(category);
+            console.log('fill')
+        })
+
+        function fillCategory(category, parrentNode = $categories) {
+            let childCategories = CATEGORIES.filter((i) => {
+                return i.parrent_id == category.id;
+            });
+            let arrowHtml = ``;
+            let currentCategoryHtml =``;
+
+            if (FILTER != null){
+                if (category.id == FILTER.category)
+                    currentCategoryHtml = `catalog__filters-link-counter-current`;
+            }
+
+
+            if (childCategories.length > 0)
+                arrowHtml = `<div class="catalog__icon-arrow" data-parrent="${category.id}" onclick="openContainer(this)">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="filterIcon-0-2-297 icon-0-2-31"><path d="M17.2946 9.29462C16.9053 8.90534 16.2743 8.905 15.8846 9.29385L12 13.17L8.11538 9.29385C7.72569 8.905 7.09466 8.90534 6.70538 9.29462C6.31581 9.68419 6.31581 10.3158 6.70538 10.7054L12 16L17.2946 10.7054C17.6842 10.3158 17.6842 9.68419 17.2946 9.29462Z"></path></svg>
+                </div>`
+
+            let categoryHtml = `
+               <div class="catalog__filters-category-container">
+               <div name="filter[category]"  data-value="${category.id}" onclick="setCurrentCategory(this)" class="catalog__filters-link-counter ${currentCategoryHtml}">
+                    <div class="catalog__filters-link-counter-text">${category.name}</div>
+                    <div class="catalog__filters-link-counter-count">(${category.products.length})</div>
+               </div>
+                    ${arrowHtml}
+                </div>`
+            parrentNode.insertAdjacentHTML('beforeend', categoryHtml);
+
+
+            if (childCategories.length > 0) {
+                let parrentDiv = document.createElement('div');
+                parrentDiv.classList.add('catalog__filters-category-container-sub-close')
+                //parrentDiv.classList.add('catalog__filters-category-container-sub-open')
+                parrentDiv.classList.add('parrent-category-' + category.id)
+                parrentNode.appendChild(parrentDiv);
+
+                childCategories.forEach(cCategory => {
+                    fillCategory(cCategory, parrentDiv);
+                })
+            }
+
+        }
+
+        function setCurrentCategory(e){
+            //log.e.target
+
+            console.log(e.dataset.value)
+            categoryHidden.value = e.dataset.value;
+            document.querySelectorAll('.catalog__filters-link-counter-current').forEach(item=>{
+                item.classList.remove('catalog__filters-link-counter-current')
+            })
+            e.classList.add('catalog__filters-link-counter-current')
+
+        }
+
+        function openContainer(container){
+            let $container = document.querySelector('.parrent-category-' + container.dataset.parrent)
+
+            if ($container.classList.contains('catalog__filters-category-container-sub-close'))
+            {
+                $container.classList.add('catalog__filters-category-container-sub-open')
+                $container.classList.remove('catalog__filters-category-container-sub-close')
+                container.classList.add('catalog__icon-arrow-revert')
+            }
+            else if ($container.classList.contains('catalog__filters-category-container-sub-open'))
+            {
+                $container.classList.add('catalog__filters-category-container-sub-close')
+                $container.classList.remove('catalog__filters-category-container-sub-open')
+                container.classList.remove('catalog__icon-arrow-revert')
+            }
+
+        }
+
+        function clearFilter(){
+            window.location =  window.location.origin + window.location.pathname
+        }
     </script>
 @stop
-
+{{--
+@foreach($categories as $category)
+    <button name="filter[category]" value="{{$category->id}}"
+            class="catalog__filters-link-counter">
+        <div class="catalog__filters-link-counter-text">{{$category->name}}</div>
+        @if ($category->products->count() != 0)
+            <div class="catalog__filters-link-counter-count">
+                ({{$category->products->count()}})
+            </div>
+        @endif
+    </button>
+@endforeach
+--}}

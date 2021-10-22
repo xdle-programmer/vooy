@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\FactoryAttachment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
@@ -10,6 +12,7 @@ use Illuminate\Validation\ValidationException;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\Tender;
+use App\Models\Factory;
 
 class AccountController extends Controller
 {
@@ -61,6 +64,86 @@ class AccountController extends Controller
             }
         }
 
+    }
+
+    public function showAccountAddFactory()
+    {
+        $user = auth()->user();
+        if ($user == null) {
+            return redirect('/');
+        }
+
+        return view('account-manufacturer-factory', ['user' => $user]);
+    }
+
+    public function showAccountFactory()
+    {
+        $user = auth()->user();
+        if ($user == null) {
+            return redirect('/');
+        }
+
+        $factories = Factory::with('attachments')->where('provider_id', $user->id)->get();
+
+        return view('account-manufacturer-factory-list', ['user' => $user, 'factories' => $factories]);
+    }
+
+    public function saveFactory(Request $request)
+    {
+        //dd($request->file('factory_logo'));
+        $user = auth()->user();
+        if ($user == null) {
+            return response()->json('cant find user', 201);
+        }
+
+        $data = $request->all();
+        $factory_db = new Factory();
+
+        if (isset($data['factory'])) {
+            foreach ($data['factory'] as $key=>$factory){
+                $factory_db->$key = $factory;
+            }
+
+            $factory_db->provider_id = $user->id;
+            $factory_db->save();
+
+            if (isset($data['factory_logo'])) {
+
+                $path = Factory::getStoragePath() . $factory_db->id . '/';
+
+                $file = $data['factory_logo'];
+                $ext = $file->guessExtension();
+                $fileName = time() . '.' . $ext;
+                $file->move($path, $fileName);
+
+                $factory_db->logo = $fileName;
+                $factory_db->save();
+
+            }
+
+            if (isset($data['factory_attachments'])) {
+                foreach ($data['factory_attachments'] as $key=>$factory_attachment){
+
+                    $path = FactoryAttachment::getStoragePath() . $factory_db->id . '/';
+
+                    $file = $factory_attachment;
+                    $ext = $file->guessExtension();
+                    $fileName = $key . time() . '.' . $ext;
+                    $file->move($path, $fileName);
+
+                    $factory_attachment_db = new FactoryAttachment();
+                    $factory_attachment_db->type = $ext;
+                    $factory_attachment_db->name = $fileName;
+                    $factory_attachment_db->path = $factory_db->id . '/' . $fileName;
+                    $factory_attachment_db->factory_id = $factory_db->id;
+                    $factory_attachment_db->save();
+
+                }
+
+            }
+
+        }
+        return redirect()->back();
     }
 
     public function saveAccountSettings(Request $request)
@@ -118,4 +201,5 @@ class AccountController extends Controller
 
         return response()->json('OK', 200);
     }
+
 }

@@ -307,3 +307,41 @@
   }
 
 }
+
+@media (max-width: 700px) {
+    .account{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 500px) {
+    .account{
+
+        &__item{
+            width: 100%;
+        }
+        &__item-settings-block {
+            display: grid;
+            grid-gap: 20px;
+
+            &--two-col {
+                grid-template-columns: 1fr;
+            }
+
+            &--three-col {
+                grid-template-columns: 1fr;
+            }
+        }
+        &__button{
+            min-width: 0!important;
+            width: 100%!important;
+        }
+
+        .photo-upload__items--six{
+            grid-template-columns: repeat(2, 1fr)!important;
+        }
+
+    }
+}
+

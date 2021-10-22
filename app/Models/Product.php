@@ -5,9 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use Orchid\Attachment\Attachable;
+use Orchid\Attachment\Models\Attachment;
+use Orchid\Filters\Filterable;
+use Orchid\Screen\AsSource;
+
 class Product extends Model
 {
     use HasFactory;
+    use AsSource, Attachable, Filterable;
     protected $fillable = [
         'id',
         'title',
@@ -24,6 +30,11 @@ class Product extends Model
     public function prices()
     {
         return $this->hasMany(ProductPrice::class, 'product_id');
+    }
+
+    public function displays()
+    {
+        return $this->hasMany(ProductDisplay::class, 'product_id');
     }
 
     public function categories()

@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="{{ asset('main.css') }}">
 
     <!-- Scripts -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js">
+    </script>
     {{--<script type="text/javascript" src="{{ asset('main.js') }}"></script>--}}
     @yield('h_script')
 
@@ -229,11 +232,29 @@
             </div>
             <div class="header__natural-links">
                 <a class="header__natural-link" href="#">Как заказать?</a>
-                <a class="header__natural-link" href="{{route('tenders-list')}}">Тендеры</a>
-                <a class="header__natural-link" href="/_manufacturer-list.html">Поставщики</a>
-                <div class="header__natural-link header__natural-link--blue" data-modal-open="new-tender">Тендер на свой
-                    товар
-                </div>
+                <a class="header__natural-link
+                    @if (\Request::route()->getName() == 'tenders-list')
+                    header__natural-link-active
+                    @endif"
+                   href="{{route('tenders-list')}}">Тендеры</a>
+                <a class="header__natural-link
+                    @if (\Request::route()->getName() == 'manufacturer-list')
+                    header__natural-link-active
+                    @endif" href="/manufacturer-list">Поставщики</a>
+
+                @auth
+                    <div id="createTenderHeaderBtn" data-auth="true"
+                         class="header__natural-link header__natural-link--blue"
+                    >Тендер на свой товар
+                    </div>
+                @endauth
+                @guest
+                    <div id="createTenderHeaderBtn" data-auth="false"
+                         class="header__natural-link header__natural-link--blue"
+                    >Тендер на свой товар
+                    </div>
+                @endguest
+
             </div>
             <div class="header__natural-phone">
                 <svg class="header__natural-phone-icon">
@@ -294,9 +315,9 @@
             <div class="modal__content-items">
                 <div class="modal__content-item">
                     <div class="placeholder form-check__field" data-elem="input" data-rule="input-empty">
-                        <x-input placeholder="Телефон" id="login-email" class="input placeholder__input" type="text"
+                        <x-input placeholder="Почта" id="login-email" class="input placeholder__input" type="text"
                                  name="email" :value="old('email')" required autofocus/>
-                        <div class="placeholder__item">Телефон</div>
+                        <div class="placeholder__item">Почта</div>
                     </div>
                 </div>
 
@@ -327,7 +348,8 @@
                 </div>
                 <div class="modal__content-item">
                     <div class="modal__two-buttons">
-                        <div id="login-to-register-btn" class="modal__button button button--invert">
+                        <div data-modal-open="register" id="login-to-register-btn"
+                             class="modal__button button button--invert">
                             Зарегистрироваться
                         </div>
                         <x-button class="modal__button button button--invert form-check__button">Войти</x-button>
@@ -785,6 +807,177 @@
         </div>
     </div>
 </div>
+
+<div class="modal modal--wide" id="file-product-creation">
+    <div class="modal__content form-check">
+        <div class="modal__header">
+            <div class="modal__header-title">Загрузить товары?</div>
+            <div class="modal__header-close" data-modal-close="">
+                <svg class="modal__header-close-icon">
+                    <use xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                </svg>
+            </div>
+        </div>
+
+        <div class="product-in-file product-in-file--editable form-check">
+
+            <div class="product-in-file__wrapper">
+                <div class="product-in-file__items" id="file-products-wrapper">
+                    <template id="file-product-prices-template">
+                        <div class="form__copy-item">
+                            <div class="form__item-group-items">
+                                <div class="form__item-group-item">
+                                    <div class="placeholder form-check__field placeholder--empty" data-elem="input" data-rule="input-empty">
+                                        <input name="min" class="input placeholder__input check-progress__input input-min-count" placeholder="Минимум">
+                                        <div class="placeholder__item">Минимальный заказ</div>
+                                        <div class="form-check__error">Обязательное поле</div></div>
+                                </div>
+                                <div class="form__item-group-item">
+                                    <div class="placeholder form-check__field placeholder--empty" data-elem="input" data-rule="input-empty">
+                                        <input name="max" class="input placeholder__input check-progress__input input-max-count" placeholder="Максимум">
+                                        <div class="placeholder__item">Минимальный заказ</div>
+                                        <div class="form-check__error">Обязательное поле</div></div>
+                                </div>
+                                <div class="form__item-group-item">
+                                    <div class="placeholder form-check__field placeholder--empty" data-elem="input" data-rule="input-empty">
+                                        <input name="price" class="input placeholder__input check-progress__input input-price" placeholder="Стоимость">
+                                        <div class="placeholder__item">Стоимость</div>
+                                        <div class="form-check__error">Обязательное поле</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    <template id="file-product-template">
+                        <div class="product-in-file__item">
+
+                            <div class="product-in-file__item-header">
+                                <div class="product-in-file__item-header-title">
+                                    <div class="product-in-file__item-header-title-name">Товар</div>
+                                    <div class="product-in-file__item-header-title-number">1</div>
+                                </div>
+                            </div>
+
+                            <div class="product-in-file__item-input-images">
+                                <div class="photo-upload">
+                                    <div class="photo-upload__items">
+                                        <label class="photo-upload__label-wrapper">
+                                            <div class="photo-upload__label">
+                                                <div class="photo-upload__input-icon-wrapper">
+                                                    <svg class="photo-upload__input-icon">
+                                                        <use xlink:href="../images/icons/icons-sprite.svg#upload"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="photo-upload__input-text">Загрузите фото</div>
+                                                <input class="photo-upload__input" type="file" multiple="" accept="image/*">
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="product-in-file__item-inputs">
+                                <div class="product-in-file__item-inputs-collumn ">
+                                    <div class="product-in-file__item-input-name">
+                                        <div class="placeholder form-check__field placeholder--empty" data-elem="input" data-rule="input-empty">
+                                            <input class="input placeholder__input" placeholder="Наименование товара">
+                                            <div class="placeholder__item">Наименование товара</div>
+                                            <div class="form-check__error">Обязательное поле</div><div class="form-check__error"></div><div class="form-check__error"></div></div>
+                                    </div>
+                                    <div class="product-in-file__item-input-comment">
+                                        <div class="placeholder form-check__field placeholder--empty" data-elem="textarea" data-rule="input-empty">
+                                            <textarea class="input input--textarea placeholder__input" placeholder="Ваш комментарий"></textarea>
+                                            <div class="placeholder__item">Ваш комментарий</div>
+                                            <div class="form-check__error">Обязательное поле</div><div class="form-check__error"></div><div class="form-check__error"></div></div>
+                                    </div>
+                                    <div class="product-in-file__item-input-time">
+                                        <div class="placeholder form-check__field placeholder--empty" data-elem="input" data-rule="input-empty">
+                                            <input type="number" class="input placeholder__input" placeholder="Время изготовления">
+                                            <div class="placeholder__item">Время изготовления</div>
+                                            <div class="form-check__error">Обязательное поле</div><div class="form-check__error"></div><div class="form-check__error"></div></div>
+                                    </div>
+                                </div>
+
+                                <div class="product-in-file__item-input-count">
+                                    <div class="form__item-group">
+                                        <div class="form__copy-wrapper">
+
+                                            <div class="form__copy-items">
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </template>
+
+                </div>
+            </div>
+
+
+            <div class="product-in-file__footer">
+                <div id="product-in-file-btn" class="button form-check__button">
+                    Опубликовать товары
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="user-reviews-list">
+    <div class="modal__content">
+        <div class="modal__header">
+            <div class="modal__header-title">Отзывы</div>
+            <div class="modal__header-close" data-modal-close="user-reviews-list">
+                <svg class="modal__header-close-icon">
+                    <use xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                </svg>
+            </div>
+        </div>
+        <template id="user-review-template">
+            <div class="offer__header">
+                <div class="modal__user-review ">
+                    <div class="modal__user-review__logo" data-name="Т"></div>
+                    <div class="modal__user-review__title">
+                        <div class="modal__user-review__title-name">Тестовый пользователь</div>
+                        <div class="rate rate-unclicked">
+                            <label title="text">5 stars</label>
+                            <label title="text">4 stars</label>
+                            <label title="text">3 stars</label>
+                            <label title="text">2 stars</label>
+                            <label title="text">1 star</label>
+                        </div>
+                    </div>
+                    <div class="modal__user-review__options">
+                        <div class="modal__user-review__option">
+                            <div class="modal__user-review__option-name">
+                                Сообщение:
+                            </div>
+                            <div class="modal__user-review__option-value"> Сообщение Сообщен иеСо
+                                общениеС ообщениеСообщен иеСообщениеС ообщениеСообщениеСообщ
+                                ениеСообщениеСообще ниеСообщениеСо общениеСообщен иеСообщениеСообще
+                                ниеСообщениеСооб щениеСооб щениеСообщениеСоо бщениеСообщениеСообщени
+                                еСообщениеСообще
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <div class="modal__content-rating">
+            <div class="modal__content-message">
+
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal" id="winner-success">
     <div class="modal__content">
         <div class="modal__content-message">
@@ -1237,6 +1430,17 @@
         fromCountry = e.value;
     }
 
+
+    let createTenderHeaderBtn = document.getElementById('createTenderHeaderBtn');
+    createTenderHeaderBtn.addEventListener('click', (event) => {
+        if (event.target.dataset.auth == "true") {
+            modals.open('new-tender-products');
+        } else {
+            document.getElementById('login-hint').style.display = 'block';
+            document.getElementById('login-hint-text').innerText = "Перед созданием тендера, войдите в систему.";
+            modals.open('login');
+        }
+    });
 
     function providerServiceCheck(e) {
         if (e.id == 'service-2') {

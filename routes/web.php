@@ -6,6 +6,7 @@ use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\ProviderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,10 @@ use App\Http\Controllers\AccountController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $displayProducts = \App\Models\ProductDisplay::with('product', 'product.attachments')->get();
+    $displayCategories = \App\Models\CategoryDisplay::with('category')->get();
+
+    return view('welcome', ['displayProducts'=>$displayProducts,'displayCategories'=>$displayCategories]);
 })->name("home");
 
 Route::get('/dashboard', function () {
@@ -32,6 +36,7 @@ Route::post('/tender/review/create', [TenderController::class, 'createReview'])-
 Route::post('/tender/setWinner', [TenderController::class, 'setWinner'])->name("tender-setWinner");
 Route::post('/tender/nextSubStatus', [TenderController::class, 'nextSubstatus'])->name("tender-substatus-next");
 Route::post('/tender/nextStatus', [TenderController::class, 'nextStatus'])->name("tender-status-next");
+Route::post('/tender/update', [TenderController::class, 'updateTender'])->name("tender-update");
 
 Route::get('/tenders', [TenderController::class, 'showTenders'])->name("tenders-list");
 
@@ -50,7 +55,9 @@ Route::get('/product-card/{id}', [ProductController::class, 'productCart'])->nam
 Route::get('/product/new', [ProductController::class, 'productNew'])->name("product-new");
 Route::post('/product/create', [ProductController::class, 'createProduct'])->name("product-create");
 Route::get('/product-edit/{id}', [ProductController::class, 'editProduct'])->name("product-edit");
-
+Route::get('/product/search/{product}', [ProductController::class, 'searchProducts'])->name("product-search");
+Route::post('/products/create', [ProductController::class, 'createProducts'])->name("products-create");
+Route::get('/my-products', [ProductController::class, 'productMyList'])->name("products-my-list");
 //CHAT
 Route::get('/chat', [TenderController::class, 'showChat'])->name("chat");
 Route::post('/chat/{id}/message', [TenderController::class, 'sendMessage'])->name("chat-message-send");
@@ -63,14 +70,21 @@ Route::post('/chat/message/{id}/decline', [TenderController::class, 'messageDecl
 //ACCOUNT
 Route::get('/account/{id?}', [AccountController::class, 'showAccount'])->name("account");
 Route::get('/account-settings/{id?}', [AccountController::class, 'showAccountSettings'])->name("account-settings");
+Route::get('/account-factory', [AccountController::class, 'showAccountAddFactory'])->name("account-factory");
+Route::get('/account-factory/list', [AccountController::class, 'showAccountFactory'])->name("account-factory-list");
 Route::post('/account-settings/save', [AccountController::class, 'saveAccountSettings'])->name("account-settings-save");
 Route::post('/account/photo-upload', [AccountController::class, 'uploadPhoto'])->name("account-photo-upload");
+Route::post('/account/factory-save', [AccountController::class, 'saveFactory'])->name("account-factory-save");
 
 //CURRENCY
 Route::post('/currency/update', [CurrencyController::class, 'update'])->name("currency-update");
 
 //EMAIL
 Route::post('/email/send', [EmailController::class, 'sendMessage'])->name("email-send");
+
+//PROVIDER
+Route::get('/manufacturer-list', [ProviderController::class, 'showProvidersList'])->name("manufacturer-list");
+Route::get('/manufacturer/{id}', [ProviderController::class, 'showProvider'])->name("manufacturer");
 
 
 require __DIR__.'/auth.php';

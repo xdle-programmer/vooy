@@ -2,6 +2,9 @@
 
 
 @section('main_item')
+    @if ($user->whereHas('roles', function ($q) {
+                      $q->where('slug', 'provider');
+                      })->where('id', $user->id)->first() != null)
         <div class="account__blocks">
             <a class="account__block account__block--gold border-block"
                href="/tenders?filtered=true&onlyMyProvider=on">
@@ -20,33 +23,34 @@
                 </svg>
             </a>
         </div>
-        <a class="main-banner" href="#">
-            <div class="main-banner__background">
-                <div class="main-banner__background-el main-banner__background-el--1"></div>
-                <div class="main-banner__background-el main-banner__background-el--2"></div>
-                <div class="main-banner__background-el main-banner__background-el--3"></div>
-                <div class="main-banner__background-el main-banner__background-el--4"></div>
-                <div class="main-banner__background-el main-banner__background-el--5"></div>
-                <div class="main-banner__background-el main-banner__background-el--6"></div>
+    @endif
+    <a class="main-banner" href="#">
+        <div class="main-banner__background">
+            <div class="main-banner__background-el main-banner__background-el--1"></div>
+            <div class="main-banner__background-el main-banner__background-el--2"></div>
+            <div class="main-banner__background-el main-banner__background-el--3"></div>
+            <div class="main-banner__background-el main-banner__background-el--4"></div>
+            <div class="main-banner__background-el main-banner__background-el--5"></div>
+            <div class="main-banner__background-el main-banner__background-el--6"></div>
+        </div>
+        <div class="main-banner__content main-banner__content--ref">
+            <div class="main-banner__content-main">
+                <div class="main-banner__content-title">Реферальная программа</div>
             </div>
-            <div class="main-banner__content main-banner__content--ref">
-                <div class="main-banner__content-main">
-                    <div class="main-banner__content-title">Реферальная программа</div>
-                </div>
-                <div class="main-banner__content-natural">
-                    <div class="main-banner__content-natural-item">
-                        <div class="main-banner__content-natural-item-percent">1%</div>
-                        <div class="main-banner__content-natural-item-text">за каждого активного
-                            покупателя
-                        </div>
-                    </div>
-                    <div class="main-banner__content-natural-item">
-                        <div class="main-banner__content-natural-item-percent">3%</div>
-                        <div class="main-banner__content-natural-item-text">за каждого активного
-                            поставщика
-                        </div>
+            <div class="main-banner__content-natural">
+                <div class="main-banner__content-natural-item">
+                    <div class="main-banner__content-natural-item-percent">1%</div>
+                    <div class="main-banner__content-natural-item-text">за каждого активного
+                        покупателя
                     </div>
                 </div>
+                <div class="main-banner__content-natural-item">
+                    <div class="main-banner__content-natural-item-percent">3%</div>
+                    <div class="main-banner__content-natural-item-text">за каждого активного
+                        поставщика
+                    </div>
+                </div>
             </div>
-        </a>
+        </div>
+    </a>
 @stop

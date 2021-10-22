@@ -93,7 +93,7 @@ class TenderScreen extends Screen
                     ->sort()
                     ->render(function (Tender $tender) {
 
-                        return $tender->created_at->format('Y-m-d');
+                        return $tender->created_at->format('Y-m-d H:i:s');
                     }),
 
                 TD::make('Действия')
