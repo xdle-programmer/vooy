@@ -170,7 +170,11 @@ class UserEditScreen extends Screen
             ->collapse()
             ->toArray();
 
+
+
         $userData = $request->get('user');
+
+
         if ($user->exists && (string)$userData['password'] === '') {
             // When updating existing user null password means "do not change current password"
             unset($userData['password']);
@@ -178,12 +182,20 @@ class UserEditScreen extends Screen
             $userData['password'] = Hash::make($userData['password']);
         }
 
-        $user
-            ->fill($userData)
+
+
+       foreach ($userData as $key=>$data){
+           if ($key != 'roles')
+               $user->$key = $data;
+       }
+        $user->save();
+      /*
+        $user->fill($userData)
             ->fill([
                 'permissions' => $permissions,
-            ])
-            ->save();
+            ]);
+        $user->save();
+*/
 
         $user->replaceRoles($request->input('user.roles'));
 

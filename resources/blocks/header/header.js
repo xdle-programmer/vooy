@@ -7,9 +7,9 @@ let placeholder = 'Более 10 000 товаров оптом';
 if (window.viewportOptions.viewportWidth < mobileWidth) {
     placeholder = 'Поиск';
 }
-
+if($searchBox !== undefined)
 window.searchBox = new SearchBox({
-    $wrapper: $searchBox,
+    $wrapper: $searchBox ?? null,
     mainClass: 'search-box',
     placeholderText: placeholder,
     buttonText: ' '
@@ -20,7 +20,8 @@ let template = `
     <svg class="header__search-row-button-icon">
         <use xlink:href="../images/icons/icons-sprite.svg#zoom"></use>
     </svg>`;
-$button.insertAdjacentHTML('beforeEnd', template);
+if ($button !== undefined)
+    $button.insertAdjacentHTML('beforeEnd', template);
 
 let $header = document.getElementsByClassName('header')[0];
 let headerScrollClass = 'header--scroll';
@@ -49,7 +50,10 @@ function openNawbar(){
 
 }
 
-document.getElementById('mobile-navbar-btn').addEventListener('click',()=>{
+let $mobNavBtn = document.getElementById('mobile-navbar-btn')
+
+if ($mobNavBtn !== undefined && $mobNavBtn !== null)
+    $mobNavBtn.addEventListener('click',()=>{
     openNawbar()
 })
 

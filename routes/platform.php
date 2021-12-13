@@ -29,6 +29,8 @@ use App\Orchid\Screens\TenderParthnerScreen;
 use App\Orchid\Screens\TenderOwnershipScreen;
 use App\Orchid\Screens\TenderOwnershipEditScreen;
 
+use App\Orchid\Screens\TenderTimeoutScreen;
+
 use App\Orchid\Screens\TenderSertificatScreen;
 use App\Orchid\Screens\TenderSertificatEditScreen;
 
@@ -48,6 +50,8 @@ use App\Orchid\Screens\ProductCharacteristicScreen;
 use App\Orchid\Screens\ProductCharacteristicEditScreen;
 use App\Orchid\Screens\ProductCategoryCharacteristicScreen;
 use App\Orchid\Screens\ProductCharacteristicValuesScreen;
+
+
 
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
@@ -79,6 +83,8 @@ Route::screen('tender/{tender?}', TenderProductScreen::class)->name('platform.te
 Route::screen('tender/moderation/{tender?}', TenderModerationScreen::class)->name('platform.tender.moderation');
 Route::screen('tender/review/{tender?}', TenderReviewCreationScreen::class)->name('platform.tender.review');
 Route::screen('tender/parthner/{tender?}', TenderParthnerScreen::class)->name('platform.tender.parthner');
+Route::screen('tender/timer/edit', TenderTimeoutScreen::class)->name('platform.tender.timer');
+
 
 //CHATS
 Route::screen('chats', TenderChatListScreen::class)->name('platform.chats');

@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required',
+            'email' => 'unique:App\Models\User,email',
             'phone' => 'required',
             'password' => 'required',
         ]);
@@ -72,7 +72,7 @@ class RegisteredUserController extends Controller
     //  dd($request->all());
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required',
+            'email' => 'unique:App\Models\User,email',
             'password' => 'required',
             'phone' => 'required',
             'company' => 'required',

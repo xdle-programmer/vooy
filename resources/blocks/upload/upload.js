@@ -11,6 +11,7 @@ export function upload(options) {
     let files = [];
 
 
+
     $input.addEventListener('change', event => {
         changeHandler(event);
     });
@@ -41,6 +42,12 @@ export function upload(options) {
                 const src = ev.target.result;
                 const name = file.name;
 
+                if  (file.size / 1024 / 1024 > 1.99)
+                {
+                    return;
+                }
+
+
                 if (!file.type.match('image') && filePreviewCreate) {
                     $filePreviewWrapper.insertAdjacentHTML('afterbegin', filePreviewCreate({
                         name: name,
@@ -56,5 +63,6 @@ export function upload(options) {
 
             reader.readAsDataURL(file);
         });
+
     };
 }

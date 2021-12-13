@@ -317,6 +317,13 @@
         @include flex-row-center;
     }
 
+    &__content-message-three-buttons {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+        justify-items: center;
+    }
+
     &__content-item-checkbox-group {
     }
 

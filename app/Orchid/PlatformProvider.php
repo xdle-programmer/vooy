@@ -2,6 +2,7 @@
 
 namespace App\Orchid;
 
+use App\Models\Tender;
 use Orchid\Platform\Dashboard;
 use Orchid\Platform\ItemPermission;
 use Orchid\Platform\OrchidServiceProvider;
@@ -42,6 +43,12 @@ class PlatformProvider extends OrchidServiceProvider
 
 
             Menu::make('Тендеры')
+                ->badge(function () {
+                    if (Tender::where('status_id', '2')->count() != 0) {
+                        return Tender::where('status_id', '2')->count();
+                    }
+                    return null;
+                })
                 ->icon('code')
                 ->list([
                     Menu::make('Тендеры')
@@ -64,6 +71,10 @@ class PlatformProvider extends OrchidServiceProvider
                     Menu::make("Сертификаты")
                         ->icon('layers')
                         ->route('platform.sertificat'),
+
+                    Menu::make("Таймер")
+                        ->icon('layers')
+                        ->route('platform.tender.timer'),
                 ]),
 
 
@@ -79,7 +90,7 @@ class PlatformProvider extends OrchidServiceProvider
                     Menu::make("Коннекторы")
                         ->icon('layers')
                         ->route('platform.connectors'),
-                    Menu::make("Продавецы в России")
+                    Menu::make("Продавцы в России")
                         ->icon('layers')
                         ->route('platform.sellerRus'),
                 ]),

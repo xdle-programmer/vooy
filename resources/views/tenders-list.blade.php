@@ -18,7 +18,7 @@
             <section class="section section--small">
                 <div class="layout-m">
                     <form id="filterForm" class="" action="tenders" method="get">
-                       <input type="hidden" name="filtered" value="true">
+                        <input type="hidden" name="filtered" value="true">
 
                         <div class="header-checkbox">
                             <div class="header-checkbox__item">
@@ -90,10 +90,11 @@
                     <div class="tender-row tender-row--header tender-row--without-assessment">
                         <div class="tender-row__item">Фото</div>
                         <div class="tender-row__item">Наименование</div>
+                        <div class="tender-row__item">Товары</div>
                         <div class="tender-row__item">Дата создания</div>
-                        <div class="tender-row__item">Номер</div>
                         <div class="tender-row__item">Количество товаров</div>
-
+                        <div class="tender-row__item">Коментарий</div>
+                        <div class="tender-row__item">Осталось времени</div>
                         <div class="tender-row__item">Статус</div>
                     </div>
 
@@ -107,6 +108,10 @@
 
                             if ($tender->buyer_id == $buyer_id)
                             $dataFilter .= ", my";
+
+                            $timeLeft = "Завершен";
+                            if($tender->date_end != null)
+                                 $timeLeft = Carbon\Carbon::parse($tender->date_end)->diffInHours(Carbon\Carbon::now('UTC')) . "ч";
                         @endphp
                         <div class="filter__item" data-filter="{{$dataFilter}}">
 
@@ -126,23 +131,30 @@
                                                              src="../storage/tenderProducts/empty.jpg">
                                                     @endif
                                                 </div>
-                                                <a class="tender-row__item tender-row__item--left tender-row__item--link tender-row__item--middle"
-                                                   href="{{route('tenders-info', ['id' => $tender->id])}}">{{$tender->products->first()->title}}</a>
                                             @else
-                                                <div class="tender-row__item"><img class="tender-row__preview"
-                                                                                   src="../storage/tenderProducts/empty.jpg">
+                                                <div class="tender-row__item"><img class="tender-row__preview" src="../storage/tenderProducts/empty.jpg">
                                                 </div>
-                                                <a class="tender-row__item tender-row__item--left tender-row__item--link tender-row__item--middle"></a>
                                             @endif
-                                            <div
-                                                class="tender-row__item tender-row__item--small">{{$tender->created_at->format('d.m.Y')}}</div>
-                                            <div class="tender-row__item tender-row__item--small">{{$tender->id}}</div>
+                                            <a class="tender-row__item tender-row__item--left tender-row__item--link tender-row__item--middle"
+                                               href="{{route('tenders-info', ['id' => $tender->id])}}">Тендер #{{$tender->id}}</a>
+
+                                            <div class="tender-row__item tender-row__item--small">
+                                            @foreach($tender->products as $product)
+                                                    {{$product->title}}@if(!$loop->last),@endif
+                                            @endforeach
+                                            </div>
+
+                                            <div class="tender-row__item tender-row__item--small">{{$tender->created_at->format('d.m.Y')}}</div>
                                             @if ($tender->products->first())
                                                 <div
                                                     class="tender-row__item tender-row__item--big">{{$tender->products->sum('count')}}</div>
                                             @else
                                                 <div class="tender-row__item tender-row__item--big">нет</div>
                                             @endif
+
+                                            <div class="tender-row__item tender-row__item--small">{{$tender->description}}</div>
+
+                                            <div class="tender-row__item tender-row__item">{{$timeLeft}}</div>
 
                                             <div class="tender-row__item">
                                                 <div class="tender-row__status">
@@ -158,6 +170,9 @@
                                 </div>
                                 @endforeach
                         </div>
+                        <!--START PAG -->
+                    {!! $tenders->appends(Request::except('page'))->links('pagination.default') !!}
+                    <!--END PAG-->
                 </div>
             </section>
         </div>

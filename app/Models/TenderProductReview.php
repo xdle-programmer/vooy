@@ -18,6 +18,11 @@ class TenderProductReview extends Model
         return $this->hasMany(TenderProductReviewItem::class, 'review_id');
     }
 
+    public function tender()
+    {
+        return $this->belongsTo(Tender::class, 'tender_id');
+    }
+
     public function provider()
     {
         return $this->belongsTo(User::class, 'provider_id');

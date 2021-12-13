@@ -27,6 +27,11 @@ class Product extends Model
         return storage_path() . '/app/public/products' . ($s ? '/' : '');
     }
 
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'owner_id');
+    }
+
     public function prices()
     {
         return $this->hasMany(ProductPrice::class, 'product_id');
@@ -41,7 +46,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Category::class, "product_categories", "product_id", "category_id");
     }
-
+    public function product_favorites(){
+        return $this->belongsToMany(User::class, "user_product_favorites","product_id", "user_id");
+    }
     public function characteristics()
     {
         return $this->hasMany(ProductCharacteristic::class, "product_id");

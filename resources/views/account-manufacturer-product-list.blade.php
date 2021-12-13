@@ -18,11 +18,15 @@
                             <div class="product-preview product-preview--big"
                                  href="/product-card/{{$product->id}}">
                                 @if ($product->attachments->first())
-                                    <img class="product-preview__img"
+                                    <a href="/product-card/{{$product->id}}">
+                                    <img  class="product-preview__img"
                                          src="../storage/products/{{$product->attachments->first()->path}}">
+                                    </a>
                                 @else
+                                    <a href="/product-card/{{$product->id}}">
                                     <img class="product-preview__img"
                                          src="../storage/tenderProducts/empty.jpg">
+                                    </a>
                                 @endif
                                 <div class="product-preview__desc">
                                     <div class="product-preview__price">{{$product->prices->min('price')}}
@@ -53,7 +57,9 @@
 
                 </div>
             </div>
-
+            <!--START PAG -->
+        {!! $products->appends(Request::except('page'))->links('pagination.default') !!}
+        <!--END PAG-->
         </div>
 
     </div>

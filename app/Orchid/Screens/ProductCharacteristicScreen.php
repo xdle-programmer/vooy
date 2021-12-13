@@ -67,7 +67,20 @@ class ProductCharacteristicScreen extends Screen
             Layout::table('characteristics', [
                 TD::make('id'),
                 TD::make('name', 'Название'),
-                TD::make('type', 'Тип'),
+                TD::make('type', 'Тип')
+                    ->render(function (Characteristic $characteristic) {
+                        if ($characteristic->type == 3) {
+                            return "Чекбокс";
+                        }
+                        elseif ($characteristic->type == 2)
+                        {
+                            return "Число";
+                        }
+                        else
+                        {
+                            return "Текст";
+                        }
+                }),
 
                 TD::make(__('Actions'))
                     ->align(TD::ALIGN_CENTER)

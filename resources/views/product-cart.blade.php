@@ -1,42 +1,3 @@
-<!--
-Миксины
-Строка тендера: Товар, название, дата, номер, количество, стоимость, статус, опционально оценка
-Строка товара в тендере: Товар, название, количество, образец, комментарий
-Строка предложения товара: Товар, название, количество, стоимость, срок, образец, комментарий поставщика
-Строка предложения поставщика: Лого, поставщик, количество, стоимость, срок, образец, комментарий поставщика, победитель, чат
-
--->
-<!--
-Роль: Посетитель
-Страница: Общий список, миксины: Строка тендера
-Страница: Страница тендера, миксины: Строка товара в тендере
-Страница: Страница поставщика, миксины: Строка тендера (с оценкой)
-
--->
-<!--
-Роль: Покупатель
-Страница: Общий список, миксины: Строка тендера
-Страница: Страница поиска поставщика, миксины: Строка товара в тендере, Строка предложения товара, Строка предложения поставщика
-Страница: Страница тендера в реализации, миксины: Строка предложения товара
-Страница: Страница архивного тендера, миксины: Строка предложения товара
-
--->
-<!--
-Роль: Производитель
-Страница: Общий список Строка тендера
-Страница: Страница тендера без ответа, миксины: Строка товара в тендере
-Страница: Страница тендера с ответом, миксины: Товар на странице тендера, Строка предложения товара
-Страница: Страница тендера в реализации, миксины: Строка предложения товара
-Страница: Страница архивного тендера, миксины: Строка предложения товара
-
-
--->
-<!--Строка тендера (заголовок)-->
-<!--Строка тендера-->
-<!--Строка товара в тендере (заголовок)-->
-<!--Строка товара в тендере-->
-<!--Строка предложения товара-->
-<!--Строка предложения поставщика-->
 @extends('layouts.app')
 @section('h_script')
 @stop
@@ -94,7 +55,9 @@
                                 <div class="product-cart__price-block">
                                     @foreach($product->prices as $price)
                                         <div class="product-cart__price-item">
-                                            <div class="product-cart__price-count">{{$price->min}} - {{$price->max}} шт.</div>
+                                            <div class="product-cart__price-count">{{$price->min}} - {{$price->max}}
+                                                шт.
+                                            </div>
                                             <div class="product-cart__price-value">{{$price->price}} ₽</div>
                                         </div>
                                     @endforeach
@@ -102,20 +65,56 @@
                             @endif
 
 
+
+
                             <div class="product-cart__buttons-wrapper">
+
                                 <div class="product-cart__buttons">
-                                    <div class="product-cart__button">
-                                        <div class="product-cart__button-text">Добавить в тендер</div>
-                                        <svg class="product-cart__button-icon">
-                                            <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="product-cart__button product-cart__button--gray">
-                                        <svg class="product-cart__button-icon">
-                                            <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
-                                        </svg>
-                                    </div>
+                                    @auth
+                                            @if (Auth::user()->whereHas('roles', function ($q) {
+                                                $q->where('slug', 'provider');
+                                                })->where('id', Auth::user()->id)->first() != null)
+                                            <div style="display: none" data-product="{{$product->id}}"
+                                                 class="product-cart__button product-add-btn">
+                                                <div class="product-cart__button-text">Добавить в тендер</div>
+                                                <svg class="product-cart__button-icon">
+                                                    <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                                                </svg>
+                                            </div>
+                                            @else
+                                            <div data-product="{{$product->id}}"
+                                                 class="product-cart__button product-add-btn">
+                                                <div class="product-cart__button-text">Добавить в тендер</div>
+                                                <svg class="product-cart__button-icon">
+                                                    <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                                                </svg>
+                                            </div>
+                                            @if ($product->product_favorites->where('id', auth()->user()->id)->first() != null)
+                                                <div style="margin-left: 0" data-fav="true" data-product="{{$product->id}}"
+                                                     class="product-cart__button product-favorite-btn">
+                                                    <svg class="product-cart__button-icon">
+                                                        <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
+                                                    </svg>
+                                                </div>
+                                            @else
+                                                <div style="margin-left: 0" data-fav="false" data-product="{{$product->id}}"
+                                                     class="product-cart__button product-preview__button--gray product-favorite-btn">
+                                                    <svg class="product-cart__button-icon">
+                                                        <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
+                                                    </svg>
+                                                </div>
+                                            @endif
+                                        @endif
+                                    @else
+                                        <div class="product-cart__button" data-modal-open="login">
+                                            <div class="product-cart__button-text">Добавить в тендер</div>
+                                            <svg class="product-cart__button-icon">
+                                                <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                                            </svg>
+                                        </div>
+                                    @endauth
                                 </div>
+
                                 <div class="product-cart__buttons-hint">После публикации тендера поставщики предложат
                                     свои
                                     цены на товар
@@ -159,7 +158,10 @@
                                             <div class="options">
                                                 @foreach($product->characteristics as $characteristic)
                                                     <div class="options__item">
-                                                        <div class="options__item-name">{{$characteristic->characteristic->name}}:</div>
+                                                        <div
+                                                            class="options__item-name">{{$characteristic->characteristic->name}}
+                                                            :
+                                                        </div>
                                                         @if ($characteristic->characteristic->type == 3)
                                                             @foreach($characteristic->characteristic->selects as $select)
                                                                 @php
@@ -172,7 +174,8 @@
                                                                 @endif
                                                             @endforeach
                                                         @else
-                                                            <div class="options__item-value">{{$characteristic->value}}</div>
+                                                            <div
+                                                                class="options__item-value">{{$characteristic->value}}</div>
                                                         @endif
 
                                                     </div>
@@ -199,7 +202,8 @@
         </section>
         <section class="section section--small">
             <div class="layout">
-                <div class="lead m-col border-block"><img class="lead__icon" src="images/icons/illustrations/hands-box.png">
+                <div class="lead m-col border-block"><img class="lead__icon"
+                                                          src="images/icons/illustrations/hands-box.png">
                     <div class="lead__desc">
                         <div class="lead__desc-title">Не можете найти нужный вам товар?</div>
                         <div class="lead__desc-text">Оставьте заявку на свой товар, и мы поможем вам найти, заказать,
@@ -215,7 +219,8 @@
                 <div class="title title--small">Похожие товары!</div>
                 <div class="products-grid">
                     <div class="product-preview" href="/">
-                        <img class="product-preview__img" src="/images/examples/products-preview/products-preview-0.jpg">
+                        <img class="product-preview__img"
+                             src="/images/examples/products-preview/products-preview-0.jpg">
                         <div class="product-preview__desc">
                             <div class="product-preview__price">3999 - 6000 ₽ шт.</div>
                             <div class="product-preview__minimal">
@@ -241,7 +246,8 @@
                         </div>
                     </div>
                     <div class="product-preview" href="/">
-                        <img class="product-preview__img" src="/images/examples/products-preview/products-preview-0.jpg">
+                        <img class="product-preview__img"
+                             src="/images/examples/products-preview/products-preview-0.jpg">
                         <div class="product-preview__desc">
                             <div class="product-preview__price">3999 - 6000 ₽ шт.</div>
                             <div class="product-preview__minimal">
@@ -267,7 +273,8 @@
                         </div>
                     </div>
                     <div class="product-preview" href="/">
-                        <img class="product-preview__img" src="/images/examples/products-preview/products-preview-0.jpg">
+                        <img class="product-preview__img"
+                             src="/images/examples/products-preview/products-preview-0.jpg">
                         <div class="product-preview__desc">
                             <div class="product-preview__price">3999 - 6000 ₽ шт.</div>
                             <div class="product-preview__minimal">
@@ -293,7 +300,8 @@
                         </div>
                     </div>
                     <div class="product-preview" href="/">
-                        <img class="product-preview__img" src="/images/examples/products-preview/products-preview-0.jpg">
+                        <img class="product-preview__img"
+                             src="/images/examples/products-preview/products-preview-0.jpg">
                         <div class="product-preview__desc">
                             <div class="product-preview__price">3999 - 6000 ₽ шт.</div>
                             <div class="product-preview__minimal">
@@ -319,7 +327,8 @@
                         </div>
                     </div>
                     <div class="product-preview" href="/">
-                        <img class="product-preview__img" src="/images/examples/products-preview/products-preview-0.jpg">
+                        <img class="product-preview__img"
+                             src="/images/examples/products-preview/products-preview-0.jpg">
                         <div class="product-preview__desc">
                             <div class="product-preview__price">3999 - 6000 ₽ шт.</div>
                             <div class="product-preview__minimal">
@@ -352,7 +361,7 @@
 
     <script>
         let PRODUCT
-             = {!! json_encode($product) !!};
+            = {!! json_encode($product) !!};
 
 
         console.log(PRODUCT)

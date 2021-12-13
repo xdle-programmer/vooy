@@ -43,13 +43,8 @@
                                 <div class="form__item-group-item">
                                     <div class="placeholder form-check__field" data-elem="textarea"
                                          data-rule="input-empty">
-                                    <textarea id="new-product-description"
-                                              class="input input--textarea placeholder__input check-progress__input"
-                                              placeholder="Описание">
-                                        @if($product ?? null)
-                                            {{$product->description}}
-                                        @endif
-                                    </textarea>
+                                    <textarea id="new-product-description" class="input input--textarea placeholder__input check-progress__input"
+                                              placeholder="Описание">@if($product ?? null){{$product->description}}@endif</textarea>
                                         <div class="placeholder__item">Описание</div>
                                     </div>
                                 </div>
@@ -143,9 +138,10 @@
                                         <div class="form__copy-item">
                                             <div class="form__item-group-items">
                                                 <div class="form__item-group-item">
-                                                    <div class="placeholder form-check__field" data-elem="input"
+                                                    <div class="placeholder" data-elem="input"
                                                          data-rule="input-empty">
                                                         <input
+                                                            type="number"
                                                             name="min"
                                                             class="input placeholder__input check-progress__input"
                                                             placeholder="Минимум">
@@ -153,9 +149,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="form__item-group-item">
-                                                    <div class="placeholder form-check__field" data-elem="input"
+                                                    <div class="placeholder" data-elem="input"
                                                          data-rule="input-empty">
                                                         <input
+                                                            type="number"
                                                             name="max"
                                                             class="input placeholder__input check-progress__input"
                                                             placeholder="Максимум">
@@ -166,6 +163,7 @@
                                                     <div class="placeholder form-check__field" data-elem="input"
                                                          data-rule="input-empty">
                                                         <input
+                                                            type="number"
                                                             name="price"
                                                             class="input placeholder__input check-progress__input"
                                                             placeholder="Стоимость">
@@ -202,7 +200,8 @@
                                                 <div class="photo-upload__input-text">Загрузите фото</div>
                                                 <input id="new-product-images-input" class="photo-upload__input"
                                                        type="file" multiple
-                                                       accept="image/*">
+                                                       accept="image/*"
+                                                >
                                             </div>
                                         </label>
                                     </div>
@@ -210,9 +209,15 @@
                             </div>
                         </div>
                         <div class="form__item-footer">
-                            <div id="new-product-btn-create" class="button form-check__button">Отправить на модерацию
-                            </div>
+                            @if($product ?? null)
+                                <div id="new-product-btn-update" class="button form-check__button">Редактировать</div>
+                            @else
+                                <div id="new-product-btn-create" class="button form-check__button">Опубликовать</div>
+                            @endif
+
+                                {{--
                             <div id="new-product-btn-save" class="button button--invert">Сохранить, как черновик</div>
+                            --}}
                         </div>
                     </div>
                     <div class="form__item-wrapper form__item-wrapper--sticky">
@@ -246,6 +251,8 @@
         @endif
 
         console.log(PRODUCT)
+        let isProductOnLoad = false;
+
         let CATEGORIES = {!! json_encode($categories) !!};
         let category_template = document.querySelector('#new-product-template-select');
         let categories_block = document.querySelector('#new-product-categories');
@@ -253,17 +260,34 @@
         let characteristics_template = document.querySelector('#new-product-template-characteristic');
         let characteristics_block = document.querySelector('#new-product-characteristics');
 
-        document.getElementById('new-product-btn-create').addEventListener('click', () => {
+        let $createBtn = document.getElementById('new-product-btn-create')
+        let $saveBtn = document.getElementById('new-product-btn-save')
+        let $editBtn = document.getElementById('new-product-btn-update')
+
+        if($createBtn)
+        $createBtn.addEventListener('click', () => {
             return sendProduct(1);
         });
-        document.getElementById('new-product-btn-save').addEventListener('click', () => {
+        if($saveBtn)
+        $saveBtn.addEventListener('click', () => {
             return sendProduct(0);
         });
 
+        if($editBtn)
+        $editBtn.addEventListener('click', () => {
+            return sendProduct(2);
+        });
+
+
         function sendProduct(status = 0) {
+
+            if(isProductOnLoad)
+                return;
+
             console.log('-SEND PRODUCT-');
             console.log('status', status);
             let formData = new FormData();
+
 
 
             formData.append('product[title]', document.querySelector('#new-product-title').value);
@@ -288,7 +312,11 @@
             console.log(document.querySelector('#new-product-images-input').files);
             let files = document.querySelector('#new-product-images-input').files;
             for (var i = 0; i < files.length; i++) {
-                formData.append("product[attachments][" + i + "][file]", files[i]);
+                if  (files[i].size / 1024 / 1024 < 1.99)
+                {
+                    formData.append("product[attachments][" + i + "][file]", files[i]);
+                }
+
             }
 
             categories_block.querySelectorAll('.form__item-group-item').forEach((item, i) => {
@@ -307,20 +335,49 @@
                 }
             })
 
-            axios({
-                method: 'POST',
-                url: `{{ route('product-create') }}`,
-                data: formData,
-                processData: false,
-                contentType: false,
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                },
-            }).then((response) => {
-                console.log('ok');
-                window.location = window.location.origin + '/products'
-            });
-
+            if(status == 2)
+            {
+                formData.append('product[id]', PRODUCT.id);
+                isProductOnLoad = true;
+                axios({
+                    method: 'POST',
+                    url: `{{ route('product-update') }}`,
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    },
+                }).then((response) => {
+                    console.log(response);
+                    isProductOnLoad = false;
+                    window.location = window.location.origin + '/product-card/' + response.data.id
+                }).catch(function (error) {
+                    isProductOnLoad = false;
+                    console.log(error);
+                });
+            }
+            else
+            {
+                isProductOnLoad = true;
+                axios({
+                    method: 'POST',
+                    url: `{{ route('product-create') }}`,
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    },
+                }).then((response) => {
+                    isProductOnLoad = false;
+                   // console.log(response);
+                    window.location = window.location.origin + '/product-card/' + response.data.id
+                }).catch(function (error) {
+                    isProductOnLoad = false;
+                    console.log(error);
+                });
+            }
         }
 
         let currentCategoryLevel = 0;

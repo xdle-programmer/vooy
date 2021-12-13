@@ -8,6 +8,17 @@ use App\Http\Controllers\EmailController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ProviderController;
 
+use App\Models\Category;
+use App\Models\Characteristic;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
+
+use App\Models\TenderProductReview;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,11 +30,51 @@ use App\Http\Controllers\ProviderController;
 |
 */
 
+Route::get('/test', function () {
+
+
+    //$newTenderRequest = \App\Models\TenderProductReview::whereHas->get();
+    /*
+    $products = Product::whereHas('product_favorites',function($q){
+        $q->where('user_id', Auth::user()->id);
+    })->get();
+*/
+
+    $products = TenderProductReview::with('tender')->whereHas('tender',function ($q){
+        $q->where('buyer_id', Auth::user()->id)->where('status_id', 3);
+    })->count();
+
+    //$newTenderRequest = \App\Models\Tender::whereHas('reviews')->get();
+
+    //$newTenderRequest = \App\Models\TenderProductReview::with('tender')->get();
+
+    return $products;
+});
+
 Route::get('/', function () {
+
+    if(Auth::user() != null){
+        $user = Auth::user();
+        if ($user->whereHas('roles', function ($q) {
+                $q->where('slug', 'provider');
+            })->where('id', $user->id)->first()  != null)
+        {
+            $lastTenders = \App\Models\Tender::with("products", "buyer", "provider", "status", "substatus")
+                ->Where('status_id', 3)->latest()->take(5)->get();
+            $myTenders = \App\Models\Tender::with("products", "buyer", "provider", "status", "substatus")
+                ->whereHas('reviews', function ($q) use ($user) {
+                    $q->where('provider_id', $user->id)->orWhere('deliveryman_id', $user->id);
+                })->latest()->take(5)->get();
+            $lastProducts = \App\Models\Product::with('prices')->latest()->take(3)->get();
+
+            return view('manufacturer-welcome', ['lastTenders'=>$lastTenders, 'myTenders'=>$myTenders, 'lastProducts'=>$lastProducts]);
+        }
+    }
+
     $displayProducts = \App\Models\ProductDisplay::with('product', 'product.attachments')->get();
     $displayCategories = \App\Models\CategoryDisplay::with('category')->get();
-
     return view('welcome', ['displayProducts'=>$displayProducts,'displayCategories'=>$displayCategories]);
+
 })->name("home");
 
 Route::get('/dashboard', function () {
@@ -51,13 +102,20 @@ Route::get('/user-review/get-rating/{id}',[TenderController::class, 'getUserRati
 
 //PRODUCT
 Route::get('/products', [ProductController::class, 'productList'])->name("product-list");
+Route::get('/favorites', [ProductController::class, 'favoriteList'])->name("favorites-list");
 Route::get('/product-card/{id}', [ProductController::class, 'productCart'])->name("product-cart");
 Route::get('/product/new', [ProductController::class, 'productNew'])->name("product-new");
 Route::post('/product/create', [ProductController::class, 'createProduct'])->name("product-create");
+Route::post('/product/update', [ProductController::class, 'updateProduct'])->name("product-update");
 Route::get('/product-edit/{id}', [ProductController::class, 'editProduct'])->name("product-edit");
 Route::get('/product/search/{product}', [ProductController::class, 'searchProducts'])->name("product-search");
 Route::post('/products/create', [ProductController::class, 'createProducts'])->name("products-create");
 Route::get('/my-products', [ProductController::class, 'productMyList'])->name("products-my-list");
+Route::get('/product/{product}', [ProductController::class, 'getProduct'])->name("product-get");
+Route::post('/product/{product}/add-favorite', [ProductController::class, 'addProductToFavorite'])->name("products-favorite-add");
+Route::post('/product/{product}/remove-favorite', [ProductController::class, 'removeProductfromFavorite'])->name("products-favorite-remove");
+Route::post('/product/search-hint', [ProductController::class, 'searchProductHint']);
+Route::post('/product/search-save', [ProductController::class, 'searchProductSave']);
 //CHAT
 Route::get('/chat', [TenderController::class, 'showChat'])->name("chat");
 Route::post('/chat/{id}/message', [TenderController::class, 'sendMessage'])->name("chat-message-send");

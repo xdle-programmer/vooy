@@ -84,14 +84,18 @@
                     <div class="tabs__toggle-items">
                         <div class="tabs__toggle-item tabs__toggle-item--active tabs__toggle-item--active-effect">
                             <div class="products-grid">
-                                @foreach($provider->provider_products as $product)
+                                @foreach($providerProducts as $product)
                                     <div class="product-preview" href="/product-card/{{$product->id}}">
                                         @if ($product->attachments->first())
+                                            <a href="/product-card/{{$product->id}}">
                                             <img class="product-preview__img"
                                                  src="../storage/products/{{$product->attachments->first()->path}}">
+                                            </a>
                                         @else
+                                            <a href="/product-card/{{$product->id}}">
                                             <img class="product-preview__img"
                                                  src="../storage/tenderProducts/empty.jpg">
+                                            </a>
                                         @endif
 
                                         <div class="product-preview__desc">
@@ -109,22 +113,56 @@
                                                href="/product-card/{{$product->id}}">{{$product->title}}</a>
                                         </div>
                                         <div class="product-preview__buttons">
-                                            <div class="product-preview__button">
-                                                <div class="product-preview__button-text">В тендер</div>
-                                                <svg class="product-preview__button-icon">
-                                                    <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
-                                                </svg>
-                                            </div>
-                                            <div class="product-preview__button product-preview__button--gray">
-                                                <svg class="product-preview__button-icon">
-                                                    <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
-                                                </svg>
-                                            </div>
+                                            @auth
+                                                @if (Auth::user()->whereHas('roles', function ($q) {
+                                                    $q->where('slug', 'provider');
+                                                    })->where('id', Auth::user()->id)->first() != null)
+                                                    <div style="display: none;" data-product="{{$product->id}}" class="product-preview__button product-add-btn">
+                                                        <div class="product-preview__button-text" >В тендер</div>
+                                                        <svg class="product-preview__button-icon">
+                                                            <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                                                        </svg>
+                                                    </div>
+                                                @else
+                                                    <div data-product="{{$product->id}}" class="product-preview__button product-add-btn">
+                                                        <div class="product-preview__button-text" >В тендер</div>
+                                                        <svg class="product-preview__button-icon">
+                                                            <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                                                        </svg>
+                                                    </div>
+                                                @endif
+
+                                                @if ($product->product_favorites->where('id', auth()->user()->id)->first() != null)
+                                                    <div data-fav="true" data-product="{{$product->id}}"
+                                                         class="product-preview__button product-favorite-btn">
+                                                        <svg class="product-preview__button-icon">
+                                                            <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
+                                                        </svg>
+                                                    </div>
+                                                @else
+                                                    <div data-fav="false" data-product="{{$product->id}}"
+                                                         class="product-preview__button product-preview__button--gray product-favorite-btn">
+                                                        <svg class="product-preview__button-icon">
+                                                            <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
+                                                        </svg>
+                                                    </div>
+                                                @endif
+                                            @else
+                                                <div  class="product-preview__button" data-modal-open="login">
+                                                    <div class="product-preview__button-text" >В тендер</div>
+                                                    <svg class="product-preview__button-icon">
+                                                        <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                                                    </svg>
+                                                </div>
+                                            @endauth
                                         </div>
                                     </div>
                                 @endforeach
 
                             </div>
+                            <!--START PAG -->
+                        {!! $providerProducts->appends(Request::except('page'))->links('pagination.default') !!}
+                        <!--END PAG-->
                         </div>
                         <div class="tabs__toggle-item">
                             <div class="tender-row tender-row--header">

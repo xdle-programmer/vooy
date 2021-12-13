@@ -10,6 +10,10 @@
     color: var(--black-color);
     align-items: flex-start;
 
+    &__single{
+        grid-template-columns: 1fr;
+    }
+
     &__no-nav {
         grid-template-columns: 1fr;
     }
@@ -102,6 +106,7 @@
         font-size: 16px;
         display: block;
         margin-bottom: 17px;
+        cursor: pointer;
     }
 
     &__filters-link-counter-current > &__filters-link-counter-text {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Models\TenderSubstatus;
 use App\Models\UserReview;
 use Illuminate\Http\Request;
@@ -24,7 +25,8 @@ class ProviderController extends Controller
     public function showProvider(Request $request, int $id)
     {
         $provider = User::has('provider_infos')->where('id', $id)->first();
+        $providerProducts = Product::where('owner_id', $provider->id)->paginate(10);
 
-        return view('manufacturer',['provider' => $provider]);
+        return view('manufacturer',['provider' => $provider, 'providerProducts'=>$providerProducts]);
     }
 }

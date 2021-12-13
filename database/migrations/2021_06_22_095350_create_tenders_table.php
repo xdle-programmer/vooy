@@ -44,6 +44,8 @@ class CreateTendersTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
+            $table->date('date_end')->nullable();
+
             $table->timestamps();
         });
     }

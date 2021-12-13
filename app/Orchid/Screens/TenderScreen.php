@@ -37,7 +37,7 @@ class TenderScreen extends Screen
      */
     public function query(): array
     {
-        $tender = Tender::with("products", "deliveryman", "negotiator", "buyer", "provider", "status", "substatus")->filters()->defaultSort('status_id')->paginate(20);
+        $tender = Tender::with("products", "deliveryman", "negotiator", "buyer", "provider", "status", "substatus")->filters()->defaultSort('created_at', 'desc')->paginate(20);
         //dd($tender->items());
         return [
             'tenders' => $tender

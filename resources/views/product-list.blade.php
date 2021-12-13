@@ -193,6 +193,7 @@
                                 </div>
                             </div>
                         </div>
+                        {{--
                         <div class="catalog__items-header">
                             <div class="catalog__sort">
                                 <div class="catalog__sort-title">Сортрировать по</div>
@@ -203,23 +204,33 @@
                                 </select>
                             </div>
                         </div>
-
+                        --}}
                         <div class="catalog__items-list catalog__items-list--products">
                             @if ($products != null)
                                 @foreach($products as $product)
                                     <div class="product-preview product-preview--big"
                                          href="/product-card/{{$product->id}}">
                                         @if ($product->attachments->first())
+                                            <a href="/product-card/{{$product->id}}">
                                             <img class="product-preview__img"
                                                  src="../storage/products/{{$product->attachments->first()->path}}">
+                                            </a>
                                         @else
+                                            <a href="/product-card/{{$product->id}}">
                                             <img class="product-preview__img"
                                                  src="../storage/tenderProducts/empty.jpg">
+                                            </a>
                                         @endif
                                         <div class="product-preview__desc">
-                                            <div class="product-preview__price">{{$product->prices->min('price')}}
-                                                - {{$product->prices->max('price')}}₽ шт.
-                                            </div>
+                                            @if ($product->prices->min('price') == $product->prices->max('price'))
+                                                <div class="product-preview__price">{{$product->prices->min('price')}}₽ шт.
+                                                </div>
+                                            @else
+                                                <div class="product-preview__price">{{$product->prices->min('price')}}
+                                                    - {{$product->prices->max('price')}}₽ шт.
+                                                </div>
+                                            @endif
+
                                             <div class="product-preview__minimal">
                                                 <div
                                                     class="product-preview__minimal-count">{{$product->prices->min('min')}}
@@ -232,23 +243,57 @@
                                             </a>
                                         </div>
                                         <div class="product-preview__buttons">
-                                            <div class="product-preview__button">
-                                                <div class="product-preview__button-text">В тендер</div>
-                                                <svg class="product-preview__button-icon">
-                                                    <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
-                                                </svg>
-                                            </div>
-                                            <div class="product-preview__button product-preview__button--gray">
-                                                <svg class="product-preview__button-icon">
-                                                    <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
-                                                </svg>
-                                            </div>
+                                            @auth
+                                                @if (Auth::user()->whereHas('roles', function ($q) {
+                                                        $q->where('slug', 'provider');
+                                                        })->where('id', Auth::user()->id)->first() != null)
+                                                    <div style="display: none;" data-product="{{$product->id}}" class="product-preview__button product-add-btn">
+                                                        <div class="product-preview__button-text" >В тендер</div>
+                                                        <svg class="product-preview__button-icon">
+                                                            <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                                                        </svg>
+                                                    </div>
+                                                @else
+                                                    <div data-product="{{$product->id}}" class="product-preview__button product-add-btn">
+                                                        <div class="product-preview__button-text" >В тендер</div>
+                                                        <svg class="product-preview__button-icon">
+                                                            <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                                                        </svg>
+                                                    </div>
+                                                    @if ($product->product_favorites->where('id', auth()->user()->id)->first() != null)
+                                                        <div data-fav="true" data-product="{{$product->id}}"
+                                                             class="product-preview__button product-favorite-btn">
+                                                            <svg class="product-preview__button-icon">
+                                                                <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
+                                                            </svg>
+                                                        </div>
+                                                    @else
+                                                        <div data-fav="false" data-product="{{$product->id}}"
+                                                             class="product-preview__button product-preview__button--gray product-favorite-btn">
+                                                            <svg class="product-preview__button-icon">
+                                                                <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
+                                                            </svg>
+                                                        </div>
+                                                    @endif
+                                                @endif
+                                            @else
+                                                <div  class="product-preview__button" data-modal-open="login">
+                                                    <div class="product-preview__button-text" >В тендер</div>
+                                                    <svg class="product-preview__button-icon">
+                                                        <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                                                    </svg>
+                                                </div>
+                                            @endauth
+
                                         </div>
                                     </div>
                                 @endforeach
                             @endif
 
                         </div>
+                        <!--START PAG -->
+                         {!! $products->appends(Request::except('page'))->links('pagination.default') !!}
+                        <!--END PAG-->
                     </div>
                 </div>
             </div>
@@ -288,13 +333,13 @@
                 arrowHtml = `<div class="catalog__icon-arrow" data-parrent="${category.id}" onclick="openContainer(this)">
                     <svg viewBox="0 0 24 24" fill="currentColor" class="filterIcon-0-2-297 icon-0-2-31"><path d="M17.2946 9.29462C16.9053 8.90534 16.2743 8.905 15.8846 9.29385L12 13.17L8.11538 9.29385C7.72569 8.905 7.09466 8.90534 6.70538 9.29462C6.31581 9.68419 6.31581 10.3158 6.70538 10.7054L12 16L17.2946 10.7054C17.6842 10.3158 17.6842 9.68419 17.2946 9.29462Z"></path></svg>
                 </div>`
-
+//onclick="setCurrentCategory(this)"
             let categoryHtml = `
                <div class="catalog__filters-category-container">
-               <div name="filter[category]"  data-value="${category.id}" onclick="setCurrentCategory(this)" class="catalog__filters-link-counter ${currentCategoryHtml}">
+               <a name="filter[category]"  data-value="${category.id}" href="products?filter[category]=${category.id}" class="catalog__filters-link-counter ${currentCategoryHtml}">
                     <div class="catalog__filters-link-counter-text">${category.name}</div>
                     <div class="catalog__filters-link-counter-count">(${category.products.length})</div>
-               </div>
+               </a>
                     ${arrowHtml}
                 </div>`
             parrentNode.insertAdjacentHTML('beforeend', categoryHtml);

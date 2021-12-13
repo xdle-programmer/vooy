@@ -10,97 +10,109 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('main.css') }}">
-
+    <script>
+        window.searchHintInitData = {
+            products: [
+                // {
+                //     img: '1/pr1.jpg',
+                //     name: 'Антифриз vertex ecotec g11 yellow 5л',
+                //     link: '#',
+                //     price: '250',
+                // },
+                // {
+                //     img: '1/pr1.jpg',
+                //     name: 'Антифриз vertex ecotec g11 yellow 5л',
+                //     link: '#',
+                //     price: '250',
+                // },
+                // {
+                //     img: '1/pr1.jpg',
+                //     name: 'Антифриз vertex ecotec g11 yellow 5л',
+                //     link: '#',
+                //     price: '250',
+                // },
+                // {
+                //     img: '1/pr1.jpg',
+                //     name: 'Антифриз vertex ecotec g11 yellow 5л',
+                //     link: '#',
+                //     price: '250',
+                // },
+                // {
+                //     img: '1/pr1.jpg',
+                //     name: 'Антифриз vertex ecotec g11 yellow 5л',
+                //     link: '#',
+                //     price: '250',
+                // },
+                // {
+                //     img: '1/pr1.jpg',
+                //     name: 'Антифриз vertex ecotec g11 yellow 5л',
+                //     link: '#',
+                //     price: '250',
+                // }
+            ],
+            history: [
+                // {
+                //     name: 'робот-пылесов',
+                //     link: '#',
+                // },
+                // {
+                //     name: 'робот-пылесов',
+                //     link: '#',
+                // },
+            ],
+            popular: [
+                // {
+                //     name: 'техника',
+                //     link: '#',
+                // },
+                // {
+                //     name: 'одежда',
+                //     link: '#',
+                // },
+                // {
+                //     name: 'ткань',
+                //     link: '#',
+                // },
+                // {
+                //     name: 'Куртки',
+                //     link: '#',
+                // },
+            ],
+            category: [
+                // {
+                //     name: 'Jlt;lf',
+                //     link: '#',
+                // },
+                // {
+                //     name: 'Для сада и огорода',
+                //     link: '#',
+                // },
+                // {
+                //     name: 'Строительные материалы',
+                //     link: '#',
+                // },
+            ],
+        };
+        window.searchHintUrl = window.location.origin + '/product/search-hint';
+        window.searchAcceptUrl =  window.location.origin + '/product/search-save';
+    </script>
     <!-- Scripts -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://d3js.org/d3.v4.min.js">
-    </script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
     {{--<script type="text/javascript" src="{{ asset('main.js') }}"></script>--}}
     @yield('h_script')
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>
 <body class="font-sans antialiased">
 
 <!-- HEADER -->
+@php
+    $productCategories = \App\Models\Category::all();
+@endphp
 <header class="header">
     <div class="header__main-wrapper">
-        {{--
-        <div class="header__main-block layout">
-            <a class="header__logo" href="{{route('home')}}">
-                <div class="logo"><img class="logo__img" src="../images/icons/logo.svg" alt="Логотип Vooy">
-                    <div class="logo__line"></div>
-                    <div class="logo__text">Товары оптом</div>
-                </div>
-            </a>
-            <div class="header__catalog">
-                <a href="/products" class="header__catalog-button">
-                    <div class="header__catalog-button-text">Каталог</div>
-                    <svg class="header__catalog-button-icon">
-                        <use xlink:href="../images/icons/icons-sprite.svg#menu"></use>
-                    </svg>
-                </a>
-            </div>
-            <div class="header__search-box-wrapper">
-                <div class="header__search-box"></div>
-                <div class="header__search-select">
-                    <select class="search-select">
-                        <option value="0" selected="">Все категории</option>
-                        <option value="1">Мужская одежда</option>
-                        <option value="2">Женская одежда</option>
-                        <option value="3">Детская одежда</option>
-                        <option value="4">Аксессуары</option>
-                        <option value="5">Мониторы</option>
-                        <option value="6">Компы</option>
-                        <option value="7">Ноуты</option>
-                        <option value="8">Телефоны</option>
-                    </select>
-                </div>
-            </div>
-            <div class="header__controls">
-                <a class="header__control" href="/_favorites-products.html">
-                    <svg class="header__control-icon">
-                        <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
-                    </svg>
-                    <div class="header__control-text">Избранное</div>
-                </a>
-                <a class="header__control" href="/_basket.html">
-                    <svg class="header__control-icon">
-                        <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
-                    </svg>
-                    <div class="header__control-text">Мой тендер</div>
-                </a>
-            </div>
-            @if (Route::has('login'))
-                @auth
-                    <a class="header__control" href="/account">
-                        <div class="header__control-text">{{ Auth::user()->email}}</div>
-                    </a>
-
-                    <div class="header__control">
-
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <x-dropdown-link :href="route('logout')"
-                                             onclick="event.preventDefault();
-                              this.closest('form').submit();">
-                                <div class="header__control-text">Выйти</div>
-                            </x-dropdown-link>
-                        </form>
-                    </div>
-                @else
-                    <div class="header__control" data-modal-open="login">
-                        <div class="header__control-text">Войти</div>
-                    </div>
-                    @if (Route::has('register'))
-                        <div class="header__control" data-modal-open="register">
-                            <div class="header__control-text">Регистрация</div>
-                        </div>
-                    @endif
-                @endauth
-            @endif
-        </div>--}}
-
         <div class="header__main-block layout-m">
             <a class="header__logo" href="{{route('home')}}">
                 <div class="logo"><img class="logo__img" src="../images/icons/logo.svg" alt="Логотип Vooy">
@@ -109,33 +121,215 @@
                 </div>
             </a>
 
-            <div class="header__catalog">
-                <a href="/products" class="header__catalog-button">
-                    <div class="header__catalog-button-text">Каталог</div>
-                    <svg class="header__catalog-button-icon">
-                        <use xlink:href="../images/icons/icons-sprite.svg#menu"></use>
-                    </svg>
-                </a>
-            </div>
 
-            <div class="header__search-box-wrapper">
-                <div class="header__search-box"></div>
-                <div class="header__search-select">
-                    <select class="search-select">
-                        <option value="0" selected="">Все категории</option>
-                        <option value="1">Мужская одежда</option>
-                        <option value="2">Женская одежда</option>
-                        <option value="3">Детская одежда</option>
-                        <option value="4">Аксессуары</option>
-                        <option value="5">Мониторы</option>
-                        <option value="6">Компы</option>
-                        <option value="7">Ноуты</option>
-                        <option value="8">Телефоны</option>
-                    </select>
+            @auth
+                @if (Auth::user()->whereHas('roles', function ($q) {
+                $q->where('slug', 'provider');
+                })->where('id', Auth::user()->id)->first() != null)
+
+                @else
+                    <div class="header__catalog">
+                        <a href="/products" class="header__catalog-button">
+                            <div class="header__catalog-button-text">Каталог</div>
+                            <svg class="header__catalog-button-icon">
+                                <use xlink:href="../images/icons/icons-sprite.svg#menu"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="search-hints search-hints--header" id="header-search">
+                        <div class="search-hints__wrapper">
+                            <div class="search-hints__input-row">
+                                <div class="search-hints__close-button" data-search-hints-close>
+                                    <svg class="search-hints__close-button-icon">
+                                        <use
+                                            xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                                    </svg>
+                                </div>
+                                <div class="search-hints__input-block">
+                                    <input class="search-hints__input input input--search" placeholder="Более 10 000 товаров оптом">
+                                </div>
+                                <div class="search-hints__input-button">
+                                    <svg class="search-hints__input-button-icon">
+                                        <use
+                                            xlink:href="../images/icons/icons-sprite.svg#zoom"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="search-hints__hints-wrapper">
+                                <template data-search-hints-products-item>
+                                    <div class="search-hints__product">
+                                        <div class="search-hints__product-img-wrapper"><img class="search-hints__product-img"
+                                                                                            src=""></div>
+                                        <div class="search-hints__product-desc"><a class="search-hints__product-desc-name"></a>
+                                            <div class="search-hints__product-desc-control">
+                                                <div class="search-hints__product-desc-control-price">
+                                                    <div class="search-hints__product-desc-control-price-number"></div>
+                                                    <div class="search-hints__product-desc-control-price-currency">руб</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </template>
+                                <template data-search-hints-history-item>
+                                    <div class="search-hints__hints-results-row search-hints__hints-results-row--delete"><a
+                                            class="search-hints__hints-results-row-link"></a>
+                                        <div class="search-hints__hints-results-row-del">
+                                            <svg class="search-hints__hints-results-row-del-icon">
+                                                <use
+                                                    xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </template>
+                                <template data-search-hints-popular-item>
+                                    <div class="search-hints__hints-results-row"><a
+                                            class="search-hints__hints-results-row-link"></a></div>
+                                </template>
+                                <template data-search-hints-category-item>
+                                    <div class="search-hints__hints-results-row"><a
+                                            class="search-hints__hints-results-row-link"></a></div>
+                                </template>
+                                <div class="search-hints__hints-block">
+                                    <div class="search-hints__hints-results">
+                                        <div class="search-hints__hints-results-item">
+                                            <div class="search-hints__hints-results-item-title">История запросов</div>
+                                            <div class="search-hints__hints-results-item-list" data-search-hints-history></div>
+                                        </div>
+                                        <div class="search-hints__hints-results-item">
+
+                                            <div class="search-hints__hints-results-item-title">Частые запросы</div>
+                                            <div class="search-hints__hints-results-item-list" data-search-hints-popular></div>
+                                        </div>
+                                        <div class="search-hints__hints-results-item">
+                                            <div class="search-hints__hints-results-item-title">Категории</div>
+                                            <div class="search-hints__hints-results-item-list" data-search-hints-category></div>
+                                        </div>
+                                    </div>
+                                    <div class="search-hints__products">
+                                        <div class="search-hints__products-title">Товары</div>
+                                        <div class="search-hints__products-list" data-search-hints-products></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            @else
+                <div class="header__catalog">
+                    <a href="/products" class="header__catalog-button">
+                        <div class="header__catalog-button-text">Каталог</div>
+                        <svg class="header__catalog-button-icon">
+                            <use xlink:href="../images/icons/icons-sprite.svg#menu"></use>
+                        </svg>
+                    </a>
                 </div>
-            </div>
+                <div class="search-hints search-hints--header" id="header-search">
+                    <div class="search-hints__wrapper">
+                        <div class="search-hints__input-row">
+                            <div class="search-hints__close-button" data-search-hints-close>
+                                <svg class="search-hints__close-button-icon">
+                                    <use
+                                        xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                                </svg>
+                            </div>
+                            <div class="search-hints__input-block">
+                                <input class="search-hints__input input input--search" placeholder="Более 10 000 товаров оптом">
+                            </div>
+                            <div class="search-hints__input-button">
+                                <svg class="search-hints__input-button-icon">
+                                    <use
+                                        xlink:href="../images/icons/icons-sprite.svg#zoom"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="search-hints__hints-wrapper">
+                            <template data-search-hints-products-item>
+                                <div class="search-hints__product">
+                                    <div class="search-hints__product-img-wrapper"><img class="search-hints__product-img"
+                                                                                        src=""></div>
+                                    <div class="search-hints__product-desc"><a class="search-hints__product-desc-name"></a>
+                                        <div class="search-hints__product-desc-control">
+                                            <div class="search-hints__product-desc-control-price">
+                                                <div class="search-hints__product-desc-control-price-number"></div>
+                                                <div class="search-hints__product-desc-control-price-currency">руб</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                            <template data-search-hints-history-item>
+                                <div class="search-hints__hints-results-row search-hints__hints-results-row--delete"><a
+                                        class="search-hints__hints-results-row-link"></a>
+                                    <div class="search-hints__hints-results-row-del">
+                                        <svg class="search-hints__hints-results-row-del-icon">
+                                            <use
+                                                xlink:href="../images/icons/icons-sprite.svg#close"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </template>
+                            <template data-search-hints-popular-item>
+                                <div class="search-hints__hints-results-row"><a
+                                        class="search-hints__hints-results-row-link"></a></div>
+                            </template>
+                            <template data-search-hints-category-item>
+                                <div class="search-hints__hints-results-row"><a
+                                        class="search-hints__hints-results-row-link"></a></div>
+                            </template>
+                            <div class="search-hints__hints-block">
+                                <div class="search-hints__hints-results">
+                                    <div class="search-hints__hints-results-item">
+                                        <div class="search-hints__hints-results-item-title">История запросов</div>
+                                        <div class="search-hints__hints-results-item-list" data-search-hints-history></div>
+                                    </div>
+                                    <div class="search-hints__hints-results-item">
 
-            <div class="header__menu">
+                                        <div class="search-hints__hints-results-item-title">Частые запросы</div>
+                                        <div class="search-hints__hints-results-item-list" data-search-hints-popular></div>
+                                    </div>
+                                    <div class="search-hints__hints-results-item">
+                                        <div class="search-hints__hints-results-item-title">Категории</div>
+                                        <div class="search-hints__hints-results-item-list" data-search-hints-category></div>
+                                    </div>
+                                </div>
+                                <div class="search-hints__products">
+                                    <div class="search-hints__products-title">Товары</div>
+                                    <div class="search-hints__products-list" data-search-hints-products></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endauth
+
+            {{--
+                <div class="header__search-box-wrapper">
+                    <div class="header__search-box"></div>
+                    <div class="header__search-select">
+                        <select class="search-select">
+                            <option value="0" selected="">Все категории</option>
+                            @foreach($productCategories as $prodCategory)
+                                <option value="{{$prodCategory->id}}">{{$prodCategory->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+
+                <div style="display: none" class="header__menu">
+                    <a id="mobile-navbar-btn" class="header__menu-button">
+                        <svg class="header__catalog-button-icon">
+                            <use xlink:href="../images/icons/icons-sprite.svg#menu"></use>
+                        </svg>
+                    </a>
+                </div>--}}
+
+            <div class="header__menu header__mob-menu">
+                <div class="header__menu-button" data-search-hints-open="header-search">
+                    <svg class="header__catalog-button-icon">
+                        <use xlink:href="../images/icons/icons-sprite.svg#zoom"></use>
+                    </svg>
+                </div>
                 <a id="mobile-navbar-btn" class="header__menu-button">
                     <svg class="header__catalog-button-icon">
                         <use xlink:href="../images/icons/icons-sprite.svg#menu"></use>
@@ -143,22 +337,57 @@
                 </a>
             </div>
 
-            <div class="header__controls">
-                <a class="header__control" href="/_favorites-products.html">
-                    <svg class="header__control-icon">
-                        <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
-                    </svg>
-                    <div class="header__control-text">Избранное</div>
-                </a>
-                <a class="header__control" href="/_basket.html">
-                    <svg class="header__control-icon">
-                        <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
-                    </svg>
-                    <div class="header__control-text">Мой тендер</div>
-                </a>
 
+
+
+
+
+            @php
+                $newTenderRequest = 0;
+            @endphp
+            @auth
+                @php
+                    $newTenderRequest = \App\Models\TenderProductReview::with('tender')->whereHas('tender',function ($q){
+                         $q->where('buyer_id', Auth::user()->id)->where('status_id', 3);
+                     })->count();
+                @endphp
+            @endauth
+
+            <div class="header__controls">
                 @if (Route::has('login'))
                     @auth
+                        @if (Auth::user()->whereHas('roles', function ($q) {
+                        $q->where('slug', 'provider');
+                        })->where('id', Auth::user()->id)->first() != null)
+                            <a class="header__control" href="/tenders?filtered=true&onlyMyProvider=on">
+                                <svg class="header__control-icon">
+                                    <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                                </svg>
+                                <div class="header__control-text">Мои тендеры</div>
+                            </a>
+                            <a class="header__control" href="/my-products">
+                                <svg class="header__control-icon">
+                                    <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                                </svg>
+                                <div class="header__control-text">Мои товары</div>
+                            </a>
+                        @else
+                            <a class="header__control" href="/tenders?filtered=true&onlyMy=on">
+                                <svg class="header__control-icon">
+                                    <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                                </svg>
+                                <div class="header__control-text">Мой тендер</div>
+                            </a>
+                            <a class="header__control" href="/favorites">
+                                <svg class="header__control-icon">
+                                    <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
+                                </svg>
+                                <div class="header__control-text">Избранное</div>
+                            </a>
+                        @endif
+
+
+
                         <a class="header__control" href="/account">
                             <div class="header__control-text">{{ Auth::user()->email}}</div>
                         </a>
@@ -220,35 +449,51 @@
                         @endif
                     @endauth
                 @endif
-                <a class="header__natural-link" href="/_favorites-products.html">
-                    Избранное
-                </a>
-                <a class="header__natural-link" href="/_basket.html">
-                    Мой тендер
-                </a>
+
+
                 <a href="/products" class="header__natural-link">
                     Каталог товаров
                 </a>
             </div>
             <div class="header__natural-links">
-                <a class="header__natural-link" href="#">Как заказать?</a>
+                {{--                <a class="header__natural-link" href="#">Как заказать?</a>--}}
                 <a class="header__natural-link
                     @if (\Request::route()->getName() == 'tenders-list')
                     header__natural-link-active
                     @endif"
-                   href="{{route('tenders-list')}}">Тендеры</a>
-                <a class="header__natural-link
-                    @if (\Request::route()->getName() == 'manufacturer-list')
-                    header__natural-link-active
-                    @endif" href="/manufacturer-list">Поставщики</a>
+                   href="{{route('tenders-list')}}">Тендеры @if ($newTenderRequest != null)
+                        <span>({{$newTenderRequest}})</span>
+                    @endif
+
+                </a>
+
 
                 @auth
-                    <div id="createTenderHeaderBtn" data-auth="true"
-                         class="header__natural-link header__natural-link--blue"
-                    >Тендер на свой товар
-                    </div>
+                    @if (Auth::user()->whereHas('roles', function ($q) {
+                  $q->where('slug', 'provider');
+                  })->where('id', Auth::user()->id)->first() != null)
+                        <div data-auth="true" data-modal-open="new-product-file"
+                             class="header__natural-link header__natural-link--blue"
+                        >Создать товар
+                        </div>
+                        <div id="createTenderHeaderBtn"></div>
+                    @else
+                        <a class="header__natural-link
+                            @if (\Request::route()->getName() == 'manufacturer-list')
+                            header__natural-link-active
+                             @endif" href="/manufacturer-list">Поставщики</a>
+                        <div id="createTenderHeaderBtn" data-auth="true"
+                             class="header__natural-link header__natural-link--blue"
+                        >Тендер на свой товар
+                        </div>
+                    @endif
+
                 @endauth
                 @guest
+                    <a class="header__natural-link
+                            @if (\Request::route()->getName() == 'manufacturer-list')
+                        header__natural-link-active
+                    @endif" href="/manufacturer-list">Поставщики</a>
                     <div id="createTenderHeaderBtn" data-auth="false"
                          class="header__natural-link header__natural-link--blue"
                     >Тендер на свой товар
@@ -270,6 +515,7 @@
 <!-- Page Content -->
 {{--
 <div style="display: none">--}}
+
 @yield('content')
 {{--
 </div>--}}
@@ -406,12 +652,14 @@
                         <div for="password" class="placeholder__item">Пароль</div>
                     </div>
                 </div>
+                {{--
                 <div class="modal__content-item">
                     <div class="placeholder form-check__field" data-elem="input" data-rule="input-empty">
                         <input class="input placeholder__input" placeholder="Реферальный код">
                         <div name="referal" class="placeholder__item">Реферальный код</div>
                     </div>
                 </div>
+                --}}
                 <div class="modal__content-item">
                     <label class="checkbox">
                         <input class="checkbox__input" type="checkbox"><span class="checkbox__item">
@@ -430,6 +678,11 @@
                 </div>
                 <div class="modal__content-item">
                     <button class="modal__button button button--invert form-check__button">Зарегистрироваться</button>
+                </div>
+                <div class="modal__content-item">
+                    <div class="modal__button button button--invert form-check__button"
+                         data-modal-open="register-manufacturer">Зарегистрироваться как поставщик
+                    </div>
                 </div>
             </div>
             <div class="modal__footer">
@@ -522,12 +775,14 @@
                         </div>
                     </div>
                 </div>
+                {{--
                 <div class="modal__content-item">
                     <div class="placeholder form-check__field" data-elem="input" data-rule="input-empty">
                         <input name="referal" class="input placeholder__input" placeholder="Реферальный код">
                         <div class="placeholder__item">Реферальный код</div>
                     </div>
                 </div>
+                --}}
                 <div class="modal__content-item">
                     <label class="checkbox">
                         <input class="checkbox__input" type="checkbox"><span class="checkbox__item">
@@ -750,6 +1005,29 @@
     </div>
 </div>
 
+<div class="modal" id="new-product-file">
+    <div class="modal__content">
+        <div class="modal__close" data-modal-close>
+            <svg class="modal__close-icon">
+                <use xlink:href="../images/icons/icons-sprite.svg#close"></use>
+            </svg>
+        </div>
+        <div class="modal__content-message">
+            <div class="modal__content-message-text">Добавить новый товар?</div>
+
+            <div class="modal__content-message-three-buttons">
+                <a href="/product/new"
+                   class="button modal__button button--invert">Создать вручную
+                </a>
+                <div onclick="openFile()"
+                     class="button modal__button">Загрузить файлом
+                </div>
+                <a class="button modal__button" href="../storage/Таблица товаров.xlsx">Скачать пример файла</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal" id="tender-copied">
     <div class="modal__content">
         <div class="modal__close" data-modal-close>
@@ -827,22 +1105,34 @@
                         <div class="form__copy-item">
                             <div class="form__item-group-items">
                                 <div class="form__item-group-item">
-                                    <div class="placeholder form-check__field placeholder--empty" data-elem="input" data-rule="input-empty">
-                                        <input name="min" class="input placeholder__input check-progress__input input-min-count" placeholder="Минимум">
+                                    <div class="placeholder form-check__field placeholder--empty" data-elem="input"
+                                         data-rule="input-empty">
+                                        <input name="min"
+                                               class="input placeholder__input check-progress__input input-min-count"
+                                               placeholder="Минимум">
                                         <div class="placeholder__item">Минимальный заказ</div>
-                                        <div class="form-check__error">Обязательное поле</div></div>
+                                        <div class="form-check__error">Обязательное поле</div>
+                                    </div>
                                 </div>
                                 <div class="form__item-group-item">
-                                    <div class="placeholder form-check__field placeholder--empty" data-elem="input" data-rule="input-empty">
-                                        <input name="max" class="input placeholder__input check-progress__input input-max-count" placeholder="Максимум">
+                                    <div class="placeholder form-check__field placeholder--empty" data-elem="input"
+                                         data-rule="input-empty">
+                                        <input name="max"
+                                               class="input placeholder__input check-progress__input input-max-count"
+                                               placeholder="Максимум">
                                         <div class="placeholder__item">Минимальный заказ</div>
-                                        <div class="form-check__error">Обязательное поле</div></div>
+                                        <div class="form-check__error">Обязательное поле</div>
+                                    </div>
                                 </div>
                                 <div class="form__item-group-item">
-                                    <div class="placeholder form-check__field placeholder--empty" data-elem="input" data-rule="input-empty">
-                                        <input name="price" class="input placeholder__input check-progress__input input-price" placeholder="Стоимость">
+                                    <div class="placeholder form-check__field placeholder--empty" data-elem="input"
+                                         data-rule="input-empty">
+                                        <input name="price"
+                                               class="input placeholder__input check-progress__input input-price"
+                                               placeholder="Стоимость">
                                         <div class="placeholder__item">Стоимость</div>
-                                        <div class="form-check__error">Обязательное поле</div></div>
+                                        <div class="form-check__error">Обязательное поле</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -868,7 +1158,8 @@
                                                     </svg>
                                                 </div>
                                                 <div class="photo-upload__input-text">Загрузите фото</div>
-                                                <input class="photo-upload__input" type="file" multiple="" accept="image/*">
+                                                <input class="photo-upload__input" type="file" multiple=""
+                                                       accept="image/*">
                                             </div>
                                         </label>
                                     </div>
@@ -876,26 +1167,39 @@
                             </div>
 
 
-
                             <div class="product-in-file__item-inputs">
                                 <div class="product-in-file__item-inputs-collumn ">
                                     <div class="product-in-file__item-input-name">
-                                        <div class="placeholder form-check__field placeholder--empty" data-elem="input" data-rule="input-empty">
+                                        <div class="placeholder form-check__field placeholder--empty" data-elem="input"
+                                             data-rule="input-empty">
                                             <input class="input placeholder__input" placeholder="Наименование товара">
                                             <div class="placeholder__item">Наименование товара</div>
-                                            <div class="form-check__error">Обязательное поле</div><div class="form-check__error"></div><div class="form-check__error"></div></div>
+                                            <div class="form-check__error">Обязательное поле</div>
+                                            <div class="form-check__error"></div>
+                                            <div class="form-check__error"></div>
+                                        </div>
                                     </div>
                                     <div class="product-in-file__item-input-comment">
-                                        <div class="placeholder form-check__field placeholder--empty" data-elem="textarea" data-rule="input-empty">
-                                            <textarea class="input input--textarea placeholder__input" placeholder="Ваш комментарий"></textarea>
+                                        <div class="placeholder form-check__field placeholder--empty"
+                                             data-elem="textarea" data-rule="input-empty">
+                                            <textarea class="input input--textarea placeholder__input"
+                                                      placeholder="Ваш комментарий"></textarea>
                                             <div class="placeholder__item">Ваш комментарий</div>
-                                            <div class="form-check__error">Обязательное поле</div><div class="form-check__error"></div><div class="form-check__error"></div></div>
+                                            <div class="form-check__error">Обязательное поле</div>
+                                            <div class="form-check__error"></div>
+                                            <div class="form-check__error"></div>
+                                        </div>
                                     </div>
                                     <div class="product-in-file__item-input-time">
-                                        <div class="placeholder form-check__field placeholder--empty" data-elem="input" data-rule="input-empty">
-                                            <input type="number" class="input placeholder__input" placeholder="Время изготовления">
+                                        <div class="placeholder form-check__field placeholder--empty" data-elem="input"
+                                             data-rule="input-empty">
+                                            <input type="number" class="input placeholder__input"
+                                                   placeholder="Время изготовления">
                                             <div class="placeholder__item">Время изготовления</div>
-                                            <div class="form-check__error">Обязательное поле</div><div class="form-check__error"></div><div class="form-check__error"></div></div>
+                                            <div class="form-check__error">Обязательное поле</div>
+                                            <div class="form-check__error"></div>
+                                            <div class="form-check__error"></div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -1270,7 +1574,7 @@
                             </div>
                             <div class="product-in-tender__item-input-comment">
                                 <div class="placeholder form-check__field" data-elem="textarea" data-rule="input-empty">
-                                    <textarea class="input input--textarea placeholder__input"
+                                    <textarea maxlength="150" class="input input--textarea placeholder__input"
                                               placeholder="Ваш комментарий"></textarea>
                                     <div class="placeholder__item">Ваш комментарий</div>
                                 </div>
@@ -1311,8 +1615,8 @@
                                         <svg class="tooltip__close">
                                             <use xlink:href="../images/icons/icons-sprite.svg#close"></use>
                                         </svg>
-                                        <div class="tooltip__content">Поставьте галочку, если перед заказом вы требуете
-                                            тестовый образец
+                                        <div class="tooltip__content">
+                                            поставьте галочку если перед заказом вам требуется тестовый образец.
                                         </div>
                                     </div>
                                 </div>
@@ -1417,9 +1721,245 @@
             </div>
         </div>
     </div>
+    <input id="product-file-uploader" type="file" style="display: none">
 </footer>
-
 <script src="{{ asset('main.js') }}"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+
+    let fileData
+    let selectedFile;
+    let data = [{
+        "name": "jayanth",
+        "data": "scd",
+        "abc": "sdef"
+    }]
+    console.log(window.XLSX);
+    document.getElementById('product-file-uploader').addEventListener("change", (event) => {
+        selectedFile = event.target.files[0];
+
+        XLSX.utils.json_to_sheet(data, 'out.xlsx');
+        if (selectedFile) {
+            let fileReader = new FileReader();
+            fileReader.readAsBinaryString(selectedFile);
+            fileReader.onload = (event) => {
+                let data = event.target.result;
+                let workbook = XLSX.read(data, {type: "binary"});
+                console.log(workbook);
+                workbook.SheetNames.forEach(sheet => {
+                    fileData = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheet]);
+                    console.log(fileData)
+                    showFileProducts(fileData)
+                    //document.getElementById("jsondata").innerHTML = JSON.stringify(rowObject,undefined,4)
+                });
+            }
+        }
+    })
+
+    document.getElementById('product-in-file-btn').addEventListener("click", () => {
+        uploadFileProduct();
+    })
+
+
+    function openFile() {
+        document.getElementById('product-file-uploader').click();
+    }
+
+    function showFileProducts(products) {
+        let $wrapper = document.getElementById('file-products-wrapper')
+        let $template = document.getElementById('file-product-template')
+        let $priceTemplate = document.getElementById('file-product-prices-template')
+
+        products.forEach((product, i) => {
+            let $clone = document.importNode($template.content, true);
+
+            let $numberTitle = $clone.querySelector('.product-in-file__item-header-title-number')
+            let $name = $clone.querySelector('.product-in-file__item-input-name input')
+            let $comment = $clone.querySelector('.product-in-file__item-input-comment textarea')
+            let $time = $clone.querySelector('.product-in-file__item-input-time input')
+            let $formItems = $clone.querySelector('.form__copy-items')
+            let $photoWrapper = $clone.querySelector('.photo-upload')
+
+            $numberTitle.innerHTML = i + 1;
+            $name.value = product['Название'];
+            $comment.value = product['Описание'];
+            $time.value = product['Срок изготовления'];
+            $formItems.innerHTML = "";
+
+
+            let min_count = product['Минимальный заказ'].split(';')
+            let max_count = product['Максимальный заказ'].split(';')
+            let prices = product['Цены'].split(';')
+
+            prices.forEach((price, y) => {
+                let $priceClone = document.importNode($priceTemplate.content, true);
+
+                let $inputMin = $priceClone.querySelector('.input-min-count')
+                let $inputMax = $priceClone.querySelector('.input-max-count')
+                let $inputPrice = $priceClone.querySelector('.input-price')
+
+                if (min_count[y] != '-') {
+                    $inputMin.value = min_count[y];
+                } else {
+                    $inputMin.value = null;
+                }
+
+                if (max_count[y] != '-') {
+                    $inputMax.value = max_count[y];
+                } else {
+                    $inputMax.value = null;
+                }
+
+                $inputPrice.value = price;
+
+                $formItems.appendChild($priceClone);
+            })
+
+            $wrapper.appendChild($clone);
+
+            window.dispatchEvent(new CustomEvent('new-photo-upload', {detail: {$wrapper: $photoWrapper}}))
+
+        })
+
+        modals.open('file-product-creation')
+    }
+
+    function uploadFileProduct() {
+        let formData = new FormData();
+
+        document.querySelectorAll('.product-in-file__item').forEach(($product, i) => {
+
+            formData.append('products[' + i + '][title]',
+                $product.querySelector('.product-in-file__item-input-name input').value)
+
+            formData.append('products[' + i + '][description]',
+                $product.querySelector('.product-in-file__item-input-name input').value)
+
+
+            $product.querySelectorAll('.form__copy-items > .form__copy-item').forEach((fgItem, y) => {
+                console.log('input: ' + y);
+                fgItem.querySelectorAll('.form__item-group-items > .form__item-group-item input').forEach((inputItem, t) => {
+                    formData.append('products[' + i + '][prices][' + y + ']' + '[' + inputItem.name + ']', inputItem.value);
+                    console.log(inputItem.name, inputItem.value);
+                });
+            });
+
+
+            let files = $product.querySelector('.product-in-file__item-input-images input').files
+            console.log(files)
+            for (var y = 0; y < files.length; y++) {
+                formData.append("products[" + i + "][attachments][" + y + "][file]", files[y]);
+            }
+
+        })
+
+        axios({
+            method: 'POST',
+            url: `{{ route('products-create') }}`,
+            data: formData,
+            processData: false,
+            contentType: false,
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            },
+        }).then((response) => {
+
+            console.log('ok');
+            window.location = window.location.origin + '/account'
+        });
+    }
+
+</script>
+
+<script>
+
+    let captchaState = false;
+
+    function captchaCallback() {
+        captchaState = true;
+    }
+
+    let createTenderBtn = document.getElementById('createNewTenderBtn');
+    if (createTenderBtn != null)
+        createTenderBtn.addEventListener('click', (event) => {
+            if (event.target.dataset.auth == "true") {
+                modals.open('new-tender-products');
+            } else {
+                document.getElementById('login-hint').style.display = 'block';
+                document.getElementById('login-hint-text').innerText = "Перед созданием тендера, войдите в систему.";
+                modals.open('login');
+            }
+        });
+
+    function uploadTender(e) {
+        if (e.classList.contains('form-check__button--disabled') || captchaState == false) {
+            return
+        }
+
+        let formData = new FormData();
+        let productId = 0;
+
+        let tenderProdList = document.getElementById('new-tender-products-list');
+        tenderProdList.childNodes.forEach((tenderProductListItem, tenderProductListItemIndex) => {
+            if (tenderProductListItem.nodeType == 1) {
+                tenderProductListItem.childNodes[3].childNodes.forEach((productItem, productItemIndex) => {
+                    if (productItemIndex == 1) {
+                        formData.append("tender[products][" + productId + "][title]", productItem.childNodes[1].childNodes[1].value);
+                    } else if (productItemIndex == 3) {
+                        formData.append("tender[products][" + productId + "][description]", productItem.childNodes[1].childNodes[1].value);
+                    } else if (productItemIndex == 5) {
+                        formData.append("tender[products][" + productId + "][count]", productItem.childNodes[3].childNodes[1].childNodes[3].value);
+                    } else if (productItemIndex == 7) {
+                        formData.append("tender[products][" + productId + "][sample]", productItem.childNodes[3].childNodes[1].checked);
+                    } else if (productItemIndex == 9) {
+                        let $productInput = productItem.querySelector('input')
+                        let $productPrevs = productItem.querySelectorAll('.photo-upload__items > .photo-upload__preview-wrapper')
+
+                        if ($productInput.files.length > 0) {
+                            let files = $productInput.files;
+                            formData.append("tender[products][" + productId + "][attachments_count]", files.length);
+                            for (var i = 0; i < files.length; i++) {
+                                formData.append("tender[products][" + productId + "][attachments][" + i + "][file]", files[i]);
+                            }
+                        } else if ($productPrevs.length > 0) {
+                            formData.append("tender[products][" + productId + "][attachments_path]", "public/" + $productPrevs[0].dataset.entity + "/");
+                            $productPrevs.forEach((photo, i) => {
+                                console.log(photo.dataset.path);
+                                formData.append("tender[products][" + productId + "][copied_attachments][" + i + "]", photo.dataset.path);
+                            })
+                        }
+                    }
+                });
+                productId++;
+            }
+        });
+        console.log('_________________');
+        //return;
+        axios({
+            method: 'POST',
+            url: `{{ route('tender-create') }}`,
+            data: formData,
+            processData: false,
+            contentType: false,
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            },
+        })
+            .then((response) => {
+                console.log("AX");
+                console.log(response.data);
+                modals.close('new-tender-products');
+                modals.open('new-tender-success');
+                //window.location = 'http://188.225.85.66?message=' + response.data;
+            })
+            .catch((err) => {
+                console.log(err)
+            });
+
+    }
+</script>
+
 <script>
 
     let fromCountry = '0';

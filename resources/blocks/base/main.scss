@@ -8,76 +8,84 @@
 @import '~nouislider/dist/nouislider.css';
 
 :root {
-  --white-color: #fff;
-  --black-color: #252525;
-  --blue-color: #1158A1;
-  --dark-blue-color: #0A2667;
-  --middle-blue-color: #1569c0;
-  --light-blue-color: #BACCE5;
-  --extra-light-blue-color: #F1F6FD;
-  --super-light-blue-color: #f8fbff;
-  --gray-color: #999999;
-  --light-gray-color: #F1F1F1;
-  --light-gray-color-hover: #e6e6e6;
-  --red-color: #FF5A5A;
-  --green-color: #52B69A;
-  --middle-green-color: #11a176;
-  --gold-color: #fcbf49;
+    --white-color: #fff;
+    --black-color: #252525;
+    --blue-color: #1158A1;
+    --dark-blue-color: #0A2667;
+    --middle-blue-color: #1569c0;
+    --light-blue-color: #BACCE5;
+    --extra-light-blue-color: #F1F6FD;
+    --super-light-blue-color: #f8fbff;
+    --gray-color: #999999;
+    --light-gray-color: #F1F1F1;
+    --light-gray-color-hover: #e6e6e6;
+    --extra-light-gray-color: #f5f6f6;
+    --red-color: #FF5A5A;
+    --green-color: #52B69A;
+    --middle-green-color: #11a176;
+    --gold-color: #fcbf49;
 
 }
 
 *,
 *:before,
 *:after {
-  box-sizing: border-box;
-  transition: all 150ms ease-out;
-  -webkit-tap-highlight-color: transparent;
-  font-family: 'Ubuntu', sans-serif;
-  -webkit-font-smoothing: subpixel-antialiased;
+    box-sizing: border-box;
+    transition: all 150ms ease-out;
+    -webkit-tap-highlight-color: transparent;
+    font-family: 'Ubuntu', sans-serif;
+    -webkit-font-smoothing: subpixel-antialiased;
 }
 
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-  overflow-x: hidden;
-  overflow-y: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 body {
-  font-weight: 400;
-  font-size: 14px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-shadow: none;
-  margin: 0;
-  padding-top: 123px;
-  color: var(--black-color);
+    font-weight: 400;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: none;
+    margin: 0;
+    padding-top: 123px;
+    color: var(--black-color);
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 
 button, input, textarea {
-  border: none;
-  background: none;
+    border: none;
+    background: none;
 }
 
 button:active, input:active, textarea:active,
 button:focus, input:focus, textarea:focus {
-  outline: none;
+    outline: none;
 }
 
 @media (max-width: 700px) {
-    body{
+    body {
         padding-top: 81px;
     }
 }
+
+.header__mob-menu{
+    display: grid!important;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+

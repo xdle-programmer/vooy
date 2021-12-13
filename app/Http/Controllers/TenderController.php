@@ -116,7 +116,7 @@ class TenderController extends Controller
         }
 
         $tender = $request->input('tender');
-
+        //dd($tender);
         // CREATE TENDER //
         $tender_db = new Tender;
         $tender_db->status_id = 2;
@@ -142,8 +142,14 @@ class TenderController extends Controller
             $tender_product_db->save();
 
             if (array_key_exists('copied_attachments', $product)) {
+
+                $attachmentsPath = 'public/tenderProducts/';
+                if (array_key_exists('attachments_path', $product)) {
+                    $attachmentsPath = $product["attachments_path"];
+                }
+
                 foreach ($product['copied_attachments'] as $copied_key => $copied_attachment) {
-                    $copiedFile = 'public/tenderProducts/' . $copied_attachment;
+                    $copiedFile = $attachmentsPath . $copied_attachment;
 
                     $ext = substr(strstr($copied_attachment, '.'), 1);
                     $fileName = $copied_key . time() . '.' . $ext;
@@ -163,7 +169,7 @@ class TenderController extends Controller
                 }
             }
 
-            $product_att_count = intval($product["attachments_count"]);
+            //$product_att_count = intval($product["attachments_count"]);
             //if ($product_att_count > 0) {
             //  for ($i = 0; $i < $product_att_count; $i++) {
             // ADD ATTACHMEMNT //
@@ -332,7 +338,7 @@ class TenderController extends Controller
             if ($onlyArchive == 'on') {
                 $tenders = $tenders->where('status_id', 5);
             }
-            $tenders = $tenders->get();
+            $tenders = $tenders->orderBy('id', 'desc')->paginate(15);
         } else {
             if ($user != null) {
                 $buyer_id = $user->id;
@@ -341,11 +347,11 @@ class TenderController extends Controller
                     ->orWhere('status_id', 3)
                     ->orWhere('provider_id', $user->id)
                     ->orWhere('deliveryman_id', $user->id)
-                    ->orWhere('buyer_id', $user->id)->get();
+                    ->orWhere('buyer_id', $user->id)->orderBy('id', 'desc')->paginate(15);
             } else {
                 $tenders = Tender::with("products", "buyer", "provider", "status", "substatus")
                     ->where('status_id', 5)
-                    ->orWhere('status_id', 3)->get();
+                    ->orWhere('status_id', 3)->orderBy('id', 'desc')->paginate(15);
             }
         }
 
@@ -382,8 +388,7 @@ class TenderController extends Controller
 
             if ($hasTender != null || $tender->provider_id == $user->id) {
                 return view('tender-info-provider', ['tender' => $tender, 'chat' => null, 'review' => $review, 'user' => $user, 'role' => $role]);
-            }
-            elseif ($hasChat != null){
+            } elseif ($hasChat != null) {
                 return view('tender-info-provider', ['tender' => $tender, 'chat' => $hasChat, 'review' => null, 'user' => $user, 'role' => $role]);
             }
         }

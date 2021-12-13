@@ -29,6 +29,7 @@ class Tender extends Model
         'deliveryman_id',
         'need_delivery',
         'to_country',
+        'date_end',
     ];
 
     public static function getStoragePath($s = true)

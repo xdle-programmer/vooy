@@ -1,10 +1,20 @@
 let $searchBox = document.getElementsByClassName('header__search-box')[0];
+let $searchSelect = document.querySelector('.search-select');
 
-function getProducts(text) {
+function getProducts(text, category = null) {
+    console.log("getProducts", text);
+    let catFilter = '';
+    console.log(category)
+    if (category != 0 && category != null)
+        catFilter = '?category=' + category
+
+
+    console.log('catFilter', catFilter)
     axios({
         method: 'GET',
-        url: location.origin + '/product/search/' + text
-    }).then((result) => {
+        url: location.origin + '/product/search/' + text + catFilter
+    })
+        .then((result) => {
         productList = [];
 
         result.data.forEach(product => {
@@ -28,6 +38,9 @@ function getProducts(text) {
             }
             if (product.categories.length > 0) {
                 newProduct.category = product.categories[product.categories.length - 1].name
+            }
+            else{
+                newProduct.category = "Без Категории"
             }
 
             productList.push(newProduct)
@@ -65,46 +78,44 @@ function getProducts(text) {
 }
 
 // Обработчик поиска
-$searchBox.addEventListener('search', (event) => {
-    console.log('Нужно выполнить поиск по запросу: ' + event.detail.value);
-    console.log(window.location)
-    window.location.href = window.location.origin + '/products?filter[title]=' + event.detail.value ;
-});
+if ($searchBox != undefined)
+{
+    $searchBox.addEventListener('search', (event) => {
+        console.log('Нужно выполнить поиск по запросу: ' + event.detail.value);
+        let category = $searchSelect.value;
+        let catFilter = '';
+        if (category != 0 && category != null)
+            catFilter = '&filter[category]=' + category;
+
+        let productName = event.detail.value
+        let producFilter = ''
+        if (productName != '' && productName != null)
+            producFilter = '&filter[title]=' + event.detail.value;
+
+        console.log(window.location)
+        window.location.href = window.location.origin + '/products?' + producFilter  + catFilter ;
+    });
+}
+
 
 // Обработчик ввода и вывода подсказок
-$searchBox.addEventListener('completeHint', (event) => {
+if ($searchBox != undefined)
+{
+    $searchBox.addEventListener('completeHint', (event) => {
 
-    let text = event.detail.value;
+        let text = event.detail.value;
 
-    getProducts(text);
+        console.log($searchSelect.value)
 
+        console.log("completeHint")
 
-    let length = event.detail.value.length;
-    let resultRow = '';
-/*
-    if (length < 10) {
-        for (let index = 10 - length; index > 0; index--) {
-            let hint = '';
-            if (index === 5 || index === 10 - length) {
-                hint = '<div class="search-box__search-result-subname">Товар из категории электорника</div>';
-            }
+        getProducts(text, $searchSelect.value);
 
+        let length = event.detail.value.length;
+        let resultRow = '';
+    });
+}
 
-            resultRow += `
-${hint}
-<div class="search-box__search-result" onclick="console.log('Клиент кликнул на: ${text}')">
-<img alt="" src="data:image/jpg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAAQAAD/4QMaaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA2LjAtYzAwMiA3OS4xNjQ0ODgsIDIwMjAvMDcvMTAtMjI6MDY6NTMgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjI1RjlFMUIyQTJDRTExRUJCRjQ1Q0ZCQjk3NkY2MEE4IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjI1RjlFMUIxQTJDRTExRUJCRjQ1Q0ZCQjk3NkY2MEE4IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMDIxIFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0iMDY2NTU4NDNEOUM4NkUxNzEwNEI1QTdFQ0MyNzM5QUIiIHN0UmVmOmRvY3VtZW50SUQ9IjA2NjU1ODQzRDlDODZFMTcxMDRCNUE3RUNDMjczOUFCIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+/+4ADkFkb2JlAGTAAAAAAf/bAIQAEw8PFxAXJRYWJS4jHSMuKyQjIyQrOTExMTExOUI8PDw8PDxCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQgEUFxceGh4kGBgkMiQdJDJBMigoMkFCQT4xPkFCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJC/8AAEQgAQwAyAwEiAAIRAQMRAf/EAHoAAAMAAwEBAAAAAAAAAAAAAAABBgIEBQMHAQEBAQEAAAAAAAAAAAAAAAAAAgEDEAABAwIEBAIHCQAAAAAAAAABAAIDEQQhMRIFQVETBnHB8GGBkTIUNKEiQlJicjMVRREBAQEBAAMBAAAAAAAAAAAAAAERAjFRMhL/2gAMAwEAAhEDEQA/AK5NJNB5XNx0ANLS57jpaPM+oLk/2l1a3IbdhphedLSwfCfTP3rf3W2bcQ46qscHjSaZKen29xiEUbnvllkDmasaHjXk0Ln1brrzzLztVxSTx45pLo5BCEIEtDd7mW3tnvgdpkY3XiK4Dgt8Ke3676dpK7i/7g9qnq5iuZu304cPdF0HH5g9WNwo5uAp4LubZ3FZuk6A1NDqaZHCgryPLxyKhKra2+D5q5ih/O9o9irJus25+X1QpIJxQjAhJCDBxo0kcioXuid/Vjg/BTX4nJXWeHNQndTC2SInk4e4qL9Rc+ek+F2+1o+puEZOTQ532YLhg0Xf7UeBegcXDBXfCZ5fQEJIRhoSQgwUz3NatuNLK0dUvafJUoK4G/uHVYOOnzU9NlRrtuuGmmnV62mq6mx2UtvdRyvwOqgYMzXmvWTqCMvZ8ILQ4n9S29l+rjL86mnjRZtosChKqFbDQkhYMAprfvqDn8LfQIQs6bGv/nTZfyRrHavq4f3+RQhT6FihCFbDQhCD/9k=" />
-${text}, цена 5000 рублей, размер XXL</div>`;
-        }
-
-        let result = `<div class="search-box__search-result-wrapper">${resultRow}</div>`;
-
-        window.searchBox.showHints(result);
-    } else {
-        window.searchBox.hideHints();
-        window.searchBox.clearHints();
-    }*/
-});
 
 // Обработчик чекбокса "Только активные тендеры"
 let checkbox = document.querySelector('#only-active-tenders input');

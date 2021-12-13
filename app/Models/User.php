@@ -72,6 +72,13 @@ class User extends Authenticatable
     public function chats(){
         return $this->belongsToMany(Chat::class, "chats_users","user_id","chat_id");
     }
+
+    public function searches()
+    {
+        return $this->belongsToMany(SearchQuery::class, "user_search_queries","user_id", "search_id");
+    }
+
+
     public function subroles(){
         return $this->belongsToMany(Subrole::class, "provider_subroles","user_id","subrole_id");
     }
@@ -93,7 +100,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Product::class, 'owner_id');
     }
-
+    public function product_favorites(){
+        return $this->belongsToMany(Product::class, "user_product_favorites","user_id","product_id");
+    }
     public function provider_factories()
     {
         return $this->hasMany(Factory::class, 'provider_id');

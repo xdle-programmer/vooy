@@ -18,6 +18,11 @@
 @section('content')
 
     @if ($tender != null)
+        @php
+            $timeLeft = null;
+            if($tender->date_end != null)
+                $timeLeft = Carbon\Carbon::parse($tender->date_end)->diffInHours(Carbon\Carbon::now('UTC'))
+        @endphp
 
         <div class="modal" id="tender-end">
             <div class="modal__content">
@@ -118,7 +123,7 @@
                             @if (Auth::check())
                                 <div class="tender-header__main-buttons">
                                     @if($role->slug == 'buyer')
-                                        @if ($tender->status_id == 1)
+                                        @if (($tender->status_id == 1 || $timeLeft == null) && $tender->buyer_id == $user->id)
                                             <div data-tender="{{$tender->id}}" onclick="copyTender(this, false)"
                                                  class="tender-header__main-button button">Пересоздать тендер
                                                 <svg class="button__icon">
@@ -138,7 +143,7 @@
                                     @endif
                                     @if($role->slug == 'provider')
 
-                                        @if(!$tender->reviews->where('provider_id', $user->id ?? 0 )->first() && $tender->status_id == 3)
+                                        @if(!$tender->reviews->where('provider_id', $user->id ?? 0 )->first() && $tender->status_id == 3 && $timeLeft != null)
 
                                             <div onclick="openReview()"
                                                  class="tender-header__main-button button button--small">Ответить на
@@ -168,8 +173,17 @@
                                 <div class="tender-header__desc-item-name">Cоздан:</div>
                                 <div
                                     class="tender-header__desc-item-value">{{$tender->created_at->format('d.m.Y')}}</div>
-                                {{--<div class="tender-header__desc-item-name">Осталось времени:</div>
-                                <div class="tender-header__desc-item-value">48ч</div>--}}
+
+                                @if ($tender->status_id != 2)
+                                    @if ($timeLeft != null)
+                                        <div class="tender-header__desc-item-name">Осталось времени:</div>
+                                        <div class="tender-header__desc-item-value">{{$timeLeft}}ч</div>
+                                    @else
+                                        <div class="tender-header__desc-item-name">Осталось времени:</div>
+                                        <div class="tender-header__desc-item-value">Завершен</div>
+                                    @endif
+                                @endif
+
                             </div>
                         </div>
 
@@ -2449,7 +2463,7 @@
         let cb = document.getElementById('tender-copy-btn');
         let isCopy = false;
         let isReview = false;
-        let captchaState = false;
+        captchaState = false;
         let tender = {!! json_encode($tender) !!};
         let COUNTRY = {!! json_encode($countryFrom) !!};
         let reviewModal = document.getElementById('user-reviews-list');

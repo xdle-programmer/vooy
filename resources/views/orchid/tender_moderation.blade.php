@@ -391,14 +391,14 @@
           </button>
         </div>
       </div>
-
+       {{--
       <div class="col-auto  pe-0 ">
         <div class="form-group mb-0">
           <button onclick="saveTender()" data-controller="button" data-turbo="true" class="btn  btn-primary">
             Сохранить
           </button>
         </div>
-      </div>
+      </div>--}}
 
       <div class="col-auto  pe-0 ">
         <div class="form-group mb-0">

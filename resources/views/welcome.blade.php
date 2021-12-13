@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('h_script')
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 @stop
 
 @section('content')
@@ -48,37 +48,112 @@
             </div>
         </section>
 
-        <section class="section">
-            <div class="main-navigation layout">
-                <div class="main-navigation__content">
-                    <div class="main-navigation__item">
-                        <div class="main-navigation__title">Оставьте заявку на свой товар</div>
-                        <div class="main-navigation__desc">Если в каталоге нет подходящего вам товара, вы можете
-                            оставить заявку,<br>мы найдем подходящих вам поставщиков
-                        </div>
-                        @auth
-                            <div class="main-navigation__button" id="createNewTenderBtn" data-auth="true">Оставить
-                                заявку
-                            </div>
-                        @endauth
-                        @guest
-                            <div class="main-navigation__button" id="createNewTenderBtn" data-auth="false">Оставить
-                                заявку
-                            </div>
-                        @endguest
+        @auth
+            @if (Auth::user()->whereHas('roles', function ($q) {
+            $q->where('slug', 'provider');
+            })->where('id', Auth::user()->id)->first() != null)
+                <section style="display: none" class="section">
+                    <div class="main-navigation layout">
+                        <div class="main-navigation__content">
+                            <div class="main-navigation__item">
+                                <div class="main-navigation__title">Оставьте заявку на свой товар</div>
+                                <div class="main-navigation__desc">Если в каталоге нет подходящего вам товара, вы можете
+                                    оставить заявку,<br>мы найдем подходящих вам поставщиков
+                                </div>
+                                @auth
+                                    <div class="main-navigation__button" id="createNewTenderBtn" data-auth="true">
+                                        Оставить
+                                        заявку
+                                    </div>
+                                @endauth
+                                @guest
+                                    <div class="main-navigation__button" id="createNewTenderBtn" data-auth="false">
+                                        Оставить
+                                        заявку
+                                    </div>
+                                @endguest
 
-                    </div>
-                    <div class="main-navigation__item">
-                        <div class="main-navigation__title">Выберите товар из каталога</div>
-                        <div class="main-navigation__desc">В нашем каталоге более 10.000 товаров от проверенных
-                            поставщиков, выберите лучшие условия для себя!
+                            </div>
+                            <div class="main-navigation__item">
+                                <div class="main-navigation__title">Выберите товар из каталога</div>
+                                <div class="main-navigation__desc">В нашем каталоге более 10.000 товаров от проверенных
+                                    поставщиков, выберите лучшие условия для себя!
+                                </div>
+                                <a class="main-navigation__button main-navigation__button--invert"
+                                   href="/products">Перейти в каталог</a>
+                            </div>
                         </div>
-                        <a class="main-navigation__button main-navigation__button--invert"
-                           href="/products">Перейти в каталог</a>
+                    </div>
+                </section>
+            @else
+                <section class="section">
+                    <div class="main-navigation layout">
+                        <div class="main-navigation__content">
+                            <div class="main-navigation__item">
+                                <div class="main-navigation__title">Оставьте заявку на свой товар</div>
+                                <div class="main-navigation__desc">Если в каталоге нет подходящего вам товара, вы можете
+                                    оставить заявку,<br>мы найдем подходящих вам поставщиков
+                                </div>
+                                @auth
+                                    <div class="main-navigation__button" id="createNewTenderBtn" data-auth="true">
+                                        Оставить
+                                        заявку
+                                    </div>
+                                @endauth
+                                @guest
+                                    <div class="main-navigation__button" id="createNewTenderBtn" data-auth="false">
+                                        Оставить
+                                        заявку
+                                    </div>
+                                @endguest
+
+                            </div>
+                            <div class="main-navigation__item">
+                                <div class="main-navigation__title">Выберите товар из каталога</div>
+                                <div class="main-navigation__desc">В нашем каталоге более 10.000 товаров от проверенных
+                                    поставщиков, выберите лучшие условия для себя!
+                                </div>
+                                <a class="main-navigation__button main-navigation__button--invert"
+                                   href="/products">Перейти в каталог</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            @endif
+        @else
+            <section class="section">
+                <div class="main-navigation layout">
+                    <div class="main-navigation__content">
+                        <div class="main-navigation__item">
+                            <div class="main-navigation__title">Оставьте заявку на свой товар</div>
+                            <div class="main-navigation__desc">Если в каталоге нет подходящего вам товара, вы можете
+                                оставить заявку,<br>мы найдем подходящих вам поставщиков
+                            </div>
+                            @auth
+                                <div class="main-navigation__button" id="createNewTenderBtn" data-auth="true">Оставить
+                                    заявку
+                                </div>
+                            @endauth
+                            @guest
+                                <div class="main-navigation__button" id="createNewTenderBtn" data-auth="false">Оставить
+                                    заявку
+                                </div>
+                            @endguest
+
+                        </div>
+                        <div class="main-navigation__item">
+                            <div class="main-navigation__title">Выберите товар из каталога</div>
+                            <div class="main-navigation__desc">В нашем каталоге более 10.000 товаров от проверенных
+                                поставщиков, выберите лучшие условия для себя!
+                            </div>
+                            <a class="main-navigation__button main-navigation__button--invert"
+                               href="/products">Перейти в каталог</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        @endauth
+
 
         <section class="section">
             <div class="layout">
@@ -88,11 +163,15 @@
                         <div class="product-preview product-preview--big"
                              href="/product-card/{{$displayProduct_recent->product->id}}">
                             @if ($displayProduct_recent->product->attachments->first())
+                                <a href="/product-card/{{$displayProduct_recent->product->id}}">
                                 <img class="product-preview__img"
                                      src="../storage/products/{{$displayProduct_recent->product->attachments->first()->path}}">
+                                </a>
                             @else
+                                <a href="/product-card/{{$displayProduct_recent->product->id}}">
                                 <img class="product-preview__img"
                                      src="../storage/tenderProducts/empty.jpg">
+                                </a>
                             @endif
                             <div class="product-preview__desc">
                                 <div
@@ -111,17 +190,55 @@
                                 </a>
                             </div>
                             <div class="product-preview__buttons">
-                                <div class="product-preview__button">
-                                    <div class="product-preview__button-text">В тендер</div>
-                                    <svg class="product-preview__button-icon">
-                                        <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
-                                    </svg>
-                                </div>
-                                <div class="product-preview__button product-preview__button--gray">
-                                    <svg class="product-preview__button-icon">
-                                        <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
-                                    </svg>
-                                </div>
+                                @auth
+                                    @if (Auth::user()->whereHas('roles', function ($q) {
+                                    $q->where('slug', 'provider');
+                                    })->where('id', Auth::user()->id)->first() != null)
+                                        <div style="display: none"
+                                             data-product="{{$displayProduct_recent->product->id}}"
+                                             class="product-preview__button product-add-btn">
+                                            <div class="product-preview__button-text">В тендер</div>
+                                            <svg class="product-preview__button-icon">
+                                                <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                                            </svg>
+                                        </div>
+                                    @else
+                                        <div data-product="{{$displayProduct_recent->product->id}}"
+                                             class="product-preview__button product-add-btn">
+                                            <div class="product-preview__button-text">В тендер</div>
+                                            <svg class="product-preview__button-icon">
+                                                <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                                            </svg>
+                                        </div>
+                                    @endif
+
+
+
+
+                                    @if ($displayProduct_recent->product->product_favorites->where('id', auth()->user()->id)->first() != null)
+                                        <div data-fav="true" data-product="{{$displayProduct_recent->product->id}}"
+                                             class="product-preview__button product-favorite-btn">
+                                            <svg class="product-preview__button-icon">
+                                                <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
+                                            </svg>
+                                        </div>
+                                    @else
+                                        <div data-fav="false" data-product="{{$displayProduct_recent->product->id}}"
+                                             class="product-preview__button product-preview__button--gray product-favorite-btn">
+                                            <svg class="product-preview__button-icon">
+                                                <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
+                                            </svg>
+                                        </div>
+                                    @endif
+
+                                @else
+                                    <div class="product-preview__button" data-modal-open="login">
+                                        <div class="product-preview__button-text">В тендер</div>
+                                        <svg class="product-preview__button-icon">
+                                            <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                                        </svg>
+                                    </div>
+                                @endauth
                             </div>
                         </div>
                     @endforeach
@@ -195,11 +312,15 @@
                         <div class="product-preview product-preview--big"
                              href="/product-card/{{$displayProduct_recent->product->id}}">
                             @if ($displayProduct_recent->product->attachments->first())
+                                <a href="/product-card/{{$displayProduct_recent->product->id}}">
                                 <img class="product-preview__img"
                                      src="../storage/products/{{$displayProduct_recent->product->attachments->first()->path}}">
+                                </a>
                             @else
+                                <a href="/product-card/{{$displayProduct_recent->product->id}}">
                                 <img class="product-preview__img"
                                      src="../storage/tenderProducts/empty.jpg">
+                                </a>
                             @endif
                             <div class="product-preview__desc">
                                 <div
@@ -218,17 +339,50 @@
                                 </a>
                             </div>
                             <div class="product-preview__buttons">
-                                <div class="product-preview__button">
-                                    <div class="product-preview__button-text">В тендер</div>
-                                    <svg class="product-preview__button-icon">
-                                        <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
-                                    </svg>
-                                </div>
-                                <div class="product-preview__button product-preview__button--gray">
-                                    <svg class="product-preview__button-icon">
-                                        <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
-                                    </svg>
-                                </div>
+                                @auth
+                                    @if (Auth::user()->whereHas('roles', function ($q) {
+                              $q->where('slug', 'provider');
+                              })->where('id', Auth::user()->id)->first() != null)
+                                        <div style="display: none"
+                                             data-product="{{$displayProduct_recent->product->id}}"
+                                             class="product-preview__button product-add-btn">
+                                            <div class="product-preview__button-text">В тендер</div>
+                                            <svg class="product-preview__button-icon">
+                                                <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                                            </svg>
+                                        </div>
+                                    @else
+                                        <div data-product="{{$displayProduct_recent->product->id}}"
+                                             class="product-preview__button product-add-btn">
+                                            <div class="product-preview__button-text">В тендер</div>
+                                            <svg class="product-preview__button-icon">
+                                                <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                                            </svg>
+                                        </div>
+                                    @endif
+                                    @if ($displayProduct_recent->product->product_favorites->where('id', auth()->user()->id)->first() != null)
+                                        <div data-fav="true" data-product="{{$displayProduct_recent->product->id}}"
+                                             class="product-preview__button product-favorite-btn">
+                                            <svg class="product-preview__button-icon">
+                                                <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
+                                            </svg>
+                                        </div>
+                                    @else
+                                        <div data-fav="false" data-product="{{$displayProduct_recent->product->id}}"
+                                             class="product-preview__button product-preview__button--gray product-favorite-btn">
+                                            <svg class="product-preview__button-icon">
+                                                <use xlink:href="../images/icons/icons-sprite.svg#heart"></use>
+                                            </svg>
+                                        </div>
+                                    @endif
+                                @else
+                                    <div class="product-preview__button" data-modal-open="login">
+                                        <div class="product-preview__button-text">В тендер</div>
+                                        <svg class="product-preview__button-icon">
+                                            <use xlink:href="../images/icons/icons-sprite.svg#tenders"></use>
+                                        </svg>
+                                    </div>
+                                @endauth
                             </div>
                         </div>
                     @endforeach
@@ -357,7 +511,8 @@
                 <div class="title title--small">Категории с самой высокой наценкой</div>
                 <div class="categories-labels">
                     @foreach($displayCategories as $displayCategory)
-                    <a class="categories-labels__item" href="/products?filter[category]={{$displayCategory->category->id}}">{{$displayCategory->category->name}}</a>
+                        <a class="categories-labels__item"
+                           href="/products?filter[category]={{$displayCategory->category->id}}">{{$displayCategory->category->name}}</a>
                     @endforeach
                 </div>
             </div>
@@ -366,84 +521,5 @@
 @stop
 
 @section('f_script')
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    <script>
-        let captchaState = false;
-
-        function captchaCallback() {
-            captchaState = true;
-        }
-
-        let createTenderBtn = document.getElementById('createNewTenderBtn');
-        createTenderBtn.addEventListener('click', (event) => {
-            if (event.target.dataset.auth == "true") {
-                modals.open('new-tender-products');
-            } else {
-                document.getElementById('login-hint').style.display = 'block';
-                document.getElementById('login-hint-text').innerText = "Перед созданием тендера, войдите в систему.";
-                modals.open('login');
-            }
-        });
-
-        function uploadTender(e) {
-            if (e.classList.contains('form-check__button--disabled') || captchaState == false) {
-                return
-            }
-
-            let formData = new FormData();
-            let productId = 0;
-
-            let tenderProdList = document.getElementById('new-tender-products-list');
-            tenderProdList.childNodes.forEach((tenderProductListItem, tenderProductListItemIndex) => {
-                if (tenderProductListItem.nodeType == 1) {
-                    tenderProductListItem.childNodes[3].childNodes.forEach((productItem, productItemIndex) => {
-                        if (productItemIndex == 1) {
-                            formData.append("tender[products][" + productId + "][title]", productItem.childNodes[1].childNodes[1].value);
-                        } else if (productItemIndex == 3) {
-                            formData.append("tender[products][" + productId + "][description]", productItem.childNodes[1].childNodes[1].value);
-                        } else if (productItemIndex == 5) {
-                            formData.append("tender[products][" + productId + "][count]", productItem.childNodes[3].childNodes[1].childNodes[3].value);
-                        } else if (productItemIndex == 7) {
-                            formData.append("tender[products][" + productId + "][sample]", productItem.childNodes[3].childNodes[1].checked);
-                        } else if (productItemIndex == 9) {
-                            productItem.childNodes[1].childNodes[1].childNodes.forEach((productImage, productImageIndex) => {
-                                if (productImage.tagName == 'LABEL') {
-                                    let files = productImage.childNodes[1].childNodes[5].files;
-                                    formData.append("tender[products][" + productId + "][attachments_count]", files.length);
-                                    for (var i = 0; i < files.length; i++) {
-                                        formData.append("tender[products][" + productId + "][attachments][" + i + "][file]", files[i]);
-                                    }
-                                }
-                            });
-                        }
-                    });
-                    productId++;
-                }
-            });
-            console.log('_________________');
-
-            axios({
-                method: 'POST',
-                url: `{{ route('tender-create') }}`,
-                data: formData,
-                processData: false,
-                contentType: false,
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                },
-            })
-                .then((response) => {
-                    console.log("AX");
-                    console.log(response.data);
-                    modals.close('new-tender-products');
-                    modals.open('new-tender-success');
-                    //window.location = 'http://188.225.85.66?message=' + response.data;
-                })
-                .catch((err) => {
-                    console.log(err)
-                });
-
-        }
-    </script>
 @stop

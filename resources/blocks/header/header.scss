@@ -29,7 +29,7 @@
         padding: 17px 0 24px;
 
         #{$scroll} & {
-            padding: 12px 0;
+            padding: 12px;
         }
     }
 
@@ -91,7 +91,11 @@
     }
 
     &__search-select {
-        display: none;
+        width: 100px;
+        position: absolute;
+        right: 58px;
+        height: 40px;
+        top: 0;
     }
 
     &__search-row-button-icon {
@@ -102,6 +106,7 @@
 
     &__controls {
         @include flex-row;
+        justify-content: flex-end;
         flex-grow: 1;
     }
 
@@ -165,6 +170,7 @@
         margin-right: 25px;
         font-size: 16px;
         position: relative;
+        cursor: pointer;
 
         &:after {
             @include pseudo-absolute;
@@ -253,7 +259,7 @@
             @include flex-row;
             align-items: center;
             padding: 17px 0 24px;
-            justify-content: space-evenly;
+            justify-content: space-between;
             #{$scroll} & {
                 padding: 12px 0;
             }
